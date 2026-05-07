@@ -1,6 +1,7 @@
 import { getPostBySlug, getAllPosts } from '../../../lib/posts';
 import SEO from '../../../components/SEO';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import ShareButtons from '../../../components/ShareButtons';
 import fs from 'fs';
 import path from 'path';
 
@@ -147,10 +148,7 @@ export default function ArticlePage({ params }) {
       {/* Share Buttons */}
       <div style={{ marginTop: 'var(--spacing-lg)', paddingTop: 'var(--spacing-md)', borderTop: '1px solid var(--border-color)' }}>
         <h3>Share this insight</h3>
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-          <button className="btn" onClick={() => alert('Share to X (Twitter)')}>X (Twitter)</button>
-          <button className="btn" onClick={() => alert('Share to Pinterest')}>Pinterest</button>
-        </div>
+        <ShareButtons title={post.meta.title} />
       </div>
     </article>
   );
