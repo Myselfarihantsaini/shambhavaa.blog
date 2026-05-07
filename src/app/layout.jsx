@@ -13,13 +13,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* We can inject structured data globally here if needed */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-0ZW6ESMMW3" strategy="afterInteractive" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-CCHG6BM3DL" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-0ZW6ESMMW3');
+            gtag('config', 'G-CCHG6BM3DL');
           `}
         </Script>
       </head>
@@ -37,11 +37,11 @@ export default function RootLayout({ children }) {
             </ul>
           </nav>
         </header>
-        
+
         <main>
           {children}
         </main>
-        
+
         <footer className="container" style={{ padding: '4rem 1rem', textAlign: 'center', borderTop: '1px solid var(--border-color)', marginTop: '4rem' }}>
           <div style={{ marginBottom: '2rem' }}>
             <h3 className="text-gold">Shambhavaa</h3>
