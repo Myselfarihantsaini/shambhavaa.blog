@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import SEO from '../components/SEO';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
@@ -12,6 +13,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* We can inject structured data globally here if needed */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-0ZW6ESMMW3" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0ZW6ESMMW3');
+          `}
+        </Script>
       </head>
       <body>
         <header className="container" style={{ padding: '2rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
