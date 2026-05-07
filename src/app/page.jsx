@@ -1,4 +1,5 @@
 import BeehiivForm from '../components/BeehiivForm';
+import { getAllPosts } from '../lib/posts';
 
 export default function Home() {
   return (
@@ -40,6 +41,27 @@ export default function Home() {
             <a href="/nakshatra" style={{ display: 'inline-block', marginTop: '1rem' }}>Read Guide &rarr;</a>
           </div>
 
+        </div>
+      </section>
+
+      {/* Latest Articles */}
+      <section style={{ padding: 'var(--spacing-lg) 0' }}>
+        <h2 className="text-center text-gold mb-4">Latest Insights</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          {getAllPosts().slice(0, 6).map(post => (
+            <div key={post.slug} className="card">
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+                <a href={`/${post.category}/${post.slug}`} style={{ color: 'var(--text-primary)' }}>
+                  {post.meta.title}
+                </a>
+              </h3>
+              <p style={{ fontSize: '0.875rem', color: 'var(--accent-gold)', marginBottom: '1rem' }}>
+                {post.category.charAt(0).toUpperCase() + post.category.slice(1)} • {new Date(post.meta.date).toLocaleDateString()}
+              </p>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem', fontSize: '0.9rem' }}>{post.meta.excerpt}</p>
+              <a href={`/${post.category}/${post.slug}`}>Read More &rarr;</a>
+            </div>
+          ))}
         </div>
       </section>
 
