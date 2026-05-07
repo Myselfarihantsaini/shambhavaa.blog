@@ -7,6 +7,11 @@ import { getAllPosts } from '../lib/posts';
 const tumblrUrl = 'https://www.tumblr.com/shambhava';
 const instagramUrl = 'https://www.instagram.com/sham_bhavaa/';
 const threadsUrl = 'https://www.threads.com/myself_arihant';
+const socialLinks = [
+  { label: 'Instagram', href: instagramUrl },
+  { label: 'Threads', href: threadsUrl },
+  { label: 'Tumblr', href: tumblrUrl },
+];
 
 export const metadata = {
   title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
@@ -44,21 +49,6 @@ export default function RootLayout({ children }) {
                 <li><a href="/rahu">Rahu</a></li>
                 <li><a href="/nakshatra">Nakshatras</a></li>
                 <li><a href="/mahadasha">Mahadasha</a></li>
-                <li>
-                  <a href={tumblrUrl} target="_blank" rel="noopener noreferrer" className="social-link">
-                    Tumblr
-                  </a>
-                </li>
-                <li>
-                  <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a href={threadsUrl} target="_blank" rel="noopener noreferrer">
-                    Threads
-                  </a>
-                </li>
               </ul>
             </nav>
           </div>
@@ -67,6 +57,15 @@ export default function RootLayout({ children }) {
         <main>
           {children}
         </main>
+
+        <aside className="floating-socials" aria-label="Social links">
+          <span>Follow</span>
+          {socialLinks.map((link) => (
+            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+              {link.label}
+            </a>
+          ))}
+        </aside>
 
         <footer className="container" style={{ padding: '4rem 1rem', textAlign: 'center', borderTop: '1px solid var(--border-color)', marginTop: '4rem' }}>
           <div style={{ marginBottom: '2rem' }}>
@@ -78,9 +77,14 @@ export default function RootLayout({ children }) {
             <a href="/saturn">Saturn</a>
             <a href="/rahu">Rahu</a>
             <a href="/nakshatra">Nakshatras</a>
-            <a href={tumblrUrl} target="_blank" rel="noopener noreferrer">Tumblr</a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href={threadsUrl} target="_blank" rel="noopener noreferrer">Threads</a>
+          </div>
+          <div className="footer-socials" aria-label="Social links">
+            <span>Follow Shambhavaa</span>
+            {socialLinks.map((link) => (
+              <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            ))}
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>&copy; {new Date().getFullYear()} Shambhavaa. All rights reserved.</p>
         </footer>
