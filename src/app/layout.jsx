@@ -12,16 +12,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* We can inject structured data globally here if needed */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-CCHG6BM3DL" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-CCHG6BM3DL');
-          `}
-        </Script>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCHG6BM3DL"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-CCHG6BM3DL');
+            `,
+          }}
+        />
       </head>
       <body>
         <header className="container" style={{ padding: '2rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
