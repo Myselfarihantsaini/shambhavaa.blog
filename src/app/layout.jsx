@@ -1,6 +1,8 @@
 import '../styles/globals.css';
 import SEO from '../components/SEO';
 import Script from 'next/script';
+import Search from '../components/Search';
+import { getAllPosts } from '../lib/posts';
 
 export const metadata = {
   title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
@@ -26,18 +28,21 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <header className="container" style={{ padding: '2rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <header className="container" style={{ padding: '2rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <div className="logo" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: '700', color: 'var(--accent-gold)' }}>
             SHAMBHAVAA
           </div>
-          <nav>
-            <ul style={{ listStyle: 'none', display: 'flex', gap: '2rem' }}>
-              <li><a href="/saturn">Saturn</a></li>
-              <li><a href="/rahu">Rahu</a></li>
-              <li><a href="/nakshatra">Nakshatras</a></li>
-              <li><a href="/mahadasha">Mahadasha</a></li>
-            </ul>
-          </nav>
+          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Search posts={getAllPosts()} />
+            <nav>
+              <ul style={{ listStyle: 'none', display: 'flex', gap: '2rem' }}>
+                <li><a href="/saturn">Saturn</a></li>
+                <li><a href="/rahu">Rahu</a></li>
+                <li><a href="/nakshatra">Nakshatras</a></li>
+                <li><a href="/mahadasha">Mahadasha</a></li>
+              </ul>
+            </nav>
+          </div>
         </header>
 
         <main>
