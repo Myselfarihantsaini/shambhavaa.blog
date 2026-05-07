@@ -54,6 +54,12 @@ export default function RootLayout({ children }) {
             <h3 className="text-gold">Shambhavaa</h3>
             <p style={{ color: 'var(--text-secondary)' }}>Awakening through the stars.</p>
           </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+            <a href="/glossary">Glossary</a>
+            <a href="/saturn">Saturn</a>
+            <a href="/rahu">Rahu</a>
+            <a href="/nakshatra">Nakshatras</a>
+          </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>&copy; {new Date().getFullYear()} Shambhavaa. All rights reserved.</p>
         </footer>
       </body>
