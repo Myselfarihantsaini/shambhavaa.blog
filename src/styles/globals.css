@@ -61,6 +61,83 @@ a:hover {
   padding: 0 var(--spacing-sm);
 }
 
+.main-nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-trigger {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--accent-gold);
+  cursor: pointer;
+  font: inherit;
+  line-height: inherit;
+  padding: 0;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-dropdown-trigger::after {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-left: 0.45rem;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-0.18rem) rotate(45deg);
+}
+
+.nav-dropdown-trigger:hover,
+.nav-dropdown:focus-within .nav-dropdown-trigger {
+  color: #F3E5AB;
+  text-shadow: 0 0 8px var(--accent-gold-dim);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(6rem, 1fr));
+  gap: 0.25rem;
+  min-width: 22rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: rgba(5, 5, 8, 0.96);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0.35rem);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.55rem 0.7rem;
+  border-radius: 6px;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
 .floating-socials {
   position: fixed;
   right: 1.25rem;
@@ -103,6 +180,22 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+  .main-nav {
+    gap: 1rem;
+  }
+
+  .nav-dropdown-menu {
+    left: 0;
+    grid-template-columns: repeat(2, minmax(6rem, 1fr));
+    min-width: min(18rem, calc(100vw - 2rem));
+    transform: translate(0, 0.35rem);
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    transform: translate(0, 0);
+  }
+
   .floating-socials {
     right: 0.75rem;
     bottom: 0.75rem;

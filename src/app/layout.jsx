@@ -3,6 +3,7 @@ import SEO from '../components/SEO';
 import Script from 'next/script';
 import Search from '../components/Search';
 import { getAllPosts } from '../lib/posts';
+import { PLANETS } from '../data/planets';
 
 const tumblrUrl = 'https://www.tumblr.com/shambhava';
 const instagramUrl = 'https://www.instagram.com/sham_bhavaa/';
@@ -44,9 +45,19 @@ export default function RootLayout({ children }) {
           <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <Search posts={getAllPosts()} />
             <nav>
-              <ul style={{ listStyle: 'none', display: 'flex', gap: '2rem' }}>
-                <li><a href="/saturn">Saturn</a></li>
-                <li><a href="/rahu">Rahu</a></li>
+              <ul className="main-nav">
+                <li className="nav-dropdown">
+                  <button className="nav-dropdown-trigger" type="button">
+                    Planets
+                  </button>
+                  <div className="nav-dropdown-menu">
+                    {PLANETS.map((planet) => (
+                      <a key={planet.slug} href={`/${planet.slug}`}>
+                        {planet.label}
+                      </a>
+                    ))}
+                  </div>
+                </li>
                 <li><a href="/nakshatra">Nakshatras</a></li>
                 <li><a href="/mahadasha">Mahadasha</a></li>
               </ul>
