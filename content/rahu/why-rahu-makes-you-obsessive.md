@@ -4,6 +4,10 @@ date: "2026-05-07T12:00:00.000Z"
 excerpt: "Rahu is more than just desire; it is appetite without satisfaction. Explore the deep psychological mechanics of obsession, anxiety, and emotional dependency under Rahu's influence."
 ---
 
+---
+
+![Why Rahu Makes You Obsessive](/Users/arihantsaini/.gemini/antigravity/brain/43575111-5862-45f0-9110-85320970dde8/rahu_hero_obsession_1778169184551.png)
+
 Most people describe Rahu very superficially.
 
 They say:
@@ -31,6 +35,8 @@ This is why Rahu often produces:
 The native may fully understand logically that they are overthinking, emotionally exaggerating, or becoming too attached — and still remain unable to stop. That helplessness is one of Rahu’s clearest psychological signatures.
 
 ## The Symbolism of Rahu
+
+![The Symbolism of Rahu: A Head without a Body](/Users/arihantsaini/.gemini/antigravity/brain/43575111-5862-45f0-9110-85320970dde8/rahu_symbolism_head_1778169203514.png)
 
 The mythology of Rahu explains its psychology better than most modern interpretations.
 
@@ -93,6 +99,8 @@ This is why Rahu people often struggle with emotional regulation. Their inner st
 
 ## Rahu and Identity Instability
 
+![Rahu and Identity Instability: The Mirror of Not Enough](/Users/arihantsaini/.gemini/antigravity/brain/43575111-5862-45f0-9110-85320970dde8/rahu_identity_instability_1778169225445.png)
+
 One of Rahu’s deepest wounds is fear of insufficiency. Strong Rahu individuals frequently feel: *“Who I currently am is not enough.”*
 
 This creates continuous self-reinvention. The native may become obsessed with status, appearance, intelligence, influence, or spiritual uniqueness. Especially when Rahu influences the Lagna, Sun, 10th house, or 11th house, the person may build identity around external achievement.
@@ -115,6 +123,8 @@ The person may think:
 But often, the native becomes attached to the emotional experience itself rather than the actual person. Rahu is highly stimulated by uncertainty and longing. This is why emotionally unstable relationships often become harder for Rahu-dominant individuals to leave.
 
 ## Rahu and Anxiety
+
+![Rahu and Anxiety: The Mental Loop](/Users/arihantsaini/.gemini/antigravity/brain/43575111-5862-45f0-9110-85320970dde8/rahu_anxiety_loops_1778169251949.png)
 
 Rahu accelerates mental anticipation. The mind constantly scans future possibilities, hidden threats, and emotional risks. This creates chronic psychological tension.
 
@@ -144,6 +154,8 @@ Rahu Mahadasha often feels psychologically overwhelming because Rahu expands des
 The native often experiences identity transformation, obsessive relationships, migration, and sudden social rise. Rahu Mahadasha forces confrontation with the nature of desire itself.
 
 ## The Evolution of Rahu
+
+![The Evolution of Rahu: From Obsession to Visionary](/Users/arihantsaini/.gemini/antigravity/brain/43575111-5862-45f0-9110-85320970dde8/rahu_evolved_gift_1778169275697.png)
 
 Unevolved Rahu seeks endless stimulation. Evolved Rahu develops awareness around desire. 
 
