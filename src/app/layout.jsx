@@ -4,6 +4,8 @@ import Script from 'next/script';
 import Search from '../components/Search';
 import { getAllPosts } from '../lib/posts';
 
+const tumblrUrl = 'https://www.tumblr.com/shambhava';
+
 export const metadata = {
   title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
   description: 'A global authority on deep Vedic astrology, Nakshatra psychology, karmic astrology, predictive astrology, and spiritual healing.',
@@ -40,6 +42,11 @@ export default function RootLayout({ children }) {
                 <li><a href="/rahu">Rahu</a></li>
                 <li><a href="/nakshatra">Nakshatras</a></li>
                 <li><a href="/mahadasha">Mahadasha</a></li>
+                <li>
+                  <a href={tumblrUrl} target="_blank" rel="noopener noreferrer" className="social-link">
+                    Tumblr
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -59,6 +66,7 @@ export default function RootLayout({ children }) {
             <a href="/saturn">Saturn</a>
             <a href="/rahu">Rahu</a>
             <a href="/nakshatra">Nakshatras</a>
+            <a href={tumblrUrl} target="_blank" rel="noopener noreferrer">Tumblr</a>
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>&copy; {new Date().getFullYear()} Shambhavaa. All rights reserved.</p>
         </footer>
