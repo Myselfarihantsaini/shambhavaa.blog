@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shambhavaa Journal</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9194178610009666"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Shambhavaa home">
+        <span class="brand-mark">S</span>
+        <span>Shambhavaa</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#latest">Latest</a>
+        <a href="https://www.shambhavaa.com">Consultation</a>
+        <a href="#newsletter">Newsletter</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="masthead" aria-labelledby="page-title">
+        <div class="masthead-copy">
+          <p class="eyebrow">Journal</p>
+          <h1 id="page-title">Essays on inner clarity, ritual, and conscious living.</h1>
+          <p>
+            Notes from Shambhavaa for readers who want a calmer rhythm, deeper practice,
+            and grounded ways to bring awareness into ordinary days.
+          </p>
+        </div>
+
+        <form class="search-panel" role="search">
+          <label for="search">Search the journal</label>
+          <div class="search-row">
+            <input id="search" type="search" placeholder="Try meditation, Ayurveda, sound..." />
+            <button type="button" id="clearSearch" aria-label="Clear search">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="filters" aria-label="Article categories">
+        <button class="chip active" type="button" data-filter="all">All</button>
+        <button class="chip" type="button" data-filter="Practice">Practice</button>
+        <button class="chip" type="button" data-filter="Wellness">Wellness</button>
+        <button class="chip" type="button" data-filter="Wisdom">Wisdom</button>
+        <button class="chip" type="button" data-filter="Community">Community</button>
+      </section>
+
+      <section id="latest" class="latest" aria-labelledby="latest-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Latest</p>
+            <h2 id="latest-title">Fresh From The Journal</h2>
+          </div>
+          <p id="resultCount">0 articles</p>
+        </div>
+
+        <div class="article-grid" id="articleGrid"></div>
+      </section>
+
+      <section id="newsletter" class="newsletter" aria-labelledby="newsletter-title">
+        <div>
+          <p class="eyebrow">Stay Close</p>
+          <h2 id="newsletter-title">Receive new Shambhavaa reflections.</h2>
+          <p>Monthly essays, practices, and event notes, sent with care.</p>
+        </div>
+        <form class="newsletter-form">
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" type="email" placeholder="you@example.com" required />
+          <button type="submit">Subscribe</button>
+          <p class="form-message" id="newsletterMessage" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Shambhavaa. All rights reserved.</p>
+      <div>
+        <a href="https://www.instagram.com/shambhavaa">Instagram</a>
+        <a href="https://www.threads.net/@shambhavaa">Threads</a>
+        <a href="https://shambhavaa.tumblr.com">Tumblr</a>
+        <a href="#newsletter">Contact</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
