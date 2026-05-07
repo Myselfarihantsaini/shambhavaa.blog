@@ -8,6 +8,7 @@ import { PLANETS } from '../data/planets';
 const tumblrUrl = 'https://www.tumblr.com/shambhava';
 const instagramUrl = 'https://www.instagram.com/sham_bhavaa/';
 const threadsUrl = 'https://www.threads.com/myself_arihant';
+const consultationUrl = 'https://shambhavaa.com';
 const socialLinks = [
   { label: 'Instagram', href: instagramUrl },
   { label: 'Threads', href: threadsUrl },
@@ -60,6 +61,11 @@ export default function RootLayout({ children }) {
                 </li>
                 <li><a href="/nakshatra">Nakshatras</a></li>
                 <li><a href="/mahadasha">Mahadasha</a></li>
+                <li>
+                  <a href={consultationUrl} target="_blank" rel="noopener noreferrer">
+                    Consultation
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
