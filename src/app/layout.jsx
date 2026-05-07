@@ -6,6 +6,7 @@ import { getAllPosts } from '../lib/posts';
 
 const tumblrUrl = 'https://www.tumblr.com/shambhava';
 const instagramUrl = 'https://www.instagram.com/sham_bhavaa/';
+const threadsUrl = 'https://www.threads.com/myself_arihant';
 
 export const metadata = {
   title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
@@ -53,6 +54,11 @@ export default function RootLayout({ children }) {
                     Instagram
                   </a>
                 </li>
+                <li>
+                  <a href={threadsUrl} target="_blank" rel="noopener noreferrer">
+                    Threads
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -74,6 +80,7 @@ export default function RootLayout({ children }) {
             <a href="/nakshatra">Nakshatras</a>
             <a href={tumblrUrl} target="_blank" rel="noopener noreferrer">Tumblr</a>
             <a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href={threadsUrl} target="_blank" rel="noopener noreferrer">Threads</a>
           </div>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>&copy; {new Date().getFullYear()} Shambhavaa. All rights reserved.</p>
         </footer>
