@@ -106,10 +106,10 @@ a:hover {
   top: calc(100% + 0.75rem);
   left: 50%;
   z-index: 30;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(6rem, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 0.25rem;
-  min-width: 22rem;
+  min-width: 12rem;
   padding: 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -186,8 +186,7 @@ a:hover {
 
   .nav-dropdown-menu {
     left: 0;
-    grid-template-columns: repeat(2, minmax(6rem, 1fr));
-    min-width: min(18rem, calc(100vw - 2rem));
+    min-width: min(12rem, calc(100vw - 2rem));
     transform: translate(0, 0.35rem);
   }
 
