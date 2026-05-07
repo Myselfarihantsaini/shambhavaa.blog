@@ -17,6 +17,46 @@ export default function Home() {
           <a href="/nakshatra" className="btn">Explore Nakshatras</a>
         </div>
       </section>
+      
+      {/* Trending Section */}
+      {getAllPosts().filter(p => p.meta.trending).length > 0 && (
+        <section style={{ paddingBottom: 'var(--spacing-lg)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <span style={{ 
+              background: 'var(--accent-gold)', 
+              color: '#000', 
+              padding: '0.2rem 0.6rem', 
+              borderRadius: '4px', 
+              fontSize: '0.75rem', 
+              fontWeight: 'bold',
+              textTransform: 'uppercase'
+            }}>Trending Now</span>
+            <div style={{ height: '1px', flex: 1, background: 'var(--border-color)' }}></div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            {getAllPosts().filter(p => p.meta.trending).slice(0, 3).map(post => {
+              const trendingPosts = getAllPosts().filter(p => p.meta.trending);
+              return (
+                <a key={post.slug} href={`/${post.category}/${post.slug}`} style={{ 
+                  display: 'flex', 
+                  gap: '1.5rem', 
+                  alignItems: 'center',
+                  textDecoration: 'none',
+                  color: 'inherit'
+                }}>
+                  <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'rgba(212, 175, 55, 0.2)', fontFamily: 'var(--font-heading)' }}>
+                    0{trendingPosts.indexOf(post) + 1}
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>{post.meta.title}</h3>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{post.category.toUpperCase()}</p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Pillar Topics */}
       <section style={{ padding: 'var(--spacing-lg) 0' }}>

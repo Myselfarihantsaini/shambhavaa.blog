@@ -1,6 +1,7 @@
 ---
 title: "Why Rahu Makes You Obsessive — The Dark Psychology of Rahu in Vedic Astrology"
 date: "2026-05-07T12:00:00.000Z"
+trending: true
 excerpt: "Rahu is more than just desire; it is appetite without satisfaction. Explore the deep psychological mechanics of obsession, anxiety, and emotional dependency under Rahu's influence."
 ---
 
