@@ -308,6 +308,18 @@ a:hover {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
+.article-content img[src*="/images/saturn/"]:not([src*="hero"]) {
+  max-width: 460px;
+  max-height: none;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-content img[src*="/images/saturn/saturn-lasting-quote"] {
+  max-width: 360px;
+}
+
 /* Beehiiv Form Placeholder */
 .newsletter-section {
   text-align: center;
