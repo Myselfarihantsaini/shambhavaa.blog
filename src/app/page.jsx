@@ -1,27 +1,50 @@
 import BeehiivForm from '../components/BeehiivForm';
 import { getAllPosts } from '../lib/posts';
+import { User, Shield, Star, BookOpen } from 'lucide-react';
 
 export default function Home() {
+  const allPosts = getAllPosts();
+  const trendingPosts = allPosts.filter(p => p.meta.trending);
+
   return (
     <div className="container">
       {/* Hero Section */}
-      <section className="animate-fade-in" style={{ padding: 'var(--spacing-xl) 0', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '3.5rem', marginBottom: 'var(--spacing-md)', color: 'var(--accent-gold)' }}>
-          Awaken Your Cosmic Blueprint
+      <section className="animate-fade-in" style={{ padding: 'var(--spacing-xl) 0 4rem', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '4rem', marginBottom: 'var(--spacing-md)', color: 'var(--accent-gold)', lineHeight: '1.1' }}>
+          The Architecture <br /> of the Soul
         </h1>
-        <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '800px', margin: '0 auto var(--spacing-md)' }}>
-          Deep Vedic astrology, Nakshatra psychology, and karmic insights to navigate your spiritual journey. Move beyond generic horoscopes into the authentic depth of the stars.
+        <p style={{ fontSize: '1.4rem', color: 'var(--text-secondary)', maxWidth: '800px', margin: '0 auto var(--spacing-md)', lineHeight: '1.6' }}>
+          Deep Vedic astrology, Nakshatra psychology, and karmic insights synthesized for the modern seeker. 
+          Move beyond generic predictions into the authentic depth of the stars.
         </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
           <a href="#newsletter" className="btn btn-primary">Join the Inner Circle</a>
-          <a href="/nakshatra" className="btn">Explore Nakshatras</a>
+          <a href="/about" className="btn">Our Philosophy</a>
         </div>
       </section>
       
+      {/* Trust Bar */}
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        gap: '3rem', 
+        marginBottom: 'var(--spacing-xl)', 
+        color: 'var(--text-secondary)',
+        fontSize: '0.85rem',
+        textTransform: 'uppercase',
+        letterSpacing: '2px',
+        opacity: 0.7,
+        flexWrap: 'wrap'
+      }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Shield size={16} /> 100% Human Writing</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Star size={16} /> Evidence Based Analysis</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><BookOpen size={16} /> Classical Vedic Wisdom</span>
+      </div>
+
       {/* Trending Section */}
-      {getAllPosts().filter(p => p.meta.trending).length > 0 && (
+      {trendingPosts.length > 0 && (
         <section style={{ paddingBottom: 'var(--spacing-lg)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
             <span style={{ 
               background: 'var(--accent-gold)', 
               color: '#000', 
@@ -30,55 +53,77 @@ export default function Home() {
               fontSize: '0.75rem', 
               fontWeight: 'bold',
               textTransform: 'uppercase'
-            }}>Trending Now</span>
+            }}>Trending Insights</span>
             <div style={{ height: '1px', flex: 1, background: 'var(--border-color)' }}></div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-            {getAllPosts().filter(p => p.meta.trending).slice(0, 3).map(post => {
-              const trendingPosts = getAllPosts().filter(p => p.meta.trending);
-              return (
-                <a key={post.slug} href={`/${post.category}/${post.slug}`} style={{ 
-                  display: 'flex', 
-                  gap: '1.5rem', 
-                  alignItems: 'center',
-                  textDecoration: 'none',
-                  color: 'inherit'
-                }}>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'rgba(212, 175, 55, 0.2)', fontFamily: 'var(--font-heading)' }}>
-                    0{trendingPosts.indexOf(post) + 1}
-                  </div>
-                  <div>
-                    <h3 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>{post.meta.title}</h3>
-                    <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{post.category.toUpperCase()}</p>
-                  </div>
-                </a>
-              );
-            })}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+            {trendingPosts.slice(0, 3).map((post, index) => (
+              <a key={post.slug} href={`/${post.category}/${post.slug}`} style={{ 
+                display: 'flex', 
+                gap: '1.5rem', 
+                alignItems: 'flex-start',
+                textDecoration: 'none',
+                color: 'inherit'
+              }}>
+                <div style={{ fontSize: '3rem', fontWeight: 'bold', color: 'rgba(212, 175, 55, 0.15)', fontFamily: 'var(--font-heading)', lineHeight: '1' }}>
+                  0{index + 1}
+                </div>
+                <div>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', fontWeight: 'bold', marginBottom: '0.4rem', textTransform: 'uppercase' }}>
+                    {post.category}
+                  </p>
+                  <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', lineHeight: '1.3' }}>{post.meta.title}</h3>
+                </div>
+              </a>
+            ))}
           </div>
         </section>
       )}
 
+      {/* Meet the Founder Section (Trust & E-E-A-T) */}
+      <section style={{ padding: 'var(--spacing-lg) 0', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', margin: 'var(--spacing-lg) 0' }}>
+        <div style={{ display: 'flex', gap: '4rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ flex: 1, minWidth: '300px' }}>
+            <h2 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>The Vision Behind Shambhavaa</h2>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+              Shambhavaa is led by <strong>Arihant Saini</strong>, a Vedic astrologer dedicated to removing the fear-based narratives of traditional astrology. 
+              By synthesizing the psychological depth of the Nakshatras with the karmic laws of Saturn, we provide a roadmap for radical self-responsibility and spiritual evolution.
+            </p>
+            <a href="/about" style={{ fontWeight: 'bold' }}>Read Our Story &rarr;</a>
+          </div>
+          <div style={{ width: '300px', height: '300px', background: 'var(--card-bg)', border: '1px solid var(--accent-gold-dim)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <User size={120} color="var(--accent-gold-dim)" />
+          </div>
+        </div>
+      </section>
+
       {/* Pillar Topics */}
       <section style={{ padding: 'var(--spacing-lg) 0' }}>
-        <h2 className="text-center text-gold mb-4">Core Pillars of Wisdom</h2>
+        <h2 className="text-center text-gold mb-4" style={{ fontSize: '2.5rem' }}>Core Knowledge Hubs</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           
-          <div className="card">
-            <h3 className="text-gold">Saturn & Karma</h3>
-            <p>Understand the Lord of Karma. Discover how Saturn's transits and placement shape your soul's greatest lessons and ultimate discipline.</p>
-            <a href="/saturn" style={{ display: 'inline-block', marginTop: '1rem' }}>Read Guide &rarr;</a>
+          <div className="card" style={{ padding: '2.5rem' }}>
+            <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Saturn & Karma</h3>
+            <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>Understand the Lord of Karma. Discover how Saturn's transits and placement shape your soul's greatest lessons and ultimate discipline.</p>
+            <a href="/saturn" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
           </div>
 
-          <div className="card">
-            <h3 className="text-gold">Rahu & Ketu</h3>
-            <p>The lunar nodes hold the key to your past life mastery and current life obsession. Uncover the spiritual psychology of the eclipse axis.</p>
-            <a href="/rahu" style={{ display: 'inline-block', marginTop: '1rem' }}>Read Guide &rarr;</a>
+          <div className="card" style={{ padding: '2.5rem' }}>
+            <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Rahu & Ketu</h3>
+            <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>The lunar nodes hold the key to your past life mastery and current life obsession. Uncover the spiritual psychology of the eclipse axis.</p>
+            <a href="/rahu" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
           </div>
 
-          <div className="card">
-            <h3 className="text-gold">Nakshatra Psychology</h3>
-            <p>Vedic astrology's greatest secret. The 27 lunar mansions reveal your deepest emotional patterns, psychological drives, and spiritual gifts.</p>
-            <a href="/nakshatra" style={{ display: 'inline-block', marginTop: '1rem' }}>Read Guide &rarr;</a>
+          <div className="card" style={{ padding: '2.5rem' }}>
+            <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Moon Psychology</h3>
+            <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>The filter of your reality. Discover how your lunar placement determines your emotional safety, subconscious habits, and peace of mind.</p>
+            <a href="/moon" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
+          </div>
+
+          <div className="card" style={{ padding: '2.5rem' }}>
+            <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Nakshatra Secrets</h3>
+            <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>Vedic astrology's greatest secret. The 27 lunar mansions reveal your deepest emotional patterns, psychological drives, and spiritual gifts.</p>
+            <a href="/nakshatra" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
           </div>
 
         </div>
@@ -86,30 +131,32 @@ export default function Home() {
 
       {/* Latest Articles */}
       <section style={{ padding: 'var(--spacing-lg) 0' }}>
-        <h2 className="text-center text-gold mb-4">Latest Insights</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          {getAllPosts().slice(0, 6).map(post => (
-            <div key={post.slug} className="card">
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+        <h2 className="text-center text-gold mb-4" style={{ fontSize: '2.5rem' }}>Latest Deep Dives</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+          {allPosts.slice(0, 6).map(post => (
+            <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>
                 <a href={`/${post.category}/${post.slug}`} style={{ color: 'var(--text-primary)' }}>
                   {post.meta.title}
                 </a>
               </h3>
-              <p style={{ fontSize: '0.875rem', color: 'var(--accent-gold)', marginBottom: '1rem' }}>
-                {post.category.charAt(0).toUpperCase() + post.category.slice(1)} • {new Date(post.meta.date).toLocaleDateString()}
+              <p style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', marginBottom: '1.25rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
+                {post.category} • {new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
               </p>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem', fontSize: '0.9rem' }}>{post.meta.excerpt}</p>
-              <a href={`/${post.category}/${post.slug}`}>Read More &rarr;</a>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1rem', flex: 1, lineHeight: '1.6' }}>{post.meta.excerpt}</p>
+              <a href={`/${post.category}/${post.slug}`} style={{ fontWeight: 'bold' }}>Read Insight &rarr;</a>
             </div>
           ))}
         </div>
       </section>
 
       {/* Newsletter Section */}
-      <section id="newsletter" className="newsletter-section">
-        <h2>Cosmic Insights, Delivered.</h2>
-        <p>Join thousands of seekers receiving deep astrological analysis, transit updates, and spiritual psychology directly to their inbox.</p>
-        <BeehiivForm />
+      <section id="newsletter" className="newsletter-section" style={{ background: 'rgba(212, 175, 55, 0.05)', borderRadius: '12px', padding: 'var(--spacing-lg)' }}>
+        <h2 style={{ fontSize: '3rem' }}>Cosmic Insights, Delivered.</h2>
+        <p style={{ fontSize: '1.2rem' }}>Join thousands of seekers receiving deep astrological analysis, transit updates, and spiritual psychology directly to their inbox.</p>
+        <div style={{ maxWidth: '500px', margin: '0 auto' }}>
+          <BeehiivForm />
+        </div>
       </section>
     </div>
   );

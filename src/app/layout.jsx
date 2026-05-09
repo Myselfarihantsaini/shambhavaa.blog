@@ -84,26 +84,61 @@ export default function RootLayout({ children }) {
           ))}
         </aside>
 
-        <footer className="container" style={{ padding: '4rem 1rem', textAlign: 'center', borderTop: '1px solid var(--border-color)', marginTop: '4rem' }}>
-          <div style={{ marginBottom: '2rem' }}>
-            <h3 className="text-gold">Shambhavaa</h3>
-            <p style={{ color: 'var(--text-secondary)' }}>Awakening through the stars.</p>
+        <footer className="container" style={{ padding: '4rem 1rem', borderTop: '1px solid var(--border-color)', marginTop: '4rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem', textAlign: 'left' }}>
+            <div>
+              <h3 className="text-gold" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Shambhavaa</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                A global authority on deep Vedic astrology, Nakshatra psychology, and spiritual transformation. 
+                Synthesizing ancient wisdom with modern psychological depth.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="text-gold" style={{ marginBottom: '1rem', fontSize: '1rem' }}>Knowledge Hub</h4>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
+                <li><a href="/rahu">Rahu & Ketu</a></li>
+                <li><a href="/saturn">Saturn & Karma</a></li>
+                <li><a href="/nakshatra">Nakshatras</a></li>
+                <li><a href="/mahadasha">Mahadasha Guides</a></li>
+                <li><a href="/glossary">Astrology Glossary</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-gold" style={{ marginBottom: '1rem', fontSize: '1rem' }}>Company</h4>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
+                <li><a href="/about">About Shambhavaa</a></li>
+                <li><a href="/contact">Contact & Inquiries</a></li>
+                <li><a href="/editorial-policy">Editorial Policy</a></li>
+                <li><a href="/consultation-ethics">Code of Ethics</a></li>
+                <li><a href={consultationUrl} target="_blank" rel="noopener noreferrer">Consultations</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-gold" style={{ marginBottom: '1rem', fontSize: '1rem' }}>Legal</h4>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms & Conditions</a></li>
+                <li><a href="/disclaimer">Disclaimer</a></li>
+              </ul>
+            </div>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-            <a href="/glossary">Glossary</a>
-            <a href="/saturn">Saturn</a>
-            <a href="/rahu">Rahu</a>
-            <a href="/nakshatra">Nakshatras</a>
+
+          <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+            <div className="footer-socials" style={{ margin: 0 }}>
+              <span style={{ marginRight: '1rem' }}>Follow</span>
+              {socialLinks.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" style={{ marginRight: '1rem' }}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+              &copy; {new Date().getFullYear()} Shambhavaa. All rights reserved.
+            </p>
           </div>
-          <div className="footer-socials" aria-label="Social links">
-            <span>Follow Shambhavaa</span>
-            {socialLinks.map((link) => (
-              <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>&copy; {new Date().getFullYear()} Shambhavaa. All rights reserved.</p>
         </footer>
       </body>
     </html>

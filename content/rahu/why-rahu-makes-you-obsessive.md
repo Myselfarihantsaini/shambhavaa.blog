@@ -164,8 +164,30 @@ Healthy Rahu individuals stop depending emotionally on external outcomes for inn
 
 Evolved Rahu is not desirelessness. It is conscious desire. It is the ability to want deeply without becoming psychologically possessed by wanting.
 
+## Key Takeaways
+
+- **Appetite without Satisfaction:** Rahu represents consumption without fulfillment.
+- **Psychological Magnification:** It enlarges emotional significance, leading to obsession.
+- **Nervous System Tension:** Constant anticipation creates chronic anxiety.
+- **The Path to Wisdom:** Moving from external stimulation to internal awareness.
+
+## FAQ: Understanding Rahu's Obsession
+
+### Why does Rahu create addictive patterns?
+Rahu symbolizes the severed head of a serpent—a mouth that consumes but has no stomach to digest. Psychologically, this translates to seeking external stimulation that never leads to lasting satisfaction, creating a loop of addictive behavior.
+
+### How can I tell if Rahu is influencing my thoughts?
+The clearest signature of Rahu is "helplessness" in the face of overthinking. If you logically understand you are overthinking but feel emotionally unable to stop, that is the magnifying power of Rahu.
+
+### Can Rahu's energy be used positively?
+Yes. Once the individual develops awareness around their desires, Rahu’s immense energy can be channeled into innovation, strategic depth, and radical originality.
+
+## The Connection to Karma
+
+While Rahu represents our future obsessions and cravings, it is often balanced by the restrictive lessons of Saturn. While Rahu says "more," Saturn says "enough." To understand how these two forces interact to create emotional boundaries, read our deep dive on [Why Saturn Creates Emotional Isolation](/saturn/why-saturn-creates-emotional-isolation).
+
 ## Final Thoughts
 
 Rahu represents the human tendency to search externally for permanent internal completion. It eventually reveals a painful truth: **External intensity cannot permanently resolve internal incompleteness.**
 
-That realization becomes the beginning of wisdom. Eventually, the native stops asking *“How do I get more?”* and begins asking *“Why does nothing feel enough for long?”*
+That realization becomes the beginning of wisdom. Eventually, the native stops asking *"How do I get more?"* and begins asking *"Why does nothing feel enough for long?"*

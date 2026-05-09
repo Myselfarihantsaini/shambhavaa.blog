@@ -1,14 +1,16 @@
 'use client';
 import { useState } from 'react';
 
-export default function FAQ({ questions }) {
+export default function FAQ({ items = [] }) {
   const [openIndex, setOpenIndex] = useState(null);
+
+  if (!items || items.length === 0) return null;
 
   return (
     <div style={{ marginTop: '3rem', marginBottom: '3rem' }}>
       <h3 style={{ color: 'var(--accent-gold)', marginBottom: '1.5rem' }}>Frequently Asked Questions</h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        {questions.map((item, index) => (
+        {items.map((item, index) => (
           <div 
             key={index} 
             style={{ 
