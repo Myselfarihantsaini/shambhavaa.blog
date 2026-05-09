@@ -362,8 +362,58 @@ body {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --spacing-md: 1.25rem;
+    --spacing-lg: 2.25rem;
+    --spacing-xl: 4rem;
+  }
+
+  body {
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 11vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 8vw, 2.25rem);
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  body > header.container {
+    padding: 1rem !important;
+    align-items: flex-start !important;
+  }
+
+  body > header .logo {
+    width: 100%;
+    font-size: 1.25rem !important;
+  }
+
+  body > header > div {
+    width: 100%;
+    gap: 0.85rem !important;
+  }
+
+  body > header nav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .main-nav {
+    width: max-content;
     gap: 1rem;
+    padding: 0;
+    margin: 0;
+    font-size: 0.92rem;
   }
 
   .nav-dropdown-menu {
@@ -389,6 +439,178 @@ body {
     top: auto;
     right: 0.75rem;
     bottom: 4.4rem;
+  }
+
+  .language-gate {
+    align-items: flex-start;
+    padding: 0.75rem;
+    overflow-y: auto;
+  }
+
+  .language-gate-panel {
+    max-height: none;
+    padding: 1.2rem;
+  }
+
+  .language-gate-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .language-gate-panel p {
+    margin-bottom: 1rem;
+  }
+
+  .language-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+
+  .language-option {
+    min-height: 4.3rem;
+    padding: 0.65rem 0.5rem;
+  }
+
+  .language-option span,
+  .language-option small {
+    overflow-wrap: anywhere;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    text-align: center;
+    letter-spacing: 0.08em;
+  }
+
+  .card {
+    padding: 1.15rem !important;
+    border-radius: 8px;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  body main > .container:first-child > section:first-child {
+    padding-top: 3rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  body main > .container:first-child > section:first-child h1 {
+    font-size: clamp(2.35rem, 12vw, 3.2rem) !important;
+  }
+
+  body main > .container:first-child > section:first-child p {
+    font-size: 1.05rem !important;
+  }
+
+  body main > .container:first-child > section:first-child > div {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body main > .container:first-child > div:nth-of-type(1) {
+    gap: 0.85rem !important;
+    margin-bottom: 2.75rem !important;
+    align-items: flex-start;
+  }
+
+  body main > .container:first-child > section {
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+
+  body main > .container:first-child [style*="minmax(300px"],
+  body main > .container:first-child [style*="minmax(320px"],
+  body main > .container:first-child [style*="minmax(350px"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  body main > .container:first-child [style*="width: 300px"] {
+    width: min(100%, 240px) !important;
+    height: auto !important;
+    aspect-ratio: 1;
+    margin: 0 auto;
+  }
+
+  article.container {
+    padding-top: 1.25rem !important;
+    max-width: 100% !important;
+  }
+
+  article.container nav {
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+  }
+
+  article.container header {
+    margin-bottom: 2rem !important;
+  }
+
+  article.container header h1 {
+    font-size: clamp(2rem, 9vw, 2.7rem) !important;
+    overflow-wrap: anywhere;
+  }
+
+  article.container header > div {
+    flex-wrap: wrap;
+    gap: 0.75rem !important;
+    align-items: flex-start !important;
+    font-size: 0.82rem !important;
+  }
+
+  .article-content {
+    font-size: 1rem !important;
+    line-height: 1.72 !important;
+  }
+
+  .article-content h2 {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    margin-top: 2.25rem;
+  }
+
+  .article-content blockquote {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .article-content img {
+    max-height: none;
+    margin: 1.5rem 0;
+  }
+
+  article.container [style*="minmax(250px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .newsletter-section {
+    padding: 2rem 1rem !important;
+    border-radius: 8px !important;
+  }
+
+  .newsletter-section h2,
+  #newsletter h2 {
+    font-size: clamp(2rem, 9vw, 2.5rem) !important;
+  }
+
+  .newsletter-section p,
+  #newsletter p {
+    font-size: 1rem !important;
+  }
+
+  body > footer.container {
+    padding: 3rem 1rem 6rem !important;
+  }
+
+  body > footer.container > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  body > footer.container > div:last-child {
+    align-items: flex-start !important;
   }
 }
 
