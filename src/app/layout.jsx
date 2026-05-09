@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import SEO from '../components/SEO';
 import Script from 'next/script';
 import Search from '../components/Search';
+import LanguageGate from '../components/LanguageGate';
 import { getAllPosts } from '../lib/posts';
 import { PLANETS } from '../data/planets';
 
@@ -39,6 +40,8 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <LanguageGate />
+
         <header className="container" style={{ padding: '2rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <div className="logo" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: '700', color: 'var(--accent-gold)' }}>
             SHAMBHAVAA
