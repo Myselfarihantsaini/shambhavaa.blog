@@ -172,12 +172,17 @@ function applyTranslation(languageCode) {
     attempts += 1;
 
     if (combo) {
-      combo.value = languageCode;
-      combo.dispatchEvent(new Event('change'));
+      combo.value = '';
+      combo.dispatchEvent(new Event('change', { bubbles: true }));
+
+      window.setTimeout(() => {
+        combo.value = languageCode;
+        combo.dispatchEvent(new Event('change', { bubbles: true }));
+      }, 100);
       window.clearInterval(interval);
     }
 
-    if (attempts > 20) {
+    if (attempts > 40) {
       window.clearInterval(interval);
     }
   }, 250);

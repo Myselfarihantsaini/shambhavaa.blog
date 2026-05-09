@@ -43,9 +43,9 @@ export default function RootLayout({ children }) {
         <LanguageGate />
 
         <header className="container" style={{ padding: '2rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-          <div className="logo" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: '700', color: 'var(--accent-gold)' }}>
+          <a href="/" className="logo" aria-label="Shambhavaa home" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: '700', color: 'var(--accent-gold)' }}>
             SHAMBHAVAA
-          </div>
+          </a>
           <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <Search posts={getAllPosts()} />
             <nav>
