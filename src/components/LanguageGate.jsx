@@ -231,6 +231,7 @@ export default function LanguageGate() {
     }
 
     setSelectedLanguage(savedLanguage);
+    setShowGate(false);
     if (!initialized.current) {
       initialized.current = true;
       applyTranslation(savedLanguage);
@@ -248,23 +249,6 @@ export default function LanguageGate() {
       window.location.reload();
     }
   }, []);
-
-  useEffect(() => {
-    function handleLanguageClick(event) {
-      if (!(event.target instanceof Element)) {
-        return;
-      }
-
-      const languageButton = event.target.closest('[data-language-code]');
-
-      if (languageButton?.dataset.languageCode) {
-        chooseLanguage(languageButton.dataset.languageCode);
-      }
-    }
-
-    document.addEventListener('click', handleLanguageClick);
-    return () => document.removeEventListener('click', handleLanguageClick);
-  }, [chooseLanguage]);
 
   return (
     <>
@@ -294,6 +278,7 @@ export default function LanguageGate() {
                   type="button"
                   className="language-option"
                   data-language-code={language.code}
+                  onClick={() => chooseLanguage(language.code)}
                 >
                   <span>{language.native}</span>
                   <small>{language.label}</small>
