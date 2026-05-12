@@ -40,5 +40,19 @@ export const CATEGORY_DESCRIPTIONS = {
         answer: 'A strong Moon manifests as emotional resilience, high intuition, empathy, and the ability to remain internally stable despite external chaos.'
       }
     ]
+  },
+  mahadasha: {
+    title: 'Mahadasha: Karmic Timing and Planetary Periods',
+    description: 'Mahadasha reveals how planetary karma unfolds through time. These guides explain dasha analysis through D1, D9/Navamsha, antardasha, transits, planetary dignity, house lordship, aspects, and conjunctions.',
+    faqs: [
+      {
+        question: 'Can Mahadasha results be judged from D1 alone?',
+        answer: 'No. D1 shows natal promise, but Mahadasha results should also be confirmed through D9/Navamsha strength, antardasha influence, current transits, dignity, house lordship, aspects, and conjunctions.'
+      },
+      {
+        question: 'Why do good Mahadashas sometimes feel delayed?',
+        answer: 'A supportive Mahadasha may still feel slow when transits are not activating the right houses or when Saturn, Rahu, or Ketu create temporary pressure around the Mahadasha lord.'
+      }
+    ]
   }
 };
