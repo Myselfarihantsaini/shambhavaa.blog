@@ -54,5 +54,19 @@ export const CATEGORY_DESCRIPTIONS = {
         answer: 'A supportive Mahadasha may still feel slow when transits are not activating the right houses or when Saturn, Rahu, or Ketu create temporary pressure around the Mahadasha lord.'
       }
     ]
+  },
+  'birth-chart': {
+    title: 'Birth Chart Psychology and Kundli Analysis',
+    description: 'Deep Vedic birth chart guides for understanding emotional conditioning, attachment patterns, trauma responses, karmic repetition, planetary psychology, and the deeper architecture of human behavior.',
+    faqs: [
+      {
+        question: 'What does a Vedic birth chart reveal psychologically?',
+        answer: 'A Vedic birth chart can reveal emotional conditioning, attachment patterns, fear structures, karmic repetition, relationship tendencies, and how the mind responds to pressure, desire, loss, and intimacy.'
+      },
+      {
+        question: 'Can one placement explain trauma or attachment wounds?',
+        answer: 'No. Emotional patterns should never be judged from one placement alone. The Moon, 4th house, 7th house, Venus, Saturn, Rahu, Ketu, divisional charts, dashas, and transits must be read together.'
+      }
+    ]
   }
 };

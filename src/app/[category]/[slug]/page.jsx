@@ -41,7 +41,8 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: post.meta.title,
       description: post.meta.excerpt || post.meta.description,
-    }
+    },
+    keywords: post.meta.keywords,
   };
 }
 
@@ -58,6 +59,21 @@ export default function ArticlePage({ params }) {
   const relatedPosts = allPosts
     .filter(p => p.slug !== slug && (p.category === category || p.meta.trending))
     .slice(0, 3);
+
+  const faqSchema = Array.isArray(post.meta.faqs) && post.meta.faqs.length > 0
+    ? [{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": post.meta.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }]
+    : [];
 
   const schema = [
     {
@@ -108,7 +124,8 @@ export default function ArticlePage({ params }) {
           "item": `https://shambhavaa.blog/${category}/${slug}`
         }
       ]
-    }
+    },
+    ...faqSchema
   ];
 
   return (
