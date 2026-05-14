@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
   title: 'Consultation Ethics | Shambhavaa',
   description: 'Our code of ethics for professional Vedic astrology consultations.',
+  alternates: {
+    canonical: '/consultation-ethics/',
+  },
 };
 
 export default function EthicsPage() {

@@ -31,6 +31,9 @@ export function generateMetadata({ params }) {
   return {
     title,
     description: info ? info.description.substring(0, 160) : `Deep insights and spiritual guides on ${label} astrology.`,
+    alternates: {
+      canonical: `/${category}/`,
+    },
   };
 }
 

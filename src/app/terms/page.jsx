@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
   title: 'Terms & Conditions | Shambhavaa',
   description: 'The terms and conditions for using Shambhavaa.blog.',
+  alternates: {
+    canonical: '/terms/',
+  },
 };
 
 export default function TermsPage() {

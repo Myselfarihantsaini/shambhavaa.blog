@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
   title: 'Disclaimer | Shambhavaa',
   description: 'Important legal disclaimer regarding the astrological information provided on Shambhavaa.blog.',
+  alternates: {
+    canonical: '/disclaimer/',
+  },
 };
 
 export default function DisclaimerPage() {

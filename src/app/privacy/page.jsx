@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
   title: 'Privacy Policy | Shambhavaa',
   description: 'Our privacy policy outlines how we handle your data and ensure your privacy on Shambhavaa.blog.',
+  alternates: {
+    canonical: '/privacy/',
+  },
 };
 
 export default function PrivacyPage() {

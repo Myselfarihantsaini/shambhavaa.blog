@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
   title: 'Contact Shambhavaa | Reach Out for Inquiries',
   description: 'Connect with Shambhavaa for inquiries regarding Vedic astrology consultations, collaborations, or editorial questions.',
+  alternates: {
+    canonical: '/contact/',
+  },
 };
 
 export default function ContactPage() {

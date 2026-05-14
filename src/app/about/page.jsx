@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
   title: 'About Shambhavaa | The Psychology of Vedic Astrology',
   description: 'Learn about the philosophy, methodology, and founder of Shambhavaa—a publication dedicated to deep Vedic astrology and spiritual transformation.',
+  alternates: {
+    canonical: '/about/',
+  },
 };
 
 export default function AboutPage() {
