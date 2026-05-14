@@ -68,5 +68,19 @@ export const CATEGORY_DESCRIPTIONS = {
         answer: 'No. Emotional patterns should never be judged from one placement alone. The Moon, 4th house, 7th house, Venus, Saturn, Rahu, Ketu, divisional charts, dashas, and transits must be read together.'
       }
     ]
+  },
+  'house-lords': {
+    title: 'House Lord Placements in Vedic Astrology',
+    description: 'Detailed Vedic astrology guides on house lord placements, including personality, wealth, relationships, family karma, speech, career, health, psychology, Lal Kitab insights, and spiritual lessons.',
+    faqs: [
+      {
+        question: 'Why are house lord placements important in Vedic astrology?',
+        answer: 'House lord placements show where the energy of a house is carried in life. They reveal how identity, wealth, relationships, career, family karma, and spiritual lessons move through the chart.'
+      },
+      {
+        question: 'Can a house lord placement be judged alone?',
+        answer: 'No. A house lord placement must be judged with sign dignity, conjunctions, aspects, nakshatra, divisional charts, dasha periods, transits, and the overall strength of the birth chart.'
+      }
+    ]
   }
 };
