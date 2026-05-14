@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
   title: 'Editorial Policy | Shambhavaa',
   description: 'Our editorial policy outlines our commitment to quality, research, and authenticity in our astrology content.',
+  alternates: {
+    canonical: '/editorial-policy/',
+  },
 };
 
 export default function EditorialPolicyPage() {
