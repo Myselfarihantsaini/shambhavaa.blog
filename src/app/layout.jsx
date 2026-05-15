@@ -38,8 +38,6 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        <script async src="https://freshmanhow.com/e9/46/e9/e946e912d2c970ed52d1848246574a72.js"></script>
-        <script src="https://freshmanhow.com/bc/32/f8/bc32f8050f2dc94bb46a72eece77ff04.js"></script>
       </head>
       <body suppressHydrationWarning>
         <LanguageGate />
