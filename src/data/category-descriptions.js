@@ -14,16 +14,16 @@ export const CATEGORY_DESCRIPTIONS = {
     ]
   },
   saturn: {
-    title: 'Saturn: The Lord of Karma',
-    description: 'Saturn (Shani) is the great teacher of the zodiac. It represents time, discipline, boundaries, and the structural integrity of our lives. While often feared for its restrictive nature, Saturn’s goal is to provide the pressure necessary to turn coal into diamonds.',
+    title: 'Saturn: Karma, Boundaries, Time, and Emotional Maturity',
+    description: 'Saturn (Shani) is the great teacher of karma, time, discipline, boundaries, responsibility, emotional endurance, and spiritual maturity. These guides explore Saturn placements, Saturn transits, Sade Sati, emotional isolation, fear, pressure, and the psychology of becoming stronger through reality.',
     faqs: [
       {
-        question: 'Why is Saturn associated with suffering?',
-        answer: 'Saturn represents reality. Suffering often arises when our illusions or lack of discipline meet the cold hard facts of life. Saturn forces us to face what we have been avoiding.'
+        question: 'What does Saturn represent in Vedic astrology?',
+        answer: 'Saturn represents karma, time, discipline, delay, responsibility, boundaries, endurance, fear, maturity, and the pressure that forces a person to face reality honestly.'
       },
       {
-        question: 'How can I "remedy" a difficult Saturn?',
-        answer: 'The best remedy for Saturn is discipline, service (Seva), and patience. Saturn respects hard work and radical responsibility more than any ritual.'
+        question: 'Why is Saturn emotionally difficult?',
+        answer: 'Saturn becomes emotionally difficult because it compresses feeling, delays comfort, increases responsibility, and forces the native to develop emotional structure, patience, and maturity over time.'
       }
     ]
   },
