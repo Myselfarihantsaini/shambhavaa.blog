@@ -1,16 +1,51 @@
 import React from 'react';
+import SEO from '../../components/SEO';
 
 export const metadata = {
   title: 'About Shambhavaa | The Psychology of Vedic Astrology',
   description: 'Learn about the philosophy, methodology, and founder of Shambhavaa—a publication dedicated to deep Vedic astrology and spiritual transformation.',
   alternates: {
-    canonical: '/about/',
+    canonical: 'https://shambhavaa.blog/about/',
+  },
+  openGraph: {
+    title: 'About Shambhavaa | The Psychology of Vedic Astrology',
+    description: 'Learn about the philosophy, methodology, and founder of Shambhavaa.',
+    url: 'https://shambhavaa.blog/about/',
+    siteName: 'Shambhavaa',
+    images: [{ url: 'https://shambhavaa.blog/images/og-default.jpg', width: 1200, height: 630, alt: 'About Shambhavaa' }],
   },
 };
+
+const aboutSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "About Arihant Saini — Shambhavaa",
+    "url": "https://shambhavaa.blog/about/",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Arihant Saini",
+      "jobTitle": "Vedic Astrologer",
+      "description": "Arihant Saini is the founder of Shambhavaa, a Vedic astrologer dedicated to removing fear-based narratives from astrology and replacing them with psychological depth and spiritual empowerment.",
+      "url": "https://shambhavaa.blog/about",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Shambhavaa",
+        "url": "https://shambhavaa.blog"
+      },
+      "sameAs": [
+        "https://www.instagram.com/sham_bhavaa/",
+        "https://www.threads.com/myself_arihant",
+        "https://www.tumblr.com/shambhava"
+      ]
+    }
+  }
+];
 
 export default function AboutPage() {
   return (
     <div className="container" style={{ padding: 'var(--spacing-lg) 0', maxWidth: '800px' }}>
+      <SEO schema={aboutSchema} />
       <section className="animate-fade-in">
         <h1 className="text-gold" style={{ fontSize: '3rem', marginBottom: 'var(--spacing-md)' }}>The Path of Shambhavaa</h1>
         

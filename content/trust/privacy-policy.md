@@ -1,5 +1,6 @@
 ---
 title: "Privacy Policy | Shambhavaa"
+noindex: true
 description: "Privacy Policy for Shambhavaa. Learn how we collect, use, and protect your personal information and birth details."
 ---
 

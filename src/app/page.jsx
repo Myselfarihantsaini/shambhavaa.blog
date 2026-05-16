@@ -1,6 +1,54 @@
 import BeehiivForm from '../components/BeehiivForm';
 import { getAllPosts } from '../lib/posts';
 import { User, Shield, Star, BookOpen } from 'lucide-react';
+import SEO from '../components/SEO';
+
+const homepageSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Shambhavaa",
+    "url": "https://shambhavaa.blog",
+    "description": "A global authority on deep Vedic astrology, Nakshatra psychology, karmic astrology, predictive astrology, and spiritual healing.",
+    "inLanguage": "en-US",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://shambhavaa.blog/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Shambhavaa",
+    "url": "https://shambhavaa.blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shambhavaa.blog/images/og-default.jpg"
+    },
+    "sameAs": [
+      "https://www.instagram.com/sham_bhavaa/",
+      "https://www.threads.com/myself_arihant",
+      "https://www.tumblr.com/shambhava"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arihant Saini",
+    "url": "https://shambhavaa.blog/about",
+    "jobTitle": "Vedic Astrologer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Shambhavaa",
+      "url": "https://shambhavaa.blog"
+    },
+    "sameAs": [
+      "https://www.instagram.com/sham_bhavaa/",
+      "https://www.threads.com/myself_arihant"
+    ]
+  }
+];
 
 export default function Home() {
   const allPosts = getAllPosts();
@@ -8,6 +56,7 @@ export default function Home() {
 
   return (
     <div className="container">
+      <SEO schema={homepageSchema} />
       {/* Hero Section */}
       <section className="animate-fade-in" style={{ padding: 'var(--spacing-xl) 0 4rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: '4rem', marginBottom: 'var(--spacing-md)', color: 'var(--accent-gold)', lineHeight: '1.1' }}>

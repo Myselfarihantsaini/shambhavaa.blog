@@ -20,6 +20,25 @@ export const metadata = {
   title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
   description: 'A global authority on deep Vedic astrology, Nakshatra psychology, karmic astrology, predictive astrology, and spiritual healing.',
   metadataBase: new URL('https://shambhavaa.blog'),
+  openGraph: {
+    type: 'website',
+    siteName: 'Shambhavaa',
+    title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
+    description: 'A global authority on deep Vedic astrology, Nakshatra psychology, karmic astrology, predictive astrology, and spiritual healing.',
+    url: 'https://shambhavaa.blog',
+    images: [{
+      url: 'https://shambhavaa.blog/images/og-default.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Shambhavaa — Deep Vedic Astrology & Spiritual Transformation',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
+    description: 'A global authority on deep Vedic astrology, Nakshatra psychology, karmic astrology, predictive astrology, and spiritual healing.',
+    images: ['https://shambhavaa.blog/images/og-default.jpg'],
+  },
 };
 
 export default function RootLayout({ children }) {

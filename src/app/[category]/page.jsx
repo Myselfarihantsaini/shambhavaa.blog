@@ -28,11 +28,28 @@ export function generateMetadata({ params }) {
   const label = getPlanetLabel(category) || category.charAt(0).toUpperCase() + category.slice(1);
   const info = CATEGORY_DESCRIPTIONS[category];
   const title = `${label} Astrology | Deep Spiritual Guides | Shambhavaa`;
+  const description = info ? info.description.substring(0, 160) : `Deep insights and spiritual guides on ${label} astrology.`;
+  const ogImage = 'https://shambhavaa.blog/images/og-default.jpg';
+
   return {
     title,
-    description: info ? info.description.substring(0, 160) : `Deep insights and spiritual guides on ${label} astrology.`,
+    description,
     alternates: {
-      canonical: `/${category}/`,
+      canonical: `https://shambhavaa.blog/${category}/`,
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      url: `https://shambhavaa.blog/${category}/`,
+      siteName: 'Shambhavaa',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
     },
   };
 }
@@ -49,7 +66,16 @@ export default function CategoryPage({ params }) {
       "@type": "CollectionPage",
       "name": `${label} Articles & Insights`,
       "description": info?.description || `Authoritative guides on ${label} astrology.`,
-      "url": `https://shambhavaa.blog/${category}`,
+      "url": `https://shambhavaa.blog/${category}/`,
+      "inLanguage": "en-US",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shambhavaa.blog" },
+        { "@type": "ListItem", "position": 2, "name": label, "item": `https://shambhavaa.blog/${category}/` }
+      ]
     },
     ...(info?.faqs ? [{
       "@context": "https://schema.org",

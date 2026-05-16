@@ -1,5 +1,6 @@
 ---
 title: "Refund and Cancellation Policy | Shambhavaa"
+noindex: true
 description: "Understand the refund, cancellation, rescheduling, and no-show policies for astrology consultations at Shambhavaa."
 ---
 

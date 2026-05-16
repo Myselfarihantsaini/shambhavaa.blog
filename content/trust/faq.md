@@ -1,5 +1,6 @@
 ---
 title: "Shambhavaa Astrology Consultation FAQ"
+noindex: true
 description: "Frequently Asked Questions about Vedic astrology consultations, kundli readings, birth time requirements, remedies, and dasha analysis at Shambhavaa."
 ---
 

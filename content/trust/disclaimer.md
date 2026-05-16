@@ -1,5 +1,6 @@
 ---
 title: "Astrology Disclaimer | Shambhavaa"
+noindex: true
 description: "Important disclaimer regarding Vedic astrology readings, remedies, and the limitations of astrological predictions at Shambhavaa."
 ---
 

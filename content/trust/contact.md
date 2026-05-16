@@ -1,5 +1,6 @@
 ---
 title: "Contact Shambhavaa | Astrology Consultation"
+noindex: true
 description: "Contact Shambhavaa to book your personalized Vedic astrology reading. Learn what birth details are needed to schedule a consultation."
 ---
 

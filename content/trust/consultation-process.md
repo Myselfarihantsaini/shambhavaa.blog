@@ -1,5 +1,6 @@
 ---
 title: "How Shambhavaa Astrology Consultation Works"
+noindex: true
 description: "Learn step-by-step how a Vedic astrology consultation works at Shambhavaa, from birth details to complete chart analysis."
 ---
 

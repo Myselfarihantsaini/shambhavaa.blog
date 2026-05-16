@@ -82,5 +82,131 @@ export const CATEGORY_DESCRIPTIONS = {
         answer: 'No. A house lord placement must be judged with sign dignity, conjunctions, aspects, nakshatra, divisional charts, dasha periods, transits, and the overall strength of the birth chart.'
       }
     ]
+  },
+  sun: {
+    title: 'The Sun in Vedic Astrology: Soul, Identity & Authority',
+    description: 'The Sun (Surya) represents the soul, identity, authority, father, government, and vitality in Vedic astrology. These guides explore Sun placements across houses and signs, conjunctions, Atmakaraka significance, and the psychology of ego and self-expression.',
+    faqs: [
+      {
+        question: 'What does the Sun represent in Vedic astrology?',
+        answer: 'The Sun represents the soul, ego, identity, father, authority figures, government, vitality, confidence, and the core self. It is the Atmakaraka when placed at the highest degree in the chart.'
+      },
+      {
+        question: 'Is a strong Sun always beneficial?',
+        answer: 'A well-placed Sun gives confidence, leadership, and vitality. But an afflicted or overly strong Sun can create ego inflation, authoritarianism, or tension with authority figures.'
+      }
+    ]
+  },
+  ketu: {
+    title: 'Ketu: Past-Life Mastery, Detachment & Spiritual Liberation',
+    description: 'Ketu is the South Node of the Moon — the shadow planet of detachment, past-life karma, spiritual gifts, and moksha. These guides explore Ketu\'s placement across houses and signs, Ketu Mahadasha, and the psychological patterns of letting go.',
+    faqs: [
+      {
+        question: 'What does Ketu represent in Vedic astrology?',
+        answer: 'Ketu represents past-life mastery, detachment, spirituality, liberation (moksha), sudden insight, and areas where the soul naturally withdraws from material desire.'
+      },
+      {
+        question: 'Why is Ketu Mahadasha spiritually significant?',
+        answer: 'Ketu Mahadasha often creates inner withdrawal, spiritual seeking, confusion about material goals, and a strong pull toward introspection and liberation. It activates the themes of past-life karma very strongly.'
+      }
+    ]
+  },
+  horoscopes: {
+    title: 'Vedic Horoscopes: Zodiac Sign Forecasts & Love, Career, Life',
+    description: 'Deep Vedic horoscope readings for all 12 zodiac signs. Explore annual, monthly, and transit-based forecasts for love, relationships, career, finances, and spiritual growth through the lens of Vedic astrology.',
+    faqs: [
+      {
+        question: 'How is a Vedic horoscope different from a Western horoscope?',
+        answer: 'Vedic horoscopes use the sidereal zodiac (based on actual star positions) rather than the tropical zodiac. They also emphasize the Moon sign and rising sign more than the Sun sign, and incorporate Mahadasha planetary periods for timing.'
+      },
+      {
+        question: 'Which zodiac sign should I read — Sun sign or Moon sign?',
+        answer: 'In Vedic astrology, the Moon sign is most important for emotional and psychological readings. The rising sign (Lagna) is important for life direction and body. The Sun sign reflects soul purpose.'
+      }
+    ]
+  },
+  resources: {
+    title: 'Vedic Astrology Resources: Guides, Techniques & Deep Dives',
+    description: 'In-depth educational resources on Vedic astrology techniques — from Kundli reading and Navamsa analysis to career prediction, marriage timing, dasha-transit methodology, and astropsychology.',
+    faqs: [
+      {
+        question: 'What Vedic astrology resources does Shambhavaa offer?',
+        answer: 'Shambhavaa provides deep guides on Kundli reading, D10 career charts, Navamsa marriage analysis, dasha-transit correlation, astropsychology, remedy philosophy, and consultation preparation.'
+      },
+      {
+        question: 'Are these resources suitable for beginners?',
+        answer: 'The resources are written for serious learners of Vedic astrology. While some foundational knowledge helps, each guide is explained clearly with psychological depth accessible to intermediate and advanced students.'
+      }
+    ]
+  },
+  mars: {
+    title: 'Mars in Vedic Astrology: Energy, Courage & Ambition',
+    description: 'Mars (Mangal) is the planet of energy, ambition, courage, property, siblings, and action in Vedic astrology. These guides explore Mars placements, Mangal Dosha, Mars transits, and the psychology of drive, aggression, and willpower.',
+    faqs: [
+      {
+        question: 'What does Mars represent in Vedic astrology?',
+        answer: 'Mars represents courage, energy, ambition, aggression, property, siblings, engineering, military, fire, and the drive to act and compete in the world.'
+      },
+      {
+        question: 'What is Mangal Dosha?',
+        answer: 'Mangal Dosha occurs when Mars is placed in the 1st, 4th, 7th, 8th, or 12th house, traditionally associated with challenges in marriage. However, its effects depend heavily on sign, aspects, and the overall chart context.'
+      }
+    ]
+  },
+  mercury: {
+    title: 'Mercury in Vedic Astrology: Communication, Intellect & Business',
+    description: 'Mercury (Budha) rules communication, intelligence, business, writing, learning, and analytical thinking in Vedic astrology. These guides explore Mercury placements, retrograde effects, and the psychology of the rational mind.',
+    faqs: [
+      {
+        question: 'What does Mercury represent in Vedic astrology?',
+        answer: 'Mercury represents intellect, communication, business acumen, writing, editing, mathematics, logic, siblings, and the nervous system.'
+      },
+      {
+        question: 'How does Mercury retrograde affect a birth chart?',
+        answer: 'Mercury retrograde in a birth chart often produces a deeply analytical, introspective mind that processes information internally before communicating. It can also indicate unconventional speech or learning patterns.'
+      }
+    ]
+  },
+  jupiter: {
+    title: 'Jupiter in Vedic Astrology: Wisdom, Expansion & Dharma',
+    description: 'Jupiter (Guru/Brihaspati) is the great benefic — ruling wisdom, dharma, children, teachers, higher learning, and spiritual expansion in Vedic astrology. These guides explore Jupiter placements, Jupiter transits, and the psychology of belief and growth.',
+    faqs: [
+      {
+        question: 'What does Jupiter represent in Vedic astrology?',
+        answer: 'Jupiter represents wisdom, dharma, religion, philosophy, teachers, children, higher education, abundance, expansion, and the capacity for spiritual growth and optimism.'
+      },
+      {
+        question: 'Is Jupiter always beneficial?',
+        answer: 'Jupiter is generally a benefic planet, but its results depend on sign, house, dignity, and aspects. An afflicted Jupiter can create excess, dogmatism, or misplaced optimism.'
+      }
+    ]
+  },
+  venus: {
+    title: 'Venus in Vedic Astrology: Love, Beauty, Relationships & Desire',
+    description: 'Venus (Shukra) governs love, beauty, relationships, luxury, creativity, and material pleasure in Vedic astrology. These guides explore Venus placements, Venus transits, and the psychology of desire, attraction, and aesthetic refinement.',
+    faqs: [
+      {
+        question: 'What does Venus represent in Vedic astrology?',
+        answer: 'Venus represents love, beauty, romantic relationships, luxury, creativity, fine arts, vehicles, wealth through pleasure, and the capacity for sensory enjoyment and aesthetic appreciation.'
+      },
+      {
+        question: 'How does Venus placement affect relationships?',
+        answer: 'Venus placement by house and sign reveals relationship style, aesthetic preferences, and what we find attractive. Afflictions can create challenges in love, while a strong Venus brings charm and harmonious partnerships.'
+      }
+    ]
+  },
+  nakshatra: {
+    title: 'Nakshatra Psychology: The 27 Lunar Mansions of Vedic Astrology',
+    description: 'The 27 Nakshatras are the lunar mansions of Vedic astrology — the deepest psychological layer of the birth chart. These guides explore each Nakshatra\'s symbolism, ruling deity, psychological patterns, shadow traits, and spiritual purpose.',
+    faqs: [
+      {
+        question: 'What is a Nakshatra in Vedic astrology?',
+        answer: 'A Nakshatra is one of 27 lunar mansions that the Moon passes through during its monthly cycle. Each Nakshatra has a ruling deity, planet, symbol, and specific psychological and spiritual themes.'
+      },
+      {
+        question: 'Why are Nakshatras more important than zodiac signs?',
+        answer: 'Nakshatras provide a much finer psychological resolution than the 12 zodiac signs. The Moon Nakshatra in particular reveals the deepest emotional patterns, subconscious drives, and instinctive responses of a person.'
+      }
+    ]
   }
 };

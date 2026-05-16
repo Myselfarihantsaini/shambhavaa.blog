@@ -1,5 +1,6 @@
 ---
 title: "About Shambhavaa | Vedic Astrology Consultation"
+noindex: true
 description: "Learn about Shambhavaa's ethical approach to Vedic astrology consultations, focusing on D1 charts, dasha, transits, and practical remedies."
 ---
 

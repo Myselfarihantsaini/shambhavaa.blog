@@ -1,5 +1,6 @@
 ---
 title: "Terms and Conditions | Shambhavaa"
+noindex: true
 description: "Terms and Conditions for using Shambhavaa.com and booking Vedic astrology consultations. Please read carefully before scheduling a reading."
 ---
 
