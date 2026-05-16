@@ -86,66 +86,70 @@ export default function ArticlePage({ params }) {
   const canonicalUrl = `https://shambhavaa.blog/${category}/${slug}/`;
 
   const faqSchema = Array.isArray(post.meta.faqs) && post.meta.faqs.length > 0
-    ? [{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": post.meta.faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
-      }]
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": post.meta.faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer,
+            },
+          })),
+        },
+      ]
     : [];
 
-  // Service pages use Service schema; all other editorial pages use BlogPosting
-  const primarySchema = category === 'services'
-    ? {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": post.meta.title,
-        "description": post.meta.excerpt || post.meta.description,
-        "url": canonicalUrl,
-        "serviceType": "Vedic Astrology Consultation",
-        "provider": {
-          "@type": "Organization",
-          "name": "Shambhavaa",
-          "url": "https://shambhavaa.blog/"
-        },
-        "areaServed": "Worldwide",
-        "inLanguage": "en-US",
-      }
-    : {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": post.meta.title,
-        "description": post.meta.excerpt,
-        "datePublished": post.meta.date,
-        "dateModified": post.meta.updatedDate || post.meta.date,
-        "inLanguage": "en-US",
-        "keywords": Array.isArray(post.meta.keywords) ? post.meta.keywords.join(', ') : post.meta.keywords,
-        "image": "https://shambhavaa.blog/images/og-default.jpg",
-        "author": {
-          "@type": "Person",
-          "name": "Arihant Saini",
-          "url": "https://shambhavaa.blog/about/"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Shambhavaa",
-          "url": "https://shambhavaa.blog/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://shambhavaa.blog/images/og-default.jpg"
-          }
-        },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": canonicalUrl
+  const primarySchema =
+    category === 'services'
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": post.meta.title,
+          "description": post.meta.excerpt || post.meta.description,
+          "url": canonicalUrl,
+          "serviceType": "Vedic Astrology Consultation",
+          "provider": {
+            "@type": "Organization",
+            "name": "Shambhavaa",
+            "url": "https://shambhavaa.blog/",
+          },
+          "areaServed": "Worldwide",
+          "inLanguage": "en-US",
         }
-      };
+      : {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.meta.title,
+          "description": post.meta.excerpt || post.meta.description,
+          "datePublished": post.meta.date,
+          "dateModified": post.meta.updatedDate || post.meta.date,
+          "inLanguage": "en-US",
+          "keywords": Array.isArray(post.meta.keywords)
+            ? post.meta.keywords.join(', ')
+            : post.meta.keywords,
+          "image": "https://shambhavaa.blog/images/og-default.jpg",
+          "author": {
+            "@type": "Person",
+            "name": "Arihant Saini",
+            "url": "https://shambhavaa.blog/about/",
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Shambhavaa",
+            "url": "https://shambhavaa.blog/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://shambhavaa.blog/images/og-default.jpg",
+            },
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl,
+          },
+        };
 
   const schema = [
     primarySchema,
@@ -153,12 +157,27 @@ export default function ArticlePage({ params }) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shambhavaa.blog/" },
-        { "@type": "ListItem", "position": 2, "name": category.charAt(0).toUpperCase() + category.slice(1), "item": `https://shambhavaa.blog/${category}/` },
-        { "@type": "ListItem", "position": 3, "name": post.meta.title, "item": canonicalUrl }
-      ]
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://shambhavaa.blog/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": category.charAt(0).toUpperCase() + category.slice(1),
+          "item": `https://shambhavaa.blog/${category}/`,
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": post.meta.title,
+          "item": canonicalUrl,
+        },
+      ],
     },
-    ...faqSchema
+    ...faqSchema,
   ];
 
   return (
