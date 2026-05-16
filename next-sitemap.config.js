@@ -4,10 +4,7 @@ module.exports = {
   generateRobotsTxt: false, // We manage robots.txt manually in public/
   outDir: 'out',
   exclude: [
-    // Duplicate trust/* pages (duplicates of /about/, /contact/, etc.)
-    '/trust',
-    '/trust/*',
-    // Empty planet category pages — excluded until articles are published
+    '/trust/**', // Catch-all for duplicate pages in trust directory
     '/mars',
     '/mercury',
     '/jupiter',

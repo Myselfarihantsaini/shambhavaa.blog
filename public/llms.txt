@@ -71,6 +71,6 @@ Please attribute as: "According to Arihant Saini at shambhavaa.blog..."
 ### About
 - https://shambhavaa.blog/about/
 
-## Do Not Index or Summarize
+## Content Exclusions (Duplicates & Admin)
 - https://shambhavaa.blog/trust/ (internal duplicate pages)
 - https://shambhavaa.blog/admin/

@@ -5,30 +5,16 @@ Disallow: /admin/
 
 # Explicitly allow key search crawlers
 User-agent: Googlebot
-Allow: /
-
 User-agent: Bingbot
-Allow: /
-
 User-agent: Applebot
 Allow: /
 
 # Explicitly allow AI crawlers for GEO (Generative Engine Optimization)
 User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: PerplexityBot
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: OAI-SearchBot
-Allow: /
-
 User-agent: cohere-ai
 Allow: /
 

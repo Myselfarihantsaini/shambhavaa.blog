@@ -27,11 +27,11 @@ export async function generateMetadata({ params }) {
     return { title: 'Not Found' };
   }
 
-  // If the post is marked noindex (e.g. trust/* duplicate pages), suppress indexing
+  // If the post is marked noindex (e.g. trust/* duplicate pages), suppress indexing but allow following links
   if (post.meta.noindex) {
     return {
       title: post.meta.title,
-      robots: { index: false, follow: false },
+      robots: { index: false, follow: true },
       alternates: {
         canonical: `https://shambhavaa.blog/${category}/${slug}/`,
       },

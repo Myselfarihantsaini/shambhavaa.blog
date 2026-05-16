@@ -8,6 +8,10 @@ git pull origin main
 # Build the static export
 npm run build
 
+# Preserve the build output in a temporary location before switching branches
+PRESERVE_DIR=$(mktemp -d)
+cp -r out/* "$PRESERVE_DIR/"
+
 # Switch to (or create) the gh-pages branch
 if git rev-parse --verify gh-pages >/dev/null 2>&1; then
   git checkout gh-pages
@@ -17,8 +21,10 @@ fi
 
 # Remove all tracked files
 git rm -r . || true
-# Copy the newly built static files from the build output
-cp -r out/* .
+
+# Copy the preserved static files back
+cp -r "$PRESERVE_DIR"/* .
+rm -rf "$PRESERVE_DIR"
 
 # Preserve CNAME if it exists at repository root
 if [ -f ../CNAME ]; then

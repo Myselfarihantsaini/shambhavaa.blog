@@ -1,7 +1,7 @@
 export default function SEO({ schema }) {
   if (!schema) return null;
 
-  // Google requires one <script> block per schema object, not a JSON array.
+  // Serialize each schema object into its own JSON-LD script block for maximum crawler compatibility.
   const schemas = Array.isArray(schema) ? schema : [schema];
 
   return (
