@@ -1,9 +1,10 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://shambhavaa.blog',
-  generateRobotsTxt: false, // We manage robots.txt manually in public/
+  generateRobotsTxt: false,
   outDir: 'out',
   exclude: [
+    '/server-sitemap.xml',
     '/trust',
     '/trust/*',
     '/admin',
@@ -14,25 +15,31 @@ module.exports = {
     '/venus',
   ],
   transform: async (config, path) => {
-    // Custom transform logic for sitemap
-    let priority = 0.7;
-    let changefreq = 'weekly';
-
     if (path === '/') {
-      priority = 1.0;
-      changefreq = 'daily';
-    } else if ((path.match(/\//g) || []).length >= 3) {
-      // Deep article pages are higher priority than category hubs
-      priority = 0.9;
-      changefreq = 'monthly';
+      return {
+        loc: path,
+        changefreq: 'weekly',
+        priority: 1.0,
+        lastmod: new Date().toISOString(),
+      };
+    }
+
+    const isArticle = path.split('/').filter(Boolean).length >= 2;
+
+    if (isArticle) {
+      return {
+        loc: path,
+        changefreq: 'monthly',
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      };
     }
 
     return {
       loc: path,
-      changefreq: changefreq,
-      priority: priority,
+      changefreq: 'weekly',
+      priority: 0.7,
       lastmod: new Date().toISOString(),
-      alternateRefs: config.alternateRefs ?? [],
     };
   },
 };
