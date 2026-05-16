@@ -5,8 +5,9 @@ module.exports = {
   outDir: 'out',
   exclude: [
     '/trust',
-    '/trust/',
-    '/trust/**',
+    '/trust/*',
+    '/admin',
+    '/admin/*',
     '/mars',
     '/mercury',
     '/jupiter',
@@ -21,7 +22,7 @@ module.exports = {
       priority = 1.0;
       changefreq = 'daily';
     } else if ((path.match(/\//g) || []).length >= 3) {
-      // Deep article pages
+      // Deep article pages are higher priority than category hubs
       priority = 0.9;
       changefreq = 'monthly';
     }

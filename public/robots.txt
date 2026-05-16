@@ -1,21 +1,54 @@
+# General Crawler Rules
 User-agent: *
-Allow: /
 Disallow: /trust/
 Disallow: /admin/
-
-# Search Engine Crawlers
-User-agent: Googlebot
-User-agent: Bingbot
-User-agent: Applebot
 Allow: /
 
-# AI & Generative Search Crawlers
+# Search Engine Specific Rules
+User-agent: Googlebot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: Bingbot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: Applebot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+# AI & GEO Crawler Rules
 User-agent: GPTBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
 User-agent: ChatGPT-User
-User-agent: PerplexityBot
-User-agent: ClaudeBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
 User-agent: OAI-SearchBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
 User-agent: cohere-ai
+Disallow: /trust/
+Disallow: /admin/
 Allow: /
 
 # Sitemap Location

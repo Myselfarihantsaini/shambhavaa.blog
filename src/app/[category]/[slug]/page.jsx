@@ -27,13 +27,15 @@ export async function generateMetadata({ params }) {
     return { title: 'Not Found' };
   }
 
+  const canonicalUrl = `https://shambhavaa.blog/${category}/${slug}/`;
+
   // If the post is marked noindex (e.g. trust/* duplicate pages), suppress indexing but allow following links
   if (post.meta.noindex) {
     return {
       title: post.meta.title,
       robots: { index: false, follow: true },
       alternates: {
-        canonical: `https://shambhavaa.blog/${category}/${slug}/`,
+        canonical: canonicalUrl,
       },
     };
   }
@@ -44,7 +46,7 @@ export async function generateMetadata({ params }) {
     title: `${post.meta.title} | Shambhavaa`,
     description: post.meta.excerpt || post.meta.description,
     alternates: {
-      canonical: `https://shambhavaa.blog/${category}/${slug}/`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: post.meta.title,
@@ -53,7 +55,7 @@ export async function generateMetadata({ params }) {
       publishedTime: post.meta.date,
       modifiedTime: post.meta.updatedDate || post.meta.date,
       authors: ['Arihant Saini'],
-      url: `https://shambhavaa.blog/${category}/${slug}/`,
+      url: canonicalUrl,
       siteName: 'Shambhavaa',
       images: [{ url: ogImage, width: 1200, height: 630, alt: post.meta.title }],
     },
@@ -81,19 +83,21 @@ export default function ArticlePage({ params }) {
     .filter(p => p.slug !== slug && (p.category === category || p.meta.trending))
     .slice(0, 3);
 
+  const canonicalUrl = `https://shambhavaa.blog/${category}/${slug}/`;
+
   const faqSchema = Array.isArray(post.meta.faqs) && post.meta.faqs.length > 0
     ? [{
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": post.meta.faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.answer
-        }
-      }))
-    }]
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": post.meta.faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }]
     : [];
 
   // Service pages use Service schema; all other editorial pages use BlogPosting
@@ -103,12 +107,12 @@ export default function ArticlePage({ params }) {
         "@type": "Service",
         "name": post.meta.title,
         "description": post.meta.excerpt || post.meta.description,
-        "url": `https://shambhavaa.blog/${category}/${slug}/`,
+        "url": canonicalUrl,
         "serviceType": "Vedic Astrology Consultation",
         "provider": {
           "@type": "Organization",
           "name": "Shambhavaa",
-          "url": "https://shambhavaa.blog"
+          "url": "https://shambhavaa.blog/"
         },
         "areaServed": "Worldwide",
         "inLanguage": "en-US",
@@ -126,12 +130,12 @@ export default function ArticlePage({ params }) {
         "author": {
           "@type": "Person",
           "name": "Arihant Saini",
-          "url": "https://shambhavaa.blog/about"
+          "url": "https://shambhavaa.blog/about/"
         },
         "publisher": {
           "@type": "Organization",
           "name": "Shambhavaa",
-          "url": "https://shambhavaa.blog",
+          "url": "https://shambhavaa.blog/",
           "logo": {
             "@type": "ImageObject",
             "url": "https://shambhavaa.blog/images/og-default.jpg"
@@ -139,7 +143,7 @@ export default function ArticlePage({ params }) {
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://shambhavaa.blog/${category}/${slug}/`
+          "@id": canonicalUrl
         }
       };
 
@@ -149,9 +153,9 @@ export default function ArticlePage({ params }) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shambhavaa.blog" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shambhavaa.blog/" },
         { "@type": "ListItem", "position": 2, "name": category.charAt(0).toUpperCase() + category.slice(1), "item": `https://shambhavaa.blog/${category}/` },
-        { "@type": "ListItem", "position": 3, "name": post.meta.title, "item": `https://shambhavaa.blog/${category}/${slug}/` }
+        { "@type": "ListItem", "position": 3, "name": post.meta.title, "item": canonicalUrl }
       ]
     },
     ...faqSchema

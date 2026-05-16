@@ -2,26 +2,23 @@
 set -e
 
 # Shambhavaa Blog — Safer Deployment Script
-# 1. Builds static site
-# 2. Preserves build output in memory/temp
-# 3. Switches to gh-pages branch
-# 4. Cleans and deploys preserved files
+echo "🚀 Starting deployment from main..."
 
-echo "🚀 Starting deployment process..."
-
-# Ensure we are on main
+# 1. Build on main branch
 git checkout main
-
-# Build the site
-echo "📦 Building static site..."
 npm run build
 
-# Create a temporary directory and copy the build output
-echo "📋 Preserving build output..."
+# 2. Preserve build output and CNAME
+echo "📋 Preserving build output and CNAME..."
 TEMP_EXPORT=$(mktemp -d)
 cp -r out/* "$TEMP_EXPORT/"
 
-# Switch to gh-pages
+# Preserve CNAME specifically (it should be in public/ and thus in out/ already, but double check)
+if [ -f CNAME ]; then
+  cp CNAME "$TEMP_EXPORT/"
+fi
+
+# 3. Switch to gh-pages
 echo "🔄 Switching to gh-pages branch..."
 if git rev-parse --verify gh-pages >/dev/null 2>&1; then
   git checkout gh-pages
@@ -29,28 +26,27 @@ else
   git checkout -b gh-pages
 fi
 
-# Clean current directory (except .git)
-echo "🧹 Cleaning gh-pages branch..."
+# 4. Clean gh-pages branch except .git
+echo "🧹 Cleaning branch files..."
 find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name '..' -exec rm -rf {} +
 
-# Copy files back from temp
-echo "🚚 Moving build files into place..."
+# 5. Move preserved files back
+echo "🚚 Deploying preserved files..."
 cp -r "$TEMP_EXPORT"/* .
 rm -rf "$TEMP_EXPORT"
 
-# Add CNAME if it's missing (next-sitemap might not handle it)
-if [ ! -f CNAME ]; then
-  echo "shambhavaa.blog" > CNAME
+# 6. Commit only if changes exist
+git add -A
+if git diff-index --quiet HEAD --; then
+  echo "✅ No changes to deploy."
+else
+  echo "📤 Committing and pushing deployment..."
+  git commit -m "Deploy: SEO & GEO Implementation [$(date)]"
+  git push origin gh-pages --force
 fi
 
-# Commit and Push
-echo "📤 Committing and pushing to GitHub..."
-git add -A
-git commit -m "Deploy: SEO & GEO Implementation [$(date)]" || echo "No changes to commit"
-git push origin gh-pages --force
-
-# Return to main
+# 7. Return to main
 echo "🔙 Returning to main branch..."
 git checkout main
 
-echo "✨ Deployment complete!"
+echo "✨ Done!"
