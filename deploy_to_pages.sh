@@ -1,40 +1,56 @@
 #!/usr/bin/env bash
 set -e
 
-# Ensure we are on the latest main branch
-git checkout main
-git pull origin main
+# Shambhavaa Blog — Safer Deployment Script
+# 1. Builds static site
+# 2. Preserves build output in memory/temp
+# 3. Switches to gh-pages branch
+# 4. Cleans and deploys preserved files
 
-# Build the static export
+echo "🚀 Starting deployment process..."
+
+# Ensure we are on main
+git checkout main
+
+# Build the site
+echo "📦 Building static site..."
 npm run build
 
-# Preserve the build output in a temporary location before switching branches
-PRESERVE_DIR=$(mktemp -d)
-cp -r out/* "$PRESERVE_DIR/"
+# Create a temporary directory and copy the build output
+echo "📋 Preserving build output..."
+TEMP_EXPORT=$(mktemp -d)
+cp -r out/* "$TEMP_EXPORT/"
 
-# Switch to (or create) the gh-pages branch
+# Switch to gh-pages
+echo "🔄 Switching to gh-pages branch..."
 if git rev-parse --verify gh-pages >/dev/null 2>&1; then
   git checkout gh-pages
 else
   git checkout -b gh-pages
 fi
 
-# Remove all tracked files
-git rm -r . || true
+# Clean current directory (except .git)
+echo "🧹 Cleaning gh-pages branch..."
+find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name '..' -exec rm -rf {} +
 
-# Copy the preserved static files back
-cp -r "$PRESERVE_DIR"/* .
-rm -rf "$PRESERVE_DIR"
+# Copy files back from temp
+echo "🚚 Moving build files into place..."
+cp -r "$TEMP_EXPORT"/* .
+rm -rf "$TEMP_EXPORT"
 
-# Preserve CNAME if it exists at repository root
-if [ -f ../CNAME ]; then
-  cp ../CNAME .
+# Add CNAME if it's missing (next-sitemap might not handle it)
+if [ ! -f CNAME ]; then
+  echo "shambhavaa.blog" > CNAME
 fi
 
-# Commit and force‑push
+# Commit and Push
+echo "📤 Committing and pushing to GitHub..."
 git add -A
-git commit -m "Deploy static site with Bing verification"
+git commit -m "Deploy: SEO & GEO Implementation [$(date)]" || echo "No changes to commit"
 git push origin gh-pages --force
 
-# Return to main branch
+# Return to main
+echo "🔙 Returning to main branch..."
 git checkout main
+
+echo "✨ Deployment complete!"

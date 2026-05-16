@@ -3,13 +3,13 @@ Allow: /
 Disallow: /trust/
 Disallow: /admin/
 
-# Explicitly allow key search crawlers
+# Search Engine Crawlers
 User-agent: Googlebot
 User-agent: Bingbot
 User-agent: Applebot
 Allow: /
 
-# Explicitly allow AI crawlers for GEO (Generative Engine Optimization)
+# AI & Generative Search Crawlers
 User-agent: GPTBot
 User-agent: ChatGPT-User
 User-agent: PerplexityBot
@@ -18,5 +18,5 @@ User-agent: OAI-SearchBot
 User-agent: cohere-ai
 Allow: /
 
-# Sitemap
+# Sitemap Location
 Sitemap: https://shambhavaa.blog/sitemap.xml
