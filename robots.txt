@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://shambhavaa.blog
+
+# Sitemaps
+Sitemap: https://shambhavaa.blog/sitemap.xml
