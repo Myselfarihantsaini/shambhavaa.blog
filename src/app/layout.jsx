@@ -9,8 +9,10 @@ import { PLANETS } from '../data/planets';
 const tumblrUrl = 'https://www.tumblr.com/shambhava';
 const instagramUrl = 'https://www.instagram.com/sham_bhavaa/';
 const threadsUrl = 'https://www.threads.com/myself_arihant';
+const whatsappChannelUrl = 'https://whatsapp.com/channel/0029VbC4J9rJENy0bajwXS1I';
 const consultationUrl = 'https://shambhavaa.com';
 const socialLinks = [
+  { label: 'WhatsApp', href: whatsappChannelUrl },
   { label: 'Instagram', href: instagramUrl },
   { label: 'Threads', href: threadsUrl },
   { label: 'Tumblr', href: tumblrUrl },
@@ -89,6 +91,11 @@ export default function RootLayout({ children }) {
                 </li>
                 <li><a href="/nakshatra">Nakshatras</a></li>
                 <li><a href="/mahadasha">Mahadasha</a></li>
+                <li>
+                  <a href={whatsappChannelUrl} target="_blank" rel="noopener noreferrer">
+                    WhatsApp
+                  </a>
+                </li>
                 <li>
                   <a href={consultationUrl} target="_blank" rel="noopener noreferrer">
                     Consultation
