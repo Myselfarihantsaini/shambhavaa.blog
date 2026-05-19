@@ -40,18 +40,6 @@ const articleFolderDetails = {
     label: 'Nakshatra',
     description: 'Lunar mansion psychology, instincts, and emotional patterns.',
   },
-  resources: {
-    label: 'Learning Resources',
-    description: 'Practical guides for consultation, charts, dashas, and transits.',
-  },
-  services: {
-    label: 'Consultations',
-    description: 'Reading types, remedies, marriage, career, and kundli matching.',
-  },
-  trust: {
-    label: 'Trust & Policies',
-    description: 'About, process, ethics, privacy, refunds, and client clarity.',
-  },
 };
 
 const articleFolderOrder = [
@@ -64,9 +52,6 @@ const articleFolderOrder = [
   'rahu',
   'ketu',
   'sun',
-  'resources',
-  'services',
-  'trust',
 ];
 
 function getArticleFolders(posts) {
@@ -77,6 +62,7 @@ function getArticleFolders(posts) {
   }, {});
 
   return Object.entries(groupedPosts)
+    .filter(([category]) => !['resources', 'services', 'trust'].includes(category))
     .map(([category, categoryPosts]) => ({
       category,
       label: articleFolderDetails[category]?.label || category.replace(/-/g, ' '),
