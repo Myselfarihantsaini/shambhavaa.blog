@@ -528,6 +528,18 @@ body {
     gap: 1.25rem !important;
   }
 
+  .article-folder-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-folder-card {
+    min-height: 0;
+  }
+
+  .article-folder-description {
+    min-height: 0;
+  }
+
   body main > .container:first-child [style*="width: 300px"] {
     width: min(100%, 240px) !important;
     height: auto !important;
@@ -642,6 +654,105 @@ body {
   transform: translateY(-8px) scale(1.02);
   border-color: var(--accent-gold-glow);
   box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-gold-dim);
+}
+
+.article-folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.article-folder-card {
+  min-height: 18.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: rgba(15, 15, 25, 0.62);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
+}
+
+.article-folder-heading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--text-primary);
+}
+
+.article-folder-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--accent-gold-dim);
+  border-radius: 8px;
+  color: var(--accent-gold);
+  background: rgba(226, 184, 87, 0.08);
+}
+
+.article-folder-title,
+.article-folder-count {
+  display: block;
+}
+
+.article-folder-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.article-folder-count {
+  margin-top: 0.25rem;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.article-folder-arrow {
+  color: var(--accent-gold);
+  opacity: 0.75;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.article-folder-heading:hover .article-folder-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.article-folder-description {
+  min-height: 4.5rem;
+  margin: 1rem 0 1.1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.article-folder-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.article-folder-links a {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: start;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.article-folder-links svg {
+  margin-top: 0.1rem;
+  color: var(--accent-gold);
+  opacity: 0.8;
 }
 
 .btn {

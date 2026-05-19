@@ -1,7 +1,96 @@
 import BeehiivForm from '../components/BeehiivForm';
 import { getAllPosts } from '../lib/posts';
-import { User, Shield, Star, BookOpen } from 'lucide-react';
+import { ArrowRight, FileText, FolderOpen, User, Shield, Star, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
+
+const articleFolderDetails = {
+  horoscopes: {
+    label: 'Horoscope 2026',
+    description: 'Yearly and month-by-month sign predictions.',
+  },
+  saturn: {
+    label: 'Saturn & Karma',
+    description: 'Discipline, isolation, karma, transit lessons, and maturity.',
+  },
+  rahu: {
+    label: 'Rahu Psychology',
+    description: 'Obsession, desire, ambition, illusion, and shadow patterns.',
+  },
+  ketu: {
+    label: 'Ketu & Detachment',
+    description: 'Spiritual release, dasha transitions, and past-life residue.',
+  },
+  sun: {
+    label: 'Sun Placements',
+    description: 'Identity, authority, visibility, confidence, and house results.',
+  },
+  mahadasha: {
+    label: 'Mahadasha',
+    description: 'Dasha timing, planetary periods, D1-D9 judgment, and prediction.',
+  },
+  'birth-chart': {
+    label: 'Birth Chart',
+    description: 'Psychological and spiritual architecture of the kundli.',
+  },
+  'house-lords': {
+    label: 'House Lords',
+    description: 'Functional house lord results and placement-based guidance.',
+  },
+  nakshatra: {
+    label: 'Nakshatra',
+    description: 'Lunar mansion psychology, instincts, and emotional patterns.',
+  },
+  resources: {
+    label: 'Learning Resources',
+    description: 'Practical guides for consultation, charts, dashas, and transits.',
+  },
+  services: {
+    label: 'Consultations',
+    description: 'Reading types, remedies, marriage, career, and kundli matching.',
+  },
+  trust: {
+    label: 'Trust & Policies',
+    description: 'About, process, ethics, privacy, refunds, and client clarity.',
+  },
+};
+
+const articleFolderOrder = [
+  'horoscopes',
+  'birth-chart',
+  'mahadasha',
+  'house-lords',
+  'nakshatra',
+  'saturn',
+  'rahu',
+  'ketu',
+  'sun',
+  'resources',
+  'services',
+  'trust',
+];
+
+function getArticleFolders(posts) {
+  const groupedPosts = posts.reduce((folders, post) => {
+    if (!folders[post.category]) folders[post.category] = [];
+    folders[post.category].push(post);
+    return folders;
+  }, {});
+
+  return Object.entries(groupedPosts)
+    .map(([category, categoryPosts]) => ({
+      category,
+      label: articleFolderDetails[category]?.label || category.replace(/-/g, ' '),
+      description: articleFolderDetails[category]?.description || 'Browse all guides in this article folder.',
+      posts: categoryPosts,
+    }))
+    .sort((a, b) => {
+      const aIndex = articleFolderOrder.indexOf(a.category);
+      const bIndex = articleFolderOrder.indexOf(b.category);
+      const normalizedA = aIndex === -1 ? articleFolderOrder.length : aIndex;
+      const normalizedB = bIndex === -1 ? articleFolderOrder.length : bIndex;
+      return normalizedA - normalizedB || a.label.localeCompare(b.label);
+    });
+}
 
 const homepageSchema = [
   {
@@ -53,6 +142,7 @@ const homepageSchema = [
 export default function Home() {
   const allPosts = getAllPosts();
   const trendingPosts = allPosts.filter(p => p.meta.trending);
+  const articleFolders = getArticleFolders(allPosts);
 
   return (
     <div className="container">
@@ -89,6 +179,58 @@ export default function Home() {
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Star size={16} /> Evidence Based Analysis</span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><BookOpen size={16} /> Classical Vedic Wisdom</span>
       </div>
+
+      {/* Article Folders */}
+      <section className="article-folders" style={{ padding: '0 0 var(--spacing-lg)' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+          <div>
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              color: 'var(--accent-gold)',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              textTransform: 'uppercase',
+              letterSpacing: '0.12em',
+              marginBottom: '0.8rem'
+            }}>
+              <FolderOpen size={16} /> Article Folders
+            </span>
+            <h2 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>Browse by Topic</h2>
+            <p style={{ maxWidth: '680px', color: 'var(--text-secondary)', fontSize: '1.05rem', margin: 0 }}>
+              Find horoscope predictions, chart analysis, dasha guidance, remedies, and astrology learning guides from one clear place.
+            </p>
+          </div>
+          <a href="/horoscopes" className="btn" style={{ flexShrink: 0 }}>Start with 2026</a>
+        </div>
+
+        <div className="article-folder-grid">
+          {articleFolders.map(folder => (
+            <article key={folder.category} className="article-folder-card">
+              <a href={`/${folder.category}`} className="article-folder-heading" aria-label={`Open ${folder.label} folder`}>
+                <span className="article-folder-icon" aria-hidden="true">
+                  <FolderOpen size={22} />
+                </span>
+                <span>
+                  <span className="article-folder-title">{folder.label}</span>
+                  <span className="article-folder-count">{folder.posts.length} {folder.posts.length === 1 ? 'article' : 'articles'}</span>
+                </span>
+                <ArrowRight className="article-folder-arrow" size={18} aria-hidden="true" />
+              </a>
+              <p className="article-folder-description">{folder.description}</p>
+              <div className="article-folder-links">
+                {folder.posts.slice(0, 3).map(post => (
+                  <a key={post.slug} href={`/${post.category}/${post.slug}`}>
+                    <FileText size={15} aria-hidden="true" />
+                    <span>{post.meta.title}</span>
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       {/* Trending Section */}
       {trendingPosts.length > 0 && (
