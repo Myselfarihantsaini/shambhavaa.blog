@@ -166,6 +166,27 @@ export default function Home() {
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><BookOpen size={16} /> Classical Vedic Wisdom</span>
       </div>
 
+      {/* Latest Articles */}
+      <section style={{ padding: '0 0 var(--spacing-lg)' }}>
+        <h2 className="text-center text-gold mb-4" style={{ fontSize: '2.5rem' }}>Latest Deep Dives</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+          {allPosts.slice(0, 6).map(post => (
+            <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>
+                <a href={`/${post.category}/${post.slug}`} style={{ color: 'var(--text-primary)' }}>
+                  {post.meta.title}
+                </a>
+              </h3>
+              <p style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', marginBottom: '1.25rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
+                {post.category} • {new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+              </p>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1rem', flex: 1, lineHeight: '1.6' }}>{post.meta.excerpt}</p>
+              <a href={`/${post.category}/${post.slug}`} style={{ fontWeight: 'bold' }}>Read Insight &rarr;</a>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Article Folders */}
       <section className="article-folders" style={{ padding: '0 0 var(--spacing-lg)' }}>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
@@ -303,27 +324,6 @@ export default function Home() {
             <a href="/nakshatra" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
           </div>
 
-        </div>
-      </section>
-
-      {/* Latest Articles */}
-      <section style={{ padding: 'var(--spacing-lg) 0' }}>
-        <h2 className="text-center text-gold mb-4" style={{ fontSize: '2.5rem' }}>Latest Deep Dives</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
-          {allPosts.slice(0, 6).map(post => (
-            <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>
-                <a href={`/${post.category}/${post.slug}`} style={{ color: 'var(--text-primary)' }}>
-                  {post.meta.title}
-                </a>
-              </h3>
-              <p style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', marginBottom: '1.25rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
-                {post.category} • {new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-              </p>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1rem', flex: 1, lineHeight: '1.6' }}>{post.meta.excerpt}</p>
-              <a href={`/${post.category}/${post.slug}`} style={{ fontWeight: 'bold' }}>Read Insight &rarr;</a>
-            </div>
-          ))}
         </div>
       </section>
 
