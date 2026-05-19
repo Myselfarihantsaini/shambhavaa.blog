@@ -11,6 +11,8 @@ const instagramUrl = 'https://www.instagram.com/sham_bhavaa/';
 const threadsUrl = 'https://www.threads.com/myself_arihant';
 const whatsappChannelUrl = 'https://whatsapp.com/channel/0029VbC4J9rJENy0bajwXS1I';
 const consultationUrl = 'https://shambhavaa.com';
+const fallbackAdScriptUrl = 'https://freshmanhow.com/5a986816a0cd2a8b35aa2f7f9ac4ff95/invoke.js';
+const fallbackAdContainerId = 'container-5a986816a0cd2a8b35aa2f7f9ac4ff95';
 const socialLinks = [
   { label: 'WhatsApp', href: whatsappChannelUrl },
   { label: 'Instagram', href: instagramUrl },
@@ -105,6 +107,17 @@ export default function RootLayout({ children }) {
             </nav>
           </div>
         </header>
+
+        <section className="temporary-ad-slot container" aria-label="Advertisement">
+          <div id={fallbackAdContainerId}></div>
+        </section>
+        <Script
+          id="temporary-fallback-ad"
+          async
+          data-cfasync="false"
+          src={fallbackAdScriptUrl}
+          strategy="afterInteractive"
+        />
 
         <main>
           {children}
