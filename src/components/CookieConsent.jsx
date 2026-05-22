@@ -4,48 +4,93 @@ import { useCallback, useEffect, useState } from 'react';
 
 const CONSENT_KEY = 'shambhavaa-cookie-consent';
 
-function updateGoogleConsent(consent) {
+const defaultPreferences = {
+  analytics: false,
+  ads: false,
+};
+
+function normalizeStoredConsent(value) {
+  if (!value) return null;
+
+  if (value === 'accepted') {
+    return { analytics: true, ads: true };
+  }
+
+  if (value === 'rejected') {
+    return { analytics: false, ads: false };
+  }
+
+  try {
+    const parsed = JSON.parse(value);
+    return {
+      analytics: Boolean(parsed.analytics),
+      ads: Boolean(parsed.ads),
+    };
+  } catch {
+    return null;
+  }
+}
+
+function updateGoogleConsent(preferences) {
   if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
     return;
   }
 
-  const granted = consent === 'accepted';
   window.gtag('consent', 'update', {
-    ad_storage: granted ? 'granted' : 'denied',
-    ad_user_data: granted ? 'granted' : 'denied',
-    ad_personalization: granted ? 'granted' : 'denied',
-    analytics_storage: granted ? 'granted' : 'denied',
+    analytics_storage: preferences.analytics ? 'granted' : 'denied',
+    ad_storage: preferences.ads ? 'granted' : 'denied',
+    ad_user_data: preferences.ads ? 'granted' : 'denied',
+    ad_personalization: preferences.ads ? 'granted' : 'denied',
   });
 }
 
+function saveStoredConsent(preferences) {
+  const value = {
+    version: 1,
+    analytics: Boolean(preferences.analytics),
+    ads: Boolean(preferences.ads),
+    updatedAt: new Date().toISOString(),
+  };
+
+  window.localStorage.setItem(CONSENT_KEY, JSON.stringify(value));
+}
+
 export default function CookieConsent() {
-  const [consent, setConsent] = useState(null);
+  const [hasSavedChoice, setHasSavedChoice] = useState(false);
+  const [preferences, setPreferences] = useState(defaultPreferences);
   const [showPreferences, setShowPreferences] = useState(false);
 
   useEffect(() => {
-    const storedConsent = window.localStorage.getItem(CONSENT_KEY);
-    if (storedConsent === 'accepted' || storedConsent === 'rejected') {
-      setConsent(storedConsent);
-      updateGoogleConsent(storedConsent);
+    const storedPreferences = normalizeStoredConsent(window.localStorage.getItem(CONSENT_KEY));
+
+    if (storedPreferences) {
+      setPreferences(storedPreferences);
+      setHasSavedChoice(true);
+      updateGoogleConsent(storedPreferences);
     }
   }, []);
 
-  const saveConsent = useCallback((value) => {
-    window.localStorage.setItem(CONSENT_KEY, value);
-    setConsent(value);
+  const saveConsent = useCallback((nextPreferences) => {
+    saveStoredConsent(nextPreferences);
+    setPreferences(nextPreferences);
+    setHasSavedChoice(true);
     setShowPreferences(false);
-    updateGoogleConsent(value);
+    updateGoogleConsent(nextPreferences);
   }, []);
 
-  if (consent) {
+  const updatePreference = useCallback((key) => {
+    setPreferences((current) => ({
+      ...current,
+      [key]: !current[key],
+    }));
+  }, []);
+
+  if (hasSavedChoice && !showPreferences) {
     return (
       <button
         type="button"
         className="cookie-preferences-button"
-        onClick={() => {
-          setConsent(null);
-          setShowPreferences(true);
-        }}
+        onClick={() => setShowPreferences(true)}
       >
         Cookie preferences
       </button>
@@ -57,25 +102,58 @@ export default function CookieConsent() {
       <div className="cookie-consent-copy">
         <strong>Cookie consent</strong>
         <p>
-          Shambhavaa uses essential storage for language preferences and optional Google cookies for analytics and ads. You can accept or reject optional cookies.
+          Shambhavaa uses essential storage for language preferences and optional Google cookies for analytics and ads. You can accept, reject, or manage optional cookies.
           {' '}
           <a href="/privacy/">Privacy Policy</a>
         </p>
         {showPreferences && (
-          <ul>
-            <li>Essential cookies: always active for site language and basic function.</li>
-            <li>Analytics and ads cookies: used only with your consent signal.</li>
-          </ul>
+          <div className="cookie-consent-preferences">
+            <label className="cookie-consent-toggle">
+              <span>
+                <strong>Analytics</strong>
+                <small>Helps us understand page performance and improve articles.</small>
+              </span>
+              <input
+                type="checkbox"
+                checked={preferences.analytics}
+                onChange={() => updatePreference('analytics')}
+              />
+            </label>
+            <label className="cookie-consent-toggle">
+              <span>
+                <strong>Ads</strong>
+                <small>Allows Google ad storage and personalization signals.</small>
+              </span>
+              <input
+                type="checkbox"
+                checked={preferences.ads}
+                onChange={() => updatePreference('ads')}
+              />
+            </label>
+          </div>
         )}
       </div>
       <div className="cookie-consent-actions">
-        <button type="button" className="btn" onClick={() => setShowPreferences((current) => !current)}>
-          Manage
-        </button>
-        <button type="button" className="btn" onClick={() => saveConsent('rejected')}>
+        {showPreferences ? (
+          <>
+            <button type="button" className="btn" onClick={() => saveConsent(preferences)}>
+              Save choices
+            </button>
+            {hasSavedChoice && (
+              <button type="button" className="btn" onClick={() => setShowPreferences(false)}>
+                Close
+              </button>
+            )}
+          </>
+        ) : (
+          <button type="button" className="btn" onClick={() => setShowPreferences(true)}>
+            Manage
+          </button>
+        )}
+        <button type="button" className="btn" onClick={() => saveConsent({ analytics: false, ads: false })}>
           Reject
         </button>
-        <button type="button" className="btn btn-primary" onClick={() => saveConsent('accepted')}>
+        <button type="button" className="btn btn-primary" onClick={() => saveConsent({ analytics: true, ads: true })}>
           Accept
         </button>
       </div>

@@ -875,6 +875,42 @@ body {
   text-underline-offset: 0.18em;
 }
 
+.cookie-consent-preferences {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.cookie-consent-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cookie-consent-toggle strong {
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+}
+
+.cookie-consent-toggle small {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.cookie-consent-toggle input {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  accent-color: var(--accent-gold);
+}
+
 .cookie-consent-actions {
   display: flex;
   gap: 0.65rem;
