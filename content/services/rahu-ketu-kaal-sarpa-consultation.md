@@ -37,7 +37,7 @@ Rahu and Ketu periods are notorious for bringing sudden, unexpected changes—bo
 
 If you are entering a nodal Dasha, we will break down the timeline, explaining the psychological storms and material opportunities it will bring. We also look at the current transits of Rahu and Ketu (which change signs every 18 months) to see where the eclipses are triggering changes in your life right now.
 
-*(For general timing questions unrelated to the nodes, see our [dasha and transit reading](/dasha-transit-reading)).*
+*(For general timing questions unrelated to the nodes, see our [dasha and transit reading](/services/dasha-transit-reading/)).*
 
 ## What You Need to Provide
 

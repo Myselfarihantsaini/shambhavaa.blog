@@ -120,7 +120,7 @@ These people may:
 
 Many Moon-Saturn people become hyper-independent emotionally because depending on others once felt unsafe.
 
-This placement often creates adults who say:
+This placement often creates grown individuals who say:
 
 “I’m okay.”
 
@@ -298,7 +298,7 @@ Astropsychologically, Mars represents:
 * aggression
 * motivation
 * physical energy
-* sexual drive
+* physical desire
 * anger expression
 * competitive instinct
 * emotional heat

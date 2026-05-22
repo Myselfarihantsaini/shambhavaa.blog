@@ -9,7 +9,7 @@ Booking a Vedic astrology consultation is an investment of your time, energy, an
 
 However, the value you extract from a reading depends heavily on how well you prepare for it. An astrology session is a two-way street. If you come with vague questions and inaccurate data, the reading will remain superficial. If you come prepared, with precise data and focused intentions, the reading can be profoundly transformative.
 
-Here is a comprehensive guide on how to prepare for your [Vedic kundli reading](/vedic-kundli-reading) at Shambhavaa to ensure you get the absolute most out of your session.
+Here is a comprehensive guide on how to prepare for your [Vedic kundli reading](/services/vedic-kundli-reading/) at Shambhavaa to ensure you get the absolute most out of your session.
 
 ---
 
@@ -36,7 +36,7 @@ An astrologer can talk for hours about the thousands of combinations in your bir
 Avoid vague questions like, *"What does my future hold?"* or *"Will I be happy?"* These yield vague, philosophical answers. 
 
 Instead, ask specific, actionable questions:
-- **Career:** *"I am debating between staying in my corporate job or starting a business. What does my [career astrology consultation](/career-astrology-consultation) support, and when is the best time to transition?"*
+- **Career:** *"I am debating between staying in my corporate job or starting a business. What does my [career astrology consultation](/services/career-astrology-consultation/) support, and when is the best time to transition?"*
 - **Relationships:** *"I have faced repeated delays in marriage. Is this due to a difficult transit, and what remedies can I apply to ease this blockage?"*
 - **Timing:** *"I am currently in my Saturn Mahadasha. What specific areas of my life will require the most hard work over the next three years?"*
 
@@ -48,9 +48,9 @@ Having written questions ensures that you do not forget your main concerns once 
 
 To get the most out of your reading, you must approach it with the right expectations. 
 
-- **Astrology is not a crystal ball.** It does not give you exact dates (e.g., "You will meet your husband at 4:00 PM on Tuesday"). It provides *windows of probability* based on your [dasha and transit timelines](/dasha-transit-reading).
+- **Astrology is not a crystal ball.** It does not give you exact dates (e.g., "You will meet your husband at 4:00 PM on Tuesday"). It provides *windows of probability* based on your [dasha and transit timelines](/services/dasha-transit-reading/).
 - **Astrology does not override free will.** The chart shows the weather; you must still sail the ship. If the chart shows a great period for wealth, you still have to put in the work. The planets will not deposit money into your bank account while you sleep.
-- **No magical cures.** If you are looking for an [astrology remedies consultation](/remedies-consultation), understand that remedies (mantras, donations) are spiritual disciplines designed to align your energy. They are not quick fixes for deep karmic issues.
+- **No magical cures.** If you are looking for an [astrology remedies consultation](/services/remedies-consultation/), understand that remedies (mantras, donations) are spiritual disciplines designed to align your energy. They are not quick fixes for deep karmic issues.
 
 ---
 
@@ -69,7 +69,7 @@ Finally, come with an open mind. A skilled and ethical astrologer will not sugar
 
 If your chart indicates a period of intense struggle, isolation, or delay (such as a difficult Rahu transit or a challenging Saturn period), the astrologer will tell you. But they will also tell you *why* it is happening and *how* to navigate it. Astrology is ultimately a tool for spiritual growth, and growth often requires navigating uncomfortable truths.
 
-*(To understand our specific methodology, read more about [how a Shambhavaa consultation works](/consultation-process)).*
+*(To understand our specific methodology, read more about [how a Shambhavaa consultation works](/trust/consultation-process/)).*
 
 ---
 

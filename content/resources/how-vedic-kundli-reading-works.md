@@ -67,7 +67,7 @@ One of the most unique and powerful features of a Vedic kundli reading is the us
 
 No ethical astrologer will make a final prediction based solely on the D1 chart. 
 
-- **The Navamsa (D9):** This is the most important divisional chart. It acts as the soul of the D1 chart. It is extensively used to verify the true strength of planets and is the primary chart analyzed during a [marriage astrology consultation](/marriage-astrology-consultation). A marriage that looks promised in the D1 chart but is afflicted in the Navamsa will often face significant hidden struggles.
+- **The Navamsa (D9):** This is the most important divisional chart. It acts as the soul of the D1 chart. It is extensively used to verify the true strength of planets and is the primary chart analyzed during a [marriage astrology consultation](/services/marriage-astrology-consultation/). A marriage that looks promised in the D1 chart but is afflicted in the Navamsa will often face significant hidden struggles.
 - **The Dasamsa (D10):** This chart zooms in specifically on the 10th house of the D1 chart. It is the ultimate tool for understanding career trajectory, authority, and professional environment.
 - **Other Vargas:** There are charts for wealth (Hora), siblings (Drekkana), children (Saptamsa), and parents (Dwadasamsa), among others.
 
@@ -86,7 +86,7 @@ The Vimshottari Dasha system is a 120-year cycle divided among the nine planets.
 
 For instance, if your D1 chart strongly promises a successful career, that success will not happen uniformly throughout your life. It will trigger specifically when you enter the Mahadasha or Antardasha of the planet ruling your 10th house or sitting in your 10th house. 
 
-A thorough [Vedic kundli reading](/vedic-kundli-reading) heavily relies on mapping out your Dasha timeline so you know exactly what season of life you are in.
+A thorough [Vedic kundli reading](/services/vedic-kundli-reading/) heavily relies on mapping out your Dasha timeline so you know exactly what season of life you are in.
 
 ---
 
@@ -101,7 +101,7 @@ While fast-moving planets like the Moon or Mercury affect daily moods, the slow-
 - **Jupiter (Guru):** Taking 1 year to transit a sign, Jupiter brings expansion, grace, opportunity, and protection.
 - **Rahu and Ketu:** Taking 18 months to transit, the nodes bring sudden obsessions, illusions, or sudden detachment and letting go.
 
-An event happens when the Dasha promises it, and the transit acts as the trigger. If you want to dive deeply into this timing mechanism, you can explore our specific [dasha and transit reading](/dasha-transit-reading).
+An event happens when the Dasha promises it, and the transit acts as the trigger. If you want to dive deeply into this timing mechanism, you can explore our specific [dasha and transit reading](/services/dasha-transit-reading/).
 
 ---
 

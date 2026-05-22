@@ -18,7 +18,7 @@ This full birth chart reading is ideal for individuals who:
 - Have never had a proper, structured Vedic astrology reading and want a foundational understanding of their chart.
 - Wish to understand recurring patterns in their life—why certain themes keep repeating.
 
-If you have highly specific, isolated questions regarding marriage or career, we recommend the focused [marriage astrology consultation](/marriage-astrology-consultation) or [career astrology consultation](/career-astrology-consultation). However, if you want the "big picture," this is the reading for you.
+If you have highly specific, isolated questions regarding marriage or career, we recommend the focused [marriage astrology consultation](/services/marriage-astrology-consultation/) or [career astrology consultation](/services/career-astrology-consultation/). However, if you want the "big picture," this is the reading for you.
 
 ## What We Check: The D1 Chart Analysis
 
@@ -42,7 +42,7 @@ A chart may promise immense success, but *when* will it happen? This is where ti
 1. **Dasha Analysis:** We map out your current Mahadasha (major planetary period) and Antardasha (sub-period). The Dasha acts as the operating system for a specific chapter of your life, activating certain houses and planets in your chart.
 2. **Transit Validation:** We then overlay the current Gochar (transits) of slow-moving planets like Saturn, Jupiter, Rahu, and Ketu. While the Dasha sets the stage, transits trigger the actual events. 
 
-*For a deeper understanding of timing, you can book a dedicated [dasha and transit reading](/dasha-transit-reading).*
+*For a deeper understanding of timing, you can book a dedicated [dasha and transit reading](/services/dasha-transit-reading/).*
 
 ## What You Need to Provide
 
@@ -61,7 +61,7 @@ We believe in ethical, grounded astrology. Therefore, you must know what this re
 - We do not offer magical cures to bypass karmic lessons.
 - We do not provide medical diagnoses or financial investment advice.
 
-If we identify blockages, we may suggest remedies, but we recommend exploring a deeper [nakshatra reading consultation](/nakshatra-reading) if you want hyper-specific psychological and remedial analysis.
+If we identify blockages, we may suggest remedies, but we recommend exploring a deeper [nakshatra reading consultation](/services/nakshatra-reading/) if you want hyper-specific psychological and remedial analysis.
 
 **Ready to understand your life's blueprint?**
 

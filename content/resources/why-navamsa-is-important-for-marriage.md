@@ -9,7 +9,7 @@ In Vedic astrology, assessing a person's marital prospects is one of the most in
 
 If the 7th house in the D1 chart looks strong, they predict a blissful marriage. If it is afflicted, they predict divorce. However, the reality of **Navamsa marriage** prediction is far more complex. The D1 chart is only the outer shell; the D9 chart (Navamsa) is the inner reality.
 
-In this guide, we will explore why the Navamsa chart is absolutely non-negotiable when analyzing relationships, and why its assessment forms the core of a [marriage astrology consultation](/marriage-astrology-consultation).
+In this guide, we will explore why the Navamsa chart is absolutely non-negotiable when analyzing relationships, and why its assessment forms the core of a [marriage astrology consultation](/services/marriage-astrology-consultation/).
 
 ---
 
@@ -62,7 +62,7 @@ During a comprehensive marriage reading, the astrologer will scrutinize several 
 
 ## Navamsa for Kundli Matching
 
-When a couple comes for a [kundli matching consultation](/kundli-matching-consultation), matching the 36 points (Ashtakoot) is not enough. The astrologer must overlay the Navamsa charts of both partners. 
+When a couple comes for a [kundli matching consultation](/services/kundli-matching-consultation/), matching the 36 points (Ashtakoot) is not enough. The astrologer must overlay the Navamsa charts of both partners. 
 
 If the Moons in both Navamsa charts are hostile to each other, the couple will struggle to find emotional common ground, even if their D1 charts look compatible. The Navamsa reveals the soul-level compatibility that sustains a marriage decades after the initial physical attraction fades.
 

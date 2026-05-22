@@ -43,7 +43,7 @@ A career breakthrough happens when the timing is right.
 
 During the consultation, we analyze your current Mahadasha and Antardasha. If you are running the dasha of a well-placed 10th lord, career growth is imminent. If you are running the dasha of the 8th or 12th lord, it may be a period of instability, research, or working behind the scenes. We also overlay current transits—especially Saturn, the karaka of karma and hard work—to identify specific windows for job changes, promotions, or business launches.
 
-*(If you only need a quick update on your timeline without a full deep dive, consider a [dasha and transit timing](/dasha-transit-reading) session).*
+*(If you only need a quick update on your timeline without a full deep dive, consider a [dasha and transit timing](/services/dasha-transit-reading/) session).*
 
 ## What You Need to Provide
 

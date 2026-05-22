@@ -158,7 +158,7 @@ Many Saturn in Pisces people become emotional absorbers very early in life.
 
 But because Saturn suppresses emotional release, the emotions stay trapped internally.
 
-This often creates adults who:
+This often creates grown individuals who:
 
 - look emotionally calm
 - appear responsible

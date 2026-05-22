@@ -29,8 +29,8 @@ export async function generateMetadata({ params }) {
 
   const canonicalUrl = `https://shambhavaa.blog/${category}/${slug}/`;
 
-  // If the post is marked noindex (e.g. trust/* duplicate pages), suppress indexing but allow following links
-  if (post.meta.noindex) {
+  // Trust pages are compliance/support pages, not primary AdSense inventory.
+  if (post.meta.noindex || category === 'trust') {
     return {
       title: post.meta.title,
       robots: { index: false, follow: true },
@@ -84,6 +84,7 @@ export default function ArticlePage({ params }) {
     .slice(0, 3);
 
   const canonicalUrl = `https://shambhavaa.blog/${category}/${slug}/`;
+  const isServicePage = category === 'services';
 
   const faqSchema = Array.isArray(post.meta.faqs) && post.meta.faqs.length > 0
     ? [
@@ -234,6 +235,21 @@ export default function ArticlePage({ params }) {
       <div className="article-content" style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-primary)' }}>
         <MDXRemote source={post.content} />
       </div>
+
+      {isServicePage && (
+        <section className="service-depth-section">
+          <h2>How Shambhavaa Keeps This Reading Practical</h2>
+          <p>
+            Every consultation page on Shambhavaa is written to help you understand the method before you book, not to create fear or dependency. A useful Vedic astrology reading should explain the chart structure, the active dasha period, the supporting divisional charts, and the practical timing shown by major transits. The purpose is not to promise a fixed outcome, but to show where your effort, awareness, and decision-making can become more aligned with the chart.
+          </p>
+          <p>
+            In a session, the astrologer studies the relevant house, house lord, karaka planet, dignity, nakshatra influence, conjunctions, aspects, dasha sequence, and current transit pressure. This layered process helps separate temporary emotional confusion from a deeper life pattern. It also protects the client from one-line predictions that sound dramatic but do not explain the reason behind the interpretation.
+          </p>
+          <p>
+            You are encouraged to arrive with accurate birth details, a clear question, and openness to practical guidance. Remedies, when suggested, are treated as supportive spiritual disciplines rather than shortcuts. The final aim is clarity: what is active now, what requires patience, what needs responsibility, and where your choices matter most.
+          </p>
+        </section>
+      )}
 
       <AuthorBox 
         date={post.meta.date} 

@@ -59,7 +59,7 @@ Marriage is highly probable during the Mahadasha (major period) or Antardasha (s
 5. **The Navamsa 7th Lord:** The planet ruling the 7th house in the D9 chart.
 6. **The 2nd or 11th Lord:** The 2nd house represents the addition to the family, and the 11th house represents the fulfillment of desires.
 
-When a client books a [marriage astrology consultation](/marriage-astrology-consultation), the astrologer maps out their current and upcoming Dasha periods. If the client is running the Dasha of the 6th or 8th lord, marriage is unlikely, or if it happens, it may be riddled with conflict. When the Dasha shifts to the 7th lord, the "window of marriage" opens.
+When a client books a [marriage astrology consultation](/services/marriage-astrology-consultation/), the astrologer maps out their current and upcoming Dasha periods. If the client is running the Dasha of the 6th or 8th lord, marriage is unlikely, or if it happens, it may be riddled with conflict. When the Dasha shifts to the 7th lord, the "window of marriage" opens.
 
 ---
 
@@ -81,7 +81,7 @@ When both transiting Saturn and transiting Jupiter simultaneously influence the 
 It is equally important to understand what astrologically delays a marriage. Common factors include:
 - **Saturn’s Influence:** If Saturn sits in the 7th house or aspects the 7th house/7th lord, it inherently delays marriage past the age of 28 to 30. This is not a curse; Saturn demands maturity before committing to a partnership.
 - **Manglik Dosha:** If Mars is in the 1st, 4th, 7th, 8th, or 12th house, it creates friction in relationships, often requiring the native to wait until their late 20s for the fiery energy to settle.
-- **Rahu-Ketu Axis:** If Rahu and Ketu heavily afflict the 1st/7th axis, marriage timing becomes unpredictable, often requiring deep karmic balancing. (Learn more in a [Rahu-Ketu consultation](/rahu-ketu-kaal-sarpa-consultation)).
+- **Rahu-Ketu Axis:** If Rahu and Ketu heavily afflict the 1st/7th axis, marriage timing becomes unpredictable, often requiring deep karmic balancing. (Learn more in a [Rahu-Ketu consultation](/services/rahu-ketu-kaal-sarpa-consultation/)).
 
 ---
 

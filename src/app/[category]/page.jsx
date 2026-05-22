@@ -25,6 +25,7 @@ export async function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const { category } = params;
+  const posts = getPostsByCategory(category);
   const label = getPlanetLabel(category) || category.charAt(0).toUpperCase() + category.slice(1);
   const info = CATEGORY_DESCRIPTIONS[category];
   const title = `${label} Astrology | Deep Spiritual Guides | Shambhavaa`;
@@ -34,6 +35,7 @@ export function generateMetadata({ params }) {
   return {
     title,
     description,
+    robots: posts.length === 0 || category === 'trust' ? { index: false, follow: true } : undefined,
     alternates: {
       canonical: `https://shambhavaa.blog/${category}/`,
     },

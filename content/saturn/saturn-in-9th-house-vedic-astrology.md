@@ -246,7 +246,7 @@ For more on profession and chart judgment, read [How Career Is Judged from Kundl
 
 ## Finance Impact
 
-Saturn in the 9th house does not support gambling-based luck.
+Saturn in the 9th house does not support lottery-based luck.
 
 The native should not depend on sudden fortune, speculation or emotional optimism.
 
@@ -589,7 +589,7 @@ This person may not accept vague spiritual ideas.
 
 They want method, proof and application.
 
-Weakness: over-analysis can kill devotion.
+Weakness: over-analysis can weaken devotion.
 
 Best path: combine logic with humility.
 

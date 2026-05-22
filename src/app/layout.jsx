@@ -18,10 +18,30 @@ const socialLinks = [
   { label: 'Tumblr', href: tumblrUrl },
 ];
 
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'none'",
+  "form-action 'self' https://shambhavaa.com",
+  "upgrade-insecure-requests",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://translate.google.com https://translate.googleapis.com https://www.gstatic.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com data:",
+  "img-src 'self' data: https:",
+  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://translate.googleapis.com",
+  "frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://translate.google.com",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+].join('; ');
+
 export const metadata = {
   title: 'Shambhavaa | Deep Vedic Astrology & Spiritual Transformation',
   description: 'A global authority on deep Vedic astrology, Nakshatra psychology, karmic astrology, predictive astrology, and spiritual healing.',
   metadataBase: new URL('https://shambhavaa.blog'),
+  alternates: {
+    canonical: 'https://shambhavaa.blog/',
+  },
   openGraph: {
     type: 'website',
     siteName: 'Shambhavaa',
@@ -47,9 +67,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta
           httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://shambhavaa.com; upgrade-insecure-requests; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://translate.google.com https://translate.googleapis.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://translate.googleapis.com; frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://translate.google.com; worker-src 'self' blob:;"
+          content={contentSecurityPolicy}
         />
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCHG6BM3DL"></script>

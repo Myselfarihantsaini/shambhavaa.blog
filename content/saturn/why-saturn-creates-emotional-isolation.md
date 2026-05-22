@@ -94,13 +94,13 @@ Strong Saturn children often seem older than their age.
 
 Not always wiser in the emotional sense, but burdened earlier. They may become responsible too young, self-controlled too early, exposed to seriousness prematurely, or forced into maturity before their emotional development has had time to unfold naturally.
 
-Adults may praise them for being mature, disciplined, dependable, calm, or sensible.
+Grown-ups may praise them for being mature, disciplined, dependable, calm, or sensible.
 
 But there is a hidden cost.
 
 The child learns, "My role is to manage pressure, not receive emotional care."
 
-This creates an imbalance that follows them into adulthood. The person becomes capable at enduring pain, functioning under pressure, and surviving emotional difficulty. But they may feel deeply uncomfortable with emotional receiving.
+This creates an imbalance that follows them into later life. The person becomes capable at enduring pain, functioning under pressure, and surviving emotional difficulty. But they may feel deeply uncomfortable with emotional receiving.
 
 Support feels unfamiliar. Vulnerability feels risky. Asking for help feels like weakness. Expressing emotional need feels almost embarrassing.
 
@@ -306,7 +306,7 @@ It is emotional stability without emotional shutdown.
 ## Key Takeaways
 
 - **Emotional Self-Containment:** Saturn doesn't remove feelings; it compresses their expression for protection.
-- **The Child Who Grew Too Fast:** Early responsibility often creates adults who struggle to receive emotional support.
+- **The Child Who Grew Too Fast:** Early responsibility often creates grown individuals who struggle to receive emotional support.
 - **Anticipatory Rejection:** Saturn-dominant people often expect disappointment, leading to emotional withdrawal.
 - **Earned Maturity:** The weight of Saturn eventually transforms into profound, grounded wisdom and reliability.
 

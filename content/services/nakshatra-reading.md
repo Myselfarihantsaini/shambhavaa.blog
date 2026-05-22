@@ -17,7 +17,7 @@ This specialized reading is perfect for individuals who:
 - Want to understand their unique life purpose and the specific themes that will dominate their path.
 - Are interested in the mythological and symbolic stories that are playing out in their real life.
 
-*If you are looking for a broader overview of your whole chart including timing, please consider the [Vedic kundli reading](/vedic-kundli-reading).*
+*If you are looking for a broader overview of your whole chart including timing, please consider the [Vedic kundli reading](/services/vedic-kundli-reading/).*
 
 ## What We Check: The Nakshatra Framework
 
@@ -44,7 +44,7 @@ Because Nakshatras span only 13 degrees and 20 minutes, and their Padas span jus
 
 ## What Is Not Promised
 
-- This is a highly psychological and thematic reading. While we discuss life events, we do not focus heavily on specific event timing (for that, book a [dasha-transit-reading](/dasha-transit-reading)).
+- This is a highly psychological and thematic reading. While we discuss life events, we do not focus heavily on specific event timing (for that, book a [dasha-transit-reading](/services/dasha-transit-reading/)).
 - We do not use Nakshatra traits to justify toxic behavior. Understanding your subconscious drives is a tool for self-improvement, not an excuse.
 
 **Ready to explore the deeper layers of your mind?**

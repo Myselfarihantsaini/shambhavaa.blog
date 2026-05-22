@@ -377,7 +377,7 @@ The 8th house governs:
 * trauma
 * hidden truths
 * transformation
-* sexuality
+* intimacy patterns
 * occult knowledge
 * rebirth
 
@@ -605,9 +605,9 @@ It often indicates a soul learning detachment from external validation and devel
 ---
 
 ## Suggested Internal Links
-* [Rahu in the 12 Houses in Vedic Astrology](/rahu/rahu-in-the-12-houses)
-* [Saturn in the 12 Houses](/saturn/saturn-in-the-12-houses)
-* [Moon and Emotional Security in Astrology](/moon/moon-and-emotional-security)
-* [Understanding the Ego Through Astrology](/psychology/understanding-ego)
-* [The Spiritual Meaning of the 8th House](/astrology/8th-house-meaning)
-* [Father Karma in Vedic Astrology](/astrology/father-karma)
+* [Rahu in the 12 Houses in Vedic Astrology](/rahu/why-rahu-makes-you-obsessive/)
+* [Saturn in the 12 Houses](/saturn/saturn-in-pisces-vedic-astrology/)
+* [Moon and Emotional Security in Astrology](/birth-chart/psychological-side-of-birth-chart-vedic-astrology/)
+* [Understanding the Ego Through Astrology](/birth-chart/psychological-side-of-birth-chart-vedic-astrology/)
+* [The Spiritual Meaning of the 8th House](/birth-chart/psychological-side-of-birth-chart-vedic-astrology/)
+* [Father Karma in Vedic Astrology](/saturn/saturn-in-9th-house-vedic-astrology/)

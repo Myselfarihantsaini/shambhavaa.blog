@@ -9,7 +9,7 @@ A quick search on the internet will yield thousands of generic astrological reme
 
 While these sound appealing, in the strict, traditional system of Vedic astrology (Jyotish), prescribing a remedy based on a single planetary placement or a generic sun sign is not just ineffective—it can be downright dangerous. 
 
-Astrology remedies (Upayas) are powerful energetic tools. They are designed to shift the frequency of your mind and life. Using the wrong remedy is akin to taking the wrong prescription medication; it can aggravate the very problem you are trying to solve. In this guide, we will explore why an [astrology remedies consultation](/remedies-consultation) requires a complete, structural analysis of your entire birth chart.
+Astrology remedies (Upayas) are powerful energetic tools. They are designed to shift the frequency of your mind and life. Using the wrong remedy is akin to taking the wrong prescription medication; it can aggravate the very problem you are trying to solve. In this guide, we will explore why an [astrology remedies consultation](/services/remedies-consultation/) requires a complete, structural analysis of your entire birth chart.
 
 ---
 
@@ -55,7 +55,7 @@ This is done through:
 - **Donation (Daan):** By willingly giving away items associated with the malefic planet on its specific day, you are symbolically paying off the karmic debt of that planet, reducing its negative impact on your life.
 - **Mantras:** Chanting a specific Bija (seed) mantra shifts your mental frequency to harmonize with the planetary energy. It builds mental resilience, allowing you to navigate the challenging period with clarity rather than panic.
 
-However, even mantras and donations must be specific. Donating items for a functional benefic planet might inadvertently weaken the very planet that is trying to protect you. *(Learn how we prescribe these in our [consultation process](/consultation-process)).*
+However, even mantras and donations must be specific. Donating items for a functional benefic planet might inadvertently weaken the very planet that is trying to protect you. *(Learn how we prescribe these in our [consultation process](/trust/consultation-process/)).*
 
 ---
 

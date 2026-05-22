@@ -47,7 +47,7 @@ Real astrology explains:
 - why some people fear vulnerability
 - why others become addicted to emotional intensity
 - why loneliness repeats karmically
-- why childhood emotional conditioning shapes adult relationships
+- why childhood emotional conditioning shapes long-term relationships
 - why some placements create chronic emotional exhaustion
 - why certain planetary combinations completely restructure personality over time
 
@@ -57,7 +57,7 @@ It is emotional architecture.
 
 And the deeper you study Jyotish, the more obvious something becomes:
 
-Most adult personalities are survival systems built around old emotional conditioning.
+Many mature personality patterns are survival systems built around old emotional conditioning.
 
 ## Direct Answer: What Does the Birth Chart Reveal Psychologically?
 
@@ -209,7 +209,7 @@ Rahu with Venus may create emotional addiction to desire itself:
 - anticipation
 - dopamine
 - emotional unpredictability
-- sexual intensity
+- intimacy intensity
 - romantic chaos
 
 Many Rahu-Venus natives are not addicted to love itself.
@@ -313,7 +313,7 @@ This is why they often need:
 - meditation
 - distance from people
 
-Not because they hate connection.
+Not because they reject connection.
 
 Because their nervous system absorbs emotional atmosphere too intensely.
 
