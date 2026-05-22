@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import SEO from '../components/SEO';
+import CookieConsent from '../components/CookieConsent';
 import Search from '../components/Search';
 import LanguageGate from '../components/LanguageGate';
 import { getAllPosts } from '../lib/posts';
@@ -46,6 +47,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://shambhavaa.com; upgrade-insecure-requests; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://translate.google.com https://translate.googleapis.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://translate.googleapis.com; frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://translate.google.com; worker-src 'self' blob:;"
+        />
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCHG6BM3DL"></script>
         <script
@@ -53,6 +58,13 @@ export default function RootLayout({ children }) {
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                analytics_storage: 'denied',
+                wait_for_update: 500
+              });
               gtag('js', new Date());
               gtag('config', 'G-CCHG6BM3DL');
             `,
@@ -67,6 +79,7 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning>
         <LanguageGate />
+        <CookieConsent />
 
         <header className="container" style={{ padding: '2rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <a href="/" className="logo" aria-label="Shambhavaa home" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: '700', color: 'var(--accent-gold)' }}>
