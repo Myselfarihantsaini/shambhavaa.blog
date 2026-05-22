@@ -52,7 +52,7 @@ export default function EditorialPolicyPage() {
           <h2 className="text-gold">Community Feedback</h2>
           <p>
             We welcome corrections and constructive dialogue. If you believe an article contains a technical error in 
-            astrological calculation or interpretation, please reach out to our editorial team at <strong>hello@shambhavaa.blog</strong>.
+            astrological calculation or interpretation, please reach out to our editorial team at <strong>shambhavaa.reviews@gmail.com</strong>.
           </p>
         </div>
       </section>

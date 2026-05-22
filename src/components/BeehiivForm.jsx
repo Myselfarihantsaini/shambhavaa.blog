@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const contactEmail = 'hello@shambhavaa.blog';
+const contactEmail = 'shambhavaa.reviews@gmail.com';
 
 export default function BeehiivForm() {
   const [email, setEmail] = useState('');

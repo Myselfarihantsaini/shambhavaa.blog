@@ -26,7 +26,7 @@ export default function ContactPage() {
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                 For questions regarding our content, research methodology, or errors in articles.
               </p>
-              <p style={{ marginTop: '1rem', fontWeight: 'bold' }}>hello@shambhavaa.blog</p>
+              <p style={{ marginTop: '1rem', fontWeight: 'bold' }}>shambhavaa.reviews@gmail.com</p>
             </div>
             
             <div className="card">
