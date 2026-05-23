@@ -152,7 +152,7 @@ function loadGoogleTranslateScript() {
 
   const script = document.createElement('script');
   script.id = GOOGLE_TRANSLATE_SCRIPT_ID;
-  script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
   script.async = true;
   document.body.appendChild(script);
 }
@@ -184,6 +184,10 @@ function applyTranslation(languageCode) {
 
     if (attempts > 40) {
       window.clearInterval(interval);
+      if (!window.location.search.includes('translated=1')) {
+        const separator = window.location.search ? '&' : '?';
+        window.location.replace(`${window.location.pathname}${window.location.search}${separator}translated=1${window.location.hash}`);
+      }
     }
   }, 250);
 }
@@ -233,6 +237,13 @@ export default function LanguageGate() {
     if (!savedLanguage) {
       setShowGate(true);
       return;
+    }
+
+    if (searchParams.get('translated') === '1') {
+      searchParams.delete('translated');
+      const queryString = searchParams.toString();
+      const cleanUrl = `${window.location.pathname}${queryString ? `?${queryString}` : ''}${window.location.hash}`;
+      window.history.replaceState({}, '', cleanUrl);
     }
 
     setSelectedLanguage(savedLanguage);
