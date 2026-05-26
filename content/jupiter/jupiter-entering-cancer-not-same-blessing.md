@@ -123,20 +123,31 @@ And the house decides the life area that Jupiter will activate.
 
 ## Jupiter in Cancer by Lagna
 
-| Lagna | Cancer Becomes | Main Areas Activated |
-|---|---:|---|
-| Aries | 4th house | Home, property, mother, vehicles, education, inner peace, emotional foundation |
-| Taurus | 3rd house | Communication, courage, siblings, writing, skills, marketing, short travel, self-effort |
-| Gemini | 2nd house | Speech, family, savings, food habits, values, accumulated wealth |
-| Cancer | 1st house | Personality, health, identity, confidence, life direction, overall approach |
-| Leo | 12th house | Foreign connections, expenses, sleep, isolation, retreats, moksha, hospitals, ashrams, charity |
-| Virgo | 11th house | Income, gains, networks, elder siblings, desires, social reach, communities |
-| Libra | 10th house | Career, status, authority, karma, public image, professional growth |
-| Scorpio | 9th house | Luck, dharma, father, teachers, higher learning, pilgrimage, fortune, philosophy |
-| Sagittarius | 8th house | Transformation, hidden matters, inheritance, occult knowledge, research, sudden change, deep healing |
-| Capricorn | 7th house | Marriage, partnerships, clients, contracts, public dealing, relationship dynamics |
-| Aquarius | 6th house | Health routines, debts, competition, enemies, service, litigation, daily work, discipline |
-| Pisces | 5th house | Education, intelligence, children, mantra, creativity, romance, speculation, past-life merit |
+<div className="article-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Lagna</th>
+        <th>Cancer Becomes</th>
+        <th>Main Areas Activated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Aries</td><td>4th house</td><td>Home, property, mother, vehicles, education, inner peace, emotional foundation</td></tr>
+      <tr><td>Taurus</td><td>3rd house</td><td>Communication, courage, siblings, writing, skills, marketing, short travel, self-effort</td></tr>
+      <tr><td>Gemini</td><td>2nd house</td><td>Speech, family, savings, food habits, values, accumulated wealth</td></tr>
+      <tr><td>Cancer</td><td>1st house</td><td>Personality, health, identity, confidence, life direction, overall approach</td></tr>
+      <tr><td>Leo</td><td>12th house</td><td>Foreign connections, expenses, sleep, isolation, retreats, moksha, hospitals, ashrams, charity</td></tr>
+      <tr><td>Virgo</td><td>11th house</td><td>Income, gains, networks, elder siblings, desires, social reach, communities</td></tr>
+      <tr><td>Libra</td><td>10th house</td><td>Career, status, authority, karma, public image, professional growth</td></tr>
+      <tr><td>Scorpio</td><td>9th house</td><td>Luck, dharma, father, teachers, higher learning, pilgrimage, fortune, philosophy</td></tr>
+      <tr><td>Sagittarius</td><td>8th house</td><td>Transformation, hidden matters, inheritance, occult knowledge, research, sudden change, deep healing</td></tr>
+      <tr><td>Capricorn</td><td>7th house</td><td>Marriage, partnerships, clients, contracts, public dealing, relationship dynamics</td></tr>
+      <tr><td>Aquarius</td><td>6th house</td><td>Health routines, debts, competition, enemies, service, litigation, daily work, discipline</td></tr>
+      <tr><td>Pisces</td><td>5th house</td><td>Education, intelligence, children, mantra, creativity, romance, speculation, past-life merit</td></tr>
+    </tbody>
+  </table>
+</div>
 
 This alone proves why the same Jupiter transit cannot give the same result to everyone.
 
@@ -158,20 +169,31 @@ Jupiter owns Sagittarius and Pisces. Depending on your Lagna, Jupiter rules diff
 
 This changes the result.
 
-| Lagna | Jupiter Rules | Functional Theme |
-|---|---|---|
-| Aries | 9th and 12th houses | Dharma, fortune, father, higher learning, foreign links, expenses, retreat, spiritual release |
-| Taurus | 8th and 11th houses | Sudden change, inheritance, research, networks, gains, desire fulfilment |
-| Gemini | 7th and 10th houses | Marriage, partnerships, clients, career, status, public karma |
-| Cancer | 6th and 9th houses | Health discipline, service, debt, competition, dharma, teachers, fortune |
-| Leo | 5th and 8th houses | Children, intelligence, mantra, creativity, transformation, hidden matters |
-| Virgo | 4th and 7th houses | Home, mother, property, emotional peace, marriage, partnerships |
-| Libra | 3rd and 6th houses | Effort, communication, siblings, service, competition, health routines |
-| Scorpio | 2nd and 5th houses | Wealth, speech, family, education, children, mantra, past-life merit |
-| Sagittarius | 1st and 4th houses | Identity, health, direction, home, mother, property, emotional foundation |
-| Capricorn | 3rd and 12th houses | Effort, courage, writing, short travel, expenses, foreign lands, isolation |
-| Aquarius | 2nd and 11th houses | Savings, speech, family, income, gains, networks, fulfilment of desires |
-| Pisces | 1st and 10th houses | Identity, health, direction, career, authority, public responsibility |
+<div className="article-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Lagna</th>
+        <th>Jupiter Rules</th>
+        <th>Functional Theme</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Aries</td><td>9th and 12th houses</td><td>Dharma, fortune, father, higher learning, foreign links, expenses, retreat, spiritual release</td></tr>
+      <tr><td>Taurus</td><td>8th and 11th houses</td><td>Sudden change, inheritance, research, networks, gains, desire fulfilment</td></tr>
+      <tr><td>Gemini</td><td>7th and 10th houses</td><td>Marriage, partnerships, clients, career, status, public karma</td></tr>
+      <tr><td>Cancer</td><td>6th and 9th houses</td><td>Health discipline, service, debt, competition, dharma, teachers, fortune</td></tr>
+      <tr><td>Leo</td><td>5th and 8th houses</td><td>Children, intelligence, mantra, creativity, transformation, hidden matters</td></tr>
+      <tr><td>Virgo</td><td>4th and 7th houses</td><td>Home, mother, property, emotional peace, marriage, partnerships</td></tr>
+      <tr><td>Libra</td><td>3rd and 6th houses</td><td>Effort, communication, siblings, service, competition, health routines</td></tr>
+      <tr><td>Scorpio</td><td>2nd and 5th houses</td><td>Wealth, speech, family, education, children, mantra, past-life merit</td></tr>
+      <tr><td>Sagittarius</td><td>1st and 4th houses</td><td>Identity, health, direction, home, mother, property, emotional foundation</td></tr>
+      <tr><td>Capricorn</td><td>3rd and 12th houses</td><td>Effort, courage, writing, short travel, expenses, foreign lands, isolation</td></tr>
+      <tr><td>Aquarius</td><td>2nd and 11th houses</td><td>Savings, speech, family, income, gains, networks, fulfilment of desires</td></tr>
+      <tr><td>Pisces</td><td>1st and 10th houses</td><td>Identity, health, direction, career, authority, public responsibility</td></tr>
+    </tbody>
+  </table>
+</div>
 
 A natural benefic can still carry the agenda of the houses it owns.
 
@@ -204,14 +226,25 @@ The root is the birth chart.
 
 This is why event prediction must begin with D1. For marriage, check the 7th house, Venus, Jupiter, D9, dasha, and relevant transits. For career, check the 10th house, 10th lord, 6th house, 11th house, D10, dasha, and transit support. For children, check the 5th house, Jupiter, D7, dasha, and transit. For property, check the 4th house, Mars, Moon, D4, dasha, and transit.
 
-| Event Question | D1 Houses and Planets to Check | Divisional Chart |
-|---|---|---|
-| Marriage or serious partnership | 7th house, 7th lord, Venus, Jupiter, Darakaraka, dasha and transit support | D9/Navamsha |
-| Career growth or promotion | 10th house, 10th lord, 6th house, 11th house, Saturn, Sun, dasha and transit support | D10/Dasamsa |
-| Children or conception | 5th house, 5th lord, Jupiter, putra karaka themes, dasha and transit support | D7/Saptamsa |
-| Property, vehicle or home | 4th house, 4th lord, Moon, Mars, Venus, dasha and transit support | D4/Chaturthamsha |
-| Wealth and savings | 2nd house, 11th house, 5th house, 9th house, Jupiter, Venus, dasha and transit support | D2/Hora where used |
-| Spiritual growth or retreat | 9th house, 12th house, Jupiter, Ketu, Moon, dasha and transit support | D9 and D20 where used |
+<div className="article-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Event Question</th>
+        <th>D1 Houses and Planets to Check</th>
+        <th>Divisional Chart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Marriage or serious partnership</td><td>7th house, 7th lord, Venus, Jupiter, Darakaraka, dasha and transit support</td><td>D9/Navamsha</td></tr>
+      <tr><td>Career growth or promotion</td><td>10th house, 10th lord, 6th house, 11th house, Saturn, Sun, dasha and transit support</td><td>D10/Dasamsa</td></tr>
+      <tr><td>Children or conception</td><td>5th house, 5th lord, Jupiter, putra karaka themes, dasha and transit support</td><td>D7/Saptamsa</td></tr>
+      <tr><td>Property, vehicle or home</td><td>4th house, 4th lord, Moon, Mars, Venus, dasha and transit support</td><td>D4/Chaturthamsha</td></tr>
+      <tr><td>Wealth and savings</td><td>2nd house, 11th house, 5th house, 9th house, Jupiter, Venus, dasha and transit support</td><td>D2/Hora where used</td></tr>
+      <tr><td>Spiritual growth or retreat</td><td>9th house, 12th house, Jupiter, Ketu, Moon, dasha and transit support</td><td>D9 and D20 where used</td></tr>
+    </tbody>
+  </table>
+</div>
 
 Jupiter can activate.
 
@@ -259,11 +292,22 @@ In Vedic astrology, Jupiter aspects the 5th, 7th, and 9th houses from its positi
 - Capricorn by its 7th aspect
 - Pisces by its 9th aspect
 
-| Jupiter's Aspect from Cancer | Sign Receiving Aspect | What It Can Activate |
-|---|---|---|
-| 5th aspect | Scorpio | Learning, children, strategy, future planning, creativity, hidden insight, research, emotional depth |
-| 7th aspect | Capricorn | Relationships, contracts, clients, business agreements, public dealing, responsibility, external commitments |
-| 9th aspect | Pisces | Dharma, higher guidance, spirituality, teachers, blessings, faith, pilgrimage, long-term meaning |
+<div className="article-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Jupiter's Aspect from Cancer</th>
+        <th>Sign Receiving Aspect</th>
+        <th>What It Can Activate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>5th aspect</td><td>Scorpio</td><td>Learning, children, strategy, future planning, creativity, hidden insight, research, emotional depth</td></tr>
+      <tr><td>7th aspect</td><td>Capricorn</td><td>Relationships, contracts, clients, business agreements, public dealing, responsibility, external commitments</td></tr>
+      <tr><td>9th aspect</td><td>Pisces</td><td>Dharma, higher guidance, spirituality, teachers, blessings, faith, pilgrimage, long-term meaning</td></tr>
+    </tbody>
+  </table>
+</div>
 
 This means the transit does not influence Cancer alone. It also sends its wisdom, expansion, and pressure toward these signs.
 
@@ -321,15 +365,25 @@ Whether it becomes profit or expense depends on the house activated and the dash
 
 A person with Cancer as the 11th house may see gains. A person with Cancer as the 12th house may see expenses or foreign/spiritual expenditure. A person with Cancer as the 4th house may spend on home, vehicle, property, or mother.
 
-| Cancer House in Your Chart | Money Pattern During Jupiter in Cancer |
-|---|---|
-| 2nd house | Savings, speech, food habits, family wealth, accumulated resources become important |
-| 4th house | Spending or investment on home, vehicle, property, education, mother, comfort |
-| 6th house | Debt repayment, health expenses, work routines, competition, service-related money discipline |
-| 8th house | Insurance, inheritance, taxes, joint assets, sudden expenses or hidden financial matters |
-| 10th house | Career expansion, public responsibility, status growth, professional income movement |
-| 11th house | Gains, networks, social reach, audience, elder siblings, fulfilment of desires |
-| 12th house | Foreign spending, retreats, sleep, hospitals, charity, spiritual expenditure, hidden leakage |
+<div className="article-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Cancer House in Your Chart</th>
+        <th>Money Pattern During Jupiter in Cancer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2nd house</td><td>Savings, speech, food habits, family wealth, accumulated resources become important</td></tr>
+      <tr><td>4th house</td><td>Spending or investment on home, vehicle, property, education, mother, comfort</td></tr>
+      <tr><td>6th house</td><td>Debt repayment, health expenses, work routines, competition, service-related money discipline</td></tr>
+      <tr><td>8th house</td><td>Insurance, inheritance, taxes, joint assets, sudden expenses or hidden financial matters</td></tr>
+      <tr><td>10th house</td><td>Career expansion, public responsibility, status growth, professional income movement</td></tr>
+      <tr><td>11th house</td><td>Gains, networks, social reach, audience, elder siblings, fulfilment of desires</td></tr>
+      <tr><td>12th house</td><td>Foreign spending, retreats, sleep, hospitals, charity, spiritual expenditure, hidden leakage</td></tr>
+    </tbody>
+  </table>
+</div>
 
 This is why a single financial prediction for all signs is unreliable.
 
@@ -385,20 +439,31 @@ True Jupiter teaches wisdom, not dependency.
 
 The correct way to read this transit is step-by-step:
 
-| Step | What to Check | Why It Matters |
-|---:|---|---|
-| 1 | Identify your Lagna | Lagna decides which house Cancer becomes. |
-| 2 | See which house Cancer occupies | This shows the main life area Jupiter activates. |
-| 3 | Check what Jupiter rules | Jupiter carries the agenda of Sagittarius and Pisces houses. |
-| 4 | Check natal Jupiter | Natal strength decides how cleanly Jupiter can deliver results. |
-| 5 | Judge the Moon | Cancer belongs to the Moon, so Moon strength becomes the emotional container. |
-| 6 | Check dasha and antardasha | Dasha decides whether transit results can manifest externally. |
-| 7 | Confirm D1 promise | Transit cannot give what the birth chart does not promise. |
-| 8 | Check divisional charts | D9, D10, D7, D4 and other vargas confirm specific life events. |
-| 9 | Check Jupiter's aspects | Scorpio, Capricorn and Pisces also become activated from Cancer. |
-| 10 | Judge other transits | Saturn, Rahu, Ketu and fast-moving planets can support or complicate results. |
-| 11 | Synthesize the chart | Prediction comes from layers, not one placement. |
-| 12 | Then make the prediction | Only after context is complete should a result be declared. |
+<div className="article-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Step</th>
+        <th>What to Check</th>
+        <th>Why It Matters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Identify your Lagna</td><td>Lagna decides which house Cancer becomes.</td></tr>
+      <tr><td>2</td><td>See which house Cancer occupies</td><td>This shows the main life area Jupiter activates.</td></tr>
+      <tr><td>3</td><td>Check what Jupiter rules</td><td>Jupiter carries the agenda of Sagittarius and Pisces houses.</td></tr>
+      <tr><td>4</td><td>Check natal Jupiter</td><td>Natal strength decides how cleanly Jupiter can deliver results.</td></tr>
+      <tr><td>5</td><td>Judge the Moon</td><td>Cancer belongs to the Moon, so Moon strength becomes the emotional container.</td></tr>
+      <tr><td>6</td><td>Check dasha and antardasha</td><td>Dasha decides whether transit results can manifest externally.</td></tr>
+      <tr><td>7</td><td>Confirm D1 promise</td><td>Transit cannot give what the birth chart does not promise.</td></tr>
+      <tr><td>8</td><td>Check divisional charts</td><td>D9, D10, D7, D4 and other vargas confirm specific life events.</td></tr>
+      <tr><td>9</td><td>Check Jupiter's aspects</td><td>Scorpio, Capricorn and Pisces also become activated from Cancer.</td></tr>
+      <tr><td>10</td><td>Judge other transits</td><td>Saturn, Rahu, Ketu and fast-moving planets can support or complicate results.</td></tr>
+      <tr><td>11</td><td>Synthesize the chart</td><td>Prediction comes from layers, not one placement.</td></tr>
+      <tr><td>12</td><td>Then make the prediction</td><td>Only after context is complete should a result be declared.</td></tr>
+    </tbody>
+  </table>
+</div>
 
 Only after this should a serious result be declared.
 
