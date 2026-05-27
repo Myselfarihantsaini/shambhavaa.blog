@@ -4,7 +4,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import ShareButtons from '../../../components/ShareButtons';
 import AuthorBox from '../../../components/AuthorBox';
-import ArticleAudioPlayer from '../../../components/ArticleAudioPlayer';
 
 // Helper to calculate reading time
 function getReadingTime(content) {
@@ -233,8 +232,6 @@ export default function ArticlePage({ params }) {
           <span>{readingTime} min read</span>
         </div>
       </header>
-
-      <ArticleAudioPlayer title={post.meta.title} content={post.content} />
 
       <div className="article-content" style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-primary)' }}>
         <MDXRemote
