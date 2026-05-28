@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Moon in the 8th House in Vedic Astrology</title>
+  <desc id="desc">A full moon over dark water with gold Vedic chart lines, symbolizing hidden emotions, transformation, and occult insight.</desc>
+  <defs>
+    <radialGradient id="moonGlow" cx="50%" cy="38%" r="30%">
+      <stop offset="0%" stop-color="#fff6ce"/>
+      <stop offset="38%" stop-color="#d8b95f"/>
+      <stop offset="72%" stop-color="#6f5a25" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#05050a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moonSurface" cx="42%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fff8da"/>
+      <stop offset="58%" stop-color="#e4c66a"/>
+      <stop offset="100%" stop-color="#9d7c32"/>
+    </radialGradient>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#070615"/>
+      <stop offset="55%" stop-color="#03030a"/>
+      <stop offset="100%" stop-color="#010106"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#070712"/>
+      <stop offset="100%" stop-color="#020207"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect y="560" width="1600" height="340" fill="url(#water)"/>
+
+  <circle cx="800" cy="335" r="250" fill="url(#moonGlow)" opacity="0.72"/>
+  <circle cx="800" cy="335" r="138" fill="url(#moonSurface)" filter="url(#softGlow)"/>
+  <circle cx="758" cy="294" r="18" fill="#b4923c" opacity="0.28"/>
+  <circle cx="842" cy="365" r="25" fill="#8f7130" opacity="0.18"/>
+  <circle cx="812" cy="274" r="10" fill="#7b6229" opacity="0.2"/>
+
+  <g opacity="0.45" stroke="#d4af37" stroke-width="1.4" fill="none">
+    <circle cx="800" cy="335" r="260"/>
+    <circle cx="800" cy="335" r="205"/>
+    <circle cx="800" cy="335" r="155"/>
+    <path d="M540 335h520M800 75v520M616 151l368 368M984 151 616 519"/>
+    <path d="M800 75l86 175 193 28-140 137 33 193-172-91-172 91 33-193-140-137 193-28z" opacity="0.42"/>
+  </g>
+
+  <g opacity="0.26" stroke="#d4af37" stroke-width="2" fill="none">
+    <path d="M310 660c180-40 330-42 490 0s320 40 490 0"/>
+    <path d="M240 720c210-44 380-44 560 0s350 42 560 0"/>
+    <path d="M350 792c150-26 290-24 450 0s300 22 450 0"/>
+  </g>
+
+  <g opacity="0.18">
+    <ellipse cx="800" cy="646" rx="180" ry="42" fill="#d4af37"/>
+    <ellipse cx="800" cy="704" rx="128" ry="24" fill="#d4af37"/>
+  </g>
+
+  <g opacity="0.34" stroke="#d4af37" stroke-width="2.2" fill="none">
+    <path d="M250 210c68-58 148-86 240-84"/>
+    <path d="M1110 126c94 0 174 32 240 90"/>
+    <path d="M220 520c62 34 122 48 180 42"/>
+    <path d="M1195 562c76 5 138-12 188-52"/>
+  </g>
+
+  <g opacity="0.6">
+    <path d="M700 590c0-78 45-130 100-130s100 52 100 130v172H700z" fill="#030309" stroke="#8f7130" stroke-width="3"/>
+    <path d="M744 596c0-48 24-84 56-84s56 36 56 84v136H744z" fill="#070713" stroke="#d4af37" stroke-opacity="0.5" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.22" fill="#d4af37">
+    <circle cx="176" cy="166" r="2"/>
+    <circle cx="334" cy="98" r="1.8"/>
+    <circle cx="1230" cy="86" r="2"/>
+    <circle cx="1400" cy="222" r="1.7"/>
+    <circle cx="136" cy="410" r="1.5"/>
+    <circle cx="1470" cy="472" r="1.8"/>
+    <circle cx="518" cy="690" r="1.5"/>
+    <circle cx="1090" cy="742" r="1.4"/>
+  </g>
+</svg>
