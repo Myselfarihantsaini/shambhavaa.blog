@@ -69,6 +69,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="p:domain_verify" content="31d19f48dc6ae8aa6b7d02eb6a32b6b7" />
         <meta
           httpEquiv="Content-Security-Policy"
           content={contentSecurityPolicy}
