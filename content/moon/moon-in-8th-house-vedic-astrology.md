@@ -25,7 +25,7 @@ faqs:
     answer: "Moon in the 8th house can support careers in astrology, psychology, counselling, healing, research, investigation, insurance, taxation, audit, finance-risk, crisis management, medical research, trauma work and hidden knowledge systems when the 10th house, dasha and divisional charts support it."
 ---
 
-![Moon in the 8th House in Vedic Astrology](/images/moon/moon-in-8th-house-hero.svg)
+![Moon in the 8th House in Vedic Astrology](/images/moon/moon-in-8th-house-hero.png)
 
 # Moon in the 8th House in Vedic Astrology
 
