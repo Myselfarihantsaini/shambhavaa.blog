@@ -14,6 +14,9 @@ module.exports = {
     '/jupiter',
     '/venus',
   ],
+  additionalPaths: async (config) => [
+    await config.transform(config, '/tools/kundli-chart/'),
+  ],
   transform: async (config, path) => {
     if (path === '/') {
       return {

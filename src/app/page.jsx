@@ -1,6 +1,6 @@
 import BeehiivForm from '../components/BeehiivForm';
 import { getAllPosts } from '../lib/posts';
-import { ArrowRight, FileText, FolderOpen, User, Shield, Star, BookOpen } from 'lucide-react';
+import { ArrowRight, Calculator, FileText, FolderOpen, User, Shield, Star, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const articleFolderDetails = {
@@ -236,6 +236,42 @@ export default function Home() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Tools */}
+      <section style={{ padding: '0 0 var(--spacing-lg)' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+          <div>
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              color: 'var(--accent-gold)',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              textTransform: 'uppercase',
+              letterSpacing: '0.12em',
+              marginBottom: '0.8rem'
+            }}>
+              <Calculator size={16} /> Free Astrology Tools
+            </span>
+            <h2 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>Calculate Your Chart</h2>
+            <p style={{ maxWidth: '680px', color: 'var(--text-secondary)', fontSize: '1.05rem', margin: 0 }}>
+              Generate a North Indian style Vedic kundli with Lagna, Moon sign, nakshatra, houses, and planetary placements.
+            </p>
+          </div>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+          <a href="/tools/kundli-chart/" className="card" style={{ display: 'block', padding: '2.5rem', color: 'inherit' }}>
+            <Calculator size={34} color="var(--accent-gold)" />
+            <h3 className="text-gold" style={{ fontSize: '1.8rem', marginTop: '1.2rem' }}>Free Kundli Generator</h3>
+            <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>
+              Enter birth date, time, and place to generate your D1 Rashi chart in North Indian format.
+            </p>
+            <span style={{ fontWeight: 'bold', color: 'var(--accent-gold)' }}>Open Tool &rarr;</span>
+          </a>
         </div>
       </section>
 
