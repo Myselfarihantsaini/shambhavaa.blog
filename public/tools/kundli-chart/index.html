@@ -43,6 +43,8 @@
   input:focus,select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,110,.14)}
   input::-webkit-calendar-picker-indicator{filter:invert(.7) sepia(1) saturate(2) hue-rotate(5deg)}
   .hint{font-size:12px;color:var(--muted);margin-top:2px}
+  .geo-status{font-size:12px;color:var(--gold-soft);margin-top:2px;min-height:18px}
+  .geo-status.bad{color:#e0a0a0}
   details{grid-column:1/-1;border:1px dashed var(--line);border-radius:11px;padding:4px 14px;background:rgba(0,0,0,.15)}
   summary{cursor:pointer;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:9px 0}
   details .grid{margin:6px 0 12px}
@@ -104,7 +106,8 @@
         <label for="place">Place of birth</label>
         <input type="text" id="place" list="cityList" placeholder="Start typing your city, e.g. Jaipur" autocomplete="off">
         <datalist id="cityList"></datalist>
-        <span class="hint">Pick your city from the list — time zone and coordinates fill in automatically.</span>
+        <span class="hint">Pick your city from the list, or type a precise birthplace and wait for online lookup.</span>
+        <span class="geo-status" id="geoStatus"></span>
       </div>
       <details>
         <summary>Advanced / city not listed</summary>
@@ -204,27 +207,40 @@ IN.forEach(([n,la,lo])=>CITY[n.toLowerCase()]={tz:5.5,lat:la,lon:lo,name:n});
 const W=[["Kathmandu",5.75,27.7172,85.324],["Karachi",5,24.8607,67.0011],["Lahore",5,31.5204,74.3587],["Islamabad",5,33.6844,73.0479],["Dhaka",6,23.8103,90.4125],["Colombo",5.5,6.9271,79.8612],["Kabul",4.5,34.5553,69.2075],["Dubai",4,25.2048,55.2708],["Abu Dhabi",4,24.4539,54.3773],["Doha",3,25.2854,51.531],["Riyadh",3,24.7136,46.6753],["Muscat",4,23.588,58.3829],["London",0,51.5074,-0.1278],["Manchester",0,53.4808,-2.2426],["Dublin",0,53.3498,-6.2603],["Paris",1,48.8566,2.3522],["Berlin",1,52.52,13.405],["Madrid",1,40.4168,-3.7038],["Rome",1,41.9028,12.4964],["Amsterdam",1,52.3676,4.9041],["Zurich",1,47.3769,8.5417],["New York",-5,40.7128,-74.006],["Washington",-5,38.9072,-77.0369],["Toronto",-5,43.6532,-79.3832],["Chicago",-6,41.8781,-87.6298],["Houston",-6,29.7604,-95.3698],["Denver",-7,39.7392,-104.9903],["Los Angeles",-8,34.0522,-118.2437],["San Francisco",-8,37.7749,-122.4194],["Seattle",-8,47.6062,-122.3321],["Vancouver",-8,49.2827,-123.1207],["Singapore",8,1.3521,103.8198],["Kuala Lumpur",8,3.139,101.6869],["Hong Kong",8,22.3193,114.1694],["Beijing",8,39.9042,116.4074],["Shanghai",8,31.2304,121.4737],["Tokyo",9,35.6762,139.6503],["Seoul",9,37.5665,126.978],["Sydney",10,-33.8688,151.2093],["Melbourne",10,-37.8136,144.9631],["Auckland",12,-36.8485,174.7633],["Johannesburg",2,-26.2041,28.0473],["Nairobi",3,-1.2921,36.8219]];
 W.forEach(([n,tz,la,lo])=>CITY[n.toLowerCase()]={tz,lat:la,lon:lo,name:n});
 
-(function(){const dl=document.getElementById('cityList');Object.values(CITY).forEach(c=>{const o=document.createElement('option');o.value=c.name;dl.appendChild(o);});
-const seen={};dl.querySelectorAll('option').forEach(o=>{if(seen[o.value])o.remove();else seen[o.value]=1;});})();
+const GEOCODE_CACHE={};
+let geoTimer=null,geoRequestId=0;
+function setGeoStatus(msg,bad=false){const el=document.getElementById('geoStatus');el.textContent=msg||'';el.classList.toggle('bad',bad);}
+function formatOffset(offset){const sign=offset>=0?'+':'−';const abs=Math.abs(offset);const h=Math.floor(abs);const m=Math.round((abs-h)*60);return "UTC "+sign+h+":"+String(m).padStart(2,'0');}
+function setTimezoneValue(offset,label){const sel=document.getElementById('tz');let ok=false;for(const o of sel.options)if(parseFloat(o.value)===offset){sel.value=o.value;ok=true;break;}if(!ok){const o=document.createElement('option');o.value=String(offset);o.textContent=label||formatOffset(offset);sel.appendChild(o);sel.value=String(offset);}}
+function addPlaceOption(label){const dl=document.getElementById('cityList');if(!label||Array.from(dl.options).some(o=>o.value===label))return;const o=document.createElement('option');o.value=label;dl.appendChild(o);}
+async function lookupTimezone(lat,lon){try{const res=await fetch("https://timeapi.io/api/timezone/coordinate?latitude="+encodeURIComponent(lat)+"&longitude="+encodeURIComponent(lon));if(!res.ok)throw new Error("timezone");const data=await res.json();const offsetSeconds=(data.standardUtcOffset||data.currentUtcOffset||{}).seconds;if(typeof offsetSeconds==="number"){const offset=offsetSeconds/3600;setTimezoneValue(offset,(data.timeZone?data.timeZone+" · ":"")+formatOffset(offset));return true;}}catch(e){return false;}return false;}
+async function applyPlace(c,source){document.getElementById('lat').value=Number(c.lat).toFixed(6);document.getElementById('lon').value=Number(c.lon).toFixed(6);if(typeof c.tz==="number"){setTimezoneValue(c.tz);setGeoStatus("Using "+source+" coordinates: "+Number(c.lat).toFixed(4)+", "+Number(c.lon).toFixed(4));return true;}setGeoStatus("Found coordinates. Detecting time zone...");const ok=await lookupTimezone(c.lat,c.lon);setGeoStatus("Using "+source+" coordinates: "+Number(c.lat).toFixed(4)+", "+Number(c.lon).toFixed(4)+(ok?"":" · set time zone manually if needed"),!ok);return true;}
+function placeLabel(item){const parts=(item.display_name||item.name||'').split(',').map(p=>p.trim()).filter(Boolean);return parts.slice(0,5).join(', ');}
+async function searchPlaces(query,limit=5){const id=++geoRequestId;setGeoStatus("Searching birthplace...");try{const url="https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit="+limit+"&q="+encodeURIComponent(query);const res=await fetch(url);if(!res.ok)throw new Error("place");const items=await res.json();if(id!==geoRequestId)return[];items.forEach(item=>{const label=placeLabel(item);if(!label)return;GEOCODE_CACHE[label.toLowerCase()]={name:label,lat:parseFloat(item.lat),lon:parseFloat(item.lon)};addPlaceOption(label);});setGeoStatus(items.length?"Select the exact place from suggestions for precise coordinates.":"No place found. Use Advanced coordinates.",!items.length);return items;}catch(e){if(id===geoRequestId)setGeoStatus("Online place lookup failed. Use Advanced coordinates.",true);return[];}}
+async function resolveTypedPlace(raw){const key=raw.trim().toLowerCase();if(!key)return false;if(CITY[key])return applyPlace(CITY[key],"built-in city");if(GEOCODE_CACHE[key])return applyPlace(GEOCODE_CACHE[key],"online place");const items=await searchPlaces(raw,1);if(!items.length)return false;const label=placeLabel(items[0]);const c={name:label,lat:parseFloat(items[0].lat),lon:parseFloat(items[0].lon)};GEOCODE_CACHE[label.toLowerCase()]=c;document.getElementById('place').value=label;return applyPlace(c,"online place");}
+
+(function(){Object.values(CITY).forEach(c=>addPlaceOption(c.name));})();
 
 document.getElementById('place').addEventListener('input',function(){
-  const c=CITY[this.value.trim().toLowerCase()];if(!c)return;
-  document.getElementById('lat').value=c.lat;document.getElementById('lon').value=c.lon;
-  const sel=document.getElementById('tz');let ok=false;for(const o of sel.options)if(parseFloat(o.value)===c.tz){sel.value=o.value;ok=true;break;}
-  if(!ok){const o=document.createElement('option');o.value=String(c.tz);o.textContent="UTC "+(c.tz>=0?"+":"")+c.tz;sel.appendChild(o);sel.value=String(c.tz);}
+  const raw=this.value.trim();const key=raw.toLowerCase();
+  if(!raw){setGeoStatus("");return;}
+  if(CITY[key]){applyPlace(CITY[key],"built-in city");return;}
+  if(GEOCODE_CACHE[key]){applyPlace(GEOCODE_CACHE[key],"online place");return;}
+  if(raw.length<3){setGeoStatus("Type at least 3 letters for place lookup.");return;}
+  clearTimeout(geoTimer);geoTimer=setTimeout(()=>searchPlaces(raw),650);
 });
 
 function decToDMS(x){const d=Math.floor(x);const mf=(x-d)*60;const m=Math.floor(mf);return d+"° "+String(m).padStart(2,'0')+"'";}
 function nakInfo(sid){const ni=Math.floor(sid/(360/27));const within=sid-ni*(360/27);const pada=Math.floor(within/(360/108))+1;return{name:NAK[ni][0],lord:NAK[ni][1],pada};}
 
-document.getElementById('calc').addEventListener('click',function(){
+document.getElementById('calc').addEventListener('click',async function(){
   const err=document.getElementById('err');err.classList.remove('show');
   const dob=document.getElementById('dob').value,tob=document.getElementById('tob').value;
-  const tz=parseFloat(document.getElementById('tz').value);
-  const lat=parseFloat(document.getElementById('lat').value);
-  const lon=parseFloat(document.getElementById('lon').value);
   if(!dob||!tob){err.textContent="Please enter date and time of birth.";err.classList.add('show');return;}
-  if(isNaN(lat)||isNaN(lon)){err.textContent="Please pick your city from the list, or enter latitude & longitude under Advanced.";err.classList.add('show');return;}
+  let tz=parseFloat(document.getElementById('tz').value);
+  let lat=parseFloat(document.getElementById('lat').value);
+  let lon=parseFloat(document.getElementById('lon').value);
+  if(isNaN(lat)||isNaN(lon)){const resolved=await resolveTypedPlace(document.getElementById('place').value);lat=parseFloat(document.getElementById('lat').value);lon=parseFloat(document.getElementById('lon').value);tz=parseFloat(document.getElementById('tz').value);if(!resolved||isNaN(lat)||isNaN(lon)){err.textContent="Please pick your city from suggestions, or enter latitude & longitude under Advanced.";err.classList.add('show');return;}}
 
   const[y,mo,da]=dob.split('-').map(Number);const[hh,mi]=tob.split(':').map(Number);
   const utHour=hh+mi/60-tz;
