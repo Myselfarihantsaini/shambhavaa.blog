@@ -150,6 +150,18 @@
   .rd-list{list-style:none;margin:0;padding:0}
   .rd-list>li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);line-height:1.55}
   .rd-list>li:last-child{border-bottom:none}
+  .rd-call{color:var(--ink);font-size:13px;line-height:1.65;border:1px solid var(--line);border-radius:10px;
+    background:rgba(0,0,0,.16);padding:11px 13px;margin:6px 0 10px}
+  .rd-grade{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);
+    border-radius:12px;background:rgba(0,0,0,.20);padding:10px 13px;margin:8px 0 10px}
+  .rd-grade span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .rd-grade b{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft)}
+  .rd-grade-strong{box-shadow:inset 3px 0 0 #9fd0a0}
+  .rd-grade-moderate,.rd-grade-preparation{box-shadow:inset 3px 0 0 var(--gold)}
+  .rd-grade-mixed,.rd-grade-caution{box-shadow:inset 3px 0 0 #e0a0a0}
+  .rd-table{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid rgba(255,255,255,.06);border-radius:10px}
+  .rd-table table{margin-top:0;font-size:12.5px}
+  .rd-table th,.rd-table td{padding:8px 9px}
   .rd-yk,.rd-mk{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:20px;padding:1px 7px;margin-left:5px}
   .rd-yk{color:#1a1305;background:var(--gold-soft)}
   .rd-mk{color:#e0a0a0;border:1px solid rgba(224,160,160,.4)}
@@ -278,11 +290,14 @@
             <option value="general">General</option>
             <option value="career">Career</option>
             <option value="marriage">Marriage</option>
+            <option value="wealth">Wealth</option>
             <option value="children">Children</option>
             <option value="education">Education</option>
             <option value="health">Health</option>
             <option value="property">Property</option>
             <option value="foreign">Foreign / travel</option>
+            <option value="current_dasha">Current dasha</option>
+            <option value="yearly_prediction">Yearly prediction</option>
           </select>
         </div>
         <div class="reading" id="reading"></div>
@@ -691,10 +706,18 @@ let LAST_CHART=null, RULEDATA=null;
 const RULES_BASE='model/';   // data files (rules.json etc.) ship with this tool
 async function loadRuleData(){
   if(RULEDATA)return RULEDATA;
-  const files=['rules.json','planet_metadata.json','topic_matrix.json','model_config.json'];
-  const [rules,planetMeta,topicMatrix,config]=await Promise.all(
-    files.map(f=>fetch(RULES_BASE+f).then(r=>{if(!r.ok)throw new Error(f);return r.json();})));
-  RULEDATA={rules,planetMeta,topicMatrix,config};return RULEDATA;
+  const files=['rules.json','planet_metadata.json','topic_matrix.json','model_config.json','prediction_framework.json'];
+  try{
+    const [rules,planetMeta,topicMatrix,config,predictionFramework]=await Promise.all(
+      files.map(f=>fetch(RULES_BASE+f).then(r=>{if(!r.ok)throw new Error(f);return r.json();})));
+    RULEDATA={rules,planetMeta,topicMatrix,config,predictionFramework};return RULEDATA;
+  }catch(e){
+    if(typeof KundliRuleEngine!=='undefined'&&KundliRuleEngine.fallbackFramework){
+      RULEDATA={rules:{rules:{}},planetMeta:{},topicMatrix:{},config:{safety_rules:[]},predictionFramework:KundliRuleEngine.fallbackFramework};
+      return RULEDATA;
+    }
+    throw e;
+  }
 }
 async function renderModel(){
   const box=document.getElementById('reading');
@@ -709,7 +732,7 @@ async function renderModel(){
   }catch(e){
     box.innerHTML='<p class="rd-note">The reading model needs its data files '+
       '(<code>model/rules.json</code>, <code>model/planet_metadata.json</code>, <code>model/topic_matrix.json</code>, '+
-      '<code>model_config.json</code>) and <code>kundli-rule-engine.js</code> hosted next to this page. '+
+      '<code>model_config.json</code>, <code>prediction_framework.json</code>) and <code>kundli-rule-engine.js</code> hosted next to this page. '+
       'Browsers block loading them when the file is opened directly from disk (file://); once the page is '+
       'on your site over https the reading appears automatically.</p>';
   }
