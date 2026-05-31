@@ -174,17 +174,6 @@
   .rd-sub{font-size:12px;color:var(--muted);margin:3px 0 0 4px;padding-left:8px;border-left:2px solid rgba(212,175,110,.18)}
   .rd-pos2{color:#9fd0a0}.rd-neg2{color:#caa0a0}
   .rd-safe li{color:var(--muted);font-size:12px}
-  .corpus{margin-top:18px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.18);
-    padding:14px 15px;display:none}
-  .corpus.show{display:block}
-  .cx-head{font-family:var(--serif);font-size:22px;color:var(--gold-soft);font-weight:600;text-align:center}
-  .cx-sub,.cx-note{color:var(--muted);font-size:12.5px;line-height:1.6;text-align:center;max-width:64ch;margin:4px auto 10px}
-  .cx-list{list-style:none;margin:0;padding:0}
-  .cx-item{padding:9px 0;border-top:1px solid rgba(255,255,255,.06)}
-  .cx-bk{color:var(--ink);font-size:13.5px;font-weight:500}
-  .cx-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:2px}
-  .cx-pp{color:var(--gold);font-size:12px}
-  .cx-fac{color:var(--muted);font-size:12px}
 
   /* ===== Download report button ===== */
   .r-actions{text-align:center;margin:0 0 20px}
@@ -231,9 +220,6 @@
   .report .r-reading .rd-note,.report .r-reading .rd-kind{color:#8a6d2f}
   .report .r-reading .rd-call,.report .r-reading .rd-grade{border-color:#e4dcc8;background:#fbf8ef;color:#23201a}
   .report .r-reading .rd-table table{width:100%;font-size:10.5px}
-  .report .r-refs{margin:0;padding-left:16px;font-size:10.5px;color:#23201a}
-  .report .r-refs li{margin:0 0 4px}
-  .report .r-rf{color:#6b6660}
   .report .r-foot{margin-top:18px;border-top:1px solid #d8cdb5;padding-top:8px;font-size:9.5px;color:#8a8276;text-align:center;line-height:1.5}
 
   @media print{
@@ -375,7 +361,6 @@
           </select>
         </div>
         <div class="reading" id="reading"></div>
-        <div class="corpus" id="corpusrefs"></div>
       </div>
     </div>
   </div>
@@ -385,7 +370,6 @@
 
 <!-- rule engine (ships alongside this file) -->
 <script src="kundli-rule-engine.js"></script>
-<script src="kundli-corpus.js"></script>
 <script>
 const D2R=Math.PI/180,R2D=180/Math.PI;
 const n360=x=>{x%=360;return x<0?x+360:x;};
@@ -852,19 +836,12 @@ function buildReport(){
      buildMahaRows()+'</tbody></table>';
   const readHTML=(rd&&rd.innerHTML.trim())?rd.innerHTML:'<p class="r-note">The deterministic reading appears here once its data files are available on the host.</p>';
   H+='<div class="r-sec">Rule-based Reading</div><div class="r-reading">'+readHTML+'</div>';
-  if(LAST_REFS&&LAST_REFS.length){
-    H+='<div class="r-sec">Source Library Cross-Reference</div><ul class="r-refs">'+
-      LAST_REFS.map(r=>'<li><b>'+escHTML(r.title)+'</b> | p.'+escHTML(r.ps)+
-        ((r.pe&&r.pe!==r.ps)?'-'+escHTML(r.pe):'')+
-        ' <span class="r-rf">'+(r.labels||[]).map(escHTML).join(' | ')+'</span></li>').join('')+
-      '</ul>';
-  }
   H+='<div class="r-foot">Generated '+escHTML(new Date().toLocaleString())+' | shambhavaa.com | whole-sign houses, sidereal Lahiri zodiac, mean nodes. A rule-based research aid, not a substitute for a consultation.</div>';
   document.getElementById('report').innerHTML=H;
 }
 
 
-let LAST_CHART=null, RULEDATA=null, LAST_REFS=[];
+let LAST_CHART=null, RULEDATA=null;
 const RULES_BASE='model/';   // data files (rules.json etc.) ship with this tool
 async function loadRuleData(){
   if(RULEDATA)return RULEDATA;
@@ -881,42 +858,9 @@ async function loadRuleData(){
     throw e;
   }
 }
-async function renderCorpus(){
-  const panel=document.getElementById('corpusrefs');
-  if(!panel)return;
-  if(!LAST_CHART||typeof KundliCorpus==='undefined'){
-    LAST_REFS=[];
-    panel.innerHTML='';
-    panel.classList.remove('show');
-    return;
-  }
-  const sel=document.getElementById('rtopic');
-  const topic=sel?sel.value:'general';
-  const reading=document.getElementById('reading');
-  panel.innerHTML='<div class="cx-note">Finding source references...</div>';
-  panel.classList.add('show');
-  try{
-    await KundliCorpus.load(RULES_BASE);
-    let sadeSati=false;
-    try{
-      const tr=transitSidereal(Date.now()/86400000+2440587.5);
-      const satH=((Math.floor(tr.sid['Saturn']/30)-NATAL_REF.moonSign+12)%12)+1;
-      sadeSati=[12,1,2].indexOf(satH)>=0;
-    }catch(e){}
-    LAST_REFS=KundliCorpus.findReferences(LAST_CHART, topic, reading?reading.textContent:'', {sadeSati:sadeSati});
-    panel.innerHTML=KundliCorpus.renderHTML(LAST_REFS, topic);
-  }catch(e){
-    LAST_REFS=[];
-    panel.innerHTML='<div class="cx-note">Source references need <code>model/corpus-index.json</code>, '+
-      '<code>model/corpus-books.json</code> and <code>kundli-corpus.js</code> hosted with this tool.</div>';
-  }
-}
 async function renderModel(){
   const box=document.getElementById('reading');
-  if(!box||!LAST_CHART||typeof KundliRuleEngine==='undefined'){
-    renderCorpus();
-    return;
-  }
+  if(!box||!LAST_CHART||typeof KundliRuleEngine==='undefined')return;
   const sel=document.getElementById('rtopic');
   const topic=sel?sel.value:'general';
   box.innerHTML='<p class="rd-note">Running the model\u2026</p>';
@@ -924,16 +868,12 @@ async function renderModel(){
     const data=await loadRuleData();
     const result=KundliRuleEngine.runEngine(LAST_CHART, topic==='general'?null:topic, data);
     box.innerHTML=KundliRuleEngine.renderReadingHTML(result, topic);
-    renderCorpus();
   }catch(e){
     box.innerHTML='<p class="rd-note">The reading model needs its data files '+
       '(<code>model/rules.json</code>, <code>model/planet_metadata.json</code>, <code>model/topic_matrix.json</code>, '+
       '<code>model_config.json</code>, <code>prediction_framework.json</code>) and <code>kundli-rule-engine.js</code> hosted next to this page. '+
       'Browsers block loading them when the file is opened directly from disk (file://); once the page is '+
       'on your site over https the reading appears automatically.</p>';
-    LAST_REFS=[];
-    const panel=document.getElementById('corpusrefs');
-    if(panel){panel.innerHTML='';panel.classList.remove('show');}
   }
 }
 document.addEventListener('change',e=>{if(e.target&&e.target.id==='rtopic')renderModel();});
