@@ -175,6 +175,20 @@
   .rd-pos2{color:#9fd0a0}.rd-neg2{color:#caa0a0}
   .rd-safe li{color:var(--muted);font-size:12px}
 
+  /* ===== Divisional charts (varga) ===== */
+  .varga{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
+  .varga h3{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600}
+  .vlead{text-align:center;color:var(--muted);font-size:12.5px;margin:2px auto 14px;max-width:62ch;line-height:1.55}
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:8px}
+  .vg-item{gap:6px}
+  .vg-item svg{width:100%;max-width:360px}
+  .vg-item figcaption{font-size:11px}
+  .vg-tag{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .vtab{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+  .vtab th,.vtab td{text-align:center;padding:6px 6px;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap}
+  .vtab th{color:var(--gold);font-weight:500;letter-spacing:.04em;font-size:10px;text-transform:uppercase}
+  .vtab td:first-child,.vtab th:first-child{text-align:left;color:var(--ink)}
+
   /* ===== Download report button ===== */
   .r-actions{text-align:center;margin:0 0 20px}
   .btn-secondary{display:inline-block;width:auto;background:transparent;border:1px solid var(--gold);
@@ -220,6 +234,10 @@
   .report .r-reading .rd-note,.report .r-reading .rd-kind{color:#8a6d2f}
   .report .r-reading .rd-call,.report .r-reading .rd-grade{border-color:#e4dcc8;background:#fbf8ef;color:#23201a}
   .report .r-reading .rd-table table{width:100%;font-size:10.5px}
+  .report .r-vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .report .r-vgrid .rsvg{width:100%;max-width:none;height:auto}
+  .report .r-vgrid .r-cap{font-size:8px;margin-bottom:2px}
+  .report .r-vgrid figure{page-break-inside:avoid}
   .report .r-foot{margin-top:18px;border-top:1px solid #d8cdb5;padding-top:8px;font-size:9.5px;color:#8a8276;text-align:center;line-height:1.5}
 
   @media print{
@@ -228,7 +246,7 @@
     .wrap{display:none !important}
     .report{display:block !important}
     .report .r-sec{page-break-after:avoid}
-    .report .r-charts,.report .rtab,.report .r-pan,.report .rd-table{page-break-inside:avoid}
+    .report .r-charts,.report .rtab,.report .r-pan,.report .rd-table,.report .r-vgrid{page-break-inside:avoid}
   }
 </style>
 </head>
@@ -291,6 +309,19 @@
           <thead><tr><th>Graha</th><th>Sign (Rashi)</th><th>Degree</th><th>Nakshatra</th><th>Pada</th><th>D9 (Navamsa)</th></tr></thead>
           <tbody id="tbody"></tbody>
         </table>
+      </div>
+
+      <!-- ===== Divisional charts (Varga) ===== -->
+      <div class="varga">
+        <h3>Divisional Charts (Varga)</h3>
+        <p class="vlead">All sixteen divisional charts, each shown individually with the same North-Indian notation as the D1 and D9 charts above.</p>
+        <div class="vgrid" id="vgrid"></div>
+        <div class="tablewrap">
+          <table class="vtab">
+            <thead><tr><th>Graha</th><th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>D7</th><th>D9</th><th>D10</th><th>D12</th><th>D24</th><th>D30</th></tr></thead>
+            <tbody id="vtbody"></tbody>
+          </table>
+        </div>
       </div>
 
       <!-- ===== Birth Panchang ===== -->
@@ -484,6 +515,68 @@ function nakInfo(sid){const ns=360/27,ps=ns/4;const i=Math.floor(sid/ns);const w
 const NAV_SPAN=10/3;
 function navamsaSign(sid){return Math.floor(n360(sid)/NAV_SPAN)%12;}
 
+/* ---- Divisional charts (Varga). vargaSign(signIdx 0-11, degInSign 0-30, D) -> sign 0-11. ---- */
+function vargaSign(sign,deg,D){
+  sign=((sign%12)+12)%12;if(deg<0)deg=0;if(deg>=30)deg=29.9999;
+  let part,start,oddSign=(sign%2===0);
+  switch(D){
+    case 1:return sign;
+    case 2:{const h=Math.floor(deg/15);return oddSign?(h===0?4:3):(h===0?3:4);}
+    case 3:part=Math.floor(deg/10);return (sign+4*part)%12;
+    case 4:part=Math.floor(deg/7.5);return (sign+3*part)%12;
+    case 7:part=Math.floor(deg/(30/7));start=oddSign?sign:(sign+6)%12;return (start+part)%12;
+    case 9:part=Math.floor(deg/(30/9));start=[0,9,6,3][sign%4];return (start+part)%12;
+    case 10:part=Math.floor(deg/3);start=oddSign?sign:(sign+8)%12;return (start+part)%12;
+    case 12:part=Math.floor(deg/2.5);return (sign+part)%12;
+    case 16:part=Math.floor(deg/(30/16));start=[0,4,8][sign%3];return (start+part)%12;
+    case 20:part=Math.floor(deg/1.5);start=[0,8,4][sign%3];return (start+part)%12;
+    case 24:part=Math.floor(deg/1.25);start=oddSign?4:3;return (start+part)%12;
+    case 27:part=Math.floor(deg/(30/27));start=[0,3,6,9][sign%4];return (start+part)%12;
+    case 30:
+      if(oddSign){if(deg<5)return 0;if(deg<10)return 10;if(deg<18)return 8;if(deg<25)return 2;return 6;}
+      if(deg<5)return 1;if(deg<12)return 5;if(deg<20)return 11;if(deg<25)return 9;return 7;
+    case 40:part=Math.floor(deg/0.75);start=oddSign?0:6;return (start+part)%12;
+    case 45:part=Math.floor(deg/(30/45));start=[0,4,8][sign%3];return (start+part)%12;
+    case 60:part=Math.floor(deg/0.5);return (sign+part)%12;
+    default:return sign;
+  }
+}
+const VARGA_INFO={
+  1:{name:'Rashi',sig:'The natal body of the chart.'},
+  2:{name:'Hora',sig:'Wealth and resources.'},
+  3:{name:'Drekkana',sig:'Siblings, courage and initiative.'},
+  4:{name:'Chaturthamsa',sig:'Property, home, fixed assets and inner contentment.'},
+  7:{name:'Saptamsa',sig:'Children and progeny.'},
+  9:{name:'Navamsa',sig:'Spouse, dharma and underlying planetary strength.'},
+  10:{name:'Dasamsa',sig:'Career, profession and public standing.'},
+  12:{name:'Dwadasamsa',sig:'Parents and ancestry.'},
+  16:{name:'Shodasamsa',sig:'Vehicles, comforts and luxuries.'},
+  20:{name:'Vimsamsa',sig:'Spiritual practice and devotion.'},
+  24:{name:'Chaturvimsamsa',sig:'Education, learning and knowledge.'},
+  27:{name:'Bhamsa',sig:'Innate strengths and weaknesses.'},
+  30:{name:'Trimsamsa',sig:'Adversity, health vulnerabilities and character tests.'},
+  40:{name:'Khavedamsa',sig:'Maternal lineage and auspicious effects.'},
+  45:{name:'Akshavedamsa',sig:'Paternal lineage and overall conduct.'},
+  60:{name:'Shashtiamsa',sig:'Past-life karma and fine-grained results.'}
+};
+const VARGA_LIST=[1,2,3,4,7,9,10,12,16,20,24,27,30,40,45,60];
+const VARGA_TAG={1:'natal',2:'wealth',3:'siblings',4:'property',7:'children',9:'spouse',10:'career',12:'parents',16:'vehicles',20:'spiritual',24:'education',27:'strengths',30:'health',40:'maternal',45:'paternal',60:'past karma'};
+function renderVargaGrid(){
+  if(!VARGA_BASE)return;
+  const grid=document.getElementById('vgrid');if(!grid)return;
+  grid.innerHTML=VARGA_LIST.map(D=>{
+    const info=VARGA_INFO[D]||{name:'Varga'};
+    return '<figure class="chartblock vg-item"><figcaption>D'+D+' &middot; '+info.name+'</figcaption>'+
+      '<svg id="chartV'+D+'" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"></svg>'+
+      '<div class="vg-tag">'+(VARGA_TAG[D]||'')+'</div></figure>';
+  }).join('');
+  VARGA_LIST.forEach(D=>{
+    const lag=vargaSign(VARGA_BASE.lagnaSign,VARGA_BASE.lagnaDeg,D),map={};
+    ORDER.forEach(p=>{map[p]=vargaSign(VARGA_BASE.planets[p].sign,VARGA_BASE.planets[p].deg,D);});
+    drawNorthChart(document.getElementById('chartV'+D),lag,map);
+  });
+}
+
 /* North Indian house polygons (house->points) and label centroids */
 const HP={
  1:[[150,0],[225,75],[150,150],[75,75]],2:[[0,0],[150,0],[75,75]],3:[[0,0],[75,75],[0,150]],
@@ -673,7 +766,7 @@ function renderPanchang(sunSid,moonSid,y,mo,da,hh,mi,lat,lon,tz,jdUT){
    from the natal Lagna or natal Moon (selectable). Sade Sati / Dhaiya and the
    Jupiter note are always counted from the natal Moon, per classical gochar. */
 let NATAL_REF={lagnaSign:null,moonSign:null};
-let PSUM=null,REPORT_META=null;
+let PSUM=null,REPORT_META=null,VARGA_BASE=null;
 function ordinal(n){const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
 
 function transitSidereal(jdUT){
@@ -825,6 +918,14 @@ function buildReport(){
   H+='<div class="r-sec">Charts</div><div class="r-charts">'+
      '<figure><div class="r-cap">Lagna / Rashi (D1)</div>'+rsvg('chart')+'</figure>'+
      '<figure><div class="r-cap">Navamsa (D9)</div>'+rsvg('chartD9')+'</figure></div>';
+  const vtbb=document.getElementById('vtbody');
+  H+='<div class="r-sec">Divisional Charts (Shodasavarga)</div><div class="r-vgrid">';
+  VARGA_LIST.forEach(D=>{
+    const info=VARGA_INFO[D]||{name:'Varga'};
+    H+='<figure><div class="r-cap">D'+D+' '+escHTML(info.name)+'</div>'+rsvg('chartV'+D)+'</figure>';
+  });
+  H+='</div>';
+  if(vtbb)H+='<table class="rtab"><thead><tr><th>Graha</th><th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>D7</th><th>D9</th><th>D10</th><th>D12</th><th>D24</th><th>D30</th></tr></thead><tbody>'+vtbb.innerHTML+'</tbody></table>';
   H+='<div class="r-sec">Birth Panchang</div><div class="r-pan">'+pan+'</div>';
   if(PSUM&&PSUM.sunrise&&PSUM.sunrise!=='—')
     H+='<div class="r-note">Sunrise at birthplace approx. '+escHTML(PSUM.sunrise)+' local'+(PSUM.beforeSunrise?' — birth was before sunrise, so the Vara reflects the previous Vedic day.':' — birth was after sunrise.')+'</div>';
@@ -935,6 +1036,20 @@ document.getElementById('calc').addEventListener('click',function(){
   REPORT_META={name:nm,dob:dob,tob:tob,place:document.getElementById('place').value.trim(),
     lat:lat,lon:lon,tz:tz,ayan:A.toFixed(3),
     lagna:RASHI[lagnaSign]+' '+dms(ascSid%30),d9lagna:RASHI_SHORT[navLagnaSign]};
+
+  // ----- Divisional charts (Varga) -----
+  VARGA_BASE={lagnaSign:lagnaSign,lagnaDeg:ascSid%30,planets:{}};
+  order.forEach(p=>{VARGA_BASE.planets[p]={sign:d1Sign[p],deg:sid[p]%30};});
+  const vtb=document.getElementById('vtbody');
+  if(vtb){
+    const cols=[1,2,3,4,7,9,10,12,24,30];
+    vtb.innerHTML='';
+    order.concat(['Lagna']).forEach(name=>{
+      const base=name==='Lagna'?{sign:lagnaSign,deg:ascSid%30}:{sign:d1Sign[name],deg:sid[name]%30};
+      vtb.innerHTML+='<tr><td>'+name+'</td>'+cols.map(D=>'<td>'+RASHI_SHORT[vargaSign(base.sign,base.deg,D)]+'</td>').join('')+'</tr>';
+    });
+  }
+  renderVargaGrid();
 
   // ----- Birth Panchang -----
   renderPanchang(sid['Sun'],sid['Moon'],y,mo,da,hh,mi,lat,lon,tz,jdUT);
