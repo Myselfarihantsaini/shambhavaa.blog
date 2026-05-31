@@ -174,6 +174,62 @@
   .rd-sub{font-size:12px;color:var(--muted);margin:3px 0 0 4px;padding-left:8px;border-left:2px solid rgba(212,175,110,.18)}
   .rd-pos2{color:#9fd0a0}.rd-neg2{color:#caa0a0}
   .rd-safe li{color:var(--muted);font-size:12px}
+
+  /* ===== Download report button ===== */
+  .r-actions{text-align:center;margin:0 0 20px}
+  .btn-secondary{display:inline-block;width:auto;background:transparent;border:1px solid var(--gold);
+    color:var(--gold-soft);border-radius:11px;padding:11px 22px;font-family:var(--sans);font-weight:500;
+    font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:none;
+    transition:background .2s,transform .15s}
+  .btn-secondary:hover{background:rgba(212,175,110,.12);transform:translateY(-1px)}
+  .r-hint{display:block;font-size:11px;color:var(--muted);margin-top:7px}
+
+  /* ===== Printable report (light theme; visible only when printing) ===== */
+  .report{display:none}
+  .report figure{margin:0;text-align:center}
+  .report .r-brand{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#8a6d2f;text-align:center}
+  .report h2{font-family:var(--serif);font-size:27px;color:#5e4a1f;text-align:center;margin:3px 0 2px;font-weight:600}
+  .report .r-bm{text-align:center;color:#6b6660;font-size:11px;margin-bottom:6px}
+  .report .r-sec{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a6d2f;font-weight:600;
+    border-bottom:1px solid #d8cdb5;padding-bottom:4px;margin:16px 0 9px}
+  .report .r-sum p{margin:0 0 5px;font-size:12px;color:#23201a}
+  .report .r-sum b{color:#5e4a1f}
+  .report .r-charts{display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+  .report .r-cap{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#8a6d2f;margin-bottom:5px}
+  .report .rsvg{width:270px;height:270px;background:#fff;border:1px solid #d8cdb5;border-radius:8px}
+  .report .rsvg .chartline{stroke:#d2c6ac}
+  .report .rsvg .frame{stroke:#8a6d2f}
+  .report .rsvg .signnum{fill:#9b9486}
+  .report .rsvg .planet{fill:#5e4a1f}
+  .report .rsvg .lagna{fill:#8a6d2f}
+  .report .rtab{width:100%;border-collapse:collapse;font-size:11px;margin-top:2px}
+  .report .rtab th,.report .rtab td{border:1px solid #e4dcc8;padding:5px 7px;text-align:left;white-space:nowrap}
+  .report .rtab th{background:#f4efe2;color:#5e4a1f;text-transform:uppercase;font-size:9px;letter-spacing:.05em}
+  .report .rtab tr.rcur td{background:#faf3df;font-weight:600;color:#5e4a1f}
+  .report .rtab .retro{color:#b06a2a}
+  .report .r-pan{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .report .r-pan .pc{border:1px solid #e4dcc8;border-radius:8px;padding:8px 11px}
+  .report .r-pan .pk{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#8a6d2f}
+  .report .r-pan .pv{font-family:var(--serif);font-size:17px;color:#5e4a1f;line-height:1.15;margin-top:2px}
+  .report .r-pan .px{font-size:10px;color:#6b6660;margin-top:2px}
+  .report .r-note{font-size:10.5px;color:#6b6660;margin-top:7px}
+  .report .r-reading{font-size:11px;color:#23201a}
+  .report .r-reading .rd-head,.report .r-reading .rd-pname,.report .r-reading .rd-meta b{color:#5e4a1f}
+  .report .r-reading .rd-h{color:#8a6d2f;border-color:#e4dcc8}
+  .report .r-reading .rd-sub{color:#6b6660;border-color:#d8cdb5}
+  .report .r-reading .rd-note,.report .r-reading .rd-kind{color:#8a6d2f}
+  .report .r-reading .rd-call,.report .r-reading .rd-grade{border-color:#e4dcc8;background:#fbf8ef;color:#23201a}
+  .report .r-reading .rd-table table{width:100%;font-size:10.5px}
+  .report .r-foot{margin-top:18px;border-top:1px solid #d8cdb5;padding-top:8px;font-size:9.5px;color:#8a8276;text-align:center;line-height:1.5}
+
+  @media print{
+    @page{margin:14mm}
+    body{background:#fff !important;padding:0 !important}
+    .wrap{display:none !important}
+    .report{display:block !important}
+    .report .r-sec{page-break-after:avoid}
+    .report .r-charts,.report .rtab,.report .r-pan,.report .rd-table{page-break-inside:avoid}
+  }
 </style>
 </head>
 <body>
@@ -214,6 +270,10 @@
       <div class="rhead">
         <div class="nm" id="rname">Birth Chart</div>
         <div class="meta" id="rmeta"></div>
+      </div>
+      <div class="r-actions">
+        <button id="dlReport" class="btn-secondary" type="button">Download Kundli Report (PDF)</button>
+        <span class="r-hint">Opens your browser's print view; choose "Save as PDF".</span>
       </div>
       <div class="charts">
         <figure class="chartblock">
@@ -305,6 +365,8 @@
     </div>
   </div>
 </div>
+
+<div id="report" class="report" aria-hidden="true"></div>
 
 <!-- rule engine (ships alongside this file) -->
 <script src="kundli-rule-engine.js"></script>
@@ -405,6 +467,14 @@ document.getElementById('dob').addEventListener('change',function(){
 });
 document.getElementById('ylen').addEventListener('change',rebuildDasha);
 document.getElementById('treffrom').addEventListener('change',renderTransit);
+const dlReportEl=document.getElementById('dlReport');
+if(dlReportEl)dlReportEl.addEventListener('click',function(){
+  if(!LAST_CHART&&!REPORT_META)return;
+  buildReport();
+  const prev=document.title;
+  document.title=((REPORT_META&&REPORT_META.name)?REPORT_META.name+' - ':'')+'Kundli Report';
+  setTimeout(function(){window.print();setTimeout(function(){document.title=prev;},800);},60);
+});
 
 function dms(x){const sign=x<0?-1:1;x=Math.abs(x);const d=Math.floor(x);const mf=(x-d)*60;const m=Math.floor(mf);const s=Math.round((mf-m)*60);return (sign<0?'-':'')+d+'° '+String(m).padStart(2,'0')+"' "+String(s).padStart(2,'0')+'"';}
 function nakInfo(sid){const ns=360/27,ps=ns/4;const i=Math.floor(sid/ns);const within=sid-i*ns;const pada=Math.floor(within/ps)+1;return{name:NAK[i][0],lord:NAK[i][1],pada};}
@@ -593,6 +663,8 @@ function renderPanchang(sunSid,moonSid,y,mo,da,hh,mi,lat,lon,tz,jdUT){
     note='Sunrise could not be solved for this latitude on this date (polar day or night); the V\u0101ra above uses the civil weekday.';
   }
   document.getElementById('pnote').innerHTML=note;
+  PSUM={tithiName:tithiName,paksha:paksha,vara:VARA[varaIdx],nakshatra:ni.name,pada:ni.pada,
+        yoga:yoga,karana:karana,phase:phase,illum:illum.toFixed(0),sunrise:srStr,beforeSunrise:beforeSunrise};
 }
 
 /* ---- Gochar (present transit) ----
@@ -601,6 +673,7 @@ function renderPanchang(sunSid,moonSid,y,mo,da,hh,mi,lat,lon,tz,jdUT){
    from the natal Lagna or natal Moon (selectable). Sade Sati / Dhaiya and the
    Jupiter note are always counted from the natal Moon, per classical gochar. */
 let NATAL_REF={lagnaSign:null,moonSign:null};
+let PSUM=null,REPORT_META=null;
 function ordinal(n){const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
 
 function transitSidereal(jdUT){
@@ -701,6 +774,72 @@ function renderTransitNotes(tr){
   box.innerHTML=html;
 }
 
+/* ---- Downloadable Kundli report (print -> Save as PDF) ---- */
+function escHTML(x){return String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmtDOB(iso){if(!iso)return'';const a=iso.split('-').map(Number);return a[2]+' '+MONTHS[a[1]-1]+' '+a[0];}
+function buildMahaRows(){
+  if(!DASHA_STATE)return'';
+  const yd=DASHA_YEAR_DAYS,jdUT=DASHA_STATE.jdUT,firstLord=DASHA_STATE.firstLord,frac=DASHA_STATE.frac;
+  let t=jdUT-frac*DASHA_YEARS[firstLord]*yd,fi=VIM_ORDER.indexOf(firstLord),rows='';
+  for(let i=0;i<9;i++){const sl=VIM_ORDER[(fi+i)%9],d=DASHA_YEARS[sl]*yd,cur=(DASHA_NOW>=t&&DASHA_NOW<t+d);
+    rows+='<tr'+(cur?' class="rcur"':'')+'><td>'+sl+(cur?' *':'')+'</td><td>'+fmtDate(t,false)+'</td><td>'+fmtDate(t+d,false)+'</td><td>'+fmtDur(d)+'</td></tr>';t+=d;}
+  return rows;
+}
+function buildSummary(){
+  if(!LAST_CHART)return'';
+  const bc=LAST_CHART.birth_chart,P=bc.planets,cd=bc.current_dasha||{};
+  const retro=ORDER.filter(p=>P[p]&&P[p].retrograde&&p!=='Rahu'&&p!=='Ketu');
+  const comb=ORDER.filter(p=>P[p]&&P[p].combust);
+  const inL=ORDER.filter(p=>P[p]&&P[p].house===1);
+  let sade='';
+  try{const tr=transitSidereal(Date.now()/86400000+2440587.5);
+    const satH=((Math.floor(tr.sid['Saturn']/30)-NATAL_REF.moonSign+12)%12)+1;
+    if([12,1,2].indexOf(satH)>=0)sade='Saturn is currently passing through Sade Sati: Saturn is in the '+ordinal(satH)+' from the natal Moon.';
+    else if([4,8].indexOf(satH)>=0)sade='Saturn is currently in the '+ordinal(satH)+'-from-Moon Dhaiya.';
+    else sade='Saturn is outside Sade Sati and the 4th/8th Dhaiya at present.';}catch(e){}
+  const out=[];
+  out.push('The Ascendant (Lagna) is <b>'+escHTML(bc.lagna)+'</b>, with the Moon in <b>'+escHTML(bc.moon_sign)+'</b> ('+escHTML(bc.moon_nakshatra)+' nakshatra) and the Sun in <b>'+escHTML(P.Sun.sign)+'</b>.');
+  if(PSUM)out.push('Birth panchang: '+escHTML(PSUM.paksha)+' '+escHTML(PSUM.tithiName)+' (tithi), '+escHTML(PSUM.vara)+' (vara), '+escHTML(PSUM.nakshatra)+' (nakshatra), '+escHTML(PSUM.yoga)+' (yoga), '+escHTML(PSUM.karana)+' (karana); the Moon was '+escHTML(PSUM.phase.toLowerCase())+'.');
+  if(inL.length)out.push(escHTML(inL.join(', '))+' '+(inL.length>1?'occupy':'occupies')+' the first house.');
+  if(retro.length)out.push('Retrograde at birth: '+escHTML(retro.join(', '))+'.');
+  if(comb.length)out.push('Combust, very close to the Sun: '+escHTML(comb.join(', '))+'.');
+  if(cd.mahadasha)out.push('The period running now is the <b>'+escHTML(cd.mahadasha)+'</b> Mahadasha'+(cd.antardasha?' / <b>'+escHTML(cd.antardasha)+'</b> Antardasha':'')+'.');
+  if(sade)out.push(escHTML(sade));
+  return out.map(x=>'<p>'+x+'</p>').join('');
+}
+function buildReport(){
+  const m=REPORT_META||{};
+  const rsvg=id=>{const el=document.getElementById(id);return'<svg viewBox="0 0 300 300" class="rsvg">'+(el?el.innerHTML:'')+'</svg>';};
+  const pc=(k,v,x)=>'<div class="pc"><div class="pk">'+escHTML(k)+'</div><div class="pv">'+escHTML(v)+'</div><div class="px">'+escHTML(x||'')+'</div></div>';
+  let pan='';
+  if(PSUM)pan=pc('Tithi',PSUM.paksha+' '+PSUM.tithiName)+pc('Vara',PSUM.vara)+
+    pc('Nakshatra',PSUM.nakshatra,'pada '+PSUM.pada)+pc('Yoga',PSUM.yoga)+
+    pc('Karana',PSUM.karana)+pc('Moon phase',PSUM.phase,PSUM.illum+'% lit');
+  const tb=document.getElementById('tbody'),rd=document.getElementById('reading');
+  const meta=[fmtDOB(m.dob)+(m.tob?', '+m.tob:''),(m.place||''),'Lagna '+(m.lagna||''),'Ayanamsa '+(m.ayan||'')+' deg'].filter(Boolean).map(escHTML).join('  |  ');
+  let H='';
+  H+='<div class="r-brand">Shambhavaa | Vedic Birth Chart</div>';
+  H+='<h2>'+((m.name?escHTML(m.name)+"'s":'Birth')+' Kundli')+'</h2>';
+  H+='<div class="r-bm">'+meta+'</div>';
+  H+='<div class="r-sec">Interpretation Summary</div><div class="r-sum">'+buildSummary()+'</div>';
+  H+='<div class="r-sec">Charts</div><div class="r-charts">'+
+     '<figure><div class="r-cap">Lagna / Rashi (D1)</div>'+rsvg('chart')+'</figure>'+
+     '<figure><div class="r-cap">Navamsa (D9)</div>'+rsvg('chartD9')+'</figure></div>';
+  H+='<div class="r-sec">Birth Panchang</div><div class="r-pan">'+pan+'</div>';
+  if(PSUM&&PSUM.sunrise&&PSUM.sunrise!=='—')
+    H+='<div class="r-note">Sunrise at birthplace approx. '+escHTML(PSUM.sunrise)+' local'+(PSUM.beforeSunrise?' — birth was before sunrise, so the Vara reflects the previous Vedic day.':' — birth was after sunrise.')+'</div>';
+  H+='<div class="r-sec">Planetary Positions</div>'+
+     '<table class="rtab"><thead><tr><th>Graha</th><th>Sign (Rashi)</th><th>Degree</th><th>Nakshatra</th><th>Pada</th><th>D9</th></tr></thead><tbody>'+
+     (tb?tb.innerHTML:'')+'</tbody></table>';
+  H+='<div class="r-sec">Vimshottari Mahadasha</div>'+
+     '<table class="rtab"><thead><tr><th>Mahadasha</th><th>Begins</th><th>Ends</th><th>Duration</th></tr></thead><tbody>'+
+     buildMahaRows()+'</tbody></table>';
+  const readHTML=(rd&&rd.innerHTML.trim())?rd.innerHTML:'<p class="r-note">The deterministic reading appears here once its data files are available on the host.</p>';
+  H+='<div class="r-sec">Rule-based Reading</div><div class="r-reading">'+readHTML+'</div>';
+  H+='<div class="r-foot">Generated '+escHTML(new Date().toLocaleString())+' | shambhavaa.com | whole-sign houses, sidereal Lahiri zodiac, mean nodes. A rule-based research aid, not a substitute for a consultation.</div>';
+  document.getElementById('report').innerHTML=H;
+}
+
 
 let LAST_CHART=null, RULEDATA=null;
 const RULES_BASE='model/';   // data files (rules.json etc.) ship with this tool
@@ -791,6 +930,11 @@ document.getElementById('calc').addEventListener('click',function(){
   order.forEach(p=>{const s=Math.floor(sid[p]/30);const ni=nakInfo(sid[p]);const r=retro(p);
     tb.innerHTML+='<tr><td>'+p+(r?' <span class="retro">℞</span>':'')+'</td><td>'+RASHI[s]+'</td><td class="deg">'+dms(sid[p]%30)+'</td><td>'+ni.name+'</td><td>'+ni.pada+'</td><td>'+RASHI_SHORT[navSign[p]]+'</td></tr>';});
   tb.innerHTML+='<tr><td>Lagna</td><td>'+RASHI[lagnaSign]+'</td><td class="deg">'+dms(ascSid%30)+'</td><td>'+nakInfo(ascSid).name+'</td><td>'+nakInfo(ascSid).pada+'</td><td>'+RASHI_SHORT[navLagnaSign]+'</td></tr>';
+
+  // ----- Report metadata (for the downloadable PDF report) -----
+  REPORT_META={name:nm,dob:dob,tob:tob,place:document.getElementById('place').value.trim(),
+    lat:lat,lon:lon,tz:tz,ayan:A.toFixed(3),
+    lagna:RASHI[lagnaSign]+' '+dms(ascSid%30),d9lagna:RASHI_SHORT[navLagnaSign]};
 
   // ----- Birth Panchang -----
   renderPanchang(sid['Sun'],sid['Moon'],y,mo,da,hh,mi,lat,lon,tz,jdUT);
