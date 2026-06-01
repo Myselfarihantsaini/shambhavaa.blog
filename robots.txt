@@ -1,0 +1,55 @@
+# General Crawler Rules
+User-agent: *
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+# Search Engine Specific Rules
+User-agent: Googlebot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: Bingbot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: Applebot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+# AI & GEO Crawler Rules
+User-agent: GPTBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: ChatGPT-User
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: OAI-SearchBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+User-agent: cohere-ai
+Disallow: /trust/
+Disallow: /admin/
+Allow: /
+
+# Sitemap Location
+Sitemap: https://shambhavaa.blog/sitemap.xml
