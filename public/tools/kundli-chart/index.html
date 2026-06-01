@@ -446,8 +446,8 @@ const ELEM={
  Saturn:[9.53667594,0.05386179,2.48599187,49.95424423,92.59887831,113.66242448,-0.00125060,-0.00050991,0.00193609,1222.49362201,-0.41897216,-0.28867794]};
 function helioEcl(name,T){const e0=ELEM[name];const a=e0[0]+e0[6]*T,e=e0[1]+e0[7]*T,I=(e0[2]+e0[8]*T)*D2R,L=e0[3]+e0[9]*T,wbar=e0[4]+e0[10]*T,Om=(e0[5]+e0[11]*T)*D2R;const w=wbar*D2R-Om;let M=n360(L-wbar);if(M>180)M-=360;M*=D2R;let E=M+e*Math.sin(M);for(let i=0;i<8;i++)E=E-(E-e*Math.sin(E)-M)/(1-e*Math.cos(E));const xp=a*(Math.cos(E)-e),yp=a*Math.sqrt(1-e*e)*Math.sin(E);const cw=Math.cos(w),sw=Math.sin(w),cO=Math.cos(Om),sO=Math.sin(Om),cI=Math.cos(I),sI=Math.sin(I);return[(cw*cO-sw*sO*cI)*xp+(-sw*cO-cw*sO*cI)*yp,(cw*sO+sw*cO*cI)*xp+(-sw*sO+cw*cO*cI)*yp,(sw*sI)*xp+(cw*sI)*yp];}
 const prec=T=>1.396971*T+0.0003086*T*T;
-function planetTrop(name,jd){const T=(jd-2451545)/36525;const p=helioEcl(name,T),e=helioEcl('Earth',T);return n360(Math.atan2(p[1]-e[1],p[0]-e[0])*R2D+prec(T));}
-function sunTrop(jd){const T=(jd-2451545)/36525;const e=helioEcl('Earth',T);return n360(Math.atan2(e[1],e[0])*R2D+180+prec(T));}
+function planetTrop(name,jd){if(window.KundliEphemerisPlus&&window.KundliEphemerisPlus.planetTrop)return window.KundliEphemerisPlus.planetTrop(name,jd);const T=(jd-2451545)/36525;const p=helioEcl(name,T),e=helioEcl('Earth',T);return n360(Math.atan2(p[1]-e[1],p[0]-e[0])*R2D+prec(T));}
+function sunTrop(jd){if(window.KundliEphemerisPlus&&window.KundliEphemerisPlus.sunTrop)return window.KundliEphemerisPlus.sunTrop(jd);const T=(jd-2451545)/36525;const e=helioEcl('Earth',T);return n360(Math.atan2(e[1],e[0])*R2D+180+prec(T));}
 function meanNode(jd){const T=(jd-2451545)/36525;return n360(125.0445479-1934.1362891*T+0.0020754*T*T+T*T*T/467441);}
 const ayan=jd=>{const T=(jd-2451545)/36525;return 23.85275+1.396971*T+0.0003086*T*T;};
 const dT=y=>{const t=y-2000;return 62.92+0.32217*t+0.005589*t*t;};
@@ -530,6 +530,7 @@ const dlReportEl=document.getElementById('dlReport');
 if(dlReportEl)dlReportEl.addEventListener('click',function(){
   if(!LAST_CHART&&!REPORT_META)return;
   buildReport();
+  document.dispatchEvent(new CustomEvent('kundli-report-built'));
   const prev=document.title;
   document.title=((REPORT_META&&REPORT_META.name)?REPORT_META.name+' - ':'')+'Kundli Report';
   setTimeout(function(){window.print();setTimeout(function(){document.title=prev;},800);},60);
@@ -1184,7 +1185,10 @@ function drawNorthChart(svgEl,lagnaSign,signOf){
   svgEl.innerHTML=g;
 }
 </script>
+<script src="kundli-ephemeris-plus.js"></script>
 <script src="kundli-timing-varsha.js"></script>
 <script src="kundli-shadbala-chalit-panchang.js"></script>
+<script src="kundli-yogas-extras.js"></script>
+<script src="kundli-report-plus.js"></script>
 </body>
 </html>
