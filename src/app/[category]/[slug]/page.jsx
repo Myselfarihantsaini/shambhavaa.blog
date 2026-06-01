@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import ShareButtons from '../../../components/ShareButtons';
 import AuthorBox from '../../../components/AuthorBox';
+import { readAnchor } from '../../../lib/anchors';
 
 // Helper to calculate reading time
 function getReadingTime(content) {
@@ -23,7 +24,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { category, slug } = params;
   const post = getPostBySlug(category, slug);
-  
+
   if (!post) {
     return { title: 'Not Found' };
   }
@@ -185,22 +186,22 @@ export default function ArticlePage({ params }) {
   return (
     <article className="container" style={{ padding: 'var(--spacing-md) 0', maxWidth: '800px', position: 'relative' }}>
       <SEO schema={schema} />
-      
+
       {/* Sticky Reading Progress Bar */}
-      <div style={{ 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        width: '100%', 
-        height: '4px', 
-        background: 'rgba(255,255,255,0.05)', 
-        zIndex: 1000 
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '4px',
+        background: 'rgba(255,255,255,0.05)',
+        zIndex: 1000
       }}>
-        <div id="progress-bar" style={{ 
-          height: '100%', 
-          background: 'var(--accent-gold)', 
-          width: '0%', 
-          transition: 'width 0.1s ease' 
+        <div id="progress-bar" style={{
+          height: '100%',
+          background: 'var(--accent-gold)',
+          width: '0%',
+          transition: 'width 0.1s ease'
         }}></div>
       </div>
       <script dangerouslySetInnerHTML={{ __html: `
@@ -211,11 +212,11 @@ export default function ArticlePage({ params }) {
           document.getElementById("progress-bar").style.width = scrolled + "%";
         };
       `}} />
-      
+
       {/* Breadcrumbs */}
       <nav style={{ marginBottom: 'var(--spacing-md)', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-        <a href="/">Home</a> <span style={{ margin: '0 0.5rem' }}>&rarr;</span> 
-        <a href={`/${category}`} style={{ textTransform: 'capitalize' }}>{category}</a> <span style={{ margin: '0 0.5rem' }}>&rarr;</span> 
+        <a href="/">Home</a> <span style={{ margin: '0 0.5rem' }}>&rarr;</span>
+        <a href={`/${category}`} style={{ textTransform: 'capitalize' }}>{category.replace(/-/g, ' ')} category</a> <span style={{ margin: '0 0.5rem' }}>&rarr;</span>
         <span style={{ color: 'var(--accent-gold)' }}>{post.meta.title}</span>
       </nav>
 
@@ -259,10 +260,10 @@ export default function ArticlePage({ params }) {
         </section>
       )}
 
-      <AuthorBox 
-        date={post.meta.date} 
-        updatedDate={post.meta.updatedDate} 
-        readingTime={readingTime} 
+      <AuthorBox
+        date={post.meta.date}
+        updatedDate={post.meta.updatedDate}
+        readingTime={readingTime}
       />
 
       <div style={{ marginTop: 'var(--spacing-lg)', paddingTop: 'var(--spacing-md)', borderTop: '1px solid var(--border-color)' }}>
@@ -276,11 +277,13 @@ export default function ArticlePage({ params }) {
           <h2 className="text-gold" style={{ marginBottom: '2rem' }}>Related Insights</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
             {relatedPosts.map(p => (
-              <a key={p.slug} href={`/${p.category}/${p.slug}`} className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div key={p.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
                 <h4 style={{ fontSize: '1.1rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{p.meta.title}</h4>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>{p.meta.excerpt}</p>
-                <span style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', fontWeight: 'bold' }}>Read Insight &rarr;</span>
-              </a>
+                <a href={`/${p.category}/${p.slug}`} style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', fontWeight: 'bold', marginTop: 'auto' }}>
+                  {readAnchor(p.meta.title)} &rarr;
+                </a>
+              </div>
             ))}
           </div>
         </section>

@@ -17,7 +17,7 @@ This specialized timing session is ideal for individuals who:
 - Are experiencing a major transit, such as Sade Sati (Saturn's transit over the Moon) or a nodal return (Rahu-Ketu), and need guidance.
 - Are waiting for a specific event to happen (like a job change or moving abroad) and want to know when the window of opportunity opens.
 
-*If you have never had your chart read before, we highly recommend starting with a [full birth chart reading](/services/vedic-kundli-reading/) before diving purely into timing.*
+*If you have never had your chart read before, we highly recommend starting with a [full birth chart reading](/services/vedic-kundli-reading) before diving purely into timing.*
 
 ## What We Check: Dasha (The Operating System)
 

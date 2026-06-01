@@ -18,7 +18,7 @@ This reading is highly recommended if you are:
 - Wanting to understand the traits and nature of your future spouse.
 - Seeking clarity on whether your chart supports an arranged marriage or a love marriage.
 
-*If you already have a partner and want to check compatibility, please see our [kundli matching consultation](/services/kundli-matching-consultation/).*
+*If you already have a partner and want to check compatibility, please see our [kundli matching consultation](/services/kundli-matching-consultation).*
 
 ## What We Check: The D1 Chart Analysis
 

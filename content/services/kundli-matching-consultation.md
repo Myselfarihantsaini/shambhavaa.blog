@@ -17,7 +17,7 @@ This reading is ideal for couples who:
 - Have a "Manglik Dosh" or "Rahu-Ketu" mismatch and want an honest, non-fear-based assessment of its actual impact.
 - Are already married but facing friction, and want to understand the astrological root of their conflict to navigate it better.
 
-*If you are single and want to know when you will meet a partner, please book a [marriage astrology consultation](/services/marriage-astrology-consultation/).*
+*If you are single and want to know when you will meet a partner, please book a [marriage astrology consultation](/services/marriage-astrology-consultation).*
 
 ## What We Check: Beyond the 36 Points
 

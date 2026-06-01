@@ -9,7 +9,7 @@ When it comes to career astrology, the stakes are incredibly high. A miscalculat
 
 If you have ever wondered why someone with an apparently "average" birth chart suddenly rises to the level of a CEO, or why someone with brilliant placements struggles to hold a job, the answer is almost always hidden in the D10 chart.
 
-In this guide, we will explore how the D10 chart helps career prediction and why it is the cornerstone of any authentic [career astrology consultation](/services/career-astrology-consultation/).
+In this guide, we will explore how the D10 chart helps career prediction and why it is the cornerstone of any authentic [career astrology consultation](/services/career-astrology-consultation).
 
 ---
 

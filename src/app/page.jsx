@@ -1,5 +1,6 @@
 import BeehiivForm from '../components/BeehiivForm';
 import { getAllPosts } from '../lib/posts';
+import { shortAnchorTitle } from '../lib/anchors';
 import { ArrowRight, Calculator, FileText, FolderOpen, User, Shield, Star, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
 
@@ -139,7 +140,7 @@ export default function Home() {
           The Architecture <br /> of the Soul
         </h1>
         <p style={{ fontSize: '1.4rem', color: 'var(--text-secondary)', maxWidth: '800px', margin: '0 auto var(--spacing-md)', lineHeight: '1.6' }}>
-          Deep Vedic astrology, Nakshatra psychology, and karmic insights synthesized for the modern seeker. 
+          Deep Vedic astrology, Nakshatra psychology, and karmic insights synthesized for the modern seeker.
           Move beyond generic predictions into the authentic depth of the stars.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
@@ -147,13 +148,13 @@ export default function Home() {
           <a href="/about" className="btn">Our Philosophy</a>
         </div>
       </section>
-      
+
       {/* Trust Bar */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        gap: '3rem', 
-        marginBottom: 'var(--spacing-xl)', 
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '3rem',
+        marginBottom: 'var(--spacing-xl)',
         color: 'var(--text-secondary)',
         fontSize: '0.85rem',
         textTransform: 'uppercase',
@@ -172,16 +173,12 @@ export default function Home() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
           {allPosts.slice(0, 6).map(post => (
             <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>
-                <a href={`/${post.category}/${post.slug}`} style={{ color: 'var(--text-primary)' }}>
-                  {post.meta.title}
-                </a>
-              </h3>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
               <p style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', marginBottom: '1.25rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
                 {post.category} • {new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
               </p>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1rem', flex: 1, lineHeight: '1.6' }}>{post.meta.excerpt}</p>
-              <a href={`/${post.category}/${post.slug}`} style={{ fontWeight: 'bold' }}>Read Insight &rarr;</a>
+              <a href={`/${post.category}/${post.slug}`} style={{ fontWeight: 'bold' }}>Latest {shortAnchorTitle(post.meta.title)} &rarr;</a>
             </div>
           ))}
         </div>
@@ -230,7 +227,7 @@ export default function Home() {
                 {folder.posts.slice(0, 3).map(post => (
                   <a key={post.slug} href={`/${post.category}/${post.slug}`}>
                     <FileText size={15} aria-hidden="true" />
-                    <span>{post.meta.title}</span>
+                    <span>{shortAnchorTitle(post.meta.title)}</span>
                   </a>
                 ))}
               </div>
@@ -264,14 +261,14 @@ export default function Home() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-          <a href="/tools/kundli-chart/" className="card" style={{ display: 'block', padding: '2.5rem', color: 'inherit' }}>
+          <div className="card" style={{ display: 'block', padding: '2.5rem', color: 'inherit' }}>
             <Calculator size={34} color="var(--accent-gold)" />
             <h3 className="text-gold" style={{ fontSize: '1.8rem', marginTop: '1.2rem' }}>Free Kundli Generator</h3>
             <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>
               Enter birth date, time, and place to generate your D1 Rashi chart in North Indian format.
             </p>
-            <span style={{ fontWeight: 'bold', color: 'var(--accent-gold)' }}>Open Tool &rarr;</span>
-          </a>
+            <a href="/tools/kundli-chart" style={{ fontWeight: 'bold' }}>Open Kundli Tool &rarr;</a>
+          </div>
         </div>
       </section>
 
@@ -279,12 +276,12 @@ export default function Home() {
       {trendingPosts.length > 0 && (
         <section style={{ paddingBottom: 'var(--spacing-lg)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-            <span style={{ 
-              background: 'var(--accent-gold)', 
-              color: '#000', 
-              padding: '0.2rem 0.6rem', 
-              borderRadius: '4px', 
-              fontSize: '0.75rem', 
+            <span style={{
+              background: 'var(--accent-gold)',
+              color: '#000',
+              padding: '0.2rem 0.6rem',
+              borderRadius: '4px',
+              fontSize: '0.75rem',
               fontWeight: 'bold',
               textTransform: 'uppercase'
             }}>Trending Insights</span>
@@ -292,11 +289,10 @@ export default function Home() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
             {trendingPosts.slice(0, 3).map((post, index) => (
-              <a key={post.slug} href={`/${post.category}/${post.slug}`} style={{ 
-                display: 'flex', 
-                gap: '1.5rem', 
+              <div key={post.slug} style={{
+                display: 'flex',
+                gap: '1.5rem',
                 alignItems: 'flex-start',
-                textDecoration: 'none',
                 color: 'inherit'
               }}>
                 <div style={{ fontSize: '3rem', fontWeight: 'bold', color: 'rgba(212, 175, 55, 0.15)', fontFamily: 'var(--font-heading)', lineHeight: '1' }}>
@@ -307,8 +303,11 @@ export default function Home() {
                     {post.category}
                   </p>
                   <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', lineHeight: '1.3' }}>{post.meta.title}</h3>
+                  <a href={`/${post.category}/${post.slug}`} style={{ fontWeight: 'bold', fontSize: '0.9rem' }}>
+                    Trending {shortAnchorTitle(post.meta.title)} &rarr;
+                  </a>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </section>
@@ -320,7 +319,7 @@ export default function Home() {
           <div style={{ flex: 1, minWidth: '300px' }}>
             <h2 className="text-gold" style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>The Vision Behind Shambhavaa</h2>
             <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
-              Shambhavaa is led by <strong>Arihant Saini</strong>, a Vedic astrologer dedicated to removing the fear-based narratives of traditional astrology. 
+              Shambhavaa is led by <strong>Arihant Saini</strong>, a Vedic astrologer dedicated to removing the fear-based narratives of traditional astrology.
               By synthesizing the psychological depth of the Nakshatras with the karmic laws of Saturn, we provide a roadmap for radical self-responsibility and spiritual evolution.
             </p>
             <a href="/about" style={{ fontWeight: 'bold' }}>Read Our Story &rarr;</a>
@@ -335,29 +334,29 @@ export default function Home() {
       <section style={{ padding: 'var(--spacing-lg) 0' }}>
         <h2 className="text-center text-gold mb-4" style={{ fontSize: '2.5rem' }}>Core Knowledge Hubs</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          
+
           <div className="card" style={{ padding: '2.5rem' }}>
             <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Saturn & Karma</h3>
             <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>Understand the Lord of Karma. Discover how Saturn's transits and placement shape your soul's greatest lessons and ultimate discipline.</p>
-            <a href="/saturn" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
+            <a href="/saturn" style={{ fontWeight: 'bold' }}>Explore Saturn &rarr;</a>
           </div>
 
           <div className="card" style={{ padding: '2.5rem' }}>
             <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Rahu & Ketu</h3>
             <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>The lunar nodes hold the key to your past life mastery and current life obsession. Uncover the spiritual psychology of the eclipse axis.</p>
-            <a href="/rahu" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
+            <a href="/rahu" style={{ fontWeight: 'bold' }}>Explore Rahu Ketu &rarr;</a>
           </div>
 
           <div className="card" style={{ padding: '2.5rem' }}>
             <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Moon Psychology</h3>
             <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>The filter of your reality. Discover how your lunar placement determines your emotional safety, subconscious habits, and peace of mind.</p>
-            <a href="/moon" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
+            <a href="/moon" style={{ fontWeight: 'bold' }}>Explore Moon &rarr;</a>
           </div>
 
           <div className="card" style={{ padding: '2.5rem' }}>
             <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Nakshatra Secrets</h3>
             <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>Vedic astrology's greatest secret. The 27 lunar mansions reveal your deepest emotional patterns, psychological drives, and spiritual gifts.</p>
-            <a href="/nakshatra" style={{ fontWeight: 'bold' }}>Explore Hub &rarr;</a>
+            <a href="/nakshatra" style={{ fontWeight: 'bold' }}>Explore Nakshatra &rarr;</a>
           </div>
 
         </div>

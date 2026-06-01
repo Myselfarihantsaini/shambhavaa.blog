@@ -32,7 +32,7 @@ Any planets occupying the 10th house will aggressively flavor your career.
 
 ## 2. Supporting Houses: The Artha Trikona
 
-A career does not exist in a vacuum; it is tied to daily labor and financial wealth. Therefore, a complete [career astrology consultation](/services/career-astrology-consultation/) requires analyzing the "Artha Trikona"—the triangle of wealth.
+A career does not exist in a vacuum; it is tied to daily labor and financial wealth. Therefore, a complete [career astrology consultation](/services/career-astrology-consultation) requires analyzing the "Artha Trikona"—the triangle of wealth.
 
 - **The 2nd House:** Represents your accumulated wealth, savings, and speech. Even if the 10th house is strong, a weak 2nd house means you may earn status but struggle to hold onto money.
 - **The 6th House:** The house of daily routine, service, employment, and overcoming competition. A strong 6th house is absolutely essential for individuals seeking jobs in the corporate world, medicine, law, or competitive government exams. It shows your ability to handle the daily grind and defeat competitors.
@@ -81,7 +81,7 @@ Knowing your ideal career path is helpful, but knowing *when* to strike is the s
 - **Dasha:** A major promotion usually occurs when you run the Mahadasha or Antardasha of the 10th lord, the 11th lord (gains), or planets strongly placed in the 10th house. Conversely, periods of the 8th or 12th lord often bring job instability, transfers, or a desire to completely change industries.
 - **Transits:** Transiting Saturn traversing the 10th house often brings immense pressure, workload, and eventually, a solidifying of professional status. Jupiter transiting the 10th or 11th house brings expansion, promotions, and new opportunities.
 
-*(To understand how these timelines operate, consider a [dasha and transit reading](/services/dasha-transit-reading/)).*
+*(To understand how these timelines operate, consider a [dasha and transit reading](/services/dasha-transit-reading)).*
 
 ---
 

@@ -17,7 +17,7 @@ This consultation is highly recommended if you:
 - Are looking to adopt a disciplined spiritual practice (sadhana) aligned with your planetary energies.
 - Want to know which deities, mantras, or lifestyle changes best support your chart's weaknesses.
 
-*Please note: We only prescribe remedies after analyzing your entire chart. If you want a full life reading along with remedies, please book a [Vedic kundli reading](/services/vedic-kundli-reading/).*
+*Please note: We only prescribe remedies after analyzing your entire chart. If you want a full life reading along with remedies, please book a [Vedic kundli reading](/services/vedic-kundli-reading).*
 
 ## The Framework: Remedies Require Full Chart Analysis
 

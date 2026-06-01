@@ -47,7 +47,7 @@ They usually do not like harshness, ugliness, crude speech, unnecessary conflict
 
 But the final result depends on the full chart. Venus as 1st lord can create beauty, wealth, attraction, artistic talent, and relationship success when strong. The same Venus can create attachment, indulgence, laziness, romantic confusion, luxury expenses, sensual excess, or dependency on validation when weak or afflicted.
 
-For the broader chart-reading method, read [Why Vedic Astrology Still Matters](/resources/why-vedic-astrology-still-matters/) and [How Vedic Kundli Reading Works](/resources/how-vedic-kundli-reading-works/).
+For the broader chart-reading method, read [Why Vedic Astrology Still Matters](/resources/why-vedic-astrology-still-matters) and [How Vedic Kundli Reading Works](/resources/how-vedic-kundli-reading-works).
 
 ## Venus Is Different for Taurus Lagna and Libra Lagna
 
@@ -115,7 +115,7 @@ D1 must show the event first. D9 confirms relationship and inner maturity. D10 c
 
 Venus with Jupiter gives wisdom and grace. Venus with Mercury gives art, business, speech, and intelligence. Venus with Saturn gives delay, maturity, discipline, or emotional coldness. Venus with Mars gives passion, attraction, and conflict. Venus with Rahu gives glamour, obsession, unconventional desire, and foreign influence. Venus with Ketu gives detachment, spiritual love, or dissatisfaction. Venus with Sun may create combustion if too close, affecting relationship peace and comfort.
 
-For timing, read [Why Dasha and Transit Must Be Read Together](/resources/why-dasha-and-transit-must-be-read-together/). For marriage confirmation, read [Why Navamsa Is Important for Marriage Prediction](/resources/why-navamsa-is-important-for-marriage/). For career confirmation, read [How D10 Chart Helps Career Prediction](/resources/how-d10-chart-helps-career-prediction/).
+For timing, read [Why Dasha and Transit Must Be Read Together](/resources/why-dasha-and-transit-must-be-read-together). For marriage confirmation, read [Why Navamsa Is Important for Marriage Prediction](/resources/why-navamsa-is-important-for-marriage). For career confirmation, read [How D10 Chart Helps Career Prediction](/resources/how-d10-chart-helps-career-prediction).
 
 ## Quick Summary: 1st Lord Venus in All 12 Houses
 
@@ -468,4 +468,4 @@ The real question is:
 
 That is where actual Vedic prediction begins.
 
-For a personalized reading, explore [Vedic Kundli Reading](/services/vedic-kundli-reading/), [Marriage Astrology Consultation](/services/marriage-astrology-consultation/), [Career Astrology Consultation](/services/career-astrology-consultation/), and [Dasha and Transit Reading](/services/dasha-transit-reading/).
+For a personalized reading, explore [Vedic Kundli Reading](/services/vedic-kundli-reading), [Marriage Astrology Consultation](/services/marriage-astrology-consultation), [Career Astrology Consultation](/services/career-astrology-consultation), and [Dasha and Transit Reading](/services/dasha-transit-reading).

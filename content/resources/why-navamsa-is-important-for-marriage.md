@@ -9,7 +9,7 @@ In Vedic astrology, assessing a person's marital prospects is one of the most in
 
 If the 7th house in the D1 chart looks strong, they predict a blissful marriage. If it is afflicted, they predict divorce. However, the reality of **Navamsa marriage** prediction is far more complex. The D1 chart is only the outer shell; the D9 chart (Navamsa) is the inner reality.
 
-In this guide, we will explore why the Navamsa chart is absolutely non-negotiable when analyzing relationships, and why its assessment forms the core of a [marriage astrology consultation](/services/marriage-astrology-consultation/).
+In this guide, we will explore why the Navamsa chart is absolutely non-negotiable when analyzing relationships, and why its assessment forms the core of a [marriage astrology consultation](/services/marriage-astrology-consultation).
 
 ---
 
@@ -23,7 +23,7 @@ Because it relies on such tiny divisions of the zodiac, the Navamsa changes very
 
 ## The D1 Chart vs. The Navamsa Chart
 
-To understand why the Navamsa is crucial, we must understand the relationship between the D1 and D9 charts. 
+To understand why the Navamsa is crucial, we must understand the relationship between the D1 and D9 charts.
 
 - **The D1 Chart (The Tree):** The D1 chart represents the physical reality of your life. It shows what the world sees. Regarding marriage, the D1 chart shows the *circumstances* of your marriage—how you meet your spouse, the societal status of the marriage, and the physical reality of the partnership.
 - **The Navamsa Chart (The Fruit):** The Navamsa represents the hidden, internal reality. It is the soul of the chart. It shows what happens *behind closed doors*. It reveals the actual psychological harmony, the deep emotional bond (or lack thereof), and the ultimate longevity of the marriage.
@@ -37,7 +37,7 @@ If the D1 chart is the promise, the Navamsa is the reality of whether that promi
 The true power of the Navamsa is revealed when it contradicts the D1 chart. Here are three common scenarios that explain why D1 analysis alone is dangerous:
 
 ### Scenario 1: Beautiful D1, Afflicted Navamsa
-Imagine a chart where the 7th lord in D1 is exalted, and Venus is well-placed. The native marries a wealthy, attractive person with great societal status. To the outside world, it looks like a fairy-tale marriage. However, in the Navamsa, the 7th lord is debilitated and aspected by Saturn and Rahu. 
+Imagine a chart where the 7th lord in D1 is exalted, and Venus is well-placed. The native marries a wealthy, attractive person with great societal status. To the outside world, it looks like a fairy-tale marriage. However, in the Navamsa, the 7th lord is debilitated and aspected by Saturn and Rahu.
 *The Reality:* Behind closed doors, the marriage is cold, devoid of intimacy, and riddled with hidden conflicts. Despite the outward appearance of success, the internal reality is suffering.
 
 ### Scenario 2: Afflicted D1, Beautiful Navamsa
@@ -56,13 +56,13 @@ During a comprehensive marriage reading, the astrologer will scrutinize several 
 1. **The Navamsa Lagna and Lagna Lord:** This shows the fundamental nature of your marital life and how your own personality shifts after marriage.
 2. **The 7th House of Navamsa:** This house and its lord describe the true, inner nature of your spouse and the actual dynamic of the partnership.
 3. **The Position of Venus:** As the universal significator of romance and relationship, the dignity of Venus in the Navamsa is paramount. A debilitated Venus in Navamsa indicates that the native will struggle to feel loved or satisfied in relationships, regardless of how good the spouse is.
-4. **Vargottama Planets:** If a planet occupies the exact same zodiac sign in both the D1 and D9 charts, it is called *Vargottama*. This gives the planet immense strength and stability to deliver its results. 
+4. **Vargottama Planets:** If a planet occupies the exact same zodiac sign in both the D1 and D9 charts, it is called *Vargottama*. This gives the planet immense strength and stability to deliver its results.
 
 ---
 
 ## Navamsa for Kundli Matching
 
-When a couple comes for a [kundli matching consultation](/services/kundli-matching-consultation/), matching the 36 points (Ashtakoot) is not enough. The astrologer must overlay the Navamsa charts of both partners. 
+When a couple comes for a [kundli matching consultation](/services/kundli-matching-consultation), matching the 36 points (Ashtakoot) is not enough. The astrologer must overlay the Navamsa charts of both partners.
 
 If the Moons in both Navamsa charts are hostile to each other, the couple will struggle to find emotional common ground, even if their D1 charts look compatible. The Navamsa reveals the soul-level compatibility that sustains a marriage decades after the initial physical attraction fades.
 

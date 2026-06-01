@@ -104,7 +104,7 @@ export default function CookieConsent() {
         <p>
           Shambhavaa uses essential storage for language preferences and optional Google cookies for analytics and ads. You can accept, reject, or manage optional cookies.
           {' '}
-          <a href="/privacy/">Privacy Policy</a>
+          <a href="/privacy">Privacy details</a>
         </p>
         {showPreferences && (
           <div className="cookie-consent-preferences">

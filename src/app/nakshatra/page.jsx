@@ -2,6 +2,7 @@ import { getPostsByCategory } from '../../lib/posts';
 import SEO from '../../components/SEO';
 import { CATEGORY_DESCRIPTIONS } from '../../data/category-descriptions';
 import FAQ from '../../components/FAQ';
+import { readAnchor } from '../../lib/anchors';
 
 export const metadata = {
   title: 'Nakshatra Psychology | The 27 Lunar Mansions | Shambhavaa',
@@ -87,18 +88,14 @@ export default function NakshatraPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
             {posts.map(post => (
               <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>
-                  <a href={`/nakshatra/${post.slug}`} style={{ color: 'var(--text-primary)' }}>
-                    {post.meta.title}
-                  </a>
-                </h3>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
                 <p style={{ fontSize: '0.875rem', color: 'var(--accent-gold)', marginBottom: '1rem' }}>
                   {post.meta.date && new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </p>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem', flex: 1 }}>
                   {post.meta.excerpt}
                 </p>
-                <a href={`/nakshatra/${post.slug}`} style={{ fontWeight: 'bold' }}>Read In-depth Insight &rarr;</a>
+                <a href={`/nakshatra/${post.slug}`} style={{ fontWeight: 'bold' }}>{readAnchor(post.meta.title)} &rarr;</a>
               </div>
             ))}
           </div>

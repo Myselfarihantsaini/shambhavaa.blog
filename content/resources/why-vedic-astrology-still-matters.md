@@ -56,7 +56,7 @@ A serious horoscope reading does not simply say what may happen. It explains why
 
 At Shambhavaa, astrology is treated as a structured Vedic science. A prediction is not made from one placement alone. The D1 birth chart is judged first. Then the relevant divisional chart is used for confirmation. After that, dasha and transit are checked for timing. Only when these layers support each other can a prediction become meaningful.
 
-For related guides, read [How Vedic Kundli Reading Works](/resources/how-vedic-kundli-reading-works/), [Why Dasha and Transit Must Be Read Together](/resources/why-dasha-and-transit-must-be-read-together/), and [How to Prepare for an Astrology Consultation](/resources/how-to-prepare-for-astrology-consultation/).
+For related guides, read [How Vedic Kundli Reading Works](/resources/how-vedic-kundli-reading-works), [Why Dasha and Transit Must Be Read Together](/resources/why-dasha-and-transit-must-be-read-together), and [How to Prepare for an Astrology Consultation](/resources/how-to-prepare-for-astrology-consultation).
 
 ## Direct Answer: Why Does Vedic Astrology Matter?
 
@@ -160,7 +160,7 @@ However, divisional charts should not be read independently without context. The
 
 For example, in career analysis, D1 may show the basic professional direction, but D10 shows how that career functions in the outer world. A person may have talent in the D1 chart but face instability in D10. Another person may struggle early but rise strongly after maturity because the D10 improves the professional promise.
 
-This is why a proper career prediction must examine D1 and D10 together. Read more in [How D10 Chart Helps Career Prediction](/resources/how-d10-chart-helps-career-prediction/) and [How Career Is Judged from Kundli](/resources/how-career-is-judged-from-kundli/).
+This is why a proper career prediction must examine D1 and D10 together. Read more in [How D10 Chart Helps Career Prediction](/resources/how-d10-chart-helps-career-prediction) and [How Career Is Judged from Kundli](/resources/how-career-is-judged-from-kundli).
 
 ## Dasha Is the Timing Engine of Vedic Astrology
 
@@ -180,7 +180,7 @@ Dasha shows the karmic chapter.
 
 Transit shows the external weather.
 
-For the deeper method, read [Why Dasha and Transit Must Be Read Together](/resources/why-dasha-and-transit-must-be-read-together/) and [Dasha and Transit Reading](/services/dasha-transit-reading/).
+For the deeper method, read [the dasha-transit method](/resources/why-dasha-and-transit-must-be-read-together) and [timing consultation details](/services/dasha-transit-reading).
 
 ## Transit Activates What the Chart Promises
 
@@ -227,7 +227,7 @@ Ashwini may give speed, healing, initiative, and quick action. Bharani may bring
 
 This is why two people with similar sign placements can live very different results. The nakshatra changes the inner motivation and the way events manifest.
 
-For a deeper psychological foundation, read [Astropsychology: How Astrology Reveals the Hidden Architecture of the Human Mind](/resources/astropsychology-hidden-architecture-human-mind/).
+For a deeper psychological foundation, read [the Astropsychology guide](/resources/astropsychology-hidden-architecture-human-mind).
 
 ## Astrology and Free Will
 
@@ -272,12 +272,12 @@ This honesty is what makes astrology useful.
       </tr>
     </thead>
     <tbody>
-      <tr><td>Career confusion</td><td>Lagna, 10th house, 10th lord, 6th, 2nd, 11th, Saturn, Sun, Mercury, Amatyakaraka</td><td>D10/Dashamsa</td><td><a href="/resources/how-career-is-judged-from-kundli/">Career from Kundli</a></td></tr>
-      <tr><td>Marriage delay</td><td>7th house, 7th lord, Venus, Jupiter, Darakaraka, Upapada, 2nd, 11th</td><td>D9/Navamsa</td><td><a href="/resources/how-marriage-timing-is-checked/">Marriage Timing</a></td></tr>
-      <tr><td>Relationship compatibility</td><td>7th house, Venus, Moon, Jupiter, Mars, Rahu-Ketu, family houses</td><td>D9/Navamsa</td><td><a href="/services/kundli-matching-consultation/">Kundli Matching</a></td></tr>
-      <tr><td>Children</td><td>5th house, 5th lord, Jupiter, relevant dasha</td><td>D7/Saptamsa</td><td><a href="/resources/how-vedic-kundli-reading-works/">Kundli Reading</a></td></tr>
-      <tr><td>Remedies</td><td>Afflicted planets, active dasha, house lordship, Moon condition, practical life pattern</td><td>Relevant varga</td><td><a href="/resources/why-astrology-remedies-need-full-chart-analysis/">Remedies Need Full Chart</a></td></tr>
-      <tr><td>Spiritual growth</td><td>9th house, 12th house, Jupiter, Ketu, Moon, Saturn, dasha</td><td>D9 and D20 where used</td><td><a href="/services/nakshatra-reading/">Nakshatra Reading</a></td></tr>
+      <tr><td>Career confusion</td><td>Lagna, 10th house, 10th lord, 6th, 2nd, 11th, Saturn, Sun, Mercury, Amatyakaraka</td><td>D10/Dashamsa</td><td><a href="/resources/how-career-is-judged-from-kundli">Career from Kundli</a></td></tr>
+      <tr><td>Marriage delay</td><td>7th house, 7th lord, Venus, Jupiter, Darakaraka, Upapada, 2nd, 11th</td><td>D9/Navamsa</td><td><a href="/resources/how-marriage-timing-is-checked">Marriage Timing</a></td></tr>
+      <tr><td>Relationship compatibility</td><td>7th house, Venus, Moon, Jupiter, Mars, Rahu-Ketu, family houses</td><td>D9/Navamsa</td><td><a href="/services/kundli-matching-consultation">Kundli Matching</a></td></tr>
+      <tr><td>Children</td><td>5th house, 5th lord, Jupiter, relevant dasha</td><td>D7/Saptamsa</td><td><a href="/resources/how-vedic-kundli-reading-works">Kundli Reading</a></td></tr>
+      <tr><td>Remedies</td><td>Afflicted planets, active dasha, house lordship, Moon condition, practical life pattern</td><td>Relevant varga</td><td><a href="/resources/why-astrology-remedies-need-full-chart-analysis">Remedies Need Full Chart</a></td></tr>
+      <tr><td>Spiritual growth</td><td>9th house, 12th house, Jupiter, Ketu, Moon, Saturn, dasha</td><td>D9 and D20 where used</td><td><a href="/services/nakshatra-reading">Nakshatra Reading</a></td></tr>
     </tbody>
   </table>
 </div>
@@ -294,7 +294,7 @@ But timing still depends on dasha and transit.
 
 A strong career chart may remain underdeveloped until the correct period activates it.
 
-For a focused professional reading, see [Career Astrology Consultation](/services/career-astrology-consultation/).
+For a focused professional reading, see [career consultation details](/services/career-astrology-consultation).
 
 ## Example: Marriage Delay
 
@@ -308,7 +308,7 @@ The right prediction may be "marriage is promised but delayed," "marriage is pos
 
 This is more useful than generic positivity.
 
-For more detail, read [Why Navamsa Is Important for Marriage Prediction](/resources/why-navamsa-is-important-for-marriage/) and [Marriage Astrology Consultation](/services/marriage-astrology-consultation/).
+For more detail, read [the Navamsa marriage guide](/resources/why-navamsa-is-important-for-marriage) and [marriage consultation details](/services/marriage-astrology-consultation).
 
 ## Remedies Support Awareness and Karma Correction
 
@@ -322,7 +322,7 @@ If Saturn is creating pressure, discipline, service, humility, and responsibilit
 
 The safest remedy is always conscious conduct aligned with the higher nature of the planet.
 
-Read [Why Astrology Remedies Need Full Chart Analysis](/resources/why-astrology-remedies-need-full-chart-analysis/) before choosing remedies from generic lists.
+Read [Why Astrology Remedies Need Full Chart Analysis](/resources/why-astrology-remedies-need-full-chart-analysis) before choosing remedies from generic lists.
 
 ## Why Shambhavaa Uses Deep Chart Analysis
 
@@ -366,10 +366,10 @@ For a personalized Vedic astrology reading based on your D1 chart, divisional ch
 
 For structured reading options, explore:
 
-- [Vedic Kundli Reading](/services/vedic-kundli-reading/)
-- [Career Astrology Consultation](/services/career-astrology-consultation/)
-- [Marriage Astrology Consultation](/services/marriage-astrology-consultation/)
-- [Dasha and Transit Reading](/services/dasha-transit-reading/)
-- [Remedies Consultation](/services/remedies-consultation/)
+- [Vedic Kundli Reading](/services/vedic-kundli-reading)
+- [Career Reading Service](/services/career-astrology-consultation)
+- [Marriage Reading Service](/services/marriage-astrology-consultation)
+- [Dasha Timing Service](/services/dasha-transit-reading)
+- [Remedies Consultation](/services/remedies-consultation)
 
 For more deep astrology articles and guides, continue reading [Shambhavaa.blog](https://shambhavaa.blog).

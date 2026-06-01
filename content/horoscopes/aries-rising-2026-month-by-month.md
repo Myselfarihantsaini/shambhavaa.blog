@@ -33,7 +33,7 @@ Aries Rising 2026 is a year of hidden pressure, network gains, emotional discipl
 
 This month-by-month prediction is written for Aries Lagna or Aries Ascendant, meaning the year is read house-wise from the rising sign.
 
-For the full house-wise overview, read [Aries Rising 2026 Horoscope: Hidden Pressure, Network Gains, and Emotional Maturity](/horoscopes/aries-rising-2026-horoscope).
+For the full house-wise overview, read [Aries Rising 2026 overview](/horoscopes/aries-rising-2026-horoscope).
 
 For the general Aries sign forecast, read [Aries Horoscope 2026: The Year Your Fire Learns Direction](/horoscopes/aries-horoscope-2026-month-by-month).
 
