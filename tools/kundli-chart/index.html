@@ -189,6 +189,23 @@
   .vtab th{color:var(--gold);font-weight:500;letter-spacing:.04em;font-size:10px;text-transform:uppercase}
   .vtab td:first-child,.vtab th:first-child{text-align:left;color:var(--ink)}
 
+  /* ===== Ashtakavarga ===== */
+  .ashtaka{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
+  .ashtaka h3{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600}
+  .av-intro{text-align:center;color:var(--muted);font-size:12.5px;margin:2px auto 14px;max-width:70ch;line-height:1.55}
+  .av-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .av-tab{border-collapse:collapse;font-size:12.5px;min-width:560px;width:100%}
+  .av-tab th,.av-tab td{border:1px solid rgba(212,175,110,.16);padding:5px 6px;text-align:center}
+  .av-tab th{color:var(--gold-soft);font-weight:500;font-size:11px}
+  .av-hn{color:var(--gold);font-weight:600}
+  .av-tab td.av-pl{text-align:left;color:var(--ink);white-space:nowrap}
+  .av-tab td.av-tot{font-weight:700;color:var(--gold-soft)}
+  .av-hi{color:#9fd0a0;font-weight:600}.av-z{color:#e0a0a0}.av-na{color:var(--muted)}
+  .av-good{color:#9fd0a0}.av-mid{color:var(--gold-soft)}.av-weak{color:#e0a0a0}
+  .av-strong{color:#9fd0a0}.av-okay{color:var(--gold-soft)}.av-low{color:#e0a0a0}
+  .av-leg{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0 0;max-width:82ch}
+  .av-tg{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+
   /* ===== Download report button ===== */
   .r-actions{text-align:center;margin:0 0 20px}
   .btn-secondary{display:inline-block;width:auto;background:transparent;border:1px solid var(--gold);
@@ -238,6 +255,13 @@
   .report .r-vgrid .rsvg{width:100%;max-width:none;height:auto}
   .report .r-vgrid .r-cap{font-size:8px;margin-bottom:2px}
   .report .r-vgrid figure{page-break-inside:avoid}
+  .report .r-av .av-tab{min-width:0;width:100%;font-size:9px}
+  .report .r-av .av-tab th,.report .r-av .av-tab td{border:1px solid #e4dcc8;padding:2px 3px;color:#23201a;background:#fff}
+  .report .r-av .av-tab th,.report .r-av .av-hn,.report .r-av .av-tab td.av-tot{color:#8a6d2f}
+  .report .r-av .av-hi,.report .r-av .av-good,.report .r-av .av-strong{color:#1f7a3a !important}
+  .report .r-av .av-z,.report .r-av .av-weak,.report .r-av .av-low{color:#a23b1e !important}
+  .report .r-av .av-mid,.report .r-av .av-okay{color:#8a6d2f !important}
+  .report .r-av .av-leg,.report .r-av .av-tg,.report .r-av .av-na{color:#555 !important}
   .report .r-foot{margin-top:18px;border-top:1px solid #d8cdb5;padding-top:8px;font-size:9.5px;color:#8a8276;text-align:center;line-height:1.5}
 
   @media print{
@@ -246,7 +270,7 @@
     .wrap{display:none !important}
     .report{display:block !important}
     .report .r-sec{page-break-after:avoid}
-    .report .r-charts,.report .rtab,.report .r-pan,.report .rd-table,.report .r-vgrid{page-break-inside:avoid}
+    .report .r-charts,.report .rtab,.report .r-pan,.report .rd-table,.report .r-vgrid,.report .r-av{page-break-inside:avoid}
   }
 </style>
 </head>
@@ -324,6 +348,13 @@
         </div>
       </div>
 
+      <!-- ===== Ashtakavarga ===== -->
+      <div class="ashtaka" id="ashtaka">
+        <h3>Ashtakavarga</h3>
+        <p class="av-intro">The bindu score of every sign: each planet's Bhinna Ashtakavarga and the combined Sarvashtakavarga. This adds a classical transit-strength layer to the chart.</p>
+        <div id="avwrap"></div>
+      </div>
+
       <!-- ===== Birth Panchang ===== -->
       <div class="panchang">
         <h3>Birth Panchang</h3>
@@ -366,7 +397,7 @@
         <div class="t-leg" id="tLeg"></div>
         <div class="tablewrap">
           <table>
-            <thead><tr><th>Graha</th><th>Sign (Rashi)</th><th>Degree</th><th>Nakshatra</th><th>House</th></tr></thead>
+            <thead><tr><th>Graha</th><th>Sign (Rashi)</th><th>Degree</th><th>Nakshatra</th><th>House</th><th>Bindus</th></tr></thead>
             <tbody id="ttbody"></tbody>
           </table>
         </div>
@@ -401,6 +432,7 @@
 
 <!-- rule engine (ships alongside this file) -->
 <script src="kundli-rule-engine.js"></script>
+<script src="kundli-ashtakavarga.js"></script>
 <script>
 const D2R=Math.PI/180,R2D=180/Math.PI;
 const n360=x=>{x%=360;return x<0?x+360:x;};
@@ -766,7 +798,7 @@ function renderPanchang(sunSid,moonSid,y,mo,da,hh,mi,lat,lon,tz,jdUT){
    from the natal Lagna or natal Moon (selectable). Sade Sati / Dhaiya and the
    Jupiter note are always counted from the natal Moon, per classical gochar. */
 let NATAL_REF={lagnaSign:null,moonSign:null};
-let PSUM=null,REPORT_META=null,VARGA_BASE=null;
+let PSUM=null,REPORT_META=null,VARGA_BASE=null,AV_DATA=null,AV_LAGNA=null;
 function ordinal(n){const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
 
 function transitSidereal(jdUT){
@@ -828,8 +860,15 @@ function renderTransit(){
   const tb=document.getElementById('ttbody');tb.innerHTML='';
   ORDER.forEach(p=>{const s=tSign[p];const ni=nakInfo(tr.sid[p]);const r=tr.retro(p);
     const house=((s-refSign+12)%12)+1;
+    const avc={Sun:'SU',Moon:'MO',Mars:'MA',Mercury:'ME',Jupiter:'JU',Venus:'VE',Saturn:'SA'}[p];
+    let bcell='<td class="av-na">-</td>';
+    if(avc&&AV_DATA&&typeof KundliAshtaka!=='undefined'){
+      const bn=AV_DATA.bav[avc][s];
+      const g=KundliAshtaka.transitGrade(bn);
+      bcell='<td class="'+g.cls+'">'+bn+' <span class="av-tg">'+g.tag+'</span></td>';
+    }
     tb.innerHTML+='<tr><td>'+p+(r?' <span class="retro">℞</span>':'')+'</td><td>'+RASHI[s]+
-      '</td><td class="deg">'+dms(tr.sid[p]%30)+'</td><td>'+ni.name+'</td><td>'+house+'</td></tr>';});
+      '</td><td class="deg">'+dms(tr.sid[p]%30)+'</td><td>'+ni.name+'</td><td>'+house+'</td>'+bcell+'</tr>';});
 
   renderTransitNotes(tr);
 }
@@ -864,7 +903,23 @@ function renderTransitNotes(tr){
     (jupGood?'<span class="t-tag good">classically supportive</span>':'')+
     '.<br>Gochar counts the 2nd, 5th, 7th, 9th and 11th from the Moon as Jupiter\u2019s favourable transits.</div>';
 
+  if(AV_DATA&&typeof KundliAshtaka!=='undefined'){
+    const sSign=Math.floor(tr.sid['Saturn']/30),jSign=Math.floor(tr.sid['Jupiter']/30);
+    const sb=AV_DATA.bav.SA[sSign],jb=AV_DATA.bav.JU[jSign];
+    const sg=KundliAshtaka.transitGrade(sb),jg=KundliAshtaka.transitGrade(jb);
+    html+='<div class="tn"><b>Ashtakavarga weighting</b><br>'+
+      'Saturn is crossing '+RASHI[sSign]+', where it has <b>'+sb+'</b> of its own bindus (<span class="'+sg.cls+'">'+sg.tag+'</span>); '+
+      'Jupiter is crossing '+RASHI[jSign]+' with <b>'+jb+'</b> bindus (<span class="'+jg.cls+'">'+jg.tag+'</span>). '+
+      'More bindus can soften a hard transit and amplify a supportive one.</div>';
+  }
+
   box.innerHTML=html;
+}
+
+function renderAshtakavarga(){
+  const box=document.getElementById('avwrap');if(!box)return;
+  if(!AV_DATA||typeof KundliAshtaka==='undefined'){box.innerHTML='';return;}
+  box.innerHTML=KundliAshtaka.renderTable(AV_DATA,AV_LAGNA);
 }
 
 /* ---- Downloadable Kundli report (print -> Save as PDF) ---- */
@@ -935,6 +990,8 @@ function buildReport(){
   H+='<div class="r-sec">Vimshottari Mahadasha</div>'+
      '<table class="rtab"><thead><tr><th>Mahadasha</th><th>Begins</th><th>Ends</th><th>Duration</th></tr></thead><tbody>'+
      buildMahaRows()+'</tbody></table>';
+  const avb=document.getElementById('avwrap');
+  if(avb&&avb.innerHTML.trim())H+='<div class="r-sec">Ashtakavarga</div><div class="r-av">'+avb.innerHTML+'</div>';
   const readHTML=(rd&&rd.innerHTML.trim())?rd.innerHTML:'<p class="r-note">The deterministic reading appears here once its data files are available on the host.</p>';
   H+='<div class="r-sec">Rule-based Reading</div><div class="r-reading">'+readHTML+'</div>';
   H+='<div class="r-foot">Generated '+escHTML(new Date().toLocaleString())+' | shambhavaa.com | whole-sign houses, sidereal Lahiri zodiac, mean nodes. A rule-based research aid, not a substitute for a consultation.</div>';
@@ -1053,6 +1110,16 @@ document.getElementById('calc').addEventListener('click',function(){
 
   // ----- Birth Panchang -----
   renderPanchang(sid['Sun'],sid['Moon'],y,mo,da,hh,mi,lat,lon,tz,jdUT);
+
+  if(typeof KundliAshtaka!=='undefined'){
+    AV_DATA=KundliAshtaka.compute({SU:d1Sign['Sun'],MO:d1Sign['Moon'],MA:d1Sign['Mars'],ME:d1Sign['Mercury'],
+      JU:d1Sign['Jupiter'],VE:d1Sign['Venus'],SA:d1Sign['Saturn'],LG:lagnaSign});
+    AV_LAGNA=lagnaSign;
+  }else{
+    AV_DATA=null;
+    AV_LAGNA=null;
+  }
+  renderAshtakavarga();
 
   // ----- Vimshottari Dasha -----
   const moonSid=sid['Moon'];
