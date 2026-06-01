@@ -80,7 +80,7 @@
   .note{margin-top:22px;font-size:12px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:16px;text-align:center}
   .note a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
   .dasha{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
-  .dasha h3{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600}
+  .section-title{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600;line-height:1.2}
   .dctrl{display:flex;justify-content:center;align-items:center;gap:9px;margin:10px 0 2px;flex-wrap:wrap}
   .dctrl label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
   .dctrl select{width:auto;padding:8px 11px;font-size:13px}
@@ -105,7 +105,6 @@
 
   /* ===== Birth Panchang ===== */
   .panchang{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
-  .panchang h3{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600}
   .psub{text-align:center;color:var(--muted);font-size:12.5px;margin:5px auto 14px;max-width:62ch;line-height:1.6}
   .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
   .pcard{background:rgba(0,0,0,.18);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
@@ -119,7 +118,6 @@
 
   /* ===== Gochar — present transit ===== */
   .transit{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
-  .transit h3{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600}
   .t-asof{display:block;font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.06em;
     text-transform:none;color:var(--muted);margin-top:3px}
   .t-tag{font-family:var(--sans);font-size:10px;letter-spacing:.04em;text-transform:uppercase;
@@ -177,7 +175,6 @@
 
   /* ===== Divisional charts (varga) ===== */
   .varga{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
-  .varga h3{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600}
   .vlead{text-align:center;color:var(--muted);font-size:12.5px;margin:2px auto 14px;max-width:62ch;line-height:1.55}
   .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:8px}
   .vg-item{gap:6px}
@@ -191,7 +188,6 @@
 
   /* ===== Ashtakavarga ===== */
   .ashtaka{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
-  .ashtaka h3{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600}
   .av-intro{text-align:center;color:var(--muted);font-size:12.5px;margin:2px auto 14px;max-width:70ch;line-height:1.55}
   .av-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .av-tab{border-collapse:collapse;font-size:12.5px;min-width:560px;width:100%}
@@ -219,7 +215,7 @@
   .report{display:none}
   .report figure{margin:0;text-align:center}
   .report .r-brand{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#8a6d2f;text-align:center}
-  .report h2{font-family:var(--serif);font-size:27px;color:#5e4a1f;text-align:center;margin:3px 0 2px;font-weight:600}
+  .report .r-title{font-family:var(--serif);font-size:27px;color:#5e4a1f;text-align:center;margin:3px 0 2px;font-weight:600}
   .report .r-bm{text-align:center;color:#6b6660;font-size:11px;margin-bottom:6px}
   .report .r-sec{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a6d2f;font-weight:600;
     border-bottom:1px solid #d8cdb5;padding-bottom:4px;margin:16px 0 9px}
@@ -337,7 +333,7 @@
 
       <!-- ===== Divisional charts (Varga) ===== -->
       <div class="varga">
-        <h3>Divisional Charts (Varga)</h3>
+        <div class="section-title">Divisional Charts (Varga)</div>
         <p class="vlead">All sixteen divisional charts, each shown individually with the same North-Indian notation as the D1 and D9 charts above.</p>
         <div class="vgrid" id="vgrid"></div>
         <div class="tablewrap">
@@ -350,21 +346,21 @@
 
       <!-- ===== Ashtakavarga ===== -->
       <div class="ashtaka" id="ashtaka">
-        <h3>Ashtakavarga</h3>
+        <div class="section-title">Ashtakavarga</div>
         <p class="av-intro">The bindu score of every sign: each planet's Bhinna Ashtakavarga and the combined Sarvashtakavarga. This adds a classical transit-strength layer to the chart.</p>
         <div id="avwrap"></div>
       </div>
 
       <!-- ===== Birth Panchang ===== -->
       <div class="panchang">
-        <h3>Birth Panchang</h3>
+        <div class="section-title">Birth Panchang</div>
         <div class="psub" id="psub"></div>
         <div class="pgrid" id="pgrid"></div>
         <div class="pnote" id="pnote"></div>
       </div>
 
       <div class="dasha">
-        <h3>Vimshottari Dasha</h3>
+        <div class="section-title">Vimshottari Dasha</div>
         <div class="dctrl">
           <label for="ylen">Dasha year length</label>
           <select id="ylen">
@@ -380,7 +376,7 @@
 
       <!-- ===== Gochar — present transit ===== -->
       <div class="transit">
-        <h3>Present Transit <span class="t-asof" id="tAsof"></span></h3>
+        <div class="section-title">Present Transit <span class="t-asof" id="tAsof"></span></div>
         <div class="dctrl">
           <label for="treffrom">Houses reckoned from</label>
           <select id="treffrom">
@@ -967,7 +963,7 @@ function buildReport(){
   const meta=[fmtDOB(m.dob)+(m.tob?', '+m.tob:''),(m.place||''),'Lagna '+(m.lagna||''),'Ayanamsa '+(m.ayan||'')+' deg'].filter(Boolean).map(escHTML).join('  |  ');
   let H='';
   H+='<div class="r-brand">Shambhavaa | Vedic Birth Chart</div>';
-  H+='<h2>'+((m.name?escHTML(m.name)+"'s":'Birth')+' Kundli')+'</h2>';
+  H+='<div class="r-title">'+((m.name?escHTML(m.name)+"'s":'Birth')+' Kundli')+'</div>';
   H+='<div class="r-bm">'+meta+'</div>';
   H+='<div class="r-sec">Interpretation Summary</div><div class="r-sum">'+buildSummary()+'</div>';
   H+='<div class="r-sec">Charts</div><div class="r-charts">'+
