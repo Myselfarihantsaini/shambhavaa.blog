@@ -142,10 +142,20 @@
   .reflist .rf{font-size:12.5px;color:var(--ink);padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:rgba(212,175,110,.05)}
   .accent{font-size:12px;color:var(--muted);line-height:1.6;margin-top:12px;border-top:1px solid rgba(255,255,255,.06);padding-top:10px}
   .accent b{color:var(--gold-soft)}
+  .softgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .pillrow{display:flex;flex-wrap:wrap;gap:7px}
+  .scorepill{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--gold-soft);background:rgba(212,175,110,.06)}
+  .scorepill small{color:var(--muted);font-size:10px;margin-left:4px}
+  .breakdown{display:grid;gap:8px}
+  .pbreak{border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:9px 11px;background:rgba(255,255,255,.025)}
+  .pbreak b{color:var(--gold-soft)}
+  .pbreak span{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+  .filterline{font-size:12.5px;color:var(--muted);line-height:1.55}
+  .filterline b{color:var(--gold-soft)}
 
   .note{margin-top:24px;font-size:12px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:16px;text-align:center}
   .note a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
-  @media(max-width:540px){.grid{grid-template-columns:1fr}.coords{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.grid{grid-template-columns:1fr}.coords,.softgrid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -177,6 +187,21 @@
           <input type="number" id="tz" step="0.25" placeholder="UTC offset" title="UTC offset in hours, e.g. 5.5">
         </div>
         <span class="hint">Latitude +North/-South, Longitude +East/-West, UTC offset in hours (India = 5.5).</span>
+      </div>
+      <div class="field full">
+        <label>Fragrance sensitivity filter <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+        <div class="softgrid">
+          <select id="sensitivityProfile" title="Optional sensitivity profile">
+            <option value="">No sensitivity profile</option>
+            <option value="migraine_prone">Migraine-prone: avoid heavy smoke and white florals</option>
+            <option value="sensitive_skin">Sensitive skin: avoid strong spice, citrus and moss</option>
+            <option value="asthma_sensitive">Asthma-sensitive: avoid smoke and heavy resins</option>
+            <option value="floral_sensitive">Floral-sensitive: avoid rose and white floral notes</option>
+            <option value="sweet_sensitive">Sweet-sensitive: avoid gourmand sweetness</option>
+          </select>
+          <input type="text" id="avoidNotes" placeholder="Avoid notes, e.g. oud, rose, bergamot" autocomplete="off">
+        </div>
+        <span class="hint">This only filters your declared scent preferences. It is not allergy or medical advice.</span>
       </div>
       <button id="calc">Reveal My Fragrance</button>
     </div>
@@ -220,6 +245,8 @@
         <div class="block" id="pyramidBlock"></div>
         <div class="twocol" id="blendMod"></div>
         <div class="block" id="referenceBlock"></div>
+        <div class="block" id="planetBreakdownBlock"></div>
+        <div class="block" id="allergyBlock"></div>
 
         <div class="twocol" id="favorAvoid"></div>
         <div class="examples" id="examples"></div>
@@ -410,6 +437,52 @@ examples:{
  "Earth":["Chanel — Pour Monsieur","Guerlain — Vetiver","Lalique — Encre Noire"],
  "Air":["Hermès — Terre d'Hermès Eau Givrée","Jo Malone London — Basil & Neroli","Prada — Infusion d'Iris"],
  "Water":["Issey Miyake — L'Eau d'Issey","Giorgio Armani — Acqua di Gioia","Byredo — Bal d'Afrique"]
+},
+houseBoosts:{
+ "1":{"role":"core aura","weight":1.35,"boost":["skin musk","sandalwood","amber"]},
+ "2":{"role":"voice sweetness","weight":0.75,"boost":["vanilla","tonka bean","honey"]},
+ "3":{"role":"movement","weight":0.65,"boost":["bergamot","mint","ginger"]},
+ "4":{"role":"comfort","weight":0.8,"boost":["white musk","sandalwood","milk accord"]},
+ "5":{"role":"creativity","weight":0.8,"boost":["rose","orange blossom","saffron"]},
+ "6":{"role":"discipline","weight":0.55,"boost":["basil","galbanum","vetiver"]},
+ "7":{"role":"attraction","weight":1.0,"boost":["rose","jasmine sambac","iris"]},
+ "8":{"role":"mystery","weight":0.95,"boost":["oud","myrrh","smoke"]},
+ "9":{"role":"dharma","weight":0.9,"boost":["frankincense","sandalwood","benzoin"]},
+ "10":{"role":"public image","weight":1.1,"boost":["amber","cedarwood","ambroxan"]},
+ "11":{"role":"social reach","weight":0.75,"boost":["white musk","ambroxan","neroli"]},
+ "12":{"role":"mystic trail","weight":0.85,"boost":["sandalwood","frankincense","ambergris"]}
+},
+roleWeights:{lagnaLord:3.0,moonSignLord:1.6,moonNakshatraLord:1.5,navamshaLagnaLord:1.7,mahadashaLord:1.9,antardashaLord:1.35,atmakaraka:1.5,darakaraka:0.9,defaultPlanet:0.7},
+houseRelevance:{"1":1.4,"2":0.95,"3":0.8,"4":0.95,"5":1.1,"6":0.75,"7":1.15,"8":1.0,"9":1.1,"10":1.25,"11":0.9,"12":1.05},
+dignityWeights:{exalted:1.35,mooltrikona:1.25,own_sign:1.18,friendly:1.08,neutral:1.0,enemy:0.88,debilitated:0.65},
+notePhase:{
+ top:["bergamot","blood orange","mandarin","lime","grapefruit","neroli","mint","ginger","pink pepper","black pepper","juniper","galbanum","petitgrain","pear","lychee","camphor","elemi"],
+ heart:["saffron","cinnamon","clove","orange blossom","white rose","jasmine","jasmine sambac","orris","iris","rose","tuberose","ylang-ylang","green tea","basil","black tea","lavender","lotus","white lotus","water lily","petrichor","milk accord","green cardamom","saffron leather","metallic musk","muguet","honey","sea salt","tobacco","incense smoke"],
+ base:["frankincense","amber","labdanum","benzoin","vetiver","patchouli","oakmoss","cedarwood","white musk","ambroxan","white amber","ambergris","oud","black amber","leather","sandalwood","myrrh","nagarmotha","dry cedar","soft amber"]
+},
+allergy:{
+ knownAllergenFamilies:{
+  citrus:["bergamot","lime","mandarin","blood orange","grapefruit"],
+  spice:["saffron","pink pepper","black pepper","red pepper","cinnamon","clove","ginger","cardamom"],
+  white_florals:["jasmine","jasmine sambac","tuberose","orange blossom","ylang-ylang","muguet"],
+  rose_florals:["rose","white rose"],
+  woods:["sandalwood","cedarwood","vetiver","oud","dry cedar"],
+  resins:["frankincense","myrrh","benzoin","labdanum","amber","black amber"],
+  moss_patchouli:["oakmoss","patchouli"],
+  musks_ambers:["white musk","ambroxan","ambergris","white amber","soft amber"],
+  smoke_tobacco:["smoke","incense smoke","tobacco"],
+  gourmand:["vanilla","tonka bean","honey","milk accord"],
+  aquatic_mineral:["sea salt","petrichor","lotus","white lotus","water lily"],
+  green_aromatic:["mint","basil","green tea","galbanum","juniper","blackcurrant leaf","violet leaf","lavender"]
+ },
+ sensitivityProfiles:{
+  migraine_prone:{avoidFamilies:["smoke_tobacco","white_florals"],avoidNotes:["oud","tobacco","smoke","incense smoke","tuberose"]},
+  sensitive_skin:{avoidFamilies:["spice","citrus","moss_patchouli"],avoidNotes:["cinnamon","clove","bergamot","lime","oakmoss"]},
+  asthma_sensitive:{avoidFamilies:["smoke_tobacco","resins"],avoidNotes:["smoke","incense smoke","tobacco","oud"]},
+  floral_sensitive:{avoidFamilies:["white_florals","rose_florals"],avoidNotes:["jasmine","jasmine sambac","rose","tuberose","ylang-ylang"]},
+  sweet_sensitive:{avoidFamilies:["gourmand"],avoidNotes:["vanilla","tonka bean","honey","milk accord"]}
+ },
+ replacementRules:{bergamot:"petitgrain",lime:"neroli",mandarin:"green tea","blood orange":"neroli",grapefruit:"petitgrain",cinnamon:"cardamom",clove:"pink pepper","red pepper":"ginger","black pepper":"juniper",jasmine:"iris","jasmine sambac":"iris",tuberose:"orange blossom","ylang-ylang":"rose",rose:"iris","white rose":"orris",oud:"cedarwood",tobacco:"black tea",smoke:"myrrh","incense smoke":"frankincense",oakmoss:"vetiver",patchouli:"cedarwood",vanilla:"benzoin","tonka bean":"sandalwood",honey:"benzoin","milk accord":"white musk",ambergris:"ambroxan"}
 }
 };
 
@@ -466,7 +539,7 @@ function runningDasha(moonSid,jdUT){
   return{maha:md.lord,antar};
 }
 
-/* ---- generate_oracle, ported faithfully from blend_engine.py ---- */
+/* ---- generate_oracle, ported from the v2 full_chart_blend_engine.py ---- */
 function dedupe(seq){const out=[];for(const x of seq){if(x&&out.indexOf(x)<0)out.push(x);}return out;}
 function clampI(v){return Math.max(1,Math.min(10,v));}
 function applyModifierScore(base,modifiers){let intensity=base,wm=1.0;const effects=[];
@@ -474,36 +547,111 @@ function applyModifierScore(base,modifiers){let intensity=base,wm=1.0;const effe
   return{intensity:clampI(intensity),multiplier:Math.round(wm*1000)/1000,effects};}
 function mostCommon(arr,n){const order=[],count={};arr.forEach(x=>{if(count[x]==null){count[x]=0;order.push(x);}count[x]++;});
   return order.slice().sort((a,b)=>count[b]-count[a]).slice(0,n);}
+function findNakshatra(name){const n=DATA.nakshatras.find(x=>x.nakshatra.toLowerCase()===String(name||'').toLowerCase());if(!n)throw new Error('Unknown nakshatra: '+name);return n;}
+function rashiNotes(sign){const r=DATA.rashis[sign]||{};return r.notes||r.rashiNotes||[];}
+function rashiBias(sign){const r=DATA.rashis[sign]||{};return r.scentBias||r.familyBias||'';}
+function notePhase(note){for(const ph of ['top','heart','base']){if((DATA.notePhase[ph]||[]).indexOf(note)>=0)return ph;}return 'heart';}
+function scoreAdd(scores,note,w){if(!note)return;scores[note]=(scores[note]||0)+Number(w||0);}
+function allergySets(sens){
+  const avoidNotes=new Set(sens.avoidNotes||[]),avoidFamilies=new Set(sens.avoidFamilies||[]);
+  (sens.sensitivityProfiles||[]).forEach(prof=>{
+    const rule=(DATA.allergy.sensitivityProfiles||{})[prof]||{};
+    (rule.avoidNotes||[]).forEach(n=>avoidNotes.add(n));
+    (rule.avoidFamilies||[]).forEach(f=>avoidFamilies.add(f));
+  });
+  avoidFamilies.forEach(f=>((DATA.allergy.knownAllergenFamilies||{})[f]||[]).forEach(n=>avoidNotes.add(n)));
+  return{avoidNotes,avoidFamilies};
+}
+function safeNote(note,avoid,log){
+  if(!avoid.has(note))return note;
+  const repl=(DATA.allergy.replacementRules||{})[note];
+  if(repl&&!avoid.has(repl)){log.push({removed:note,replacement:repl});return repl;}
+  log.push({removed:note,replacement:null});return null;
+}
+function roleWeight(planet,chart){
+  const roles=[];
+  if(planet===chart.lagnaLord)roles.push('lagnaLord');
+  if(planet===chart.moonSignLord)roles.push('moonSignLord');
+  if(planet===findNakshatra(chart.moonNakshatra).lord)roles.push('moonNakshatraLord');
+  if(planet===chart.navamshaLagnaLord)roles.push('navamshaLagnaLord');
+  if(planet===chart.mahadashaLord)roles.push('mahadashaLord');
+  if(planet===chart.antardashaLord)roles.push('antardashaLord');
+  if(planet===chart.atmakaraka)roles.push('atmakaraka');
+  if(planet===chart.darakaraka)roles.push('darakaraka');
+  if(!roles.length)roles.push('defaultPlanet');
+  return{weight:roles.reduce((s,r)=>s+(DATA.roleWeights[r]||0),0),roles};
+}
+function planetWeight(planet,pdata,chart){
+  const rw=roleWeight(planet,chart);
+  let dw=DATA.dignityWeights[pdata.dignity||'neutral']||1;
+  if(pdata.retrograde)dw*=1.05;
+  if(pdata.combust)dw*=0.85;
+  if(pdata.vargottama)dw*=1.12;
+  const hw=DATA.houseRelevance[String(pdata.house||'1')]||0.75;
+  return{weight:rw.weight*hw*dw*Number(pdata.strength||1),roles:rw.roles};
+}
+function rankedNotes(scores,ph,limit){
+  return Object.keys(scores).filter(n=>notePhase(n)===ph).map(n=>({note:n,score:Math.round(scores[n]*1000)/1000}))
+    .sort((a,b)=>b.score-a.score).slice(0,limit);
+}
 function generateOracle(chart){
   const lagna=chart.lagna;
   const lagnaLord=chart.lagnaLord||DATA.rashis[lagna].lord;
-  const moonNak=DATA.nakshatras.find(x=>x.nakshatra.toLowerCase()===chart.moonNakshatra.toLowerCase());
+  const moonNak=findNakshatra(chart.moonNakshatra);
   const d9Lord=chart.navamshaLagnaLord,maha=chart.mahadashaLord,antar=chart.antardashaLord;
   const dominantHouse=String(chart.dominantHouse||'1'),modifiers=chart.modifiers||[];
   const rashi=DATA.rashis[lagna],element=rashi.element,er=DATA.elements[element];
-  const lp=DATA.planets[lagnaLord],dp=DATA.planets[d9Lord],mp=DATA.planets[maha],ap=DATA.planets[antar];
-  let top=[],heart=[],base=[];
-  top=top.concat(er.top);heart=heart.concat(er.heart);base=base.concat(er.base);
-  top=top.concat(lp.top||[]);heart=heart.concat(lp.heart||[]);base=base.concat(lp.base||[]);
-  heart=heart.concat([moonNak.heart]);
-  top=top.concat((dp.top||[]).slice(0,1));heart=heart.concat((dp.heart||[]).slice(0,2));base=base.concat((dp.base||[]).slice(0,2));
-  top=top.concat((mp.top||[]).slice(0,1));heart=heart.concat((mp.heart||[]).slice(0,1));base=base.concat((mp.base||[]).slice(0,1));
-  heart=heart.concat((ap.heart||[]).slice(0,1));base=base.concat((ap.base||[]).slice(0,1));
-  const intensityBase=Math.round(lp.intensity*0.35+dp.intensity*0.2+mp.intensity*0.25+ap.intensity*0.2);
+  const lp=DATA.planets[lagnaLord],dp=DATA.planets[d9Lord]||lp,mp=DATA.planets[maha]||lp,ap=DATA.planets[antar]||mp;
+  const raw={},breakdown={};
+  (er.top||[]).forEach(n=>scoreAdd(raw,n,0.9));
+  (er.heart||[]).forEach(n=>scoreAdd(raw,n,1.1));
+  (er.base||[]).forEach(n=>scoreAdd(raw,n,1.0));
+  rashiNotes(lagna).forEach(n=>scoreAdd(raw,n,0.95));
+  Object.keys(chart.planets||{}).forEach(planet=>{
+    const pdata=chart.planets[planet];
+    const pr=DATA.planets[planet];
+    if(!pr)return;
+    const pw=planetWeight(planet,pdata,chart),w=pw.weight;
+    (pr.top||[]).forEach(n=>scoreAdd(raw,n,w*0.22));
+    (pr.heart||[]).forEach(n=>scoreAdd(raw,n,w*0.30));
+    (pr.base||[]).forEach(n=>scoreAdd(raw,n,w*0.34));
+    rashiNotes(pdata.sign).forEach(n=>scoreAdd(raw,n,w*0.14));
+    if(pdata.nakshatra){try{scoreAdd(raw,findNakshatra(pdata.nakshatra).heart,w*0.35);}catch(e){}}
+    const hb=DATA.houseBoosts[String(pdata.house||'1')];
+    if(hb)(hb.boost||[]).forEach(n=>scoreAdd(raw,n,w*hb.weight*0.10));
+    breakdown[planet]={weight:Math.round(w*1000)/1000,roles:pw.roles,house:String(pdata.house||'1'),sign:pdata.sign,nakshatra:pdata.nakshatra,dignity:pdata.dignity||'neutral',retrograde:!!pdata.retrograde,combust:!!pdata.combust};
+  });
+  scoreAdd(raw,moonNak.heart,2.0);
+  [['navamshaLagnaLord',0.65],['mahadashaLord',0.9],['antardashaLord',0.55]].forEach(([key,w])=>{
+    const lord=chart[key];if(DATA.planets[lord])(DATA.planets[lord].notes||[]).forEach(n=>scoreAdd(raw,n,w));
+  });
+  const avoid=allergySets(chart.fragranceSensitivity||{}),log=[],scores={};
+  Object.keys(raw).forEach(n=>{const sn=safeNote(n,avoid.avoidNotes,log);if(sn)scoreAdd(scores,sn,raw[n]);});
+  const displaySafe=n=>{
+    if(!avoid.avoidNotes.has(n))return n;
+    const repl=(DATA.allergy.replacementRules||{})[n];
+    return repl&&!avoid.avoidNotes.has(repl)?repl:null;
+  };
+  const safeList=arr=>dedupe((arr||[]).map(displaySafe).filter(Boolean));
+  const rankedAll=Object.keys(scores).map(n=>({note:n,score:Math.round(scores[n]*1000)/1000})).sort((a,b)=>b.score-a.score);
+  const dom=Object.keys(breakdown).map(p=>({planet:p,...breakdown[p]})).sort((a,b)=>b.weight-a.weight).slice(0,5);
+  const intensityBase=Math.round((dom[0]?.weight||3)+(dom[1]?.weight||2)+(lp.intensity||6)*0.35);
   const ms=applyModifierScore(intensityBase,modifiers);
-  const pyramid={top:dedupe(top).slice(0,7),heart:dedupe(heart).slice(0,8),base:dedupe(base).slice(0,8)};
-  const allNotes=pyramid.top.concat(pyramid.heart,pyramid.base);
-  const keyNotes=mostCommon(allNotes,8);
+  const pyramid={top:rankedNotes(scores,'top',6),heart:rankedNotes(scores,'heart',8),base:rankedNotes(scores,'base',8)};
+  const keyNotes=rankedAll.slice(0,12);
   const houseRule=DATA.houses[dominantHouse]||DATA.houses['1'];
   return{
-    oracleName:lagna+' '+lagnaLord+' Aura',
+    oracleName:lagna+' '+lagnaLord+' Full-Chart Aura',
     chartInputs:{lagna,lagnaElement:element,lagnaLord,moonNakshatra:moonNak.nakshatra,moonNakshatraLord:moonNak.lord,navamshaLagnaLord:d9Lord,mahadashaLord:maha,antardashaLord:antar,dominantHouse},
-    scentProfile:{family:er.family,familyLine:er.line,rashiBias:rashi.familyBias,signatureAccord:lp.notes,heartNote:moonNak.heart,heartCharacter:moonNak.character,auraEnhancer:dp.notes,currentDashaAccent:{mahadasha:mp.notes,antardasha:ap.notes},houseEffect:houseRule.scentEffect},
+    scentProfile:{family:er.family,familyLine:er.line,rashiBias:rashiBias(lagna),signatureAccord:safeList(lp.notes),heartNote:displaySafe(moonNak.heart)||moonNak.heart,heartCharacter:moonNak.character,auraEnhancer:safeList(dp.notes),currentDashaAccent:{mahadasha:safeList(mp.notes),antardasha:safeList(ap.notes)},houseEffect:houseRule.scentEffect,dominantPlanets:dom},
     notePyramid:pyramid,
     blendGuidance:{topPercent:25,heartPercent:40,basePercent:35,suggestedIntensity:ms.intensity,modifierWeightMultiplier:ms.multiplier,keyNotes},
     modulation:{modifiersApplied:modifiers,effects:ms.effects},
     attarSuggestion:{lagnaLord:DATA.attars[lagnaLord],dashaLord:DATA.attars[maha]},
     referencePerfumes:DATA.examples[element],
+    keyNotes,
+    allergyFilter:{avoidNotes:Array.from(avoid.avoidNotes).sort(),avoidFamilies:Array.from(avoid.avoidFamilies).sort(),removedOrReplaced:log},
+    planetBreakdown:breakdown,
     _planets:{d9:dp,maha:mp,antar:ap,lagna:lp,element:er,rashi:rashi}
   };
 }
@@ -582,21 +730,57 @@ document.getElementById('calc').addEventListener('click',function(){
   const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'start'});
 });
 
-function chips(arr,cls){return (arr||[]).map(x=>'<span class="chip'+(cls?' '+cls:'')+'">'+x+'</span>').join('');}
+function noteName(x){return typeof x==='string'?x:(x&&x.note)||'';}
+function noteScore(x){return x&&typeof x==='object'&&x.score!=null?' <small>'+x.score+'</small>':'';}
+function chips(arr,cls){return (arr||[]).map(x=>'<span class="chip'+(cls?' '+cls:'')+'">'+noteName(x)+noteScore(x)+'</span>').join('');}
 function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;}
+function dignityFor(p,sign){
+  if(EXALT[p]===sign)return 'exalted';
+  if(DEBIL[p]===sign)return 'debilitated';
+  if(MOOLA[p]===sign)return 'mooltrikona';
+  if((OWN[p]||[]).indexOf(sign)>=0)return 'own_sign';
+  return 'neutral';
+}
+function charaKarakas(sid){
+  const visible=['Sun','Moon','Mars','Mercury','Jupiter','Venus','Saturn'];
+  const ranked=visible.map(p=>({p,deg:sid[p]%30})).sort((a,b)=>b.deg-a.deg);
+  return{atmakaraka:ranked[0].p,darakaraka:ranked[ranked.length-1].p};
+}
+function parseSensitivity(){
+  const profile=document.getElementById('sensitivityProfile').value;
+  const notes=document.getElementById('avoidNotes').value.split(',').map(x=>x.trim().toLowerCase()).filter(Boolean);
+  return{sensitivityProfiles:profile?[profile]:[],avoidNotes:notes,avoidFamilies:[]};
+}
 
 function buildFragrance(C){
   const lagElem=elemOf(C.lagnaSign), moonElem=elemOf(C.moonSign), navElem=elemOf(C.navLagnaSign);
   const lagnaName=SIGN_EN[C.lagnaSign];
   const lagnaLord=DATA.rashis[lagnaName].lord;
   const d9Lord=DATA.rashis[SIGN_EN[C.navLagnaSign]].lord;
+  const moonSignName=SIGN_EN[C.moonSign];
+  const moonSignLord=DATA.rashis[moonSignName].lord;
   const dasha=runningDasha(C.sid['Moon'], C.jdUT);
   const dominantHouse=dominantHouseOf(C.d1Sign, C.lagnaSign);
   const modifiers=deriveModifiers(lagnaLord, C);
+  const karaka=charaKarakas(C.sid);
+  const planets={};
+  ORDER.forEach(p=>{
+    planets[p]={
+      sign:SIGN_EN[C.d1Sign[p]],
+      house:((C.d1Sign[p]-C.lagnaSign+12)%12)+1,
+      nakshatra:nakInfo(C.sid[p]).name,
+      dignity:dignityFor(p,C.d1Sign[p]),
+      retrograde:isRetro(p,C.jdTT),
+      combust:isCombust(p,C.sid,C.jdTT),
+      strength:1,
+      vargottama:C.d1Sign[p]===C.navSign[p]
+    };
+  });
 
   const chart={lagna:lagnaName, lagnaLord:lagnaLord, moonNakshatra:C.moonNak.name,
+    moonSignLord:moonSignLord, atmakaraka:karaka.atmakaraka, darakaraka:karaka.darakaraka, planets:planets,
     navamshaLagnaLord:d9Lord, mahadashaLord:dasha.maha, antardashaLord:dasha.antar,
-    dominantHouse:String(dominantHouse), modifiers:modifiers};
+    dominantHouse:String(dominantHouse), modifiers:modifiers, fragranceSensitivity:parseSensitivity()};
   const O=generateOracle(chart);
 
   /* ---- profile cards (the four threads: D1, Rashi, Nakshatra, D9) ---- */
@@ -660,6 +844,24 @@ function buildFragrance(C){
     '<b>Current period accent:</b> the running <b>'+dasha.maha+'</b> Mahadasha / <b>'+dasha.antar+'</b> Antardasha tints the blend with '+
     O.scentProfile.currentDashaAccent.mahadasha.slice(0,2).join(', ')+' and '+O.scentProfile.currentDashaAccent.antardasha.slice(0,2).join(', ')+'.</div>';
 
+  const domPlanets=(sp.dominantPlanets||[]).map(p=>
+    '<div class="pbreak"><b>'+p.planet+'</b> <small class="scorepill">'+p.weight+'</small>'+
+    '<span>House '+p.house+' · '+p.sign+' · '+p.nakshatra+' · '+p.dignity.replace(/_/g,' ')+'</span>'+
+    '<span>'+p.roles.map(r=>r.replace(/_/g,' ')).join(', ')+(p.retrograde?' · retrograde':'')+(p.combust?' · combust':'')+'</span></div>').join('');
+  document.getElementById('planetBreakdownBlock').innerHTML=
+    '<div class="bk">Why these notes appeared · dominant chart factors</div>'+
+    '<div class="breakdown">'+domPlanets+'</div>';
+
+  const af=O.allergyFilter||{avoidNotes:[],avoidFamilies:[],removedOrReplaced:[]};
+  const repl=af.removedOrReplaced.length
+    ? af.removedOrReplaced.slice(0,10).map(x=>'<span class="scorepill">'+x.removed+(x.replacement?' → '+x.replacement:' removed')+'</span>').join('')
+    : '<span class="scorepill">No notes filtered</span>';
+  document.getElementById('allergyBlock').innerHTML=
+    '<div class="bk">Declared sensitivity filter</div>'+
+    '<p class="filterline"><b>Profile families:</b> '+(af.avoidFamilies.length?af.avoidFamilies.join(', '):'none')+'</p>'+
+    '<p class="filterline"><b>Declared/expanded avoid notes:</b> '+(af.avoidNotes.length?af.avoidNotes.slice(0,24).join(', '):'none')+'</p>'+
+    '<div class="pillrow" style="margin-top:10px">'+repl+'</div>';
+
   /* ---- lean into / go easy ---- */
   const heavy=(lagElem===2)?'very heavy, syrupy gourmands that drag down your lightness':(lagElem===0?'cold, sharp aquatics that fight your natural warmth':(lagElem===3?'harsh, dry leathers that overpower your softness':'loud, sugary fruit-bombs that flatten your earthy depth'));
   document.getElementById('favorAvoid').innerHTML=
@@ -679,7 +881,7 @@ function buildFragrance(C){
   /* ---- closing shopping line ---- */
   document.getElementById('examples').innerHTML=
     '<div class="ek">How to shop this</div>'+
-    '<p>At a counter, ask for the <b>'+sp.family.toLowerCase()+'</b> shelf and test anything opening on <b>'+py.top.slice(0,3).join(', ')+'</b> that dries down to <b>'+py.base.slice(0,3).join(', ')+'</b>. '+
+    '<p>At a counter, ask for the <b>'+sp.family.toLowerCase()+'</b> shelf and test anything opening on <b>'+py.top.slice(0,3).map(noteName).join(', ')+'</b> that dries down to <b>'+py.base.slice(0,3).map(noteName).join(', ')+'</b>. '+
     'Keep a smaller bottle of the <b>'+d9Lord+'-led</b> aura blend for days you want presence. The attars above map onto the same accords if you prefer oil-based, alcohol-free scent. Layer lightly and let your skin finish the work.</p>';
 }
 
