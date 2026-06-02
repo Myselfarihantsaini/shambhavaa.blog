@@ -369,16 +369,20 @@
 
         <div class="scent" id="signature"></div>
         <div class="scent aura" id="auraScent"></div>
+        <div class="block" id="productOutputBlock"></div>
+        <div class="block" id="suitabilityBlock"></div>
         <div class="block" id="highlightBlock"></div>
 
         <div class="block" id="pyramidBlock"></div>
         <div class="block" id="recipeBlock"></div>
+        <div class="block" id="variantBlock"></div>
         <div class="twocol" id="blendMod"></div>
         <div class="block" id="referenceBlock"></div>
         <div class="block" id="planetBreakdownBlock"></div>
         <div class="block" id="allergyBlock"></div>
 
         <div class="twocol" id="favorAvoid"></div>
+        <div class="block" id="engineCheckBlock"></div>
         <div class="examples" id="examples"></div>
       </div>
 
@@ -1029,6 +1033,11 @@ function noteName(x){return typeof x==='string'?x:(x&&x.note)||'';}
 function noteScore(x){return x&&typeof x==='object'&&x.score!=null?' <small>'+x.score+'</small>':'';}
 function chips(arr,cls){return (arr||[]).map(x=>'<span class="chip'+(cls?' '+cls:'')+'">'+noteName(x)+noteScore(x)+'</span>').join('');}
 function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;}
+function unique(arr){const out=[];(arr||[]).forEach(x=>{if(x&&out.indexOf(x)<0)out.push(x);});return out;}
+function safeNotes(arr,limit){
+  const avoid=allergySets(parseSensitivity()).avoidNotes,log=[];
+  return unique((arr||[]).map(n=>safeNote(n,avoid,log)).filter(Boolean)).slice(0,limit||9);
+}
 function dignityFor(p,sign){
   if(EXALT[p]===sign)return 'exalted';
   if(DEBIL[p]===sign)return 'debilitated';
@@ -1039,7 +1048,16 @@ function dignityFor(p,sign){
 function charaKarakas(sid){
   const visible=['Sun','Moon','Mars','Mercury','Jupiter','Venus','Saturn'];
   const ranked=visible.map(p=>({p,deg:sid[p]%30})).sort((a,b)=>b.deg-a.deg);
-  return{atmakaraka:ranked[0].p,darakaraka:ranked[ranked.length-1].p};
+  return{
+    atmakaraka:ranked[0].p,
+    amatyakaraka:ranked[1].p,
+    bhratrikaraka:ranked[2].p,
+    matrikaraka:ranked[3].p,
+    putrakaraka:ranked[4].p,
+    gnatikaraka:ranked[5].p,
+    darakaraka:ranked[6].p,
+    pitrikaraka:ranked[1].p
+  };
 }
 function parseSensitivity(){
   const profile=document.getElementById('sensitivityProfile').value;
@@ -1053,6 +1071,168 @@ function parsePreferences(){
     expressionMode:get('expressionMode','auto'),
     strengthMode:get('strengthMode','daily')
   };
+}
+function lordshipMap(lagnaSign){
+  const map={};
+  for(let h=1;h<=12;h++){
+    const sign=SIGN_EN[(lagnaSign+h-1)%12];
+    const lord=DATA.rashis[sign].lord;
+    if(!map[lord])map[lord]=[];
+    map[lord].push(h);
+  }
+  return map;
+}
+function elementNameOfSign(sign){return ELEM_NAME[elemOf(sign)];}
+function dominantElements(C){
+  const counts={Fire:0,Earth:0,Air:0,Water:0};
+  [C.lagnaSign,C.moonSign,C.d1Sign.Sun,C.d1Sign.Venus,C.d1Sign[atmakarakaFor(C)]].forEach(s=>{counts[elementNameOfSign(s)]++;});
+  const sorted=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+  return{counts,primary:sorted[0],secondary:sorted[1]};
+}
+function strongestVisiblePlanet(C){
+  const visible=['Sun','Moon','Mars','Mercury','Jupiter','Venus','Saturn'];
+  return visible.map(p=>({planet:p,cond:planetCondition(p,C),dignity:dignityFor(p,C.d1Sign[p])}))
+    .sort((a,b)=>b.cond.mult-a.cond.mult)[0].planet;
+}
+function archetypeFor(C,chart){
+  const domH=Number(chart.dominantHouse||1), primaryEl=dominantElements(C).primary;
+  const strong=[strongestVisiblePlanet(C),chart.atmakaraka,chart.mahadashaLord,chart.lagnaLord,chart.moonSignLord];
+  let best=null,bestScore=-1;
+  (DATA.archetypes||[]).forEach(a=>{
+    let s=0;
+    (a.tests||[]).forEach(p=>{if(strong.indexOf(p)>=0)s+=2;});
+    (a.families||[]).forEach(r=>{if(r===chart.lagna||r===SIGN_EN[C.moonSign])s+=2;});
+    (a.elements||[]).forEach(e=>{if(e===primaryEl)s+=1;});
+    (a.houses||[]).forEach(h=>{if(h===domH)s+=1;});
+    if(s>bestScore){bestScore=s;best=a;}
+  });
+  return best||{name:'Chart Signature',family:chart.lagna+' Aura',notes:chart.planets[chart.lagnaLord]?DATA.planets[chart.lagnaLord].notes.slice(0,3):[],style:'chart-led blend'};
+}
+function familyForProduct(archetype,element){
+  if(archetype&&archetype.family)return archetype.family;
+  const byEl={Fire:'Spicy Woody Citrus',Earth:'Clean Woody Aromatic',Air:'Fresh Herbal Citrus',Water:'Soft Lunar Floral'};
+  return byEl[element]||'Floral Woody Musk';
+}
+function notesFromLayer(layer){return (layer||[]).map(n=>n.note||n);}
+function balancingNotes(C){
+  const el=dominantElements(C).primary;
+  const map={
+    Fire:['lotus','rose','sandalwood','vetiver'],
+    Earth:['lime','green tea','neroli','mint'],
+    Air:['sandalwood','vetiver','benzoin','white musk'],
+    Water:['vetiver','cedarwood','basil','bergamot']
+  };
+  return map[el]||['sandalwood','vetiver','neroli'];
+}
+function avoidReasonList(C,O){
+  const reasons=[], af=O.allergyFilter||{avoidNotes:[],removedOrReplaced:[]};
+  const el=dominantElements(C).primary;
+  if(el==='Fire')reasons.push({why:'Too hot for a fire-heavy chart',avoid:'cinnamon, pepper overload, clove'});
+  if(el==='Earth')reasons.push({why:'Too heavy for an earth-heavy chart',avoid:'patchouli overload, dense vanilla, oakmoss excess'});
+  if(el==='Air')reasons.push({why:'Too sharp for an air-heavy chart',avoid:'ozone, aldehydes, sharp mint'});
+  if(el==='Water')reasons.push({why:'Too watery for a water-heavy chart',avoid:'aquatic synthetics, watery coconut, sweet musk excess'});
+  if((af.removedOrReplaced||[]).length)reasons.push({why:'Your sensitivity filter removed or replaced notes',avoid:af.removedOrReplaced.slice(0,4).map(x=>x.removed).join(', ')});
+  return reasons.slice(0,4);
+}
+function suitabilityScore(C,O,B,product){
+  let score=0, why=[];
+  if(product.chartSignature.notes.indexOf(O.scentProfile.heartNote)>=0||B.padaNote) {score+=25;why.push('Moon nakshatra and pada are included');}
+  if(product.chartSignature.notes.some(n=>(O.scentProfile.signatureAccord||[]).indexOf(n)>=0)){score+=20;why.push('Lagna/Lagna lord match the accord');}
+  if(product.suits.notes.some(n=>(DATA.planets.Venus.notes||[]).indexOf(n)>=0)){score+=15;why.push('Venus/relationship notes are wearable');}
+  if(product.suits.notes.some(n=>(DATA.planets[B.ak].notes||[]).indexOf(n)>=0)){score+=15;why.push('Atmakaraka is represented');}
+  if(product.suits.notes.some(n=>(DATA.planets[B.dasha.maha].notes||[]).indexOf(n)>=0)){score+=15;why.push('Current dasha is included');}
+  score+=10;why.push('Elemental balance was applied');
+  const af=O.allergyFilter||{removedOrReplaced:[]};
+  if((af.removedOrReplaced||[]).length)score-=Math.min(25,af.removedOrReplaced.length*8);
+  if(B.accuracy.confidence==='Medium')score-=6;
+  if(B.accuracy.confidence==='Low')score-=18;
+  score=Math.max(0,Math.min(100,score));
+  const result=score>=80?'Excellent fit':score>=65?'Good fit':score>=50?'Wearable with modifications':score>=35?'Not ideal':'Avoid';
+  return{score,result,why:why.slice(0,5)};
+}
+function productRecommendation(product){
+  const keys=Object.keys(DATA.productRecommendations||{});
+  const hay=product.suits.notes.concat(product.chartSignature.notes).join(' ');
+  let found=keys.find(k=>k.split('-').every(p=>hay.indexOf((DATA.planets[p]||{}).notes?.[0]||p)>=0));
+  if(!found){
+    if(hay.indexOf('rose')>=0&&hay.indexOf('sandalwood')>=0)found='Venus-Moon';
+    else if(hay.indexOf('frankincense')>=0&&hay.indexOf('saffron')>=0)found='Sun-Jupiter';
+    else if(hay.indexOf('black tea')>=0)found='Mercury-Saturn';
+    else found='Ketu-Jupiter';
+  }
+  return DATA.productRecommendations[found]||{type:'floral woody musk EDP',notes:product.suits.notes.slice(0,4)};
+}
+function buildVariants(C,B,product){
+  const variants={};
+  Object.keys(DATA.formulaVariants||{}).forEach(k=>{
+    const v=DATA.formulaVariants[k];
+    variants[k]={label:v.label,priority:v.priority,notes:safeNotes(v.notes.concat(k==='office'?notesFromLayer(B.layers.top):k==='attraction'?product.suits.notes:product.balances.notes),7)};
+  });
+  return variants;
+}
+function buildProductLayer(C,O,B,aura,chart,karaka){
+  const lm=lordshipMap(C.lagnaSign), arch=archetypeFor(C,chart), el=dominantElements(C);
+  const houseRules=[];
+  Object.keys(lm).forEach(p=>lm[p].forEach(h=>{const r=DATA.houseLordship&&DATA.houseLordship[h];if(r&&p===chart.lagnaLord)houseRules.push({house:h,planet:p,rule:r});}));
+  const karakaNotes=[];
+  Object.keys(DATA.karakaProfiles||{}).forEach(k=>{
+    const p=karaka[k];const kp=DATA.karakaProfiles[k];if(!p||!kp)return;
+    const pn=(DATA.planets[p]||{}).notes||[];
+    karakaNotes.push({role:k,planet:p,label:kp.label,notes:safeNotes(kp.notes.concat(pn.slice(0,2)),4),direction:kp.direction});
+  });
+  const chartNotes=safeNotes(notesFromLayer(B.layers.top).concat(notesFromLayer(B.layers.heart),notesFromLayer(B.layers.base),B.padaNote),9);
+  const suitNotes=safeNotes((arch.notes||[]).concat(O.scentProfile.signatureAccord||[],notesFromLayer(B.layers.heart),notesFromLayer(B.layers.base),houseRules.flatMap(x=>x.rule.weak)),9);
+  const balance=safeNotes(balancingNotes(C).concat(karakaNotes.find(k=>k.role==='gnatikaraka')?.notes||[],O.allergyFilter.removedOrReplaced.map(x=>x.replacement).filter(Boolean)),9);
+  const product={
+    archetype:arch,
+    finalFamily:familyForProduct(arch,el.primary),
+    elements:el,
+    chartSignature:{title:'Chart Signature',meaning:'Fragrance that represents the kundali',notes:chartNotes},
+    suits:{title:'Suitability Perfume',meaning:'Fragrance that flatters the person',notes:suitNotes},
+    balances:{title:'Balancing Perfume',meaning:'Fragrance that corrects excess or weakness',notes:balance},
+    houseRules:houseRules,
+    karakaNotes:karakaNotes,
+    avoidReasons:avoidReasonList(C,O)
+  };
+  product.suitability=suitabilityScore(C,O,B,product);
+  product.recommendation=productRecommendation(product);
+  product.variants=buildVariants(C,B,product);
+  product.engineChecks=[
+    ['Birth time reliable?',B.accuracy.confidence],
+    ['Moon nakshatra confirmed?','Yes'],
+    ['Lagna confirmed? ',B.accuracy.confidence==='Low'?'Reduced':'Yes'],
+    ['D1 checked first?','Yes'],
+    ['D9 used for refinement?','Yes'],
+    ['Dasha included?','Mahadasha + Antardasha'],
+    ['Sensitivity filter applied?','Always'],
+    ['Final notes capped?','Yes, 7-9 notes'],
+    ['Avoid list included?','Yes'],
+    ['Suitability score included?','Yes']
+  ];
+  return product;
+}
+function renderProductLayer(P,O,B,aura){
+  const card=x=>'<div class="hic"><div class="ht">'+x.title+'</div><div class="hv">'+x.meaning+'</div><div class="chips" style="margin-top:8px">'+chips(x.notes.map(n=>({note:n})),'h')+'</div></div>';
+  document.getElementById('productOutputBlock').innerHTML=
+    '<div class="bk">Three perfume outputs · represents, suits, balances</div>'+
+    '<div class="hi">'+card(P.chartSignature)+card(P.suits)+card(P.balances)+'</div>';
+  const why=P.suitability.why.map(w=>'<span class="scorepill">'+w+'</span>').join('');
+  document.getElementById('suitabilityBlock').innerHTML=
+    '<div class="bk">Fragrance personality &amp; suitability</div>'+
+    '<div class="hi">'+
+      '<div class="hic"><div class="ht">Archetype</div><div class="hv">'+P.archetype.name+'</div><div class="hx">'+P.archetype.style+' · '+P.finalFamily+'</div></div>'+
+      '<div class="hic"><div class="ht">Suitability score</div><div class="hv">'+P.suitability.score+'/100</div><div class="hx">'+P.suitability.result+'</div></div>'+
+    '</div><div class="pillrow" style="margin-top:10px">'+why+'</div>';
+  const vhtml=Object.keys(P.variants).map(k=>{
+    const v=P.variants[k];
+    return '<div class="pbreak"><b>'+v.label+'</b><span>'+v.priority+'</span><div class="chips" style="margin-top:8px">'+chips(v.notes.map(n=>({note:n})))+'</div></div>';
+  }).join('');
+  document.getElementById('variantBlock').innerHTML='<div class="bk">Formula variants</div><div class="breakdown">'+vhtml+'</div>';
+  const avoid=P.avoidReasons.map(r=>'<li><span class="n">✧</span><b>'+r.why+'</b>: '+r.avoid+'</li>').join('');
+  const checks=P.engineChecks.map(c=>'<span class="scorepill">'+c[0]+' '+c[1]+'</span>').join('');
+  document.getElementById('engineCheckBlock').innerHTML=
+    '<div class="bk">Final engine check</div><div class="pillrow">'+checks+'</div>'+
+    '<div class="accent"><b>Avoid because:</b><ul style="list-style:none;margin-top:6px">'+avoid+'</ul></div>';
 }
 
 function buildFragrance(C){
@@ -1087,7 +1267,8 @@ function buildFragrance(C){
   const O=generateOracle(chart);
   const B=preciseBlend(C);
   const aura=auraPlanetFor(C.lagnaSign);
-  LASTP={C,O,B,aura,dasha,lagnaLord,d9Lord,lagElem,navElem};
+  const product=buildProductLayer(C,O,B,aura,chart,karaka);
+  LASTP={C,O,B,aura,dasha,lagnaLord,d9Lord,lagElem,navElem,product};
 
   /* ---- profile cards (the four threads: D1, Rashi, Nakshatra, D9) ---- */
   document.getElementById('profile').innerHTML=
@@ -1128,6 +1309,8 @@ function buildFragrance(C){
     '<div class="sname">'+cap(apl.aura)+' · built on '+aura.planet+'</div>'+
     '<div class="sdesc">To <b>strengthen your presence</b>, wear the accord of your <b>'+aura.planet+'</b> — your '+aura.basis+'. Its scent carries '+apl.aura+' and is classically best for <b>'+apl.bestUse+'</b>.'+apCond+' Your D9 lord <b>'+d9Lord+'</b> still feeds the everyday blend; this is the targeted aura lift.</div>'+
     '<div class="pyramid"><div class="layer"><span class="lk">Aura notes</span><div class="chips">'+chips(apl.notes,'b')+'</div></div></div>';
+
+  renderProductLayer(product,O,B,aura);
 
   const akp=DATA.planets[B.ak];
   const vg=B.vargottama.length?B.vargottama.join(', '):'none';
@@ -1216,9 +1399,10 @@ function buildFragrance(C){
     '</ul></div>';
 
   /* ---- closing shopping line ---- */
+  const rec=product.recommendation;
   document.getElementById('examples').innerHTML=
     '<div class="ek">How to shop this</div>'+
-    '<p>At a counter, ask for the <b>'+sp.family.toLowerCase()+'</b> shelf and test anything opening on <b>'+B.layers.top.slice(0,3).map(n=>n.note).join(', ')+'</b> that dries down to <b>'+B.layers.base.slice(0,3).map(n=>n.note).join(', ')+'</b>. '+
+    '<p>Ask for a <b>'+product.finalFamily.toLowerCase()+'</b> direction, especially <b>'+rec.type+'</b>. Look for <b>'+safeNotes(rec.notes.concat(product.suits.notes),7).join(', ')+'</b>. Avoid anything that leans into <b>'+product.avoidReasons.map(r=>r.avoid).slice(0,2).join(' / ')+'</b>. '+
     'Keep a smaller bottle of the <b>'+aura.planet+'-led</b> aura blend for days you want presence. The attars above map onto the same accords if you prefer oil-based, alcohol-free scent. Layer lightly and let your skin finish the work.</p>';
 }
 
@@ -1264,7 +1448,7 @@ function refreshPreferenceBlend(){
 function escH(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function buildScentCard(){
   if(!LASTP)return;
-  const {C,O,B,aura,dasha,lagnaLord,d9Lord,lagElem,navElem}=LASTP;
+  const {C,O,B,aura,dasha,lagnaLord,d9Lord,lagElem,navElem,product}=LASTP;
   const sp=O.scentProfile,apl=DATA.planets[aura.planet],ctx=ctxFromUI(C.birthHour);
   const r=contextRatios(B.element,O.blendGuidance.suggestedIntensity,ctx);
   const nm=(document.getElementById('name').value||'').trim();
@@ -1292,6 +1476,11 @@ function buildScentCard(){
       '<div><div class="sc-h">Signature · '+escH(sp.family)+'</div><div class="sc-p">'+escH(sp.familyLine)+'. Lagna lord '+lagnaLord+'; heart of '+escH(sp.heartNote)+' ('+escH(C.moonNak.name)+').</div><div class="sc-chips">'+sp.signatureAccord.map(n=>'<span class="sc-chip">'+escH(n)+'</span>').join('')+'</div></div>'+
       '<div><div class="sc-h">Aura lift · '+escH(aura.planet)+'</div><div class="sc-p">'+escH(cap(apl.aura))+' — '+escH(aura.basis)+'. Best for '+escH(apl.bestUse)+'.</div><div class="sc-chips">'+apl.notes.map(n=>'<span class="sc-chip">'+escH(n)+'</span>').join('')+'</div></div>'+
     '</div>'+
+    '<div class="sc-sec">Product-ready outputs</div>'+
+    '<div class="sc-rl"><span class="sc-lk">Represents</span> '+product.chartSignature.notes.join(' · ')+'</div>'+
+    '<div class="sc-rl"><span class="sc-lk">Suits</span> '+product.suits.notes.join(' · ')+'</div>'+
+    '<div class="sc-rl"><span class="sc-lk">Balances</span> '+product.balances.notes.join(' · ')+'</div>'+
+    '<div class="sc-p">Archetype: <b>'+escH(product.archetype.name)+'</b> · Family: <b>'+escH(product.finalFamily)+'</b> · Suitability: <b>'+product.suitability.score+'/100, '+escH(product.suitability.result)+'</b>.</div>'+
     '<div class="sc-sec">The blend · '+escH(ctx.tod)+', '+escH(ctx.season)+', '+escH({edt:'EDT',edp:'EDP',parfum:'Parfum',attar:'Attar'}[ctx.conc])+'</div>'+
     '<div class="sc-rl"><span class="sc-lk">Top</span> '+chip(B.layers.top)+'</div>'+
     '<div class="sc-rl"><span class="sc-lk">Heart</span> '+chip(B.layers.heart)+'</div>'+
@@ -1301,6 +1490,8 @@ function buildScentCard(){
     partsRow(B.layers.top,'Top')+partsRow(B.layers.heart,'Heart')+partsRow(B.layers.base,'Base')+
     '<div class="sc-sec">Soul &amp; strength · attars</div>'+
     '<div class="sc-p">Atmakaraka: <b>'+B.ak+'</b> · Vargottama: '+(B.vargottama.length?B.vargottama.join(', '):'none')+'. Attars: '+escH(O.attarSuggestion.lagnaLord.attar)+' and '+escH(O.attarSuggestion.dashaLord.attar)+'.</div>'+
+    '<div class="sc-sec">Shopping guide</div>'+
+    '<div class="sc-p">Look for: <b>'+escH(product.recommendation.type)+'</b>. Best notes: '+escH(safeNotes(product.recommendation.notes.concat(product.suits.notes),7).join(', '))+'. Avoid: '+escH(product.avoidReasons.map(r=>r.avoid).slice(0,2).join(' / '))+'.</div>'+
     dig+
     '<div class="sc-foot">Generated '+new Date().toLocaleString()+' · shambhavaa.com · A symbolic creative scent framework, not a scientific or medical claim.</div>';
 }
