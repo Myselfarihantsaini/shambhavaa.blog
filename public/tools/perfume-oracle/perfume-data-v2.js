@@ -146,6 +146,60 @@ var replacementRules={
  'caramel':'benzoin','birch tar':'vetiver','smoky oud':'cedarwood','burnt resin':'frankincense','amberwood overdose':'vetiver'
 };
 
+var houseLordship={
+ 1:{theme:'identity, body and self-expression',role:'signature identity accord',direction:'clear, personal and immediately recognizable',strong:['bergamot','neroli','sandalwood','white musk'],weak:['soft basil','tea','lotus','light cedar'],avoid:'too many mixed notes'},
+ 2:{theme:'voice, wealth, food and family values',role:'sweetness and vocal aura',direction:'polished, warm and refined',strong:['rose','honey','cardamom','benzoin'],weak:['pear','iris','white sandalwood'],avoid:'over-sweet vanilla and syrupy fruits'},
+ 3:{theme:'courage, hands, communication and effort',role:'movement and confidence accent',direction:'fresh, active and bright',strong:['ginger','lime','basil','vetiver'],weak:['green tea','lavender','neroli'],avoid:'harsh pepper and sharp mint'},
+ 4:{theme:'home, mother, comfort and emotional base',role:'comfort heart note',direction:'soft, soothing and familiar',strong:['lotus','white rose','sandalwood','chamomile'],weak:['coconut water','orris','white musk'],avoid:'heavy aquatic and sour lactonic notes'},
+ 5:{theme:'creativity, romance, mantra and children',role:'joy and creative heart',direction:'romantic, playful and expressive',strong:['jasmine','rose','saffron','mandarin'],weak:['neroli','peach','tulsi'],avoid:'childish sweetness and loud fruit'},
+ 6:{theme:'service, discipline, enemies and health patterns',role:'clean correction note',direction:'herbal, clean and restrained',strong:['tulsi','basil','vetiver','lavender'],weak:['green tea','cedar leaf','mint'],avoid:'medicinal camphor and bitter herbs'},
+ 7:{theme:'partner, attraction and public interaction',role:'relationship and attraction accord',direction:'balanced, magnetic and relational',strong:['rose','jasmine sambac','musk','sandalwood'],weak:['iris','neroli','white rose'],avoid:'heavy tuberose and animalic musk'},
+ 8:{theme:'transformation, secrecy, occult and inheritance',role:'mystery base note',direction:'dark, deep and private',strong:['myrrh','oud','patchouli','vetiver'],weak:['frankincense','black tea','labdanum'],avoid:'heavy smoke, tar and dense oud'},
+ 9:{theme:'dharma, guru, fortune and blessings',role:'sacred uplift note',direction:'expansive, devotional and noble',strong:['frankincense','tulsi','lotus','saffron'],weak:['sandalwood','bergamot','chamomile'],avoid:'too much incense and dry sermon-like tone'},
+ 10:{theme:'career, karma, reputation and authority',role:'public/professional accord',direction:'polished, stable and authoritative',strong:['cedarwood','iris','bergamot','frankincense'],weak:['lavender','black tea','vetiver'],avoid:'harsh woods and overpowering amber'},
+ 11:{theme:'gains, network, audience and fulfilment',role:'social projection note',direction:'noticeable, modern and optimistic',strong:['amberwood','mandarin','saffron','musk'],weak:['green tea','neroli','cedarwood'],avoid:'synthetic loudness and sugary amber'},
+ 12:{theme:'sleep, foreign lands, moksha, privacy and retreat',role:'private drydown note',direction:'dreamy, subtle and spiritual',strong:['sandalwood','benzoin','lotus','soft musk'],weak:['white tea','neroli','frankincense'],avoid:'heavy narcotic florals and sleepy sweetness'}
+};
+
+var karakaProfiles={
+ atmakaraka:{label:'Atmakaraka',meaning:'soul desire and deepest karmic identity',layer:'base note / drydown',direction:'the scent that remains after everything fades',notes:['sandalwood','frankincense','vetiver','lotus'],caution:'do not make it too loud'},
+ amatyakaraka:{label:'Amatyakaraka',meaning:'career, action and worldly role',layer:'professional heart/top',direction:'public-use scent and skill expression',notes:['cedarwood','bergamot','iris','black tea'],caution:'avoid overly sensual notes for work mode'},
+ bhratrikaraka:{label:'Bhratrikaraka',meaning:'siblings, courage, support and effort',layer:'movement accent',direction:'active, brave and communicative',notes:['ginger','basil','lime','cardamom'],caution:'avoid aggression'},
+ matrikaraka:{label:'Matrikaraka',meaning:'mother, emotional nourishment and inner comfort',layer:'comfort heart',direction:'soft, protective and familiar',notes:['lotus','white rose','chamomile','sandalwood'],caution:'avoid heavy sweetness'},
+ putrakaraka:{label:'Putrakaraka',meaning:'children, creativity, intelligence and mantra',layer:'creative heart',direction:'joyful, radiant and playful',notes:['jasmine','mandarin','saffron','tulsi'],caution:'avoid childish fruitiness'},
+ gnatikaraka:{label:'Gnatikaraka',meaning:'disease, conflict, relatives and obstacles',layer:'correction/filter layer',direction:'cleansing, disciplined and protective',notes:['vetiver','tulsi','lavender','cedar leaf'],caution:'avoid medicinal harshness'},
+ darakaraka:{label:'Darakaraka',meaning:'partner, spouse, attraction and mirror',layer:'relationship heart',direction:'magnetic, balanced and intimate',notes:['rose','jasmine sambac','musk','iris'],caution:'avoid over-seduction'},
+ pitrikaraka:{label:'Pitrikaraka',meaning:'father, lineage, authority and blessings',layer:'lineage/authority accent',direction:'noble, traditional and dignified',notes:['frankincense','cedarwood','saffron','marigold'],caution:'avoid dry dominance'}
+};
+
+var archetypes=[
+ {name:'Royal Solar',tests:['Sun','Jupiter'],families:['Leo'],houses:[9,10],family:'Royal Incense Amber',notes:['saffron','frankincense','cedarwood'],style:'saffron, frankincense and cedar'},
+ {name:'Lunar Mystic',tests:['Moon','Ketu'],elements:['Water'],houses:[12],family:'Soft Lunar Floral',notes:['lotus','sandalwood','white musk'],style:'lotus, sandalwood and white musk'},
+ {name:'Venusian Charmer',tests:['Venus','Moon'],families:['Taurus','Libra'],houses:[7],family:'Floral Woody Musk',notes:['rose','jasmine','iris','musk'],style:'rose, jasmine, iris and musk'},
+ {name:'Mercurial Fresh',tests:['Mercury'],elements:['Air'],houses:[3,6],family:'Fresh Herbal Citrus',notes:['neroli','basil','lavender','lime'],style:'neroli, basil, lavender and lime'},
+ {name:'Saturnian Minimalist',tests:['Saturn'],elements:['Earth'],houses:[10,12],family:'Minimal Spiritual Woods',notes:['black tea','cedarwood','vetiver','myrrh'],style:'black tea, cedar, vetiver and myrrh'},
+ {name:'Rahu Magnet',tests:['Rahu','Venus'],elements:['Air'],houses:[11],family:'Modern Magnetic Amber',notes:['tuberose','amberwood','blue lotus'],style:'tuberose trace, amberwood and blue lotus'},
+ {name:'Ketu Sage',tests:['Ketu','Jupiter'],houses:[9,12],family:'Sacred Sandalwood Floral',notes:['frankincense','sandalwood','tulsi'],style:'frankincense, sandalwood and tulsi'},
+ {name:'Martial Protector',tests:['Mars','Sun'],houses:[1,6,10],family:'Spicy Woody Citrus',notes:['ginger','saffron','vetiver','cedarwood'],style:'ginger, saffron, vetiver and cedar'}
+];
+
+var finalFamilies=['Floral Woody Musk','Sacred Sandalwood Floral','Spicy Woody Citrus','Clean Woody Aromatic','Royal Incense Amber','Soft Lunar Floral','Dark Resinous Woods','Fresh Herbal Citrus','Elegant Powdery Floral','Modern Magnetic Amber','Minimal Spiritual Woods','Creamy Floral Sandalwood'];
+
+var productRecommendations={
+ 'Venus-Moon':{type:'rose sandalwood attar or floral woody musk EDP',notes:['rose','sandalwood','lotus','musk']},
+ 'Sun-Jupiter':{type:'saffron incense woody perfume',notes:['saffron','frankincense','cedarwood','tulsi']},
+ 'Mercury-Saturn':{type:'clean aromatic woody EDT',notes:['bergamot','lavender','black tea','cedarwood']},
+ 'Rahu-Venus':{type:'modern floral amber EDP',notes:['rose','tuberose','amberwood','blue lotus']},
+ 'Ketu-Jupiter':{type:'sandalwood frankincense attar',notes:['sandalwood','frankincense','tulsi','vetiver']},
+ 'Mars-Saturn':{type:'vetiver cedar leather-free woods',notes:['vetiver','cedarwood','black tea','saffron']}
+};
+
+var formulaVariants={
+ office:{label:'Office safe',priority:'10th lord, Mercury, Saturn and Lagna',notes:['bergamot','iris','cedarwood','black tea','white musk']},
+ attraction:{label:'Attraction / evening',priority:'Venus, Moon, 7th lord and Darakaraka',notes:['rose','jasmine sambac','saffron','sandalwood','musk']},
+ ritual:{label:'Ritual / spiritual',priority:'Jupiter, Ketu, 9th/12th lord and Atmakaraka',notes:['tulsi','lotus','frankincense','sandalwood','vetiver']}
+};
+
 function mergeObject(target,patch){
   Object.keys(patch||{}).forEach(function(k){
     if(patch[k]&&typeof patch[k]==='object'&&!Array.isArray(patch[k])){
@@ -199,6 +253,15 @@ window.applyPerfumeV2Patch=function(DATA){
   mergeObject(DATA.allergy.sensitivityProfiles,sensitivityProfiles);
   DATA.expressionModes=expressionModes;
   DATA.strengthModes=strengthModes;
+  DATA.houseLordship=houseLordship;
+  DATA.karakaProfiles=karakaProfiles;
+  DATA.archetypes=archetypes;
+  DATA.finalFamilies=finalFamilies;
+  DATA.productRecommendations=productRecommendations;
+  DATA.formulaVariants=formulaVariants;
+  Object.keys(houseLordship).forEach(function(h){houseLordship[h].strong.concat(houseLordship[h].weak).forEach(function(n){addTaxonomy(DATA,n,noteTaxonomy[n]);});});
+  Object.keys(karakaProfiles).forEach(function(k){karakaProfiles[k].notes.forEach(function(n){addTaxonomy(DATA,n,noteTaxonomy[n]);});});
+  Object.keys(formulaVariants).forEach(function(k){formulaVariants[k].notes.forEach(function(n){addTaxonomy(DATA,n,noteTaxonomy[n]);});});
   DATA.accuracyProfiles={
     exact:{label:'Exact birth time',lagnaWeight:1,d9Weight:1,houseWeight:1,confidence:'High'},
     five:{label:'Approx within 5 minutes',lagnaWeight:.9,d9Weight:.9,houseWeight:.9,confidence:'Good'},
