@@ -212,6 +212,13 @@
     .scentcard th,.scentcard td{border:1px solid #e4dcc8;padding:4px 6px;text-align:left}
     .scentcard th{background:#f4efe2;color:#5e4a1f;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em}
   }
+  .bnote{border:1px solid rgba(224,180,120,.32);background:rgba(224,180,120,.07);border-radius:12px;padding:13px 15px;margin-top:16px}
+  .bnote .bnh{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#e0b478;font-weight:500;margin-bottom:6px}
+  .bnote p{font-size:12px;color:var(--ink);line-height:1.55;margin:0 0 7px}
+  .bnote ul{list-style:none;margin:4px 0 0;padding:0}
+  .bnote li{font-size:12px;color:var(--muted);padding:3px 0;line-height:1.45}
+  .bnote li b{color:#e7cf9f}
+  .bnote .ok{font-size:12px;color:#9fd0a0}
 
   .note{margin-top:24px;font-size:12px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:16px;text-align:center}
   .note a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
@@ -313,6 +320,7 @@
         </div>
 
         <div class="profile" id="profile"></div>
+        <div id="boundaryNote"></div>
 
         <div class="scent" id="signature"></div>
         <div class="scent aura" id="auraScent"></div>
@@ -854,6 +862,36 @@ function contextRatios(element,baseIntensity,ctx){
 }
 function recipeParts(notes){if(!notes.length)return[];const min=Math.min.apply(null,notes.map(n=>n.w));return notes.map(n=>({note:n.note,parts:Math.max(1,Math.round(n.w/min))}));}
 
+/* ---- Boundary-proximity safeguard ----
+   The analytic chart model is reliable for creative scent mapping, but a
+   placement very near a sign, nakshatra, or pada edge should be checked with an
+   ephemeris-grade tool before treating the fragrance result as fixed. */
+const BODY_MARGIN={Sun:0.20,Moon:0.80,Mars:0.40,Mercury:0.40,Jupiter:0.60,Saturn:0.60,Venus:0.40,Rahu:1.50,Ketu:1.50,Lagna:0.50};
+const NAK_LEN=360/27, PADA_LEN=NAK_LEN/4;
+function edgeDist(lon,span){const m=((lon%span)+span)%span;return Math.min(m,span-m);}
+function boundaryFlags(C){
+  const out=[];
+  const items=ORDER.map(p=>({name:p,lon:C.sid[p]}));items.push({name:'Lagna',lon:C.ascSid});
+  items.forEach(it=>{
+    const mg=BODY_MARGIN[it.name]||0.5;
+    const dSign=edgeDist(it.lon,30),dNak=edgeDist(it.lon,NAK_LEN),dPada=edgeDist(it.lon,PADA_LEN);
+    const hits=[];
+    if(dSign<mg)hits.push({k:'sign (Rashi)',d:dSign});
+    else if(dNak<mg)hits.push({k:'nakshatra',d:dNak});
+    else if(dPada<mg)hits.push({k:'pada',d:dPada});
+    if(hits.length){
+      const h=hits[0];let why='';
+      if(it.name==='Rahu'||it.name==='Ketu')why=' — mean vs. true node can differ by up to ~1.5° here';
+      else if(it.name==='Moon')why=' — this drives your nakshatra heart note and dasha';
+      else if(it.name==='Lagna')why=' — this is also sensitive to exact birth time';
+      out.push({body:it.name,kind:h.k,mins:Math.round(h.d*60),why});
+    }
+  });
+  const rank=n=>n==='Moon'?0:n==='Lagna'?1:(n==='Rahu'||n==='Ketu')?2:3;
+  out.sort((a,b)=>rank(a.body)-rank(b.body)||a.mins-b.mins);
+  return out;
+}
+
 /* ============================================================
    PLACE SEARCH  (Open-Meteo + small offline city list)
    ============================================================ */
@@ -990,6 +1028,18 @@ function buildFragrance(C){
     pcard('Moon Rashi',RASHI_SHORT[C.moonSign],ELEM_NAME[moonElem]+' element')+
     pcard('Janma Nakshatra',C.moonNak.name,'lord '+O.chartInputs.moonNakshatraLord+' · pada '+C.moonNak.pada)+
     pcard('D9 Lagna',RASHI_SHORT[C.navLagnaSign],ELEM_NAME[navElem]+' · ruled by '+d9Lord);
+
+  const flags=boundaryFlags(C);
+  if(flags.length){
+    document.getElementById('boundaryNote').innerHTML=
+      '<div class="bnote"><div class="bnh">Precision check · borderline placements</div>'+
+      '<p>These positions sit close enough to a boundary that the model could place them on either side. They feed the scent result below, so confirm them against an ephemeris-grade tool before treating the fragrance as fixed:</p><ul>'+
+      flags.map(f=>'<li><b>'+f.body+'</b> is ~'+f.mins+'′ from a '+f.kind+' boundary'+f.why+'</li>').join('')+
+      '</ul></div>';
+  }else{
+    document.getElementById('boundaryNote').innerHTML=
+      '<div class="bnote"><div class="bnh">Precision check</div><p class="ok">✓ No graha or the Lagna sits near a sign, nakshatra or pada boundary. The model is comfortably clear of edge cases for this chart.</p></div>';
+  }
 
   /* ---- signature scent — the fragrance that SUITS you (D1) ---- */
   const sp=O.scentProfile;
