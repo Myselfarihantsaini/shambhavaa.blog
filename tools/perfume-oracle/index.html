@@ -127,6 +127,22 @@
   .examples p{font-size:12.5px;color:var(--muted);line-height:1.65}
   .examples b{color:var(--gold-soft)}
 
+  /* blend pyramid + guidance */
+  .block{margin-top:16px;border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;background:rgba(0,0,0,.16)}
+  .block .bk{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px}
+  .bguide{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 6px}
+  .bguide .bg{text-align:center;border:1px solid var(--line);border-radius:10px;padding:9px 6px}
+  .bguide .bg b{font-family:var(--serif);font-size:22px;color:var(--gold-soft);display:block;line-height:1}
+  .bguide .bg span{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .meterrow{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:11.5px;color:var(--muted)}
+  .meter{flex:1;height:8px;border-radius:20px;background:rgba(255,255,255,.07);overflow:hidden}
+  .meter>span{display:block;height:100%;background:linear-gradient(90deg,var(--gold-soft),var(--gold))}
+  .keynotes{margin-top:11px}
+  .reflist{display:flex;flex-direction:column;gap:6px}
+  .reflist .rf{font-size:12.5px;color:var(--ink);padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:rgba(212,175,110,.05)}
+  .accent{font-size:12px;color:var(--muted);line-height:1.6;margin-top:12px;border-top:1px solid rgba(255,255,255,.06);padding-top:10px}
+  .accent b{color:var(--gold-soft)}
+
   .note{margin-top:24px;font-size:12px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:16px;text-align:center}
   .note a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
   @media(max-width:540px){.grid{grid-template-columns:1fr}.coords{grid-template-columns:1fr 1fr}}
@@ -201,8 +217,11 @@
         <div class="scent" id="signature"></div>
         <div class="scent aura" id="auraScent"></div>
 
-        <div class="twocol" id="favorAvoid"></div>
+        <div class="block" id="pyramidBlock"></div>
+        <div class="twocol" id="blendMod"></div>
+        <div class="block" id="referenceBlock"></div>
 
+        <div class="twocol" id="favorAvoid"></div>
         <div class="examples" id="examples"></div>
       </div>
 
@@ -278,64 +297,216 @@ function drawNorthChart(svgEl,lagnaSign,signOf){
 
 /* ============================================================
    THE FRAGRANCE ENGINE
+   Data + logic ported faithfully from the project's
+   blend_engine.py and its modular data files (elements.json,
+   planets.json, nakshatras.json, rashis.json, attars.json,
+   houses.json, modifiers.json, example_fragrances.json).
    ============================================================ */
-const ELEM_FAMILY=[
-  {family:'Warm Spicy / Oriental', top:['saffron','sweet orange','pink pepper'], heartBase:['amber','cinnamon','leather'],
-   line:'bold, warm and projecting — a scent that announces you before you speak'},
-  {family:'Woody / Mossy', top:['fresh sage','bergamot'], heartBase:['vetiver','sandalwood','oakmoss','patchouli'],
-   line:'grounding, textured and enduring — a scent that feels rooted and quietly certain'},
-  {family:'Fresh / Citrus-Aromatic', top:['bergamot','neroli','green mandarin'], heartBase:['white florals','mint','green tea'],
-   line:'airy, clean and sparkling — a scent that reads as light, quick and effortless'},
-  {family:'Aquatic / Floral-Oriental', top:['lotus','sea breeze','dewy jasmine'], heartBase:['white musk','soft resins','iris'],
-   line:'deep, fluid and enveloping — a scent that draws people in rather than reaching out'}
-];
-const PLANET_ACCORD={
-  Sun:{notes:['frankincense','saffron','amber','myrrh'], aura:'radiance, warmth and natural authority'},
-  Moon:{notes:['jasmine','tuberose','milky sandalwood','white musk'], aura:'calm, softness and emotional magnetism'},
-  Mars:{notes:['red pepper','clove','leather','tobacco'], aura:'courage, heat and commanding presence'},
-  Mercury:{notes:['bergamot','green herbs','vetiver','lemongrass'], aura:'wit, freshness and quick clarity'},
-  Jupiter:{notes:['vanilla','amber','holy incense','benzoin'], aura:'expansiveness, optimism and good fortune'},
-  Venus:{notes:['rose','ylang-ylang','iris','soft vanilla'], aura:'charm, beauty and warmth toward others'},
-  Saturn:{notes:['oud','cedar','dry vetiver','patchouli'], aura:'gravitas, discipline and timeless restraint'},
-  Rahu:{notes:['smoky oud','black pepper','dark incense','exotic spice'], aura:'mystery, intensity and unusual magnetism'},
-  Ketu:{notes:['sandalwood','myrrh','camphor','smoky vetiver'], aura:'depth, detachment and a still inner glow'}
-};
-/* heart note + one-line character, indexed by Nakshatra 0–26 */
-const NAK_NOTE=[
-  {n:'energising green mint',         w:'swift, clean and pioneering'},        // Ashwini
-  {n:'intense red rose',              w:'sensual, deep and transformative'},   // Bharani
-  {n:'smoky black pepper',            w:'sharp, bright and purifying'},        // Krittika
-  {n:'creamy tuberose & sandalwood',  w:'lush, fertile and beauty-loving'},    // Rohini
-  {n:'cool soft musk',                w:'curious, gentle and seeking'},        // Mrigashira
-  {n:'petrichor & rain accord',       w:'stormy, electric and renewing'},      // Ardra
-  {n:'warm vanilla & light amber',    w:'returning, nurturing and hopeful'},   // Punarvasu
-  {n:'milky incense & holy basil',    w:'nourishing, devotional and steady'},  // Pushya
-  {n:'dark resin & vetiver',          w:'mysterious, hypnotic and coiled'},    // Ashlesha
-  {n:'regal incense & oud',           w:'proud, ancestral and ceremonial'},    // Magha
-  {n:'sweet ylang & honey blossom',   w:'pleasure-seeking, playful and warm'}, // Purva Phalguni
-  {n:'golden amber & honey',          w:'generous, noble and giving'},         // Uttara Phalguni
-  {n:'clean white floral & powder',   w:'skilful, light-handed and precise'},  // Hasta
-  {n:'bold spice & exotic bloom',     w:'brilliant, artful and striking'},     // Chitra
-  {n:'airy green breeze',             w:'independent, drifting and free'},      // Swati
-  {n:'spicy amber & determination',   w:'goal-driven, focused and intense'},   // Vishakha
-  {n:'soft balsamic incense',         w:'warm, loyal and friendship-rich'},    // Anuradha
-  {n:'dark luxurious resin',          w:'senior, protective and formidable'},  // Jyeshtha
-  {n:'smoky earth & dark root',       w:'primal, searching and mystical'},     // Mula
-  {n:'aquatic floral',                w:'invincible, calm and persuasive'},    // Purva Ashadha
-  {n:'noble woods & amber',           w:'victorious, principled and enduring'},// Uttara Ashadha
-  {n:'serene sandalwood',             w:'listening, wise and far-reaching'},   // Shravana
-  {n:'rhythmic spice & drum-smoke',   w:'prosperous, lively and musical'},     // Dhanishta
-  {n:'cool herbs & camphor',          w:'healing, secretive and cosmic'},      // Shatabhisha
-  {n:'intense incense & dark vanilla',w:'fiery, passionate and otherworldly'}, // Purva Bhadrapada
-  {n:'deep calm musk',                w:'profound, wise and serene'},          // Uttara Bhadrapada
-  {n:'soft transcendent floral',      w:'tender, journeying and complete'}     // Revati
-];
-
-function frag_topNotes(elemIdx, planet){
-  const e=ELEM_FAMILY[elemIdx], p=PLANET_ACCORD[planet];
-  return [...new Set([...e.top, p.notes[0]])];
-}
+const SIGN_EN=["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"];
 function elemOf(sign){return sign%4;}
+
+const DATA={
+elements:{
+ "Fire":{"family":"Warm Spicy / Amber","top":["saffron","bergamot","pink pepper"],"heart":["cinnamon","clove","orange blossom"],"base":["frankincense","amber","labdanum","benzoin"],"texture":"radiant heat","projection":"bold","season":"winter evening","line":"Radiant, bold, commanding warmth"},
+ "Earth":{"family":"Woody / Chypre","top":["galbanum","grapefruit","blackcurrant leaf"],"heart":["orris","violet leaf","black tea"],"base":["vetiver","patchouli","oakmoss","cedarwood"],"texture":"grounded moss","projection":"steady","season":"autumn day","line":"Grounded, composed, enduring presence"},
+ "Air":{"family":"Aromatic / Citrus Musk","top":["neroli","lime","cardamom"],"heart":["lavender","iris","green tea"],"base":["white musk","ambroxan","cedarwood"],"texture":"clear breeze","projection":"diffusive","season":"spring day","line":"Bright, mobile, intellectually clear"},
+ "Water":{"family":"Floral Aquatic / Soft Amber","top":["mandarin","lotus","cucumber"],"heart":["jasmine sambac","white lotus","water lily"],"base":["sea salt","white amber","white musk","ambergris"],"texture":"luminous fluidity","projection":"soft","season":"monsoon evening","line":"Fluid, receptive, emotionally luminous"}
+},
+planets:{
+ "Sun":{"classicalTheme":"radiance, authority, vitality","notes":["bergamot","saffron","frankincense","amber"],"top":["bergamot","blood orange"],"heart":["saffron","orange blossom"],"base":["frankincense","amber"],"aura":"solar authority","colour":"gold","texture":"warm glow","intensity":8,"bestUse":"public presence"},
+ "Moon":{"classicalTheme":"mind, emotion, receptivity","notes":["white rose","jasmine","orris","white musk"],"top":["mandarin","pear"],"heart":["white rose","jasmine","orris"],"base":["white musk","soft amber"],"aura":"soft emotional magnetism","colour":"pearl white","texture":"creamy veil","intensity":5,"bestUse":"comfort and intimacy"},
+ "Mars":{"classicalTheme":"force, heat, courage","notes":["red pepper","cinnamon","ginger","leather"],"top":["ginger","red pepper"],"heart":["cinnamon","clove"],"base":["leather","labdanum"],"aura":"heat and decisive force","colour":"red","texture":"sharp heat","intensity":9,"bestUse":"action and assertion"},
+ "Mercury":{"classicalTheme":"speech, intellect, commerce","notes":["mint","basil","bergamot","green tea"],"top":["bergamot","lime","mint"],"heart":["basil","green tea"],"base":["white musk","cedarwood"],"aura":"quickness and freshness","colour":"green","texture":"crisp sparkle","intensity":6,"bestUse":"communication and clarity"},
+ "Jupiter":{"classicalTheme":"wisdom, expansion, blessing","notes":["frankincense","myrrh","sandalwood","benzoin"],"top":["saffron","cardamom"],"heart":["frankincense","myrrh"],"base":["sandalwood","benzoin"],"aura":"expansive sacred warmth","colour":"saffron gold","texture":"temple resin","intensity":7,"bestUse":"teaching and guidance"},
+ "Venus":{"classicalTheme":"beauty, pleasure, attraction","notes":["rose","jasmine sambac","vanilla","tonka bean"],"top":["lychee","mandarin"],"heart":["rose","jasmine sambac","ylang-ylang"],"base":["vanilla","tonka bean"],"aura":"beauty and attraction","colour":"rose pink","texture":"silken floral","intensity":7,"bestUse":"romance and charm"},
+ "Saturn":{"classicalTheme":"discipline, time, endurance","notes":["vetiver","cedarwood","patchouli","black tea"],"top":["juniper","black pepper"],"heart":["black tea","violet leaf"],"base":["vetiver","cedarwood","patchouli"],"aura":"depth and restraint","colour":"charcoal","texture":"dry shadow","intensity":8,"bestUse":"focus and authority"},
+ "Rahu":{"classicalTheme":"hunger, illusion, foreignness","notes":["oud","tobacco","smoke","black amber"],"top":["black pepper","saffron"],"heart":["tobacco","incense smoke"],"base":["oud","black amber"],"aura":"mystery and obsession","colour":"smoky black","texture":"hypnotic haze","intensity":10,"bestUse":"magnetic night aura"},
+ "Ketu":{"classicalTheme":"detachment, moksha, cutting away","notes":["sandalwood","frankincense","nagarmotha","dry cedar"],"top":["camphor","elemi"],"heart":["frankincense","nagarmotha"],"base":["sandalwood","dry cedar"],"aura":"detachment and ritual clarity","colour":"ash grey","texture":"dry incense","intensity":6,"bestUse":"meditation and purification"}
+},
+nakshatras:[
+ {"index":0,"nakshatra":"Ashwini","lord":"Ketu","heart":"ginger","character":"swift, clean, pioneering","texture":"sparkling herbal"},
+ {"index":1,"nakshatra":"Bharani","lord":"Venus","heart":"tuberose","character":"sensual, intense, transformative","texture":"lush floral"},
+ {"index":2,"nakshatra":"Krittika","lord":"Sun","heart":"clove","character":"sharp, fiery, purifying","texture":"hot spice"},
+ {"index":3,"nakshatra":"Rohini","lord":"Moon","heart":"rose","character":"fertile, lush, magnetic","texture":"velvet floral"},
+ {"index":4,"nakshatra":"Mrigashira","lord":"Mars","heart":"green tea","character":"curious, roaming, delicate","texture":"fresh green"},
+ {"index":5,"nakshatra":"Ardra","lord":"Rahu","heart":"petrichor","character":"stormy, electric, searching","texture":"rain mineral"},
+ {"index":6,"nakshatra":"Punarvasu","lord":"Jupiter","heart":"benzoin","character":"restorative, warm, generous","texture":"soft resin"},
+ {"index":7,"nakshatra":"Pushya","lord":"Saturn","heart":"milk accord","character":"nurturing, sacred, composed","texture":"creamy comfort"},
+ {"index":8,"nakshatra":"Ashlesha","lord":"Mercury","heart":"green cardamom","character":"serpentine, clever, hypnotic","texture":"spiced green"},
+ {"index":9,"nakshatra":"Magha","lord":"Ketu","heart":"frankincense","character":"regal, ancestral, solemn","texture":"temple incense"},
+ {"index":10,"nakshatra":"Purva Phalguni","lord":"Venus","heart":"ylang-ylang","character":"pleasurable, romantic, radiant","texture":"solar floral"},
+ {"index":11,"nakshatra":"Uttara Phalguni","lord":"Sun","heart":"orange blossom","character":"noble, loyal, refined","texture":"polished white floral"},
+ {"index":12,"nakshatra":"Hasta","lord":"Moon","heart":"iris","character":"skilled, soft, precise","texture":"powdered floral"},
+ {"index":13,"nakshatra":"Chitra","lord":"Mars","heart":"saffron","character":"brilliant, crafted, glamorous","texture":"golden spice"},
+ {"index":14,"nakshatra":"Swati","lord":"Rahu","heart":"neroli","character":"airy, independent, graceful","texture":"citrus blossom"},
+ {"index":15,"nakshatra":"Vishakha","lord":"Jupiter","heart":"honey","character":"focused, sweet, ambitious","texture":"golden nectar"},
+ {"index":16,"nakshatra":"Anuradha","lord":"Saturn","heart":"lotus","character":"devotional, loyal, deep","texture":"quiet floral"},
+ {"index":17,"nakshatra":"Jyeshtha","lord":"Mercury","heart":"saffron leather","character":"protective, senior, penetrating","texture":"spiced leather"},
+ {"index":18,"nakshatra":"Mula","lord":"Ketu","heart":"vetiver","character":"rooted, fierce, investigative","texture":"earthy root"},
+ {"index":19,"nakshatra":"Purva Ashadha","lord":"Venus","heart":"jasmine sambac","character":"victorious, flowing, persuasive","texture":"rich floral"},
+ {"index":20,"nakshatra":"Uttara Ashadha","lord":"Sun","heart":"cedarwood","character":"steadfast, ethical, enduring","texture":"noble wood"},
+ {"index":21,"nakshatra":"Shravana","lord":"Moon","heart":"sandalwood","character":"listening, wise, calm","texture":"soft wood"},
+ {"index":22,"nakshatra":"Dhanishta","lord":"Mars","heart":"metallic musk","character":"rhythmic, prosperous, bold","texture":"mineral musk"},
+ {"index":23,"nakshatra":"Shatabhisha","lord":"Rahu","heart":"juniper","character":"austere, hidden, visionary","texture":"cool aromatic"},
+ {"index":24,"nakshatra":"Purva Bhadrapada","lord":"Jupiter","heart":"myrrh","character":"intense, mystical, severe","texture":"dark resin"},
+ {"index":25,"nakshatra":"Uttara Bhadrapada","lord":"Saturn","heart":"ambergris","character":"deep, still, compassionate","texture":"marine amber"},
+ {"index":26,"nakshatra":"Revati","lord":"Mercury","heart":"muguet","character":"gentle, guiding, luminous","texture":"clean floral"}
+],
+rashis:{
+ "Aries":{"element":"Fire","modality":"movable","lord":"Mars","familyBias":"spicy leather","rashiNotes":["red pepper","ginger","leather"]},
+ "Taurus":{"element":"Earth","modality":"fixed","lord":"Venus","familyBias":"floral gourmand","rashiNotes":["rose","vanilla","patchouli"]},
+ "Gemini":{"element":"Air","modality":"dual","lord":"Mercury","familyBias":"green citrus","rashiNotes":["bergamot","mint","green tea"]},
+ "Cancer":{"element":"Water","modality":"movable","lord":"Moon","familyBias":"soft floral musk","rashiNotes":["white rose","lotus","white musk"]},
+ "Leo":{"element":"Fire","modality":"fixed","lord":"Sun","familyBias":"golden amber","rashiNotes":["saffron","orange blossom","amber"]},
+ "Virgo":{"element":"Earth","modality":"dual","lord":"Mercury","familyBias":"herbal chypre","rashiNotes":["basil","galbanum","vetiver"]},
+ "Libra":{"element":"Air","modality":"movable","lord":"Venus","familyBias":"polished floral musk","rashiNotes":["iris","rose","white musk"]},
+ "Scorpio":{"element":"Water","modality":"fixed","lord":"Mars","familyBias":"dark spicy resin","rashiNotes":["saffron","myrrh","oud"]},
+ "Sagittarius":{"element":"Fire","modality":"dual","lord":"Jupiter","familyBias":"incense amber","rashiNotes":["frankincense","benzoin","sandalwood"]},
+ "Capricorn":{"element":"Earth","modality":"movable","lord":"Saturn","familyBias":"dry woody","rashiNotes":["cedarwood","vetiver","oakmoss"]},
+ "Aquarius":{"element":"Air","modality":"fixed","lord":"Saturn","familyBias":"mineral woody musk","rashiNotes":["juniper","ambroxan","black tea"]},
+ "Pisces":{"element":"Water","modality":"dual","lord":"Jupiter","familyBias":"aquatic incense","rashiNotes":["lotus","myrrh","ambergris"]}
+},
+attars:{
+ "Sun":{"attar":"Attar Kesar","primaryNote":"saffron","use":"golden authority"},
+ "Moon":{"attar":"Attar Motia","primaryNote":"jasmine","use":"soft charm"},
+ "Mars":{"attar":"Attar Shamama","primaryNote":"spices","use":"heat and action"},
+ "Mercury":{"attar":"Attar Khus","primaryNote":"vetiver","use":"fresh clarity"},
+ "Jupiter":{"attar":"Attar Hina","primaryNote":"spiced amber","use":"sacred warmth"},
+ "Venus":{"attar":"Attar Gulab","primaryNote":"rose","use":"beauty and attraction"},
+ "Saturn":{"attar":"Attar Mitti","primaryNote":"baked earth","use":"grounded restraint"},
+ "Rahu":{"attar":"Attar Oudh","primaryNote":"oud","use":"magnetic mystery"},
+ "Ketu":{"attar":"Attar Sandal","primaryNote":"sandalwood","use":"ritual clarity"}
+},
+houses:{
+ "1":{"role":"core aura","scentEffect":"dominant family","weight":1.0},
+ "2":{"role":"voice and sweetness","scentEffect":"sweetness and edible polish","weight":0.35},
+ "3":{"role":"movement","scentEffect":"fresh lift and sparkle","weight":0.25},
+ "4":{"role":"comfort","scentEffect":"soft musks and creamy woods","weight":0.45},
+ "5":{"role":"creativity","scentEffect":"floral brightness","weight":0.4},
+ "6":{"role":"discipline","scentEffect":"dry herbal clarity","weight":0.25},
+ "7":{"role":"attraction","scentEffect":"romantic heart notes","weight":0.55},
+ "8":{"role":"mystery","scentEffect":"resin, oud, smoke","weight":0.5},
+ "9":{"role":"dharma","scentEffect":"incense and sacred woods","weight":0.45},
+ "10":{"role":"public image","scentEffect":"projection and structure","weight":0.6},
+ "11":{"role":"social reach","scentEffect":"diffusive musks","weight":0.35},
+ "12":{"role":"mystic trail","scentEffect":"soft incense and skin scent","weight":0.5}
+},
+modifiers:{
+ "exalted":{"effect":"cleaner, brighter, higher projection","intensityDelta":2,"weightMultiplier":1.25},
+ "own_sign":{"effect":"balanced, recognisable accord","intensityDelta":1,"weightMultiplier":1.15},
+ "mooltrikona":{"effect":"clear purpose and stable identity","intensityDelta":1,"weightMultiplier":1.2},
+ "debilitated":{"effect":"muted, shadowed, softer expression","intensityDelta":-2,"weightMultiplier":0.75},
+ "combust":{"effect":"hotter, drier, more solar edge","intensityDelta":1,"weightMultiplier":0.85},
+ "retrograde":{"effect":"deeper, unusual, inward twist","intensityDelta":1,"weightMultiplier":1.05},
+ "rahu_conjunct":{"effect":"smoky, foreign, amplified mystery","intensityDelta":2,"weightMultiplier":1.3},
+ "ketu_conjunct":{"effect":"dry, ascetic, incense-like reduction","intensityDelta":-1,"weightMultiplier":0.9},
+ "saturn_aspect":{"effect":"drier, darker, more woody","intensityDelta":1,"weightMultiplier":1.05},
+ "mars_aspect":{"effect":"hotter, spicier, more forceful","intensityDelta":1,"weightMultiplier":1.1},
+ "venus_aspect":{"effect":"smoother, sweeter, more floral","intensityDelta":1,"weightMultiplier":1.1},
+ "jupiter_aspect":{"effect":"warmer, resinous, more expansive","intensityDelta":1,"weightMultiplier":1.1}
+},
+examples:{
+ "Fire":["Yves Saint Laurent — Opium","Maison Francis Kurkdjian — Baccarat Rouge 540","Tom Ford — Noir Extreme"],
+ "Earth":["Chanel — Pour Monsieur","Guerlain — Vetiver","Lalique — Encre Noire"],
+ "Air":["Hermès — Terre d'Hermès Eau Givrée","Jo Malone London — Basil & Neroli","Prada — Infusion d'Iris"],
+ "Water":["Issey Miyake — L'Eau d'Issey","Giorgio Armani — Acqua di Gioia","Byredo — Bal d'Afrique"]
+}
+};
+
+/* ---- planetary condition helpers (for the modifier inputs) ---- */
+const EXALT={Sun:0,Moon:1,Mars:9,Mercury:5,Jupiter:3,Venus:11,Saturn:6};
+const DEBIL={Sun:6,Moon:7,Mars:3,Mercury:11,Jupiter:9,Venus:5,Saturn:0};
+const OWN={Sun:[4],Moon:[3],Mars:[0,7],Mercury:[2,5],Jupiter:[8,11],Venus:[1,6],Saturn:[9,10]};
+const MOOLA={Sun:4,Moon:1,Mars:0,Mercury:5,Jupiter:8,Venus:6,Saturn:10};
+const COMBUST_ORB={Moon:12,Mars:17,Mercury:14,Jupiter:11,Venus:10,Saturn:15};
+function isRetro(name,jdTT){if(name==='Sun'||name==='Moon')return false;if(name==='Rahu'||name==='Ketu')return true;const l1=planetTrop(name,jdTT),l2=planetTrop(name,jdTT+0.6);let d=l2-l1;if(d>180)d-=360;if(d<-180)d+=360;return d<0;}
+function isCombust(name,sid,jdTT){if(!(name in COMBUST_ORB))return false;let dd=Math.abs(sid[name]-sid['Sun']);if(dd>180)dd=360-dd;let thr=COMBUST_ORB[name];if((name==='Mercury'||name==='Venus')&&isRetro(name,jdTT))thr-=2;return dd<thr;}
+function deriveModifiers(P,ctx){
+  const s=ctx.d1Sign[P],mods=[];
+  if(EXALT[P]===s)mods.push('exalted');
+  else if(DEBIL[P]===s)mods.push('debilitated');
+  else if(MOOLA[P]===s)mods.push('mooltrikona');
+  else if((OWN[P]||[]).indexOf(s)>=0)mods.push('own_sign');
+  if(isCombust(P,ctx.sid,ctx.jdTT))mods.push('combust');
+  if(isRetro(P,ctx.jdTT))mods.push('retrograde');
+  if(ctx.d1Sign['Rahu']===s)mods.push('rahu_conjunct');
+  if(ctx.d1Sign['Ketu']===s)mods.push('ketu_conjunct');
+  // graha drishti onto the Lagna lord's sign (whole-sign): all aspect the 7th;
+  // Mars also 4th/8th, Jupiter 5th/9th, Saturn 3rd/10th.
+  const ASP={Saturn:[3,7,10],Mars:[4,7,8],Venus:[7],Jupiter:[5,7,9]};
+  const ASP_KEY={Saturn:'saturn_aspect',Mars:'mars_aspect',Venus:'venus_aspect',Jupiter:'jupiter_aspect'};
+  Object.keys(ASP).forEach(AP=>{
+    if(AP===P)return;
+    const d=((s-ctx.d1Sign[AP]+12)%12)+1;
+    if(ASP[AP].indexOf(d)>=0)mods.push(ASP_KEY[AP]);
+  });
+  return mods;
+}
+function dominantHouseOf(d1Sign,lagnaSign){
+  const cnt={};for(let h=1;h<=12;h++)cnt[h]=0;
+  ORDER.forEach(p=>{const h=((d1Sign[p]-lagnaSign+12)%12)+1;cnt[h]++;});
+  let best=1,bestc=-1;
+  for(let h=1;h<=12;h++){const w=(DATA.houses[String(h)]||{}).weight||0,bw=(DATA.houses[String(best)]||{}).weight||0;
+    if(cnt[h]>bestc||(cnt[h]===bestc&&w>bw)){best=h;bestc=cnt[h];}}
+  return best;
+}
+
+/* ---- minimal Vimshottari (silent) — to feed the engine's current-period accent ---- */
+const VIM_ORDER=['Ketu','Venus','Sun','Moon','Mars','Rahu','Jupiter','Saturn','Mercury'];
+const DASHA_YEARS={Ketu:7,Venus:20,Sun:6,Moon:10,Mars:7,Rahu:18,Jupiter:16,Saturn:19,Mercury:17};
+const DASHA_TOTAL=120,YEAR_DAYS=365.25;
+function subPeriods(lord,startJD,durDays){const out=[];let idx=VIM_ORDER.indexOf(lord),t=startJD;for(let i=0;i<9;i++){const sl=VIM_ORDER[(idx+i)%9];const d=durDays*DASHA_YEARS[sl]/DASHA_TOTAL;out.push({lord:sl,start:t,end:t+d});t+=d;}return out;}
+function runningDasha(moonSid,jdUT){
+  const nspan=360/27,mNak=Math.floor(moonSid/nspan),firstLord=NAK[mNak][1];
+  const frac=(moonSid-mNak*nspan)/nspan,now=Date.now()/86400000+2440587.5;
+  let t=jdUT-frac*DASHA_YEARS[firstLord]*YEAR_DAYS,fi=VIM_ORDER.indexOf(firstLord),md=null;
+  for(let i=0;i<9;i++){const sl=VIM_ORDER[(fi+i)%9],d=DASHA_YEARS[sl]*YEAR_DAYS;if(now>=t&&now<t+d){md={lord:sl,start:t,dur:d};break;}t+=d;}
+  if(!md)return{maha:firstLord,antar:firstLord};
+  let antar=md.lord;for(const sp of subPeriods(md.lord,md.start,md.dur)){if(now>=sp.start&&now<sp.end){antar=sp.lord;break;}}
+  return{maha:md.lord,antar};
+}
+
+/* ---- generate_oracle, ported faithfully from blend_engine.py ---- */
+function dedupe(seq){const out=[];for(const x of seq){if(x&&out.indexOf(x)<0)out.push(x);}return out;}
+function clampI(v){return Math.max(1,Math.min(10,v));}
+function applyModifierScore(base,modifiers){let intensity=base,wm=1.0;const effects=[];
+  (modifiers||[]).forEach(m=>{const r=DATA.modifiers[m];if(r){intensity+=(r.intensityDelta||0);wm*=(r.weightMultiplier||1.0);effects.push(r.effect);}});
+  return{intensity:clampI(intensity),multiplier:Math.round(wm*1000)/1000,effects};}
+function mostCommon(arr,n){const order=[],count={};arr.forEach(x=>{if(count[x]==null){count[x]=0;order.push(x);}count[x]++;});
+  return order.slice().sort((a,b)=>count[b]-count[a]).slice(0,n);}
+function generateOracle(chart){
+  const lagna=chart.lagna;
+  const lagnaLord=chart.lagnaLord||DATA.rashis[lagna].lord;
+  const moonNak=DATA.nakshatras.find(x=>x.nakshatra.toLowerCase()===chart.moonNakshatra.toLowerCase());
+  const d9Lord=chart.navamshaLagnaLord,maha=chart.mahadashaLord,antar=chart.antardashaLord;
+  const dominantHouse=String(chart.dominantHouse||'1'),modifiers=chart.modifiers||[];
+  const rashi=DATA.rashis[lagna],element=rashi.element,er=DATA.elements[element];
+  const lp=DATA.planets[lagnaLord],dp=DATA.planets[d9Lord],mp=DATA.planets[maha],ap=DATA.planets[antar];
+  let top=[],heart=[],base=[];
+  top=top.concat(er.top);heart=heart.concat(er.heart);base=base.concat(er.base);
+  top=top.concat(lp.top||[]);heart=heart.concat(lp.heart||[]);base=base.concat(lp.base||[]);
+  heart=heart.concat([moonNak.heart]);
+  top=top.concat((dp.top||[]).slice(0,1));heart=heart.concat((dp.heart||[]).slice(0,2));base=base.concat((dp.base||[]).slice(0,2));
+  top=top.concat((mp.top||[]).slice(0,1));heart=heart.concat((mp.heart||[]).slice(0,1));base=base.concat((mp.base||[]).slice(0,1));
+  heart=heart.concat((ap.heart||[]).slice(0,1));base=base.concat((ap.base||[]).slice(0,1));
+  const intensityBase=Math.round(lp.intensity*0.35+dp.intensity*0.2+mp.intensity*0.25+ap.intensity*0.2);
+  const ms=applyModifierScore(intensityBase,modifiers);
+  const pyramid={top:dedupe(top).slice(0,7),heart:dedupe(heart).slice(0,8),base:dedupe(base).slice(0,8)};
+  const allNotes=pyramid.top.concat(pyramid.heart,pyramid.base);
+  const keyNotes=mostCommon(allNotes,8);
+  const houseRule=DATA.houses[dominantHouse]||DATA.houses['1'];
+  return{
+    oracleName:lagna+' '+lagnaLord+' Aura',
+    chartInputs:{lagna,lagnaElement:element,lagnaLord,moonNakshatra:moonNak.nakshatra,moonNakshatraLord:moonNak.lord,navamshaLagnaLord:d9Lord,mahadashaLord:maha,antardashaLord:antar,dominantHouse},
+    scentProfile:{family:er.family,familyLine:er.line,rashiBias:rashi.familyBias,signatureAccord:lp.notes,heartNote:moonNak.heart,heartCharacter:moonNak.character,auraEnhancer:dp.notes,currentDashaAccent:{mahadasha:mp.notes,antardasha:ap.notes},houseEffect:houseRule.scentEffect},
+    notePyramid:pyramid,
+    blendGuidance:{topPercent:25,heartPercent:40,basePercent:35,suggestedIntensity:ms.intensity,modifierWeightMultiplier:ms.multiplier,keyNotes},
+    modulation:{modifiersApplied:modifiers,effects:ms.effects},
+    attarSuggestion:{lagnaLord:DATA.attars[lagnaLord],dashaLord:DATA.attars[maha]},
+    referencePerfumes:DATA.examples[element],
+    _planets:{d9:dp,maha:mp,antar:ap,lagna:lp,element:er,rashi:rashi}
+  };
+}
 
 /* ============================================================
    PLACE SEARCH  (Open-Meteo + small offline city list)
@@ -404,95 +575,115 @@ document.getElementById('calc').addEventListener('click',function(){
 
   // ---- FRAGRANCE READING ----
   buildFragrance({
-    lagnaSign, lagnaLord:SIGN_LORD[lagnaSign],
-    moonSign:d1Sign['Moon'],
-    moonNak:nakInfo(sid['Moon']),
-    navLagnaSign, navLagnaLord:SIGN_LORD[navLagnaSign],
-    navMoonSign:navSign['Moon']
+    lagnaSign, moonSign:d1Sign['Moon'], moonNak:nakInfo(sid['Moon']),
+    navLagnaSign, navSign, d1Sign, sid, ascSid, jdUT, jdTT
   });
 
   const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'start'});
 });
 
-function chips(arr,cls){return arr.map(x=>'<span class="chip'+(cls?' '+cls:'')+'">'+x+'</span>').join('');}
+function chips(arr,cls){return (arr||[]).map(x=>'<span class="chip'+(cls?' '+cls:'')+'">'+x+'</span>').join('');}
+function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;}
 
 function buildFragrance(C){
-  const lagElem=elemOf(C.lagnaSign), moonElem=elemOf(C.moonSign);
-  const lagFam=ELEM_FAMILY[lagElem];
-  const lagLordAcc=PLANET_ACCORD[C.lagnaLord];
-  const nak=NAK_NOTE[C.moonNak.idx];
-  const nakLordAcc=PLANET_ACCORD[NAK[C.moonNak.idx][1]];
-  const navLordAcc=PLANET_ACCORD[C.navLagnaLord];
-  const navElem=elemOf(C.navLagnaSign);
+  const lagElem=elemOf(C.lagnaSign), moonElem=elemOf(C.moonSign), navElem=elemOf(C.navLagnaSign);
+  const lagnaName=SIGN_EN[C.lagnaSign];
+  const lagnaLord=DATA.rashis[lagnaName].lord;
+  const d9Lord=DATA.rashis[SIGN_EN[C.navLagnaSign]].lord;
+  const dasha=runningDasha(C.sid['Moon'], C.jdUT);
+  const dominantHouse=dominantHouseOf(C.d1Sign, C.lagnaSign);
+  const modifiers=deriveModifiers(lagnaLord, C);
 
-  /* ---- Profile cards ---- */
+  const chart={lagna:lagnaName, lagnaLord:lagnaLord, moonNakshatra:C.moonNak.name,
+    navamshaLagnaLord:d9Lord, mahadashaLord:dasha.maha, antardashaLord:dasha.antar,
+    dominantHouse:String(dominantHouse), modifiers:modifiers};
+  const O=generateOracle(chart);
+
+  /* ---- profile cards (the four threads: D1, Rashi, Nakshatra, D9) ---- */
   document.getElementById('profile').innerHTML=
-    pcard('Lagna (D1)',RASHI_SHORT[C.lagnaSign],ELEM_NAME[lagElem]+' · ruled by '+C.lagnaLord)+
+    pcard('Lagna (D1)',RASHI_SHORT[C.lagnaSign],ELEM_NAME[lagElem]+' · ruled by '+lagnaLord)+
     pcard('Moon Rashi',RASHI_SHORT[C.moonSign],ELEM_NAME[moonElem]+' element')+
-    pcard('Janma Nakshatra',C.moonNak.name,'lord '+NAK[C.moonNak.idx][1]+' · pada '+C.moonNak.pada)+
-    pcard('D9 Lagna',RASHI_SHORT[C.navLagnaSign],ELEM_NAME[navElem]+' · ruled by '+C.navLagnaLord);
+    pcard('Janma Nakshatra',C.moonNak.name,'lord '+O.chartInputs.moonNakshatraLord+' · pada '+C.moonNak.pada)+
+    pcard('D9 Lagna',RASHI_SHORT[C.navLagnaSign],ELEM_NAME[navElem]+' · ruled by '+d9Lord);
 
-  /* ---- Signature scent (D1 driven) ---- */
-  const sigTop=[...new Set([...lagFam.top, lagLordAcc.notes[0]])];
-  const sigHeart=[...new Set([nak.n, lagLordAcc.notes[1]])];
-  const sigBase=[...new Set([...lagFam.heartBase.slice(-2), nakLordAcc.notes[nakLordAcc.notes.length-1]])];
+  /* ---- signature scent — the fragrance that SUITS you (D1) ---- */
+  const sp=O.scentProfile;
   document.getElementById('signature').innerHTML=
-    '<div class="stag">Your signature scent · everyday aura</div>'+
-    '<div class="sname">'+lagFam.family+'</div>'+
-    '<div class="sdesc">With <b>'+RASHI_SHORT[C.lagnaSign]+'</b> rising ('+ELEM_NAME[lagElem]+'), your projected aura is '+lagFam.line+
-    '. Its signature accord comes from your Lagna lord <b>'+C.lagnaLord+'</b> — '+lagLordAcc.aura+
-    '. The heart is set by your <b>'+C.moonNak.name+'</b> nakshatra: '+nak.w+', carried on '+nak.n+'.</div>'+
-    pyramid(sigTop,sigHeart,sigBase);
+    '<div class="stag">Your signature scent · the fragrance that suits you</div>'+
+    '<div class="sname">'+sp.family+'</div>'+
+    '<div class="sdesc">With <b>'+RASHI_SHORT[C.lagnaSign]+'</b> rising ('+ELEM_NAME[lagElem]+'), your projected aura is <b>'+sp.familyLine.toLowerCase()+'</b>, with a '+sp.rashiBias+
+    ' bias. The signature accord comes from your Lagna lord <b>'+lagnaLord+'</b> — '+O._planets.lagna.aura+
+    '. The heart is your <b>'+C.moonNak.name+'</b> nakshatra: '+sp.heartCharacter+', carried on <b>'+sp.heartNote+'</b>.</div>'+
+    '<div class="pyramid"><div class="layer"><span class="lk">Accord</span><div class="chips">'+chips(sp.signatureAccord)+'</div></div></div>';
 
-  /* ---- Aura-enhancing perfume (D9 driven) ---- */
-  const auraTop=[ELEM_FAMILY[navElem].top[0]];
-  const auraHeart=[navLordAcc.notes[0], navLordAcc.notes[1]];
-  const auraBase=[navLordAcc.notes[navLordAcc.notes.length-1], ...ELEM_FAMILY[navElem].heartBase.slice(-1)];
+  /* ---- aura enhancer — the perfume to LIFT your aura (D9) ---- */
   document.getElementById('auraScent').innerHTML=
-    '<div class="stag">Your aura enhancer · the lift scent</div>'+
-    '<div class="sname">'+ELEM_FAMILY[navElem].family.split(' / ')[0]+' built on '+C.navLagnaLord+'</div>'+
-    '<div class="sdesc">For the days you want to <b>strengthen your presence</b>, reach for the soul layer of your chart. Your D9 ascendant is <b>'+RASHI_SHORT[C.navLagnaSign]+'</b> ('+ELEM_NAME[navElem]+'), whose lord <b>'+C.navLagnaLord+'</b> carries '+navLordAcc.aura+
-    '. Wearing this accord acts like a gentle scent-upaya — it amplifies the qualities your chart wants to bring forward. Apply it at the pulse points (wrists, base of the throat) before anything where you want to be <i>felt</i>.</div>'+
-    pyramid(auraTop,auraHeart,auraBase,true);
+    '<div class="stag">Your aura enhancer · the perfume that lifts your aura</div>'+
+    '<div class="sname">'+cap(O._planets.d9.aura)+' · built on '+d9Lord+'</div>'+
+    '<div class="sdesc">For the days you want to <b>strengthen your presence</b>, lean on the soul layer of your chart. Your D9 ascendant is <b>'+RASHI_SHORT[C.navLagnaSign]+'</b> ('+ELEM_NAME[navElem]+'), ruled by <b>'+d9Lord+'</b>, whose accord carries '+O._planets.d9.aura+' and is best for <b>'+O._planets.d9.bestUse+'</b>. Wear it at the pulse points — wrists and the base of the throat — before anything where you want to be <i>felt</i>.</div>'+
+    '<div class="pyramid"><div class="layer"><span class="lk">Aura notes</span><div class="chips">'+chips(O.scentProfile.auraEnhancer,'b')+'</div></div></div>';
 
-  /* ---- Favor / go easy ---- */
-  const favorElem=ELEM_FAMILY[lagElem].family;
-  const heavy=(lagElem===2)?'very heavy, syrupy gourmands':(lagElem===0?'sharp cold aquatics that fight your warmth':(lagElem===3?'harsh, smoky leathers that overpower your softness':'loud, sugary fruit-bombs that flatten your earthiness'));
+  /* ---- full blended note pyramid + blend guidance ---- */
+  const g=O.blendGuidance, py=O.notePyramid;
+  document.getElementById('pyramidBlock').innerHTML=
+    '<div class="bk">The full blend · note pyramid</div>'+
+    '<div class="pyramid">'+
+      '<div class="layer"><span class="lk">Top</span><div class="chips">'+chips(py.top)+'</div></div>'+
+      '<div class="layer"><span class="lk">Heart</span><div class="chips">'+chips(py.heart,'h')+'</div></div>'+
+      '<div class="layer"><span class="lk">Base</span><div class="chips">'+chips(py.base,'b')+'</div></div>'+
+    '</div>'+
+    '<div class="bguide">'+
+      '<div class="bg"><b>'+g.topPercent+'%</b><span>Top</span></div>'+
+      '<div class="bg"><b>'+g.heartPercent+'%</b><span>Heart</span></div>'+
+      '<div class="bg"><b>'+g.basePercent+'%</b><span>Base</span></div>'+
+    '</div>'+
+    '<div class="meterrow">Intensity <div class="meter"><span style="width:'+(g.suggestedIntensity*10)+'%"></span></div> '+g.suggestedIntensity+'/10</div>'+
+    '<div class="keynotes"><div class="bk" style="margin:6px 0 7px">Key notes to centre the blend on</div><div class="chips">'+chips(g.keyNotes)+'</div></div>';
+
+  /* ---- modulation (dignities) + attars & ritual ---- */
+  const mod=O.modulation, att=O.attarSuggestion;
+  const modBody=mod.effects.length
+    ? '<ul>'+mod.modifiersApplied.map((m,i)=>'<li><span class="y">✦</span><b>'+m.replace(/_/g,' ')+'</b> — '+(mod.effects[i]||'')+'</li>').join('')+'</ul>'
+    : '<ul><li>No special dignities flagged for your Lagna lord — a balanced, recognisable expression of the accord.</li></ul>';
+  document.getElementById('blendMod').innerHTML=
+    '<div class="mini"><div class="mk">Modulation · how your chart bends the scent</div>'+modBody+'</div>'+
+    '<div class="mini"><div class="mk">Attars &amp; ritual</div><ul>'+
+      '<li><span class="y">✦</span><b>'+att.lagnaLord.attar+'</b> ('+att.lagnaLord.primaryNote+') — your signature, for '+att.lagnaLord.use+'</li>'+
+      '<li><span class="y">✦</span><b>'+att.dashaLord.attar+'</b> ('+att.dashaLord.primaryNote+') — your current-period lift, for '+att.dashaLord.use+'</li>'+
+    '</ul></div>';
+
+  /* ---- reference perfumes + house + current-period accent ---- */
+  document.getElementById('referenceBlock').innerHTML=
+    '<div class="bk">Reference perfumes in your family · '+O._planets.element.family+'</div>'+
+    '<div class="reflist">'+O.referencePerfumes.map(r=>'<div class="rf">'+r+'</div>').join('')+'</div>'+
+    '<div class="accent"><b>Public-image house ('+O.chartInputs.dominantHouse+'):</b> '+sp.houseEffect+'. '+
+    '<b>Current period accent:</b> the running <b>'+dasha.maha+'</b> Mahadasha / <b>'+dasha.antar+'</b> Antardasha tints the blend with '+
+    O.scentProfile.currentDashaAccent.mahadasha.slice(0,2).join(', ')+' and '+O.scentProfile.currentDashaAccent.antardasha.slice(0,2).join(', ')+'.</div>';
+
+  /* ---- lean into / go easy ---- */
+  const heavy=(lagElem===2)?'very heavy, syrupy gourmands that drag down your lightness':(lagElem===0?'cold, sharp aquatics that fight your natural warmth':(lagElem===3?'harsh, dry leathers that overpower your softness':'loud, sugary fruit-bombs that flatten your earthy depth'));
   document.getElementById('favorAvoid').innerHTML=
     '<div class="mini"><div class="mk">Lean into</div><ul>'+
-      '<li><span class="y">✦</span>'+favorElem+' families as your home base</li>'+
-      '<li><span class="y">✦</span>'+lagLordAcc.notes[0]+' &amp; '+lagLordAcc.notes[1]+' (your Lagna lord, '+C.lagnaLord+')</li>'+
-      '<li><span class="y">✦</span>'+nak.n+' as the heart that reads as <i>you</i></li>'+
-      '<li><span class="y">✦</span>'+navLordAcc.notes[0]+' on high-stakes days (your D9 lift)</li>'+
+      '<li><span class="y">✦</span>the <b>'+sp.family+'</b> family as your home base</li>'+
+      '<li><span class="y">✦</span>'+sp.signatureAccord.slice(0,2).join(' &amp; ')+' (your Lagna lord, '+lagnaLord+')</li>'+
+      '<li><span class="y">✦</span><b>'+sp.heartNote+'</b> as the heart that reads as <i>you</i></li>'+
+      '<li><span class="y">✦</span>'+O.scentProfile.auraEnhancer[0]+' on high-stakes days (your D9 lift)</li>'+
     '</ul></div>'+
     '<div class="mini"><div class="mk">Go easy on</div><ul>'+
       '<li><span class="n">✧</span>'+heavy+'</li>'+
-      '<li><span class="n">✧</span>over-applying — your aura projects already; 2–3 sprays</li>'+
+      '<li><span class="n">✧</span>over-applying — keep to a suggested intensity around '+g.suggestedIntensity+'/10</li>'+
       '<li><span class="n">✧</span>borrowing a scent built for a very different element</li>'+
       '<li><span class="n">✧</span>masking your natural skin scent entirely</li>'+
     '</ul></div>';
 
-  /* ---- Shopping directions ---- */
+  /* ---- closing shopping line ---- */
   document.getElementById('examples').innerHTML=
     '<div class="ek">How to shop this</div>'+
-    '<p>At a counter, ask for the <b>'+lagFam.family.toLowerCase()+'</b> shelf and test anything that opens with <b>'+sigTop.join(', ')+'</b> and dries down to <b>'+sigBase.join(', ')+'</b>. '+
-    'Keep a smaller bottle of the <b>'+C.navLagnaLord+'-led '+ELEM_FAMILY[navElem].family.split(' / ')[0].toLowerCase()+'</b> blend as your aura-day perfume. '+
-    'Natural attars map cleanly onto this too: '+attarFor(C.lagnaLord)+' for your signature, '+attarFor(C.navLagnaLord)+' as the lift. Layer lightly and let your skin do the rest.</p>';
+    '<p>At a counter, ask for the <b>'+sp.family.toLowerCase()+'</b> shelf and test anything opening on <b>'+py.top.slice(0,3).join(', ')+'</b> that dries down to <b>'+py.base.slice(0,3).join(', ')+'</b>. '+
+    'Keep a smaller bottle of the <b>'+d9Lord+'-led</b> aura blend for days you want presence. The attars above map onto the same accords if you prefer oil-based, alcohol-free scent. Layer lightly and let your skin finish the work.</p>';
 }
 
 function pcard(k,v,x){return '<div class="pcard"><div class="pk">'+k+'</div><div class="pv">'+v+'</div><div class="px">'+x+'</div></div>';}
-function pyramid(top,heart,base,aura){
-  return '<div class="pyramid">'+
-    '<div class="layer"><span class="lk">Top</span><div class="chips">'+chips(top)+'</div></div>'+
-    '<div class="layer"><span class="lk">Heart</span><div class="chips">'+chips(heart,'h')+'</div></div>'+
-    '<div class="layer"><span class="lk">Base</span><div class="chips">'+chips(base,'b')+'</div></div>'+
-  '</div>';
-}
-function attarFor(planet){
-  return ({Sun:'saffron (kesar) attar',Moon:'white jasmine (mogra) or sandalwood attar',Mars:'red musk or oudh attar',
-    Mercury:'khus (vetiver) attar',Jupiter:'amber (ambar) or kewra attar',Venus:'rose (gulab) attar',
-    Saturn:'shamama or dark oudh attar',Rahu:'smoky agarwood attar',Ketu:'pure chandan (sandalwood) attar'})[planet]||'sandalwood attar';
-}
 </script>
 </body>
 </html>
