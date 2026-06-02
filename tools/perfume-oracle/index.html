@@ -229,7 +229,7 @@
 <div class="wrap">
   <div class="eyebrow">Shambhavaa &middot; Jyotish Olfactory</div>
   <h1>Kundali <em>Perfume</em> Oracle</h1>
-  <p class="sub">Your scent, read from the sky. This model keeps only the four threads that matter for fragrance — your <em>D1</em> (Rashi) and <em>D9</em> (Navamsa) charts, your Moon sign and your birth Nakshatra — and weaves them into the perfume that suits you and the one that lifts your aura.</p>
+  <p class="sub">Your scent, read from the sky. The oracle weighs your Moon nakshatra and pada, Lagna, D9, dasha, Atmakaraka, planetary strength and your own scent comfort preferences to build a wearable aura accord.</p>
 
   <div class="card">
     <div class="grid">
@@ -240,6 +240,16 @@
       <div class="field"><label for="dob">Date of birth</label><input type="date" id="dob" value="2000-01-01"></div>
       <div class="field"><label for="tob">Time of birth</label><input type="time" id="tob" value="12:00">
         <span class="hint">24-hour. The Lagna is very sensitive to time.</span></div>
+      <div class="field">
+        <label for="birthAccuracy">Birth time accuracy</label>
+        <select id="birthAccuracy">
+          <option value="exact">Exact / birth certificate</option>
+          <option value="five">Approx within 5 minutes</option>
+          <option value="fifteen">Approx within 15 minutes</option>
+          <option value="unknown">Unknown / not reliable</option>
+        </select>
+        <span class="hint">If time is uncertain, the oracle reduces Lagna, house and D9 weight.</span>
+      </div>
       <div class="field full">
         <label for="place">Place of birth</label>
         <input type="text" id="place" placeholder="Type any city, town or village — e.g. Jaipur" autocomplete="off">
@@ -261,14 +271,49 @@
           <select id="sensitivityProfile" title="Optional sensitivity profile">
             <option value="">No sensitivity profile</option>
             <option value="migraine_prone">Migraine-prone: avoid heavy smoke and white florals</option>
+            <option value="headache_prone">Headache-prone: softer florals, resins and projection</option>
             <option value="sensitive_skin">Sensitive skin: avoid strong spice, citrus and moss</option>
             <option value="asthma_sensitive">Asthma-sensitive: avoid smoke and heavy resins</option>
             <option value="floral_sensitive">Floral-sensitive: avoid rose and white floral notes</option>
             <option value="sweet_sensitive">Sweet-sensitive: avoid gourmand sweetness</option>
+            <option value="pitta_sensitive">Heat-sensitive: cool spices and reduce heat</option>
+            <option value="vata_sensitive">Restless-sensitive: softer woods and calmer heart</option>
+            <option value="kapha_heavy">Heavy aura: lighter citrus, herbs and vetiver</option>
+            <option value="resin_sensitive">Resin-sensitive: reduce oud, myrrh and labdanum</option>
+            <option value="musk_sensitive">Musk-sensitive: reduce musks and ambergris</option>
+            <option value="aquatic_sensitive">Aquatic-sensitive: avoid synthetic marine notes</option>
+            <option value="spice_sensitive">Spice-sensitive: reduce pepper, clove and cinnamon</option>
+            <option value="smoke_sensitive">Smoke-sensitive: avoid burnt, smoky notes</option>
+            <option value="projection_sensitive">Projection-sensitive: softer diffusion</option>
           </select>
           <input type="text" id="avoidNotes" placeholder="Avoid notes, e.g. oud, rose, bergamot" autocomplete="off">
         </div>
         <span class="hint">This only filters your declared scent preferences. It is not allergy or medical advice.</span>
+      </div>
+      <div class="field full">
+        <label>Wearable expression <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+        <div class="softgrid">
+          <select id="expressionMode">
+            <option value="auto">Auto from chart</option>
+            <option value="soft_feminine">Soft feminine</option>
+            <option value="regal_feminine">Regal feminine</option>
+            <option value="fresh_unisex">Fresh unisex</option>
+            <option value="dark_unisex">Dark unisex</option>
+            <option value="clean_professional">Clean professional</option>
+            <option value="masculine_woody">Masculine woody</option>
+            <option value="spiritual_minimal">Spiritual minimal</option>
+          </select>
+          <select id="strengthMode">
+            <option value="daily">Daily wear</option>
+            <option value="skin">Skin scent</option>
+            <option value="ritual">Ritual wear</option>
+            <option value="attraction">Attraction wear</option>
+            <option value="authority">Authority wear</option>
+            <option value="luxury">Luxury wear</option>
+            <option value="spiritual">Spiritual minimal</option>
+          </select>
+        </div>
+        <span class="hint">This keeps the chart logic intact, but makes the final formula more wearable for your purpose.</span>
       </div>
       <button id="calc">Reveal My Fragrance</button>
     </div>
@@ -348,6 +393,7 @@
 </div>
 <div id="scentcard" class="scentcard" aria-hidden="true"></div>
 
+<script src="perfume-data-v2.js"></script>
 <script>
 /* ============================================================
    ASTRONOMY  (kept from the kundli model: only what D1, D9,
@@ -595,6 +641,7 @@ allergy:{
  replacementRules:{bergamot:"petitgrain",lime:"neroli",mandarin:"green tea","blood orange":"neroli",grapefruit:"petitgrain",cinnamon:"cardamom",clove:"pink pepper","red pepper":"ginger","black pepper":"juniper",jasmine:"iris","jasmine sambac":"iris",tuberose:"orange blossom","ylang-ylang":"rose",rose:"iris","white rose":"orris",oud:"cedarwood",tobacco:"black tea",smoke:"myrrh","incense smoke":"frankincense",oakmoss:"vetiver",patchouli:"cedarwood",vanilla:"benzoin","tonka bean":"sandalwood",honey:"benzoin","milk accord":"white musk",ambergris:"ambroxan"}
 }
 };
+if(typeof applyPerfumeV2Patch==='function')applyPerfumeV2Patch(DATA);
 
 /* ---- planetary condition helpers (for the modifier inputs) ---- */
 const EXALT={Sun:0,Moon:1,Mars:9,Mercury:5,Jupiter:3,Venus:11,Saturn:6};
@@ -804,6 +851,8 @@ function preciseBlend(C){
   const d9Lord=DATA.rashis[SIGN_EN[C.navLagnaSign]].lord;
   const dasha=runningDasha(C.sid['Moon'],C.jdUT);
   const nak=C.moonNak,nakLord=NAK[nak.idx][1],ak=atmakarakaFor(C);
+  const prefs=parsePreferences();
+  const accuracy=(DATA.accuracyProfiles&&DATA.accuracyProfiles[prefs.birthAccuracy])||{lagnaWeight:1,d9Weight:1,houseWeight:1,confidence:'High',label:'Exact birth time'};
   const W=DATA.blendWeights,acc={},decay=[1,0.82,0.68,0.56];
   const avoid=allergySets(parseSensitivity()).avoidNotes;
   function push(note,weight,layerHint){
@@ -815,26 +864,32 @@ function preciseBlend(C){
     acc[sn].w+=weight;if(pr.known)acc[sn].layer=layer;
   }
   function list(arr,baseW,hint,mult){(arr||[]).forEach((nt,i)=>push(nt,baseW*(decay[i]||0.46)*(mult||1),hint));}
-  list(er.top,W.lagna_element_family,'top');list(er.heart,W.lagna_element_family,'heart');list(er.base,W.lagna_element_family,'base');
+  list(er.top,W.lagna_element_family*accuracy.lagnaWeight,'top');list(er.heart,W.lagna_element_family*accuracy.lagnaWeight,'heart');list(er.base,W.lagna_element_family*accuracy.lagnaWeight,'base');
   const lc=planetCondition(lagnaLord,C),lp=DATA.planets[lagnaLord];
-  list(lp.top,W.lagna_lord_signature,'top',lc.mult);list(lp.heart,W.lagna_lord_signature,'heart',lc.mult);list(lp.base,W.lagna_lord_signature,'base',lc.mult);
+  list(lp.top,W.lagna_lord_signature*accuracy.lagnaWeight,'top',lc.mult);list(lp.heart,W.lagna_lord_signature*accuracy.lagnaWeight,'heart',lc.mult);list(lp.base,W.lagna_lord_signature*accuracy.lagnaWeight,'base',lc.mult);
   const nc=planetCondition(nakLord,C),nlp=DATA.planets[nakLord];
   push(DATA.nakshatras[nak.idx].heart,W.moon_nakshatra_heart*nc.mult,'heart');
-  push((nlp.notes||[])[(nak.pada-1)%nlp.notes.length],W.moon_nakshatra_heart*0.5*nc.mult,'heart');
+  const padaNote=((DATA.padaNotes&&DATA.padaNotes[nak.name])||[])[nak.pada-1]||(nlp.notes||[])[(nak.pada-1)%nlp.notes.length];
+  push(padaNote,(W.moon_pada_note||0.10)*nc.mult,'heart');
   const dc=planetCondition(d9Lord,C),dp=DATA.planets[d9Lord];
-  list(dp.top,W.navamsha_lord_aura,'top',dc.mult);list(dp.heart,W.navamsha_lord_aura,'heart',dc.mult);list(dp.base,W.navamsha_lord_aura,'base',dc.mult);
+  list(dp.top,W.navamsha_lord_aura*accuracy.d9Weight,'top',dc.mult);list(dp.heart,W.navamsha_lord_aura*accuracy.d9Weight,'heart',dc.mult);list(dp.base,W.navamsha_lord_aura*accuracy.d9Weight,'base',dc.mult);
   const mc=planetCondition(dasha.maha,C),mp=DATA.planets[dasha.maha];
   list(mp.top,W.mahadasha_lord_current,'top',mc.mult);list(mp.heart,W.mahadasha_lord_current,'heart',mc.mult);list(mp.base,W.mahadasha_lord_current,'base',mc.mult);
   const ac=planetCondition(dasha.antar,C),app=DATA.planets[dasha.antar];
   list(app.heart,W.antardasha_lord_accent,'heart',ac.mult);list(app.base,W.antardasha_lord_accent,'base',ac.mult);
   const akc=planetCondition(ak,C),akp=DATA.planets[ak];
   list(akp.notes,W.atmakaraka_soul,'heart',akc.mult);
+  const mode=(DATA.expressionModes&&DATA.expressionModes[prefs.expressionMode])||DATA.expressionModes.auto;
+  const strength=(DATA.strengthModes&&DATA.strengthModes[prefs.strengthMode])||DATA.strengthModes.daily;
+  list(mode.top,0.08,'top');list(mode.heart,0.08,'heart');list(mode.base,0.08,'base');
+  list(strength.notes,0.06,'heart');
   const layers={top:[],heart:[],base:[]};
   Object.keys(acc).forEach(n=>{const o=acc[n];layers[o.layer||'heart'].push({note:n,w:o.w,intensity:o.intensity,longevity:o.longevity});});
   ['top','heart','base'].forEach(L=>layers[L].sort((a,b)=>b.w-a.w));
   const pick={top:layers.top.slice(0,4),heart:layers.heart.slice(0,5),base:layers.base.slice(0,5)};
   const vargottama=ORDER.filter(p=>C.navSign[p]===C.d1Sign[p]);
   return{element,er,lagnaLord,d9Lord,dasha,nak,nakLord,ak,vargottama,
+    prefs:prefs,accuracy:accuracy,expressionMode:mode,strengthMode:strength,padaNote:padaNote,
     conditions:{Lagna_lord:lc,Nakshatra_lord:nc,D9_lord:dc,Mahadasha:mc,Antardasha:ac,Atmakaraka:akc},
     planetByRole:{Lagna_lord:lagnaLord,Nakshatra_lord:nakLord,D9_lord:d9Lord,Mahadasha:dasha.maha,Antardasha:dasha.antar,Atmakaraka:ak},
     layers:pick};
@@ -848,7 +903,11 @@ function ctxFromUI(birthHour){
   return{tod,season,conc};
 }
 function contextRatios(element,baseIntensity,ctx){
+  const prefs=parsePreferences();
+  const strength=(DATA.strengthModes&&DATA.strengthModes[prefs.strengthMode])||DATA.strengthModes.daily;
+  const mode=(DATA.expressionModes&&DATA.expressionModes[prefs.expressionMode])||DATA.expressionModes.auto;
   let top=25,heart=40,base=35,intensity=baseIntensity;
+  top+=(strength.topDelta||0);heart+=(strength.heartDelta||0);base+=(strength.baseDelta||0);intensity+=(strength.intensity||0)+(mode.intensity||0);
   if(ctx.tod==='night'){top-=5;base+=5;intensity+=1;}else if(ctx.tod==='day'){top+=5;base-=5;intensity-=1;}
   if(ctx.conc==='edt'){top+=8;base-=8;intensity-=1;}else if(ctx.conc==='parfum'){top-=8;base+=8;intensity+=2;}
   else if(ctx.conc==='attar'){top-=12;heart+=4;base+=8;intensity+=2;}
@@ -987,6 +1046,14 @@ function parseSensitivity(){
   const notes=document.getElementById('avoidNotes').value.split(',').map(x=>x.trim().toLowerCase()).filter(Boolean);
   return{sensitivityProfiles:profile?[profile]:[],avoidNotes:notes,avoidFamilies:[]};
 }
+function parsePreferences(){
+  const get=(id,fb)=>((document.getElementById(id)||{}).value||fb);
+  return{
+    birthAccuracy:get('birthAccuracy','exact'),
+    expressionMode:get('expressionMode','auto'),
+    strengthMode:get('strengthMode','daily')
+  };
+}
 
 function buildFragrance(C){
   const lagElem=elemOf(C.lagnaSign), moonElem=elemOf(C.moonSign), navElem=elemOf(C.navLagnaSign);
@@ -1026,8 +1093,10 @@ function buildFragrance(C){
   document.getElementById('profile').innerHTML=
     pcard('Lagna (D1)',RASHI_SHORT[C.lagnaSign],ELEM_NAME[lagElem]+' · ruled by '+lagnaLord)+
     pcard('Moon Rashi',RASHI_SHORT[C.moonSign],ELEM_NAME[moonElem]+' element')+
-    pcard('Janma Nakshatra',C.moonNak.name,'lord '+O.chartInputs.moonNakshatraLord+' · pada '+C.moonNak.pada)+
-    pcard('D9 Lagna',RASHI_SHORT[C.navLagnaSign],ELEM_NAME[navElem]+' · ruled by '+d9Lord);
+    pcard('Janma Nakshatra',C.moonNak.name,'lord '+O.chartInputs.moonNakshatraLord+' · pada '+C.moonNak.pada+' · '+B.padaNote)+
+    pcard('D9 Lagna',RASHI_SHORT[C.navLagnaSign],ELEM_NAME[navElem]+' · ruled by '+d9Lord)+
+    pcard('Chart confidence',B.accuracy.confidence,B.accuracy.label)+
+    pcard('Wear mode',B.strengthMode.label,B.expressionMode.label);
 
   const flags=boundaryFlags(C);
   if(flags.length){
@@ -1048,7 +1117,7 @@ function buildFragrance(C){
     '<div class="sname">'+sp.family+'</div>'+
     '<div class="sdesc">With <b>'+RASHI_SHORT[C.lagnaSign]+'</b> rising ('+ELEM_NAME[lagElem]+'), your projected aura is <b>'+sp.familyLine.toLowerCase()+'</b>, with a '+sp.rashiBias+
     ' bias. The signature accord comes from your Lagna lord <b>'+lagnaLord+'</b> — '+O._planets.lagna.aura+
-    '. The heart is your <b>'+C.moonNak.name+'</b> nakshatra: '+sp.heartCharacter+', carried on <b>'+sp.heartNote+'</b>.</div>'+
+    '. The heart is your <b>'+C.moonNak.name+'</b> nakshatra: '+sp.heartCharacter+', carried on <b>'+sp.heartNote+'</b>. Pada '+C.moonNak.pada+' adds <b>'+B.padaNote+'</b> as the precision accent.</div>'+
     '<div class="pyramid"><div class="layer"><span class="lk">Accord</span><div class="chips">'+chips(sp.signatureAccord)+'</div></div></div>';
 
   /* ---- aura enhancer — the perfume to LIFT your aura ---- */
@@ -1184,7 +1253,13 @@ function renderBlend(){
     '</div>'+
     '<div class="ctxline">Parts are proportional within each layer. Mix the layers in the percentages above, then dilute to your concentration: attar into jojoba or sandalwood oil; spray into perfumer alcohol.</div>';
 }
+function refreshPreferenceBlend(){
+  if(!LASTP)return;
+  LASTP.B=preciseBlend(LASTP.C);
+  renderBlend();
+}
 ['ctxTod','ctxSeason','ctxConc'].forEach(function(id){var e=document.getElementById(id);if(e)e.addEventListener('change',function(){if(LASTP)renderBlend();});});
+['expressionMode','strengthMode','birthAccuracy'].forEach(function(id){var e=document.getElementById(id);if(e)e.addEventListener('change',refreshPreferenceBlend);});
 
 function escH(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function buildScentCard(){
