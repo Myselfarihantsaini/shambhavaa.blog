@@ -269,6 +269,14 @@ export default function Home() {
             </p>
             <a href="/tools/kundli-chart" style={{ fontWeight: 'bold' }}>Open Kundli Tool &rarr;</a>
           </div>
+          <div className="card" style={{ display: 'block', padding: '2.5rem', color: 'inherit' }}>
+            <Star size={34} color="var(--accent-gold)" />
+            <h3 className="text-gold" style={{ fontSize: '1.8rem', marginTop: '1.2rem' }}>Kundali Perfume Oracle</h3>
+            <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>
+              Reveal a symbolic aura fragrance from your D1, D9, Moon sign, and birth Nakshatra.
+            </p>
+            <a href="/tools/perfume-oracle" style={{ fontWeight: 'bold' }}>Open Perfume Tool &rarr;</a>
+          </div>
         </div>
       </section>
 
