@@ -225,12 +225,16 @@ function renderTimeline(){
 /* ===================================================================== *
  *  2.  EVENT-TIMING WINDOWS
  * ===================================================================== */
+/* houses = the topic's bhavas (used for significators AND for the Jupiter
+   "activation over the bhava from the Lagna" check). Transit *favourability*
+   is judged from the Moon by classical gochar (see renderWindows), not from
+   these houses — keeping it consistent with the Present-Transit section. */
 var TOPIC_SIG={
-  marriage :{label:'Marriage',  houses:[7,2,11], karakas:['Venus','Jupiter'], jup:[7,2,5,9,11], sat:[7]},
-  career   :{label:'Career',    houses:[10,6,11],karakas:['Sun','Saturn','Mercury'], jup:[10,11,2,5,9], sat:[10,6]},
-  property :{label:'Property / vehicles', houses:[4,11], karakas:['Mars','Venus','Saturn'], jup:[4,11,2,5,9], sat:[4]},
-  children :{label:'Children',  houses:[5,2,11], karakas:['Jupiter'], jup:[5,9,2,11], sat:[5]},
-  education:{label:'Education', houses:[4,5,9],  karakas:['Mercury','Jupiter'], jup:[4,5,9,11], sat:[]}
+  marriage :{label:'Marriage',  houses:[7,2,11], karakas:['Venus','Jupiter']},
+  career   :{label:'Career',    houses:[10,6,11],karakas:['Sun','Saturn','Mercury']},
+  property :{label:'Property / vehicles', houses:[4,11], karakas:['Mars','Venus','Saturn']},
+  children :{label:'Children',  houses:[5,2,11], karakas:['Jupiter']},
+  education:{label:'Education', houses:[4,5,9],  karakas:['Mercury','Jupiter']}
 };
 function significators(topic){
   var T=TOPIC_SIG[topic], set={}, why={};
@@ -254,19 +258,32 @@ function renderWindows(){
     var score=0, reasons=[];
     if(S.set[a.maha]){score+=3; reasons.push('<b>'+a.maha+'</b> Mahadasha ('+S.why[a.maha]+')');}
     if(S.set[a.antar]){score+=2; reasons.push('<b>'+a.antar+'</b> Antardasha ('+S.why[a.antar]+')');}
-    var mid=(Math.max(a.start,now)+a.end)/2;
-    var jH=houseFrom(signAt(mid,'Jupiter'),CTX.lagnaSign);
-    var sH=houseFrom(signAt(mid,'Saturn'),CTX.lagnaSign);
-    if(S.T.jup.indexOf(jH)>=0){score+=2; reasons.push('Jupiter transits the '+ord(jH)+' (supportive)');}
-    if(S.T.sat.indexOf(sH)>=0){score+=1; reasons.push('Saturn matures the '+ord(sH));}
-    if(score>=4)wins.push({a:a,score:score,reasons:reasons,jH:jH,sH:sH});
+    /* --- transit overlay ---
+       Classical gochar reckons Jupiter & Saturn from the natal MOON (as the
+       Present-Transit section does). Jupiter is favourable in the 2,5,7,9,11
+       from the Moon; Saturn does well in the upachayas 3,6,11 from the Moon.
+       Jupiter is sampled across the whole window (it can change sign within it).
+       Separately, Jupiter passing the topic's own bhava FROM THE LAGNA activates
+       the matter — labelled distinctly so the reference is never ambiguous. */
+    var a0=Math.max(a.start,now), pts=[a0,(a0+a.end)/2,a.end];
+    var jMoonHit=pts.filter(function(t){return [2,5,7,9,11].indexOf(houseFrom(signAt(t,'Jupiter'),CTX.moonSign))>=0;}).length;
+    if(jMoonHit>0){
+      var jMid=houseFrom(signAt(pts[1],'Jupiter'),CTX.moonSign);
+      score+=(jMoonHit>=2?2:1);
+      reasons.push('Jupiter in a supportive gochar from the Moon'+([2,5,7,9,11].indexOf(jMid)>=0?' (the '+ord(jMid)+')':'')+(jMoonHit<3?' for part of the window':''));
+    }
+    var sMoon=houseFrom(signAt((a0+a.end)/2,'Saturn'),CTX.moonSign);
+    if([3,6,11].indexOf(sMoon)>=0){score+=1; reasons.push('Saturn in the '+ord(sMoon)+' from the Moon (an upachaya — supportive)');}
+    var jLag=houseFrom(signAt((a0+a.end)/2,'Jupiter'),CTX.lagnaSign);
+    if(S.T.houses.indexOf(jLag)>=0){score+=1; reasons.push('Jupiter transits the '+ord(jLag)+' from the Lagna (activates '+S.T.label.toLowerCase()+')');}
+    if(score>=4)wins.push({a:a,score:score,reasons:reasons});
   });
   wins.sort(function(x,y){return x.a.start-y.a.start;});
   wins=wins.slice(0,7);
 
   var head='<div class="kt-sub">Significators weighed for <b>'+S.T.label.toLowerCase()+'</b>: '+
     sigNames.map(function(p){return '<span class="kt-chip">'+p+'</span>';}).join('')+
-    '<br>Windows are Antardasha periods of those significators in the next 25 years, scored higher when Jupiter (and Saturn) transit a classically favourable house at the same time.</div>';
+    '<br>Windows are Antardasha periods of those significators in the next 25 years, scored higher when Jupiter and Saturn hold a supportive gochar from the natal Moon (and Jupiter passes the relevant bhava from the Lagna) at the same time.</div>';
 
   if(!wins.length){
     box.innerHTML=head+'<div class="kt-note">No strongly-aligned window falls in the next 25 years for this theme on the dasha+transit criteria used here. That does not preclude the event — it means no period stacks several significators together. Weigh the divisional charts and a consultation.</div>';
@@ -401,7 +418,7 @@ function injectStyle(){
   if(document.getElementById('kt-style'))return;
   var css=
   '.kt-sec{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}'+
-  '.kt-sec .section-title{margin-bottom:10px}'+
+  '.kt-sec h3{font-family:var(--serif);font-size:24px;color:var(--gold-soft);text-align:center;font-weight:600}'+
   '.kt-sub{text-align:center;color:var(--muted);font-size:12.5px;margin:5px auto 14px;max-width:64ch;line-height:1.6}'+
   '.kt-h{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:18px 0 8px;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:5px}'+
   '.kt-status{font-size:13.5px;text-align:center;border-radius:11px;padding:11px 14px;margin-bottom:6px;line-height:1.5;border:1px solid var(--line);background:rgba(0,0,0,.18)}'+
@@ -432,15 +449,15 @@ function injectSections(){
   var result=document.getElementById('result'); if(!result||document.getElementById('kt-timeline'))return;
   var wrap=document.createElement('div');
   wrap.innerHTML=
-   '<div class="kt-sec" id="kt-timeline"><div class="section-title">Timeline \u2014 Sade Sati &amp; Dasha (real dates)</div>'+
+   '<div class="kt-sec" id="kt-timeline"><h3>Timeline \u2014 Sade Sati &amp; Dasha (real dates)</h3>'+
      '<div id="kt-timeline-body"></div></div>'+
-   '<div class="kt-sec" id="kt-windows"><div class="section-title">Event-timing Windows</div>'+
+   '<div class="kt-sec" id="kt-windows"><h3>Event-timing Windows</h3>'+
      '<div class="kt-ctrl"><label for="kt-topic">Window for</label>'+
        '<select id="kt-topic"><option value="marriage">Marriage</option><option value="career">Career</option>'+
        '<option value="property">Property / vehicles</option><option value="children">Children</option>'+
        '<option value="education">Education</option></select></div>'+
      '<div id="kt-windows-body"></div></div>'+
-   '<div class="kt-sec" id="kt-varsha"><div class="section-title">Varshaphal \u2014 Annual Chart</div>'+
+   '<div class="kt-sec" id="kt-varsha"><h3>Varshaphal \u2014 Annual Chart</h3>'+
      '<div class="kt-ctrl"><label for="kt-varsha-age">Year of life</label>'+
        '<select id="kt-varsha-age"></select></div>'+
      '<div id="kt-varsha-body"></div></div>';
