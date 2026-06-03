@@ -170,7 +170,7 @@ export default function Home() {
       {/* Latest Articles */}
       <section style={{ padding: '0 0 var(--spacing-lg)' }}>
         <h2 className="text-center text-gold mb-4" style={{ fontSize: '2.5rem' }}>Latest Deep Dives</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+        <div className="grid-responsive-350">
           {allPosts.slice(0, 6).map(post => (
             <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
@@ -260,7 +260,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+        <div className="grid-responsive-320">
           <div className="card" style={{ display: 'block', padding: '2.5rem', color: 'inherit' }}>
             <Calculator size={34} color="var(--accent-gold)" />
             <h3 className="text-gold" style={{ fontSize: '1.8rem', marginTop: '1.2rem' }}>Free Kundli Generator</h3>
@@ -295,7 +295,7 @@ export default function Home() {
             }}>Trending Insights</span>
             <div style={{ height: '1px', flex: 1, background: 'var(--border-color)' }}></div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+          <div className="grid-responsive-300" style={{ marginBottom: '3rem' }}>
             {trendingPosts.slice(0, 3).map((post, index) => (
               <div key={post.slug} style={{
                 display: 'flex',
@@ -341,7 +341,7 @@ export default function Home() {
       {/* Pillar Topics */}
       <section style={{ padding: 'var(--spacing-lg) 0' }}>
         <h2 className="text-center text-gold mb-4" style={{ fontSize: '2.5rem' }}>Core Knowledge Hubs</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+        <div className="grid-responsive-300">
 
           <div className="card" style={{ padding: '2.5rem' }}>
             <h3 className="text-gold" style={{ fontSize: '1.8rem' }}>Saturn & Karma</h3>

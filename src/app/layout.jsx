@@ -157,7 +157,7 @@ export default function RootLayout({ children }) {
         </aside>
 
         <footer className="container" style={{ padding: '4rem 1rem', borderTop: '1px solid var(--border-color)', marginTop: '4rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem', textAlign: 'left' }}>
+          <div className="grid-responsive-200" style={{ marginBottom: '3rem', textAlign: 'left' }}>
             <div>
               <h3 className="text-gold" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Shambhavaa</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>

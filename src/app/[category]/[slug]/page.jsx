@@ -275,7 +275,7 @@ export default function ArticlePage({ params }) {
       {relatedPosts.length > 0 && (
         <section style={{ marginTop: 'var(--spacing-xl)', borderTop: '1px solid var(--border-color)', paddingTop: 'var(--spacing-lg)' }}>
           <h2 className="text-gold" style={{ marginBottom: '2rem' }}>Related Insights</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+          <div className="grid-responsive-250">
             {relatedPosts.map(p => (
               <div key={p.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
                 <h4 style={{ fontSize: '1.1rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{p.meta.title}</h4>
