@@ -1,76 +1,133 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+
+const normalise = (value) => String(value || '').toLowerCase();
+
+function getSearchText(post) {
+  return [
+    post?.meta?.title,
+    post?.meta?.excerpt,
+    post?.meta?.description,
+    post?.meta?.keywords?.join?.(' '),
+    post?.category,
+    post?.content,
+  ].map(normalise).join(' ');
+}
 
 export default function Search({ posts }) {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const searchRef = useRef(null);
 
   useEffect(() => {
-    if (query.trim() === '') {
-      setResults([]);
-      return;
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get('q') || params.get('search') || '';
+    if (initialQuery.trim()) {
+      setQuery(initialQuery);
+      setIsOpen(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
     }
 
-    const filtered = posts.filter(post => 
-      post.meta.title.toLowerCase().includes(query.toLowerCase()) ||
-      post.meta.excerpt.toLowerCase().includes(query.toLowerCase()) ||
-      post.content.toLowerCase().includes(query.toLowerCase())
-    );
-    setResults(filtered);
-  }, [query, posts]);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const searchablePosts = useMemo(() => (
+    (posts || []).map((post) => ({
+      ...post,
+      searchText: getSearchText(post),
+      title: post?.meta?.title || post?.slug || 'Untitled article',
+      excerpt: post?.meta?.excerpt || post?.meta?.description || '',
+      href: `/${post.category}/${post.slug}/`,
+    }))
+  ), [posts]);
+
+  const results = useMemo(() => {
+    const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+
+    return searchablePosts
+      .map((post) => {
+        const titleText = normalise(post.title);
+        const excerptText = normalise(post.excerpt);
+        const categoryText = normalise(post.category);
+        const score = terms.reduce((total, term) => {
+          if (titleText.includes(term)) return total + 8;
+          if (categoryText.includes(term)) return total + 4;
+          if (excerptText.includes(term)) return total + 2;
+          if (post.searchText.includes(term)) return total + 1;
+          return total;
+        }, 0);
+
+        return { ...post, score };
+      })
+      .filter((post) => post.score >= terms.length)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
+  }, [query, searchablePosts]);
+
+  const hasQuery = query.trim().length > 0;
+  const showPanel = isOpen && hasQuery;
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (results[0]) {
+      window.location.href = results[0].href;
+    }
+  }
 
   return (
-    <div style={{ position: 'relative', width: '100%', maxWidth: '400px' }}>
+    <form className="site-search" role="search" onSubmit={handleSubmit} ref={searchRef}>
       <input
-        type="text"
+        type="search"
         placeholder="Search insights..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        style={{
-          width: '100%',
-          padding: '0.75rem 1rem',
-          borderRadius: '4px',
-          border: '1px solid var(--border-color)',
-          background: 'rgba(255,255,255,0.05)',
-          color: 'var(--text-primary)',
-          fontFamily: 'var(--font-body)',
-          outline: 'none'
+        aria-label="Search Shambhavaa articles"
+        aria-expanded={showPanel}
+        onChange={(event) => {
+          setQuery(event.target.value);
+          setIsOpen(true);
+        }}
+        onFocus={() => setIsOpen(true)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' && results[0]) {
+            event.preventDefault();
+            window.location.href = results[0].href;
+          }
         }}
       />
-      {results.length > 0 && (
-        <div style={{
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          background: '#101018',
-          border: '1px solid var(--border-color)',
-          borderRadius: '4px',
-          marginTop: '0.5rem',
-          zIndex: 1000,
-          maxHeight: '300px',
-          overflowY: 'auto',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
-        }}>
-          {results.map(post => (
-            <a
-              key={post.slug}
-              href={`/${post.category}/${post.slug}`}
-              style={{
-                display: 'block',
-                padding: '1rem',
-                borderBottom: '1px solid var(--border-color)',
-                transition: 'background 0.3s ease'
-              }}
-              onMouseEnter={(e) => e.target.style.background = 'rgba(212, 175, 55, 0.1)'}
-              onMouseLeave={(e) => e.target.style.background = 'transparent'}
-            >
-              <div style={{ fontWeight: '500', color: 'var(--accent-gold)' }}>{post.meta.title}</div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{post.category}</div>
-            </a>
-          ))}
+      {showPanel && (
+        <div className="site-search-results">
+          {results.length > 0 ? (
+            <>
+              <div className="site-search-count">
+                {results.length} result{results.length === 1 ? '' : 's'}
+              </div>
+              {results.map(post => (
+                <a
+                  key={`${post.category}-${post.slug}`}
+                  href={post.href}
+                  className="site-search-result"
+                >
+                  <span>{post.title}</span>
+                  <small>{post.category.replace(/-/g, ' ')}</small>
+                </a>
+              ))}
+            </>
+          ) : (
+            <div className="site-search-empty">
+              No matching article found.
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </form>
   );
 }

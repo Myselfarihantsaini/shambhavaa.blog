@@ -148,6 +148,97 @@ a:hover {
   background: rgba(212, 175, 55, 0.1);
 }
 
+.site-search {
+  position: relative;
+  z-index: 80;
+  width: min(400px, 100vw - 2rem);
+}
+
+.site-search input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.site-search input:focus {
+  border-color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: 0 0 0 3px rgba(226, 184, 87, 0.12);
+}
+
+.site-search input::placeholder {
+  color: var(--text-secondary);
+}
+
+.site-search-results {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  max-height: min(420px, 70vh);
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: rgba(8, 8, 14, 0.98);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(16px);
+}
+
+.site-search-count,
+.site-search-empty {
+  padding: 0.75rem 0.95rem;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.site-search-count {
+  border-bottom: 1px solid var(--border-color);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.site-search-result {
+  display: block;
+  padding: 0.9rem 0.95rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-search-result:last-child {
+  border-bottom: 0;
+}
+
+.site-search-result:hover,
+.site-search-result:focus-visible {
+  background: rgba(226, 184, 87, 0.1);
+  outline: none;
+}
+
+.site-search-result span,
+.site-search-result small {
+  display: block;
+}
+
+.site-search-result span {
+  color: var(--accent-gold);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.site-search-result small {
+  margin-top: 0.25rem;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
 .floating-socials {
   position: fixed;
   right: 1.25rem;
@@ -432,6 +523,11 @@ body {
     width: 100%;
     gap: 0.75rem !important;
     justify-content: center;
+  }
+
+  .site-search {
+    width: 100%;
+    max-width: 420px;
   }
 
   body > header nav {
