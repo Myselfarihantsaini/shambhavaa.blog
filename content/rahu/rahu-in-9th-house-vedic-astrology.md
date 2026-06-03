@@ -7,8 +7,6 @@ excerpt: "Rahu in 9th House explained—meaning, effects, father/guru themes, tr
 
 ![Rahu in 9th House](/images/rahu/rahu-in-9th-house.jpg)
 
-## TLDR
-
 Rahu in the 9th house places the Moon’s north node in the house of dharma, higher learning, father figures, gurus, and long-distance travel. It creates an intense, unconventional search for personal truth. This placement is not automatically a curse or bad luck. Its real effects depend on the 9th lord, Jupiter, Sun, Rahu’s dispositor, aspects, conjunctions, and the full birth chart.
 
 Rahu in the 9th house means the North Node of the Moon, a shadow graha in Jyotish, occupies the house of dharma, fortune, father/guru figures, higher education, philosophy, religion, and long-distance travel. It often shows a person who questions inherited beliefs, learns through foreign or unconventional paths, and must develop an honest relationship with truth.
