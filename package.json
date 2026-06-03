@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "import:rankai": "node scripts/import-rankai-articles.mjs",
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",

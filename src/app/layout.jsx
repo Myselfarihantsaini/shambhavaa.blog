@@ -25,7 +25,7 @@ const contentSecurityPolicy = [
   "frame-ancestors 'none'",
   "form-action 'self' https://shambhavaa.com",
   "upgrade-insecure-requests",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.googleapis.com https://www.gstatic.com https://fundingchoicesmessages.google.com https://adservice.google.com https://www.googletagservices.com",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://rankai.ai https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.googleapis.com https://www.gstatic.com https://fundingchoicesmessages.google.com https://adservice.google.com https://www.googletagservices.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com https://www.gstatic.com",
   "font-src 'self' https://fonts.gstatic.com data:",
   "img-src 'self' data: https:",
@@ -98,6 +98,12 @@ export default function RootLayout({ children }) {
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9194178610009666"
           crossOrigin="anonymous"
+        ></script>
+        <script
+          src="https://rankai.ai/apply.js"
+          data-rankai-id="cmpxxn4qn000biy4gif7p52s8"
+          crossOrigin="anonymous"
+          defer
         ></script>
       </head>
       <body suppressHydrationWarning>
