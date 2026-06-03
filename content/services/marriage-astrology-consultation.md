@@ -26,7 +26,7 @@ Marriage is not judged by looking at Venus alone. A comprehensive assessment req
 
 - **The 7th House and 7th Lord:** The 7th house is the primary house of marriage, partnership, and the spouse. We assess its strength, the planets sitting in it, and the condition of the 7th lord to understand your marital promise.
 - **The Karakas (Significators):** We analyze Venus (the universal significator of romance and relationships) and Jupiter (the significator of the husband in a female's chart). We also look at the Darakaraka (the planet with the lowest degree), which represents the spouse in Jaimini astrology.
-- **Relationship Patterns:** We look at the 5th house (romance), the 8th house (intimacy and sudden changes), and the 12th house (bed comforts and losses) to understand the psychological dynamics you bring into relationships.
+- **Relationship Patterns:** We look at the 5th house (romance), the 8th house (deep trust and sudden changes), and the 12th house (private comforts and losses) to understand the psychological dynamics you bring into relationships.
 
 *To understand the mechanics behind this, read [how marriage timing is checked in Vedic astrology](/resources/how-marriage-timing-is-checked).*
 

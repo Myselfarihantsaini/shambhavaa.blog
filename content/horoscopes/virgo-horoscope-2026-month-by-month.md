@@ -39,13 +39,13 @@ That becomes the emotional core of this year.
 
 ## Direct Answer: What Will Virgo Experience in 2026?
 
-Virgo in 2026 experiences a year of mental overload becoming emotional clarity. The first half of the year exposes overthinking, responsibility pressure, relationship imbalance, career anxiety, and burnout. The second half brings stronger emotional boundaries, sharper career focus, deeper relationship standards, nervous system healing, and a calmer internal reality.
+Virgo in 2026 experiences a year of mental overload becoming emotional clarity. The first half of the year exposes overthinking, responsibility pressure, relationship imbalance, career pressure, and burnout. The second half brings stronger emotional boundaries, sharper career focus, deeper relationship standards, nervous system healing, and a calmer internal reality.
 
 The biggest Virgo 2026 themes are:
 
 - mental exhaustion and emotional overload
 - relationship clarity and higher emotional standards
-- career pressure, perfectionism, and productivity anxiety
+- career pressure, perfectionism, and productivity pressure
 - emotional boundaries and self-respect
 - burnout from over-functioning
 - nervous system recovery and calmer routines
@@ -106,7 +106,7 @@ Possible themes include:
 - nervous exhaustion
 - digestive sensitivity from stress
 - sleep irregularity
-- anxiety
+- worry
 - emotional burnout
 - overthinking-related fatigue
 
@@ -147,7 +147,7 @@ Career remains active, though emotional distraction connected with relationships
 
 Financially, this month supports discipline and practical thinking strongly.
 
-Health improves once emotional overstimulation decreases slightly, though anxiety and nervous tension remain active underneath.
+Health improves once emotional overstimulation decreases slightly, though worry and nervous tension remain active underneath.
 
 Family dynamics may involve emotional expectations, criticism patterns, or pressure connected with responsibility.
 
@@ -157,7 +157,7 @@ February teaches Virgo:
 
 You deserve emotional consistency too.
 
-## March 2026: Career Pressure and Identity Anxiety
+## March 2026: Career Pressure and identity pressure
 
 March strongly activates work, ambition, and long-term direction.
 
@@ -179,7 +179,7 @@ Possible themes include:
 - burnout
 - leadership pressure
 - feeling undervalued
-- anxiety around achievement
+- worry around achievement
 - fear of losing control professionally
 
 Externally, Virgo may still appear highly functional.
@@ -192,7 +192,7 @@ Relationships may temporarily feel emotionally distant because career pressure d
 
 Health becomes extremely important.
 
-Stress may directly affect digestion, sleep, hormones, nervous system balance, and emotional regulation.
+Stress may directly affect digestion, sleep, body rhythms, nervous system balance, and emotional regulation.
 
 Home environment becomes psychologically important because Virgo needs mental recovery space away from pressure.
 
@@ -262,13 +262,13 @@ Career pressure continues externally, but internally Virgo may emotionally quest
 
 Relationships become quieter because emotional withdrawal increases strongly now.
 
-Financially, caution becomes important. Stress-related spending or survival anxiety may increase if emotional awareness remains low.
+Financially, caution becomes important. Stress-related spending or survival worry may increase if emotional awareness remains low.
 
 Health becomes extremely important.
 
 Possible issues include:
 
-- anxiety
+- worry
 - digestive imbalance
 - sleep problems
 - nervous exhaustion
@@ -305,7 +305,7 @@ Travel during June becomes emotionally restorative and mentally refreshing.
 
 June teaches Virgo:
 
-Peace increases clarity more than anxiety ever could.
+Peace increases clarity more than worry ever could.
 
 For a wider 2026 comparison, see the [Scorpio Horoscope 2026](/horoscopes/scorpio-horoscope-2026-month-by-month), [Leo Horoscope 2026](/horoscopes/leo-horoscope-2026-january-to-december), [Aquarius Horoscope 2026](/horoscopes/aquarius-horoscope-2026-month-by-month), and [Capricorn Horoscope 2026](/horoscopes/capricorn-horoscope-2026-month-by-month).
 
@@ -373,7 +373,7 @@ Possible experiences include:
 - recognition
 - leadership opportunities
 - responsibility expansion
-- anxiety around performance
+- worry around performance
 - pressure to maintain standards
 
 Externally, Virgo appears extremely functional.
@@ -392,7 +392,7 @@ Virgo placements may unintentionally become emotionally distant while obsessing 
 
 Health requires balance this month.
 
-Stress may directly affect digestion, hormones, sleep, anxiety levels, and nervous system balance.
+Stress may directly affect digestion, body rhythms, sleep, stress levels, and nervous system balance.
 
 Home environment may feel emotionally restrictive if routines become too rigid or mentally overwhelming.
 
@@ -435,7 +435,7 @@ Health requires emotional grounding now.
 
 Possible issues include:
 
-- anxiety
+- worry
 - overthinking-related exhaustion
 - digestive sensitivity
 - emotional fatigue
@@ -459,7 +459,7 @@ This month reveals:
 - who emotionally supports you genuinely
 - who continuously drains your mental energy
 - which relationships create peace
-- which relationships create anxiety
+- which relationships create stress
 
 Virgo placements become significantly more emotionally selective now.
 
@@ -493,7 +493,7 @@ People around you may suddenly notice:
 
 - stronger boundaries
 - calmer emotional energy
-- reduced anxiety externally
+- reduced external stress
 - quieter confidence
 - emotional maturity
 - stronger self-respect

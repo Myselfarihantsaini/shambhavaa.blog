@@ -360,24 +360,24 @@ Afflicted placements may create:
 * controlling tendencies
 * dependency on validation from partners
 
-Sometimes the native unconsciously seeks relationships not for intimacy — but for identity reinforcement.
+Sometimes the native unconsciously seeks relationships not for emotional closeness — but for identity reinforcement.
 
 The spiritual lesson is learning partnership without losing individuality or demanding emotional submission.
 
 ---
 
 ## Sun in the 8th House
-### Transformation Through Ego Death
+### Transformation Through Ego Surrender
 
 This is one of the most psychologically intense placements.
 
 The 8th house governs:
 
 * crisis
-* trauma
+* deep emotional imprint
 * hidden truths
 * transformation
-* intimacy patterns
+* deep trust patterns
 * occult knowledge
 * rebirth
 

@@ -52,7 +52,7 @@ The true power of this reading lies in combining the two. For example, if you ar
 ## What Is Not Promised
 
 - We do not give exact day-by-day predictions. Astrology highlights windows of time (usually spanning weeks or months).
-- We do not use transits to instill fear. A difficult Saturn transit is a period of structuring, not a curse.
+- We do not use transits to instill fear. A difficult Saturn transit is a period of structuring, not a burden.
 - We do not override your free will. A good dasha still requires you to take action.
 
 **Ready to understand your timeline?**

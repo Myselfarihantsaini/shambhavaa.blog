@@ -18,7 +18,7 @@ faqs:
   - question: "What does the 1st house lord in the 2nd house mean in Vedic astrology?"
     answer: "The 1st house lord in the 2nd house connects identity with wealth, family, speech, values, food, stored resources, and self-worth. The person often seeks stability, respect, and emotional safety through accumulation, contribution, and family or financial security."
   - question: "Is the 1st lord in the 2nd house good for wealth?"
-    answer: "It can support wealth accumulation, disciplined earning, family business, savings, speech-based work, and financial planning when the planet is strong and well-aspected. Affliction can create financial anxiety, family disputes, harsh speech, or self-worth tied too heavily to money."
+    answer: "It can support wealth accumulation, disciplined earning, family business, savings, speech-based work, and financial planning when the planet is strong and well-aspected. Affliction can create financial worry, family disputes, harsh speech, or self-worth tied too heavily to money."
   - question: "How does the 1st house lord in the 2nd house affect relationships?"
     answer: "This placement often seeks loyalty, emotional reliability, shared values, family compatibility, and long-term security in relationships. If afflicted, it may create possessiveness, financial control issues, emotional rigidity, or difficulty expressing vulnerability directly."
 ---
@@ -142,7 +142,7 @@ These natives often develop heightened awareness around:
 - family responsibility
 - social respectability
 
-Even when successful, many still carry subtle anxiety around loss.
+Even when successful, many still carry subtle worry around loss.
 
 Why?
 

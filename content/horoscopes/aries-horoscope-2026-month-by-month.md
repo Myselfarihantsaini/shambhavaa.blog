@@ -95,7 +95,7 @@ Financially, this month asks for control. Aries may feel tempted to spend impuls
 
 Relationships may feel slightly tense because Aries becomes more direct than usual. You may not want emotional games, vague answers, or passive behavior. If someone is inconsistent, January makes it harder for you to stay silent.
 
-Health requires attention because anger, impatience, sleep disturbance, headaches, inflammation, acidity, blood pressure fluctuations, or physical restlessness may increase if energy is not released properly. Exercise helps, but overexertion should be avoided.
+Health requires attention because anger, impatience, sleep disturbance, headaches, inflammation, acidity, physical stress fluctuations, or physical restlessness may increase if energy is not released properly. Exercise helps, but overexertion should be avoided.
 
 Home environment may feel restrictive if there is too much noise, conflict, or emotional pressure. Aries may crave personal space strongly this month.
 
@@ -197,7 +197,7 @@ Financially, caution is needed. Emotional spending, impulsive purchases, or deci
 
 Relationships may feel sensitive. Aries may withdraw, become irritable, or react strongly to small disappointments. If you feel emotionally unsupported, anger may surface quickly. Instead of exploding, speak clearly.
 
-Health is one of the most important areas this month. Fatigue, headaches, inflammation, blood pressure imbalance, sleep disturbance, acidity, muscular tension, injuries, and stress-related exhaustion may become noticeable. Aries should not ignore physical signals.
+Health is one of the most important areas this month. Fatigue, headaches, inflammation, physical stress imbalance, sleep disturbance, acidity, muscular tension, injuries, and stress-related exhaustion may become noticeable. Aries should not ignore physical signals.
 
 Home environment should be calm. Loud conflict, family arguments, or emotional drama can drain you quickly.
 
@@ -307,7 +307,7 @@ Career continues, but emotional issues may demand attention. Aries must avoid le
 
 Financially, September asks for balance. Avoid spending due to emotional frustration. This month is better for reviewing priorities and correcting financial habits.
 
-Health needs emotional regulation. Stress in relationships can affect sleep, digestion, headaches, blood pressure, inflammation, and nervous system stability.
+Health needs emotional regulation. Stress in relationships can affect sleep, digestion, headaches, physical stress, inflammation, and nervous system stability.
 
 Home environment may feel emotionally charged. Family matters or domestic responsibilities may need calm handling.
 
@@ -357,7 +357,7 @@ Financially, November supports mature decisions. Aries may become more serious a
 
 Relationships become emotionally intense. Hidden issues may surface. Some connections deepen through honesty, while others weaken if they were surviving only through passion or habit.
 
-Health requires emotional release. Suppressed anger, stress, overwork, and internal pressure may affect the body. Aries benefits from movement, therapy, spiritual practice, disciplined exercise, and honest rest.
+Health requires emotional release. Suppressed anger, stress, overwork, and internal pressure may affect the body. Aries benefits from movement, qualified support, spiritual practice, disciplined exercise, and honest rest.
 
 Home environment may feel emotionally sensitive. Old family patterns or unresolved tension may need attention.
 

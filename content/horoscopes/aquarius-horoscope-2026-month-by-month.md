@@ -91,7 +91,7 @@ Career-wise, this month rewards strategic thinking rather than impulsive movemen
 
 Relationships during February become more practical. You begin evaluating people through reliability rather than chemistry alone. Emotional inconsistency becomes deeply unattractive now. Some Aquarius placements may emotionally detach from people who create instability or confusion repeatedly.
 
-Health improves slightly compared to January, but stress remains mentally active. Digestive issues connected to anxiety, irregular sleep, emotional overstimulation, or social burnout may still require attention.
+Health improves slightly compared to January, but stress remains mentally active. Digestive issues connected to worry, irregular sleep, emotional overstimulation, or social burnout may still require attention.
 
 Family matters may involve financial discussion, emotional responsibility, or restructuring routines at home. The desire for emotional peace inside the living environment increases strongly.
 
@@ -340,12 +340,12 @@ Relationships become emotionally revealing. Aquarius placements may suddenly cra
 
 - emotional honesty
 - genuine understanding
-- psychological intimacy
+- psychological trust
 - emotional safety
 
 Superficial attraction begins feeling emotionally empty now.
 
-Health requires emotional grounding. Anxiety, overthinking, nervous exhaustion, emotional fatigue, and irregular sleep may increase if emotions remain suppressed continuously.
+Health requires emotional grounding. worry, overthinking, nervous exhaustion, emotional fatigue, and irregular sleep may increase if emotions remain suppressed continuously.
 
 Home environment deeply affects emotional state this month. Aquarius placements may crave quieter surroundings, emotional safety, softer routines, and reduced stimulation.
 
@@ -367,7 +367,7 @@ You begin recognizing:
 
 - emotional inconsistency faster
 - manipulative behavior quicker
-- fake emotional intimacy immediately
+- performative emotional closeness immediately
 - who emotionally drains your peace
 
 Romantically, this month becomes powerful.
@@ -395,7 +395,7 @@ Travel this month may connect with relationships, emotional clarity, reconnectio
 
 October teaches Aquarius:
 
-Real intimacy requires emotional honesty, not emotional performance.
+real emotional closeness requires emotional honesty, not emotional performance.
 
 ## November 2026: Psychological Transformation and Quiet Power
 

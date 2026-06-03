@@ -137,7 +137,7 @@ And the house decides the life area that Jupiter will activate.
       <tr><td>Taurus</td><td>3rd house</td><td>Communication, courage, siblings, writing, skills, marketing, short travel, self-effort</td></tr>
       <tr><td>Gemini</td><td>2nd house</td><td>Speech, family, savings, food habits, values, accumulated wealth</td></tr>
       <tr><td>Cancer</td><td>1st house</td><td>Personality, health, identity, confidence, life direction, overall approach</td></tr>
-      <tr><td>Leo</td><td>12th house</td><td>Foreign connections, expenses, sleep, isolation, retreats, moksha, hospitals, ashrams, charity</td></tr>
+      <tr><td>Leo</td><td>12th house</td><td>Foreign connections, expenses, sleep, isolation, retreats, moksha, service institutions, ashrams, charity</td></tr>
       <tr><td>Virgo</td><td>11th house</td><td>Income, gains, networks, elder siblings, desires, social reach, communities</td></tr>
       <tr><td>Libra</td><td>10th house</td><td>Career, status, authority, karma, public image, professional growth</td></tr>
       <tr><td>Scorpio</td><td>9th house</td><td>Luck, dharma, father, teachers, higher learning, pilgrimage, fortune, philosophy</td></tr>
@@ -197,7 +197,7 @@ This changes the result.
 
 A natural benefic can still carry the agenda of the houses it owns.
 
-For example, if Jupiter rules houses connected with disease, debt, obstacles, losses, or transformation, its transit may not act like simple luck. It may bring growth through problem-solving, service, repayment of karmic debts, psychological maturity, or spiritual detachment.
+For example, if Jupiter rules houses connected with wellness strain, debt, obstacles, losses, or transformation, its transit may not act like simple luck. It may bring growth through problem-solving, service, repayment of karmic debts, psychological maturity, or spiritual detachment.
 
 Therefore, never judge Jupiter only by natural benefic status.
 
@@ -380,7 +380,7 @@ A person with Cancer as the 11th house may see gains. A person with Cancer as th
       <tr><td>8th house</td><td>Insurance, inheritance, taxes, joint assets, sudden expenses or hidden financial matters</td></tr>
       <tr><td>10th house</td><td>Career expansion, public responsibility, status growth, professional income movement</td></tr>
       <tr><td>11th house</td><td>Gains, networks, social reach, audience, elder siblings, fulfilment of desires</td></tr>
-      <tr><td>12th house</td><td>Foreign spending, retreats, sleep, hospitals, charity, spiritual expenditure, hidden leakage</td></tr>
+      <tr><td>12th house</td><td>Foreign spending, retreats, sleep, service institutions, charity, spiritual expenditure, hidden leakage</td></tr>
     </tbody>
   </table>
 </div>

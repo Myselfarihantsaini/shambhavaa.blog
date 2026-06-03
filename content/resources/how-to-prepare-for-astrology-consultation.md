@@ -25,7 +25,7 @@ You must provide:
 **Why the exact minute matters:**
 While your main ascendant (Lagna) changes roughly every two hours, the crucial divisional charts—such as the Navamsa (for marriage) or Dasamsa (for career)—change every 10 to 15 minutes. If your birth time is off by 20 minutes, the astrologer might be reading the career or relationship chart of a completely different destiny.
 
-*Tip:* Do not guess your birth time. Check your birth certificate or hospital records. If you are entirely unsure, inform the astrologer beforehand so they can perform a "Birth Time Rectification" based on major past events in your life.
+*Tip:* Do not guess your birth time. Check your birth certificate or official birth records. If you are entirely unsure, inform the astrologer beforehand so they can perform a "Birth Time Rectification" based on major past events in your life.
 
 ---
 
@@ -50,7 +50,7 @@ To get the most out of your reading, you must approach it with the right expecta
 
 - **Astrology is not a crystal ball.** It does not give you exact dates (e.g., "You will meet your husband at 4:00 PM on Tuesday"). It provides *windows of probability* based on your [dasha and transit timelines](/services/dasha-transit-reading).
 - **Astrology does not override free will.** The chart shows the weather; you must still sail the ship. If the chart shows a great period for wealth, you still have to put in the work. The planets will not deposit money into your bank account while you sleep.
-- **No magical cures.** If you are looking for an [astrology remedies consultation](/services/remedies-consultation), understand that remedies (mantras, donations) are spiritual disciplines designed to align your energy. They are not quick fixes for deep karmic issues.
+- **No magical shortcuts.** If you are looking for an [astrology remedies consultation](/services/remedies-consultation), understand that remedies (mantras, donations) are spiritual disciplines designed to align your energy. They are not quick fixes for deep karmic issues.
 
 ---
 
@@ -69,7 +69,7 @@ Finally, come with an open mind. A skilled and ethical astrologer will not sugar
 
 If your chart indicates a period of intense struggle, isolation, or delay (such as a difficult Rahu transit or a challenging Saturn period), the astrologer will tell you. But they will also tell you *why* it is happening and *how* to navigate it. Astrology is ultimately a tool for spiritual growth, and growth often requires navigating uncomfortable truths.
 
-*(To understand our specific methodology, read more about [how a Shambhavaa consultation works](/trust/consultation-process)).*
+*(To understand our specific methodology, read more about [how a Shambhavaa consultation works](/consultation-process/)).*
 
 ---
 

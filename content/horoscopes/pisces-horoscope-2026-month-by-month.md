@@ -138,7 +138,7 @@ Possible themes include:
 - romantic idealization
 - confusion between intuition and projection
 
-Pisces placements may suddenly crave emotional merging, reassurance, deep emotional intimacy, spiritual connection, and emotional escape through love.
+Pisces placements may suddenly crave emotional merging, reassurance, deep emotional closeness, spiritual connection, and emotional escape through love.
 
 But psychologically, this month also exposes where fantasy replaces emotional reality.
 
@@ -152,7 +152,7 @@ Career remains active, though emotional distraction may affect consistency tempo
 
 Financially, emotional spending connected to comfort, romance, escapism, aesthetics, or emotional coping may increase if awareness remains low.
 
-Health-wise, emotional stress directly affects energy levels now. Sleep, hormones, emotional regulation, nervous system balance, and emotional exhaustion require attention.
+Health-wise, emotional stress directly affects energy levels now. Sleep, body rhythms, emotional regulation, nervous system balance, and emotional exhaustion require attention.
 
 Family dynamics may involve emotional guilt, emotional dependency patterns, or blurred emotional boundaries.
 
@@ -190,7 +190,7 @@ Financially, March supports growth through creativity, healing work, spiritualit
 
 Relationships become emotionally revealing. Pisces may suddenly recognize where emotional self-sacrifice replaced healthy boundaries.
 
-Health requires emotional grounding this month. Anxiety, emotional fatigue, nervous exhaustion, hormonal imbalance, escapism tendencies, or emotional numbness become possible if emotional reality continues being avoided.
+Health requires emotional grounding this month. worry, emotional fatigue, nervous exhaustion, body rhythm imbalance, escapism tendencies, or emotional numbness become possible if emotional reality continues being avoided.
 
 Home environment deeply affects emotional state. Pisces placements crave emotional warmth, softness, spiritual peace, and calmness strongly now.
 
@@ -272,10 +272,10 @@ Possible issues include:
 - emotional exhaustion
 - sleep problems
 - burnout
-- anxiety
+- worry
 - low motivation
 - nervous exhaustion
-- hormonal imbalance
+- body rhythm imbalance
 
 Home environment deeply affects emotional stability this month. Pisces placements crave emotional softness, peace, spiritual calmness, and isolation strongly now.
 
@@ -382,11 +382,11 @@ Internally, the nervous system still feels emotionally overloaded underneath.
 
 Financially, August supports creativity-based income, healing professions, spiritual work, intuitive business, artistic projects, and emotionally aligned career growth.
 
-Relationships become emotionally intense now. Pisces placements may crave emotional closeness, reassurance, spiritual intimacy, and emotional understanding more deeply than usual.
+Relationships become emotionally intense now. Pisces placements may crave emotional closeness, reassurance, spiritual closeness, and emotional understanding more deeply than usual.
 
 But emotional idealization remains possible.
 
-Health requires balance this month. Emotional overstimulation, irregular sleep, emotional burnout, anxiety, escapism tendencies, or hormonal imbalance may increase if grounding disappears.
+Health requires balance this month. Emotional overstimulation, irregular sleep, emotional burnout, worry, escapism tendencies, or body rhythm imbalance may increase if grounding disappears.
 
 Family dynamics may involve emotional sensitivity, emotional misunderstandings, or needing stronger emotional boundaries at home.
 
@@ -431,7 +431,7 @@ Possible issues include:
 
 - emotional fatigue
 - sleep irregularity
-- anxiety
+- worry
 - nervous exhaustion
 - low motivation
 - emotional heaviness
@@ -478,7 +478,7 @@ Travel during October may connect with emotional healing, spiritually meaningful
 
 October teaches Pisces:
 
-Real intimacy requires boundaries too.
+real emotional closeness requires boundaries too.
 
 ## November 2026: Psychological Healing and Emotional Strength
 

@@ -43,7 +43,7 @@ The first house of the D10 chart sets the tone for your entire professional life
 The 10th house of the Dasamsa represents your greatest achievements—your "Mahat Karma" (great actions). Planets placed in this house heavily dictate the industry you belong in. 
 - **Sun in D10 10th:** Indicates strong executive power, government roles, or high-level management.
 - **Mercury in D10 10th:** Indicates success in commerce, writing, tech, or analytics.
-- **Mars in D10 10th:** Indicates success in engineering, military, surgery, or highly competitive environments.
+- **Mars in D10 10th:** Indicates success in engineering, military, specialized intervention, or highly competitive environments.
 
 ### 3. The 6th House of the D10 (Service and Subordinates)
 The 6th house rules daily service, employment, and how you deal with colleagues and competitors. A strong 6th house in the D10 is absolutely vital for someone wanting to succeed in corporate jobs, law, or medicine. If this house is afflicted, you may constantly face office politics or struggle to maintain employment.

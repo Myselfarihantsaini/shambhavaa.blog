@@ -79,7 +79,7 @@ Capricorn naturally thinks long-term, but this month intensifies survival-orient
 
 Relationships may feel emotionally distant now. Capricorn placements often suppress vulnerability while focusing on duty and functionality. But internally, loneliness or emotional exhaustion may quietly increase. You may feel emotionally misunderstood even while surrounded by people.
 
-Health-wise, stress directly affects the body this month. Sleep irregularity, muscular tension, headaches, digestive pressure from anxiety, and nervous exhaustion become possible if emotional pressure remains suppressed continuously.
+Health-wise, stress directly affects the body this month. Sleep irregularity, muscular tension, headaches, digestive pressure from worry, and nervous exhaustion become possible if emotional pressure remains suppressed continuously.
 
 Home environment may feel emotionally heavy. Capricorn placements may crave silence, control, privacy, or emotional order inside their surroundings.
 
@@ -109,7 +109,7 @@ A major realization appears:
 
 Success means little if emotional peace disappears completely.
 
-Relationships become more practical than emotional this month. Capricorn may unconsciously prioritize productivity over emotional intimacy, creating distance with partners or loved ones.
+Relationships become more practical than emotional this month. Capricorn may unconsciously prioritize productivity over emotional closeness, creating distance with partners or loved ones.
 
 Family matters may involve financial discussion, responsibility, or emotional pressure connected to expectations.
 
@@ -216,7 +216,7 @@ Health becomes extremely important now. The nervous system reacts heavily to:
 - stress accumulation
 - constant responsibility
 
-Body fatigue, muscular stiffness, anxiety, burnout symptoms, digestive imbalance, and emotional numbness become possible if recovery is ignored.
+Body fatigue, muscular stiffness, worry, burnout symptoms, digestive imbalance, and emotional numbness become possible if recovery is ignored.
 
 Home environment becomes psychologically important. Capricorn placements crave emotional calmness and stability intensely during this month.
 
@@ -366,11 +366,11 @@ Relationships become emotionally important now. Capricorn placements may suddenl
 - understanding
 - peace
 - reliability
-- psychological intimacy
+- psychological trust
 
 Superficial interaction begins feeling emotionally exhausting.
 
-Health requires emotional regulation this month. Anxiety, sleep irregularity, nervous exhaustion, emotional heaviness, or stress-related fatigue may increase if emotions remain suppressed continuously.
+Health requires emotional regulation this month. worry, sleep irregularity, nervous exhaustion, emotional heaviness, or stress-related fatigue may increase if emotions remain suppressed continuously.
 
 Home environment deeply affects emotional state now. Capricorn placements crave quietness, stability, emotional softness, and reduced psychological pressure.
 
@@ -418,7 +418,7 @@ Travel during October may connect with relationships, emotional healing, or psyc
 
 October teaches Capricorn:
 
-Real intimacy requires vulnerability, not just responsibility.
+real emotional closeness requires vulnerability, not just responsibility.
 
 ## November 2026: Quiet Power and Psychological Transformation
 

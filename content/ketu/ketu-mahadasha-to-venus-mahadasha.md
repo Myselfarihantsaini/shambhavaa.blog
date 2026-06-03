@@ -35,10 +35,10 @@ During Ketu Mahadasha, many people slowly lose emotional attachment to things th
 
 But when Venus Mahadasha begins, life often starts asking entirely different questions.
 
-Instead of:  
+Instead of:
 "What must I detach from?"
 
-Venus asks:  
+Venus asks:
 "What do I truly value enough to love, nurture, build, and emotionally invest in?"
 
 This is why the Ketu-to-Venus transition frequently feels emotionally overwhelming at first.
@@ -76,8 +76,8 @@ Many feel psychologically disconnected from the world itself.
 
 Things that once felt emotionally meaningful stop feeling fulfilling.
 
-Relationships may become distant.  
-Career success may feel empty.  
+Relationships may become distant.
+Career success may feel empty.
 Social validation may lose emotional impact.
 
 Ketu often creates the strange experience of achieving things externally while internally feeling absent from them emotionally.
@@ -125,7 +125,7 @@ It governs:
 - beauty
 - comfort
 - finances
-- sensuality
+- artistic softness
 - harmony
 - artistic intelligence
 - emotional enjoyment
@@ -147,9 +147,9 @@ But it can also feel destabilizing.
 
 Because after Ketu's emotional detachment, Venus often reawakens desires the person thought they had transcended.
 
-Old loneliness surfaces.  
-The need for affection returns.  
-The desire for intimacy increases.  
+Old loneliness surfaces.
+The need for affection returns.
+The desire for emotional closeness increases.
 Emotional vulnerability becomes active again.
 
 And many people struggle initially because they became emotionally self-protective during Ketu Mahadasha.
@@ -188,7 +188,7 @@ After years of emotional numbness, this can feel almost overwhelming.
 Especially if Ketu Mahadasha involved:
 
 - heartbreak
-- divorce
+- separation risk
 - spiritual isolation
 - financial instability
 - identity collapse
@@ -212,7 +212,7 @@ Venus Mahadasha frequently brings:
 - romantic reconnection
 - increased attraction
 - emotional companionship
-- desire for intimacy
+- desire for emotional closeness
 
 However, there is an important psychological pattern here.
 
@@ -285,7 +285,7 @@ Many people begin:
 - caring about their future again
 - reconnecting socially
 - feeling inspired creatively
-- wanting emotional intimacy
+- wanting emotional closeness
 - healing from prolonged grief
 
 But healing does not always feel peaceful initially.
@@ -301,7 +301,7 @@ Every planetary transition carries psychological risks.
 The shadow side of Venus Mahadasha after Ketu may include:
 
 - emotional dependency
-- excessive sensuality
+- excessive pleasure-seeking
 - escapism through relationships
 - validation addiction
 - financial overindulgence
@@ -318,15 +318,15 @@ Especially if the person never processed Ketu's emotional wounds consciously.
 
 Spiritually, this Mahadasha shift is profound.
 
-Ketu teaches:  
+Ketu teaches:
 "Nothing external can permanently fulfill you."
 
-Venus teaches:  
+Venus teaches:
 "Yet the human experience must still be lived consciously."
 
 This is important.
 
-The purpose of Ketu is not emotional death.
+The purpose of Ketu is not emotional erasure.
 
 It is detachment from illusion.
 
@@ -426,9 +426,9 @@ The transition from Ketu Mahadasha to Venus Mahadasha is often the movement from
 
 But spring can feel disorienting after surviving a long internal drought.
 
-The heart slowly opens again.  
-Desire returns.  
-Beauty becomes visible again.  
+The heart slowly opens again.
+Desire returns.
+Beauty becomes visible again.
 Life becomes emotionally textured again.
 
 And somewhere in that process, the soul begins learning one of astrology's deepest lessons:

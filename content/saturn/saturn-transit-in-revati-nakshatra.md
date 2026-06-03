@@ -152,7 +152,7 @@ Saturn asks Gemini: **“What truth are you emotionally avoiding?”** You may e
 This transit becomes emotionally transformative for Cancer. It pushes you toward spiritual maturity and releasing emotional dependency. You’ll learn that love without emotional boundaries becomes emotional self-destruction.
 
 ### Leo — Emotional Power Struggles & Transformation
-Saturn in Revati exposes control issues and emotional dependency patterns for Leo. You may feel emotionally vulnerable regarding trust and intimacy. This transit matures you through deep emotional honesty.
+Saturn in Revati exposes control issues and emotional dependency patterns for Leo. You may feel emotionally vulnerable regarding trust and emotional closeness. This transit matures you through deep emotional honesty.
 
 ### Virgo — Relationship Reality Checks
 For Virgo, this transit reveals who is emotionally reliable and where imbalances exist. You may face karmic relationship endings or deeper commitment discussions. You’ll begin prioritizing peace over emotional confusion.

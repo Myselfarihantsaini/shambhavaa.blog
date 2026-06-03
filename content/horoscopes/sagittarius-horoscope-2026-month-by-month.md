@@ -270,7 +270,7 @@ Possible issues include:
 
 - burnout
 - sleep irregularity
-- anxiety
+- worry
 - nervous exhaustion
 - emotional fatigue
 - inconsistent routines affecting physical health
@@ -436,7 +436,7 @@ Health requires emotional grounding now.
 
 Possible issues include:
 
-- anxiety
+- worry
 - nervous exhaustion
 - sleep irregularity
 - emotional fatigue

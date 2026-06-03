@@ -46,7 +46,7 @@ Any astrological remedies suggested (such as mantra chanting, fasting, donations
 
 - All consultations must be booked and paid for in advance through our designated communication channels (WhatsApp).
 - Once a time slot is confirmed, the user is expected to be available for the session at the agreed-upon time.
-- For policies regarding rescheduling, no-shows, and cancellations, please refer strictly to our [Refund and Cancellation Policy](/trust/refund-cancellation-policy).
+- For policies regarding rescheduling, no-shows, and cancellations, please refer strictly to our [Refund and Cancellation Policy](/refund-cancellation-policy/).
 
 ## 7. Intellectual Property
 

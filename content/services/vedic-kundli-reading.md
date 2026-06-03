@@ -58,8 +58,8 @@ An inaccurate birth time will lead to an inaccurate chart, especially concerning
 We believe in ethical, grounded astrology. Therefore, you must know what this reading will *not* provide:
 - We do not make guaranteed predictions.
 - We do not provide exact dates for events (e.g., "You will get a job on Tuesday").
-- We do not offer magical cures to bypass karmic lessons.
-- We do not provide medical diagnoses or financial investment advice.
+- We do not offer magical shortcuts to bypass karmic lessons.
+- We do not provide health assessments or financial investment advice.
 
 If we identify blockages, we may suggest remedies, but we recommend exploring a deeper [nakshatra reading consultation](/services/nakshatra-reading) if you want hyper-specific psychological and remedial analysis.
 

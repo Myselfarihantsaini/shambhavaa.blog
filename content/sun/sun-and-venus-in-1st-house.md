@@ -66,7 +66,7 @@ Venus represents:
 * beauty
 * relationships
 * emotional receptivity
-* sensuality
+* artistic softness
 * artistic intelligence
 * validation through connection
 
@@ -170,7 +170,7 @@ These natives often:
 * idealize love
 * seek beautiful relationships
 * desire admiration from partners
-* want emotionally fulfilling intimacy
+* want emotionally fulfilling closeness
 
 Love deeply affects their identity.
 
@@ -324,7 +324,7 @@ According to Lal Kitab principles, Sun and Venus together in the ascendant can p
 However, Lal Kitab also warns that this combination may increase:
 
 * ego in relationships
-* excessive sensuality
+* excessive pleasure-seeking
 * attachment to image
 * marital dissatisfaction
 * emotional instability due to pride
@@ -398,7 +398,7 @@ The evolved form of this placement emerges when the native develops:
 
 * self-worth independent of appearance
 * emotional honesty
-* authentic intimacy
+* authentic emotional closeness
 * grounded confidence
 * love without performance
 * beauty without vanity

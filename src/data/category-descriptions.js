@@ -9,7 +9,7 @@ export const CATEGORY_DESCRIPTIONS = {
       },
       {
         question: 'Is Rahu always "malefic"?',
-        answer: 'No. While Rahu can create illusion and anxiety, it is also the planet of innovation, out-of-the-box thinking, and radical transformation. In the modern world, many successful innovators have a strong Rahu.'
+        answer: 'No. While Rahu can create illusion and worry, it is also the planet of innovation, out-of-the-box thinking, and radical transformation. In the modern world, many successful innovators have a strong Rahu.'
       }
     ]
   },
@@ -57,14 +57,14 @@ export const CATEGORY_DESCRIPTIONS = {
   },
   'birth-chart': {
     title: 'Birth Chart Psychology and Kundli Analysis',
-    description: 'Deep Vedic birth chart guides for understanding emotional conditioning, attachment patterns, trauma responses, karmic repetition, planetary psychology, and the deeper architecture of human behavior.',
+    description: 'Deep Vedic birth chart guides for understanding emotional conditioning, attachment patterns, deep emotional defense patterns, karmic repetition, planetary psychology, and the deeper architecture of human behavior.',
     faqs: [
       {
         question: 'What does a Vedic birth chart reveal psychologically?',
-        answer: 'A Vedic birth chart can reveal emotional conditioning, attachment patterns, fear structures, karmic repetition, relationship tendencies, and how the mind responds to pressure, desire, loss, and intimacy.'
+        answer: 'A Vedic birth chart can reveal emotional conditioning, attachment patterns, fear structures, karmic repetition, relationship tendencies, and how the mind responds to pressure, desire, loss, and deep trust.'
       },
       {
-        question: 'Can one placement explain trauma or attachment wounds?',
+        question: 'Can one placement explain deep emotional wounds or attachment patterns?',
         answer: 'No. Emotional patterns should never be judged from one placement alone. The Moon, 4th house, 7th house, Venus, Saturn, Rahu, Ketu, divisional charts, dashas, and transits must be read together.'
       }
     ]

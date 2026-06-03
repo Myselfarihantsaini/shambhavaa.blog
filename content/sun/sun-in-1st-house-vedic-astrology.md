@@ -221,7 +221,7 @@ to resolve internal identity wounds connected with validation and approval.
 
 ---
 
-## Relationships and Emotional Intimacy
+## Relationships and emotional closeness
 
 Relationships become psychologically complicated because the native strongly values autonomy.
 

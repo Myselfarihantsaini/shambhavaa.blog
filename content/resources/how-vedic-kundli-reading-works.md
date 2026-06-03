@@ -43,9 +43,9 @@ The chart is divided into 12 houses, each representing specific domains of life:
 - **3rd House:** Courage, siblings, effort.
 - **4th House:** Mother, emotional peace, home, property.
 - **5th House:** Children, romance, intelligence, past life merit.
-- **6th House:** Debts, diseases, enemies, daily work.
+- **6th House:** Debts, health challenges, enemies, daily work.
 - **7th House:** Marriage, partnerships, business.
-- **8th House:** Longevity, sudden changes, occult, intimacy.
+- **8th House:** Longevity, sudden changes, occult, emotional closeness.
 - **9th House:** Father, luck, religion, higher education.
 - **10th House:** Career, public reputation, karma.
 - **11th House:** Gains, networks, fulfillment of desires.

@@ -115,7 +115,7 @@ Career remains active, but emotional distractions may affect focus. If relations
 
 Financially, February may increase spending on beauty, romance, social life, fashion, gifts, luxury, comfort, or self-presentation. Enjoyment is fine, but emotional spending should be watched.
 
-Health-wise, emotional stress may affect sleep, skin, sugar balance, hormonal rhythm, lower back, or general energy levels. Libra should avoid suppressing anger just to stay graceful.
+Health-wise, emotional stress may affect sleep, skin, sugar balance, body rhythm, lower back, or general energy levels. Libra should avoid suppressing anger just to stay graceful.
 
 Family dynamics may involve emotional expectations or relationship-related discussions. You may feel pulled between your own needs and others' demands.
 
@@ -137,7 +137,7 @@ Financially, March becomes important for practical decisions. Budgeting, saving,
 
 Relationships may temporarily feel secondary because responsibilities dominate mental space. However, this also reveals which relationships support your growth and which ones demand attention only when you are already tired.
 
-Health needs discipline. Stress can show through digestion, skin, kidneys, lower back, fatigue, sleep disturbance, or anxiety. Libra should avoid holding emotional resentment in the body.
+Health needs discipline. Stress can show through digestion, skin, kidneys, lower back, fatigue, sleep disturbance, or worry. Libra should avoid holding emotional resentment in the body.
 
 Home environment may require organization. You may feel the need to clean, rearrange, beautify, declutter, or create a more peaceful atmosphere. A messy environment can increase mental pressure this month.
 
@@ -191,7 +191,7 @@ Financially, May requires caution. Emotional spending may increase if Libra trie
 
 Relationships become quieter. Libra may withdraw from people who feel emotionally demanding. Some may misunderstand your silence, but internally you may simply need peace. Romantic relationships may face emotional distance if unresolved issues remain ignored.
 
-Health needs careful attention. Burnout, poor sleep, skin issues, kidney sensitivity, lower back strain, fatigue, sugar imbalance, anxiety, or emotional heaviness may increase if rest is neglected. Libra should not ignore the body's stress signals.
+Health needs careful attention. Burnout, poor sleep, skin issues, kidney sensitivity, lower back strain, fatigue, sugar imbalance, worry, or emotional heaviness may increase if rest is neglected. Libra should not ignore the body's stress signals.
 
 Home environment becomes extremely important. Harshness, noise, emotional drama, or clutter may feel unbearable. Libra placements need calm surroundings, soft lighting, order, beauty, and emotional safety.
 
@@ -281,7 +281,7 @@ Career remains active, but motivation may fluctuate emotionally. If personal lif
 
 Financially, September asks for steadiness. Avoid spending to compensate for emotional discomfort. This month is better for review, planning, and correcting financial imbalance.
 
-Health requires emotional regulation. Suppressed sadness, anxiety, skin issues, sleep problems, hormonal imbalance, kidney sensitivity, lower back tension, or fatigue may show up if emotions remain unprocessed.
+Health requires emotional regulation. Suppressed sadness, worry, skin issues, sleep problems, body rhythm imbalance, kidney sensitivity, lower back tension, or fatigue may show up if emotions remain unprocessed.
 
 Home environment becomes emotionally important. Libra may crave warmth, beauty, softness, privacy, and emotional reassurance. Harsh surroundings can feel mentally draining.
 
@@ -357,7 +357,7 @@ Financially, December supports stability, planning, and emotionally intelligent 
 
 Relationships become emotionally clearer. Libra stops chasing people who only offer charm without consistency. You begin appreciating emotional maturity, accountability, loyalty, and calm love more deeply.
 
-Health improves because emotional regulation improves. When Libra stops living in constant inner tension, the body begins relaxing too.
+Health improves because emotional regulation improves. When Libra stops living in constant stress, the body begins relaxing too.
 
 Home environment becomes softer and more peaceful. Libra may crave comfort, beauty, emotional warmth, simplicity, and a more stable private life.
 

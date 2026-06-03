@@ -27,7 +27,7 @@ It shows:
 * subconscious fears
 * validation needs
 * internal contradictions
-* trauma responses
+* deep emotional defense patterns
 * emotional defense systems
 * self-sabotage patterns
 * hidden desires
@@ -137,7 +137,7 @@ The psychological wound here is usually:
 Traditional interpretation:
 
 * emotional instability
-* anxiety
+* worry
 * overthinking
 * confusion
 
@@ -154,7 +154,7 @@ Possible patterns:
 * validation addiction
 * intense fear of emotional abandonment
 * attachment to emotional intensity
-* confusing chaos with intimacy
+* confusing chaos with emotional closeness
 
 Moon-Rahu people often become emotionally addicted to what stimulates them psychologically.
 
@@ -216,7 +216,7 @@ Venus shows:
 * self-worth through relationships
 * relationship expectations
 * aesthetic identity
-* intimacy style
+* deep trust style
 
 Venus often reveals:
 
@@ -377,7 +377,7 @@ Possible patterns:
 * emotional caution
 * attraction to emotionally unavailable people
 * testing partners unconsciously
-* expecting disappointment before intimacy arrives
+* expecting disappointment before emotional closeness arrives
 
 These people often want commitment deeply.
 
@@ -498,12 +498,12 @@ Because charts can reveal:
 
 * emotional wounds
 * shame patterns
-* trauma responses
+* deep emotional defense patterns
 * self-worth struggles
 * fear patterns
 * unconscious coping behavior
 
-Astrology should never be used to psychologically manipulate or emotionally diagnose people recklessly.
+Astrology should never be used to psychologically manipulate or emotionally identify people recklessly.
 
 The purpose of astropsychology is awareness.
 

@@ -7,7 +7,7 @@ description: "Understand the critical role of the Navamsa (D9) chart in Vedic as
 
 In Vedic astrology, assessing a person's marital prospects is one of the most intricate tasks an astrologer performs. A common mistake made by beginners—and unfortunately, by some modern astrologers—is attempting to predict the success, failure, or timing of a marriage by looking solely at the D1 (Rasi) chart.
 
-If the 7th house in the D1 chart looks strong, they predict a blissful marriage. If it is afflicted, they predict divorce. However, the reality of **Navamsa marriage** prediction is far more complex. The D1 chart is only the outer shell; the D9 chart (Navamsa) is the inner reality.
+If the 7th house in the D1 chart looks strong, they predict a blissful marriage. If it is afflicted, they predict separation risk. However, the reality of **Navamsa marriage** prediction is far more complex. The D1 chart is only the outer shell; the D9 chart (Navamsa) is the inner reality.
 
 In this guide, we will explore why the Navamsa chart is absolutely non-negotiable when analyzing relationships, and why its assessment forms the core of a [marriage astrology consultation](/services/marriage-astrology-consultation).
 
@@ -38,7 +38,7 @@ The true power of the Navamsa is revealed when it contradicts the D1 chart. Here
 
 ### Scenario 1: Beautiful D1, Afflicted Navamsa
 Imagine a chart where the 7th lord in D1 is exalted, and Venus is well-placed. The native marries a wealthy, attractive person with great societal status. To the outside world, it looks like a fairy-tale marriage. However, in the Navamsa, the 7th lord is debilitated and aspected by Saturn and Rahu.
-*The Reality:* Behind closed doors, the marriage is cold, devoid of intimacy, and riddled with hidden conflicts. Despite the outward appearance of success, the internal reality is suffering.
+*The Reality:* Behind closed doors, the marriage is cold, devoid of deep trust, and riddled with hidden conflicts. Despite the outward appearance of success, the internal reality is suffering.
 
 ### Scenario 2: Afflicted D1, Beautiful Navamsa
 Now imagine a D1 chart where the 7th house contains Mars (Manglik dosh) and is aspected by Saturn. Marriage is heavily delayed. The native faces numerous rejections and struggles to find a partner. But in the Navamsa, the 7th lord is exalted and sitting with Jupiter.

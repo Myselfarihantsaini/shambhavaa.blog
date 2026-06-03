@@ -71,7 +71,7 @@ But 2026 repeatedly teaches that not every victory comes from force.
 
 Some victories come from patience, strategy, silence, and disciplined timing.
 
-The biggest background influence for Aries Rising is Saturn in the 12th house. This makes the year serious at a subconscious level. The 12th house governs sleep, isolation, expenses, foreign places, hospitals, losses, private suffering, spiritual practice, hidden fears, withdrawal, and endings.
+The biggest background influence for Aries Rising is Saturn in the 12th house. This makes the year serious at a subconscious level. The 12th house governs sleep, isolation, expenses, foreign places, service institutions, losses, private suffering, spiritual practice, hidden fears, withdrawal, and endings.
 
 So even when life appears externally functional, many Aries Rising natives may feel mentally tired, emotionally isolated, or internally burdened.
 
@@ -149,7 +149,7 @@ This is the contradiction of the year.
 
 Money can come, but money can also leak.
 
-Expenses may rise through travel, health, sleep correction, family responsibilities, home matters, foreign links, hidden costs, subscriptions, emotional spending, hospital visits, spiritual work, or lifestyle imbalance.
+Expenses may rise through travel, health, sleep correction, family responsibilities, home matters, foreign links, hidden costs, subscriptions, emotional spending, care-related visits, spiritual work, or lifestyle imbalance.
 
 Aries Rising should not assume higher income automatically means higher savings.
 
@@ -197,7 +197,7 @@ The second half of 2026 is stronger for home and family matters.
 
 Jupiter entering the 4th house supports emotional grounding, property matters, mother, residence, vehicles, education, home comfort, and inner peace. Aries Rising may think about changing residence, improving the home environment, buying or repairing a vehicle, studying, relocating, investing in property, or creating a more peaceful domestic space.
 
-But because Saturn remains in the 12th, expenses around home and family may rise. Renovation, relocation, property paperwork, family duties, medical responsibilities, travel, or domestic improvement may require money.
+But because Saturn remains in the 12th, expenses around home and family may rise. Renovation, relocation, property paperwork, family duties, care responsibilities, travel, or domestic improvement may require money.
 
 The first half may feel mentally restless at home. Aries may feel that the home environment does not fully relax them. The second half gives better support for emotional settlement, but only if Aries reduces conflict and stops bringing work stress into domestic life.
 
@@ -211,15 +211,15 @@ Health is one of the most important areas for Aries Rising in 2026.
 
 Saturn in the 12th makes sleep the first remedy.
 
-If sleep is disturbed, everything else becomes unstable: anger, digestion, decision-making, motivation, relationship behavior, skin, blood pressure, and mental clarity.
+If sleep is disturbed, everything else becomes unstable: anger, digestion, decision-making, motivation, relationship behavior, skin, physical stress, and mental clarity.
 
 Aries Rising must treat sleep as a serious health priority, not a luxury.
 
-The 12th-house Saturn influence can bring fatigue, insomnia, anxiety, isolation, emotional heaviness, eye strain, foot-related issues, hospital visits, chronic stress, and hidden weakness if routine is poor.
+The 12th-house Saturn influence can bring fatigue, insomnia, worry, isolation, emotional heaviness, eye strain, foot-related issues, care-related visits, chronic stress, and hidden weakness if routine is poor.
 
 Aries is a fire sign, so the body may also show heat-related symptoms when anger and pressure accumulate.
 
-Watch for headaches, acidity, inflammation, blood pressure fluctuation, skin flare-ups, muscular strain, injuries through haste, sleep disruption, digestive imbalance, urinary sensitivity, anxiety, and burnout.
+Watch for headaches, acidity, inflammation, physical stress fluctuation, skin flare-ups, muscular strain, injuries through haste, sleep disruption, digestive imbalance, urinary sensitivity, worry, and burnout.
 
 This does not mean health collapse.
 
@@ -253,7 +253,7 @@ If planning childbirth, the full natal chart and dasha must be checked because t
 
 Travel is active in 2026, but it is not always purely for pleasure.
 
-Saturn in the 12th can bring foreign links, isolation, spiritual travel, hospital-related movement, long-distance responsibilities, retreats, or travel connected with expenses.
+Saturn in the 12th can bring foreign links, isolation, spiritual travel, care setting-related movement, long-distance responsibilities, retreats, or travel connected with expenses.
 
 The first half supports short travel, paperwork, interviews, communication-based movement, and work-related journeys.
 

@@ -2,7 +2,7 @@
 title: "Why Rahu Makes You Obsessive — The Dark Psychology of Rahu in Vedic Astrology"
 date: "2026-05-07T12:00:00.000Z"
 trending: true
-excerpt: "Rahu is more than just desire; it is appetite without satisfaction. Explore the deep psychological mechanics of obsession, anxiety, and emotional dependency under Rahu's influence."
+excerpt: "Rahu is more than just desire; it is appetite without satisfaction. Explore the deep psychological mechanics of obsession, worry, and emotional dependency under Rahu's influence."
 ---
 
 ![Why Rahu Makes You Obsessive](/images/rahu/rahu-obsession-hero.png)
@@ -92,7 +92,7 @@ Strong Rahu often creates unconscious emotional dependency on external condition
 This dependency becomes dangerous because emotional stability starts depending on unstable external realities.
 - praise creates emotional highs
 - rejection creates emotional collapse
-- uncertainty creates anxiety
+- uncertainty creates worry
 - attention creates temporary relief
 - silence creates psychological discomfort
 
@@ -123,13 +123,13 @@ The person may think:
 
 But often, the native becomes attached to the emotional experience itself rather than the actual person. Rahu is highly stimulated by uncertainty and longing. This is why emotionally unstable relationships often become harder for Rahu-dominant individuals to leave.
 
-## Rahu and Anxiety
+## Rahu and Mental Restlessness
 
-![Rahu and Anxiety: The Mental Loop](/images/rahu/rahu-anxiety-loops.png)
+![Rahu and Mental Restlessness: The Mental Loop](/images/rahu/rahu-mental-restlessness-loops.png)
 
 Rahu accelerates mental anticipation. The mind constantly scans future possibilities, hidden threats, and emotional risks. This creates chronic psychological tension.
 
-Especially with Moon or Mercury involvement, Rahu may produce overthinking, insomnia, and nervous system overstimulation. The native struggles remaining present because the mind keeps moving ahead of reality. Rahu attempts to psychologically control uncertainty through excessive mental activity, but this usually increases anxiety instead of reducing it.
+Especially with Moon or Mercury involvement, Rahu may produce overthinking, insomnia, and nervous system overstimulation. The native struggles remaining present because the mind keeps moving ahead of reality. Rahu attempts to psychologically control uncertainty through excessive mental activity, but this usually increases worry instead of reducing it.
 
 ## Rahu and Addiction
 
@@ -168,7 +168,7 @@ Evolved Rahu is not desirelessness. It is conscious desire. It is the ability to
 
 - **Appetite without Satisfaction:** Rahu represents consumption without fulfillment.
 - **Psychological Magnification:** It enlarges emotional significance, leading to obsession.
-- **Nervous System Tension:** Constant anticipation creates chronic anxiety.
+- **Nervous System Tension:** Constant anticipation creates chronic worry.
 - **The Path to Wisdom:** Moving from external stimulation to internal awareness.
 
 ## FAQ: Understanding Rahu's Obsession

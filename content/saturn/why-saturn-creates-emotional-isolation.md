@@ -203,7 +203,7 @@ The person becomes disciplined, but rarely relaxed. Capable, but rarely carefree
 
 ## Saturn in Relationships
 
-Saturn changes the experience of intimacy.
+Saturn changes the experience of emotional closeness.
 
 Strong Saturn people usually do not approach love lightly. Attachment feels serious, heavy, meaningful, and consequential.
 
@@ -211,7 +211,7 @@ Especially with Saturn-Venus, Saturn in the 7th house, Saturn aspecting Venus, o
 
 This creates an internal contradiction.
 
-They may crave intimacy but fear vulnerability. They may care deeply but struggle to express affection naturally. They may want reassurance but feel uncomfortable asking for it. They may test emotional reliability without realizing they are doing it.
+They may crave emotional closeness but fear vulnerability. They may care deeply but struggle to express affection naturally. They may want reassurance but feel uncomfortable asking for it. They may test emotional reliability without realizing they are doing it.
 
 Their partner may feel, "They love me, but something is blocked."
 
@@ -233,7 +233,7 @@ Saturn wants durability.
 
 It wants consistency, reliability, realism, structure, and emotional endurance. But before that stability develops, Saturn often creates loneliness first.
 
-The person must confront fear, insecurity, dependency, vulnerability, and the habit of emotional self-protection before real intimacy becomes possible.
+The person must confront fear, insecurity, dependency, vulnerability, and the habit of emotional self-protection before real emotional closeness becomes possible.
 
 Saturn does not rush the heart.
 

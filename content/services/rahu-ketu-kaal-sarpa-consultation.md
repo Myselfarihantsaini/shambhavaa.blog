@@ -29,7 +29,7 @@ During this consultation, we intensely focus on the houses and signs occupied by
 
 If all seven visible planets are hemmed between Rahu and Ketu in your chart, a Kaal Sarpa formation is created. 
 
-Unfortunately, this formation is often used to scare clients into believing their life is cursed. At Shambhavaa, we view Kaal Sarpa differently. It represents an intense, concentrated focus of energy that can lead to extremes—extreme struggles, but often, extreme success and unique destiny. We will map out exactly how this formation operates in your chart and the age at which its restrictive energies tend to break.
+Unfortunately, this formation is often used to scare clients into believing their life is burdened. At Shambhavaa, we view Kaal Sarpa differently. It represents an intense, concentrated focus of energy that can lead to extremes—extreme struggles, but often, extreme success and unique destiny. We will map out exactly how this formation operates in your chart and the age at which its restrictive energies tend to break.
 
 ## Dasha Activation and Transits
 

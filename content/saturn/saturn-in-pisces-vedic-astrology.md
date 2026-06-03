@@ -22,7 +22,7 @@ faqs:
   - question: "What is the main lesson of Saturn in Pisces?"
     answer: "The main lesson of Saturn in Pisces is learning emotional boundaries. The native must discover how to remain compassionate without absorbing everyone else's suffering, and how to develop spiritual maturity without escaping emotional reality."
   - question: "How does Saturn in Pisces affect relationships?"
-    answer: "In relationships, Saturn in Pisces may create a craving for safe intimacy and spiritual connection while also producing fear of vulnerability, emotional withdrawal, rescue dynamics, or confusion between empathy and emotional merging."
+    answer: "In relationships, Saturn in Pisces may create a craving for safe emotional closeness and spiritual connection while also producing fear of vulnerability, emotional withdrawal, rescue dynamics, or confusion between empathy and emotional merging."
 ---
 
 # Saturn in Pisces in Vedic Astrology
@@ -46,7 +46,7 @@ This placement rarely creates emotionally shallow people.
 Instead, it often creates individuals who quietly carry:
 
 - emotional exhaustion
-- hidden anxiety
+- hidden worry
 - psychological heaviness
 - fear of emotional chaos
 - spiritual confusion
@@ -124,7 +124,7 @@ Even when nobody asked them to carry that burden.
 
 Many Saturn in Pisces natives grow up in emotionally confusing environments.
 
-This does not always mean obvious trauma.
+This does not always mean obvious deep emotional imprint.
 
 But it often means emotional inconsistency.
 
@@ -270,7 +270,7 @@ Relationships become deeply karmic with this placement.
 
 Saturn in Pisces people often crave:
 
-- safe intimacy
+- safe emotional closeness
 - emotional understanding
 - softness
 - spiritual connection
@@ -341,7 +341,7 @@ These people often become:
 - counselors
 - healers
 - astrologers
-- therapists
+- counsellors
 - spiritual guides
 - artists
 - emotionally intuitive mentors

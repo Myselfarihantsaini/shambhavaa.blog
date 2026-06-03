@@ -41,13 +41,13 @@ That becomes the emotional core of this year.
 
 ## Direct Answer: What Will Gemini Experience in 2026?
 
-Gemini in 2026 experiences a psychologically important year of mental overload becoming emotional clarity. The first half of the year exposes restlessness, attraction, career anxiety, communication patterns, burnout, and nervous system fatigue. The second half brings emotional boundaries, career visibility, relationship truth, quieter confidence, and a calmer inner reality.
+Gemini in 2026 experiences a psychologically important year of mental overload becoming emotional clarity. The first half of the year exposes restlessness, attraction, career pressure, communication patterns, burnout, and nervous system fatigue. The second half brings emotional boundaries, career visibility, relationship truth, quieter confidence, and a calmer inner reality.
 
 The biggest Gemini 2026 themes are:
 
 - mental overload and emotional restlessness
 - attraction, curiosity, and emotional confusion
-- career direction and identity anxiety
+- career direction and identity pressure
 - communication clarity and emotional boundaries
 - burnout from constant stimulation
 - relationship maturity and deeper emotional presence
@@ -101,16 +101,16 @@ You may continuously replay conversations, mistakes, possibilities, future fears
 
 Career-wise, January creates mental pressure. Gemini placements may feel pulled in multiple directions simultaneously while struggling to emotionally commit to one clear direction fully.
 
-Financially, this month creates anxiety around instability, future planning, scattered spending, lack of structure, and inconsistent habits.
+Financially, this month creates worry around instability, future planning, scattered spending, lack of structure, and inconsistent habits.
 
-Relationships become emotionally revealing quickly. Gemini may suddenly realize that constant communication is not the same as emotional intimacy.
+Relationships become emotionally revealing quickly. Gemini may suddenly realize that constant communication is not the same as emotional closeness.
 
 Health requires attention now.
 
 Possible themes include:
 
 - nervous exhaustion
-- anxiety
+- worry
 - sleep irregularity
 - overstimulation
 - burnout from mental hyperactivity
@@ -164,7 +164,7 @@ February teaches Gemini:
 
 Constant stimulation cannot replace emotional stability.
 
-## March 2026: Career Direction and Identity Anxiety
+## March 2026: Career Direction and identity pressure
 
 March strongly activates ambition and future direction.
 
@@ -202,7 +202,7 @@ Health becomes extremely important now.
 
 Possible issues include:
 
-- anxiety
+- worry
 - sleep problems
 - mental fatigue
 - overstimulation
@@ -281,7 +281,7 @@ Health becomes extremely important.
 
 Possible issues include:
 
-- anxiety
+- worry
 - nervous exhaustion
 - burnout
 - sleep disruption
@@ -403,7 +403,7 @@ Health requires balance this month.
 Possible issues include:
 
 - nervous exhaustion
-- anxiety
+- worry
 - sleep disruption
 - overstimulation
 - burnout from multitasking
@@ -417,7 +417,7 @@ August teaches Gemini:
 
 Constant movement is not the same as emotional progress.
 
-## September 2026: Emotional Vulnerability and Hidden Anxiety
+## September 2026: Emotional Vulnerability and hidden worry
 
 September becomes emotionally deep and psychologically reflective.
 
@@ -450,7 +450,7 @@ Health requires emotional grounding now.
 
 Possible issues include:
 
-- anxiety
+- worry
 - nervous exhaustion
 - sleep irregularity
 - emotional fatigue
@@ -498,7 +498,7 @@ Travel during October may connect with emotionally meaningful experiences, relat
 
 October teaches Gemini:
 
-Real intimacy requires emotional presence, not just conversation.
+real emotional closeness requires emotional presence, not just conversation.
 
 ## November 2026: Psychological Growth and Quiet Confidence
 

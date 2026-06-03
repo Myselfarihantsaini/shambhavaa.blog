@@ -78,7 +78,7 @@ This is why Jyotish, when used properly, does not make a person passive. It give
 
 One of the biggest mistakes in modern astrology content is reducing life events to single placements.
 
-People often read statements such as "Venus in the 7th house gives happy marriage," "Saturn in the 10th house delays career," "Rahu in the 12th house gives foreign settlement," or "Mars in the 7th house causes divorce."
+People often read statements such as "Venus in the 7th house gives happy marriage," "Saturn in the 10th house delays career," "Rahu in the 12th house gives foreign settlement," or "Mars in the 7th house causes separation risk."
 
 These statements may contain partial symbolism, but they are not complete predictions.
 

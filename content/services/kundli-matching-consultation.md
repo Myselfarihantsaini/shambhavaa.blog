@@ -44,7 +44,7 @@ For a compatibility reading, we require accurate birth data for **both** individ
 ## What Is Not Promised
 
 - **We do not make the final decision for you.** We highlight the strengths and the friction points; the decision to marry is yours.
-- We do not guarantee a divorce-free life. Astrology shows the weather, but how you sail the ship together is up to your mutual effort and free will.
+- We do not guarantee a conflict-free life. Astrology shows the weather, but how you sail the ship together is up to your mutual effort and free will.
 - We do not use combinations like Manglik Dosh to scare clients into buying expensive remedies. We offer practical, psychological, and traditional advice on how to handle the energy.
 
 **Ready to deeply understand your relationship dynamics?**

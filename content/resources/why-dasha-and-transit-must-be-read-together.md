@@ -75,7 +75,7 @@ A client wants to launch a business.
 What happens when the two systems tell different stories?
 
 - **Good Dasha, Bad Transit:** You are running an excellent Dasha for career, but Saturn transits over your natal Moon (Sade Sati). The overarching period is successful, but you will experience intense mental stress and workload while achieving that success. The Dasha protects the ultimate outcome, but the transit makes the journey exhausting.
-- **Bad Dasha, Good Transit:** You are running the Dasha of the 8th lord (instability), but Jupiter transits your 11th house of gains. You might receive sudden, temporary windfalls or brief moments of relief, but the underlying instability of the Dasha remains. The transit acts as a temporary painkiller, not a cure.
+- **Bad Dasha, Good Transit:** You are running the Dasha of the 8th lord (instability), but Jupiter transits your 11th house of gains. You might receive sudden, temporary windfalls or brief moments of relief, but the underlying instability of the Dasha remains. The transit acts as a temporary painkiller, not a fix.
 
 ---
 

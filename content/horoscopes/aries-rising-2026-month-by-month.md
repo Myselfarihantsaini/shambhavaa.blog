@@ -55,7 +55,7 @@ Financially, January asks for control. Expenses may rise silently through small 
 
 Relationships may feel slightly distant. You may not have the emotional patience to deal with indirect communication, passive behavior, or unnecessary drama. If someone is unclear, your irritation may rise quickly. The lesson is not to suppress your anger, but to express yourself without burning the bridge instantly.
 
-Health needs serious attention. Sleep may feel disturbed, the mind may stay active at night, and the body may feel more tired than usual despite inner restlessness. Headaches, acidity, inflammation, eye strain, anxiety, irritation, or disturbed digestion can increase if routine is poor. January teaches Aries Rising that rest is not optional this year.
+Health needs serious attention. Sleep may feel disturbed, the mind may stay active at night, and the body may feel more tired than usual despite inner restlessness. Headaches, acidity, inflammation, eye strain, worry, irritation, or disturbed digestion can increase if routine is poor. January teaches Aries Rising that rest is not optional this year.
 
 Home environment may feel restrictive if there is too much noise, conflict, or emotional pressure. You may crave more privacy and silence than usual. Travel this month is better when it is restorative, not chaotic. Short movement may clear your mind, but impulsive travel can increase expense and fatigue.
 
@@ -75,7 +75,7 @@ Career continues moving, but emotional distraction may affect focus. If personal
 
 Financially, expenses may increase on romance, appearance, travel, entertainment, food, gifts, or lifestyle upgrades. Spending for pleasure is not the issue. Spending to manage emotional restlessness is the issue.
 
-Health-wise, February may increase body heat. Anger, inflammation, acidity, headaches, skin flare-ups, blood pressure fluctuation, muscular strain, or sleep issues can appear if emotional energy is not regulated. Exercise helps, but aggressive overexertion can create injury.
+Health-wise, February may increase body heat. Anger, inflammation, acidity, headaches, skin flare-ups, physical stress fluctuation, muscular strain, or sleep issues can appear if emotional energy is not regulated. Exercise helps, but aggressive overexertion can create injury.
 
 Home and family matters may feel slightly argumentative. Avoid reacting instantly to comments. Travel can be exciting this month, especially romantic or social travel, but it should be planned properly.
 
@@ -107,7 +107,7 @@ Career becomes more grounded. Instead of only chasing fast results, Aries Rising
 
 Relationships also become more practical. You may start asking whether someone adds stability or chaos to your life. Attraction alone may not satisfy you now. Aries Rising begins craving loyalty, respect, and emotional consistency more than drama.
 
-Health improves when routine improves. Food habits, sleep, hydration, exercise, and anger management become important. Aries Rising should watch acidity, inflammation, digestion, blood pressure, skin, and injuries caused by rushing.
+Health improves when routine improves. Food habits, sleep, hydration, exercise, and anger management become important. Aries Rising should watch acidity, inflammation, digestion, physical stress, skin, and injuries caused by rushing.
 
 Home environment may become more important after a restless first quarter. You may want more comfort, better space, cleaner surroundings, or more control over your private life. Property, vehicle, residence, or family planning thoughts may slowly begin.
 
@@ -127,7 +127,7 @@ Financially, caution is necessary. Expenses can rise through health, travel, emo
 
 Relationships may become sensitive. Aries Rising may withdraw or become reactive. If you feel unsupported, anger may come out quickly. If you are in a relationship, this month requires calm communication, not emotional explosions. If single, you may feel less interested in superficial attraction.
 
-Health is the main area of concern. Sleep disturbance, headaches, acidity, fatigue, inflammation, anxiety, blood pressure fluctuation, muscular tension, skin flare-ups, or digestion issues can increase if routine is poor. This month demands rest, not just action.
+Health is the main area of concern. Sleep disturbance, headaches, acidity, fatigue, inflammation, worry, physical stress fluctuation, muscular tension, skin flare-ups, or digestion issues can increase if routine is poor. This month demands rest, not just action.
 
 Home environment needs peace. Loud spaces, family arguments, clutter, emotional chaos, or lack of privacy can feel unbearable. Travel is best when it helps recovery. Nature, silence, spiritual places, or a short break from overstimulation can help.
 
@@ -199,7 +199,7 @@ Career continues, but emotional matters may affect focus. Aries Rising must avoi
 
 Financially, September asks for balance. Avoid emotional spending triggered by stress, relationship disappointment, or frustration. This is a better month for reviewing priorities than taking unnecessary risk.
 
-Health needs emotional regulation. Relationship stress can affect sleep, digestion, headaches, blood pressure, inflammation, and nervous system stability. Do not carry anger in the body.
+Health needs emotional regulation. Relationship stress can affect sleep, digestion, headaches, physical stress, inflammation, and nervous system stability. Do not carry anger in the body.
 
 Home environment may feel emotionally charged. Family responsibilities, domestic conversations, or living arrangements may need attention. Travel may connect with relationship matters, family needs, emotional clarity, or a personal reset.
 
@@ -237,7 +237,7 @@ Financially, November supports mature decisions. Temporary thrill becomes less a
 
 Relationships become emotionally intense. Hidden issues may surface. Some connections deepen through honesty; others weaken if they were surviving only through passion, ego, or habit.
 
-Health requires emotional release. Suppressed anger, poor sleep, stress, overwork, and inner pressure can affect the body. Movement helps, but so does stillness. Aries Rising benefits from spiritual practice, therapy, journaling, mantra, exercise, and conscious rest.
+Health requires emotional release. Suppressed anger, poor sleep, stress, overwork, and inner pressure can affect the body. Movement helps, but so does stillness. Aries Rising benefits from spiritual practice, qualified support, journaling, mantra, exercise, and conscious rest.
 
 Home environment may feel sensitive. Old family patterns or unresolved emotions may need attention. Travel can be healing if it gives distance, spiritual reset, or emotional clarity.
 

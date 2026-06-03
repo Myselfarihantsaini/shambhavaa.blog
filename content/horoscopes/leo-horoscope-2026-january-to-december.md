@@ -126,7 +126,7 @@ Relationships become emotionally intense now. Possible themes include:
 
 Some relationships deepen emotionally.
 
-Others become emotionally exhausting because validation replaces genuine intimacy.
+Others become emotionally exhausting because validation replaces genuine emotional closeness.
 
 Career remains active, though emotional distractions increase. Leo may struggle balancing emotional life and professional focus this month.
 
@@ -319,7 +319,7 @@ Financially, this month pushes realism strongly. Leo placements may begin thinki
 
 Relationships become emotionally revealing. Romantic partners or close people may react strongly to your new boundaries because you stop emotionally overextending yourself automatically.
 
-Health improves when emotional overstimulation reduces. Leo placements may notice lower anxiety, better sleep, or improved emotional regulation once they stop constantly seeking validation externally.
+Health improves when emotional overstimulation reduces. Leo placements may notice lower stress, better sleep, or improved emotional regulation once they stop constantly seeking validation externally.
 
 Home environment becomes psychologically important now. Loud, emotionally chaotic spaces feel mentally exhausting.
 
@@ -422,7 +422,7 @@ Career remains active externally, but internally motivation becomes emotionally 
 
 Financially, September remains relatively stable, though emotional spending connected to stress, image, or escapism should still be watched.
 
-Health requires emotional regulation now. Anxiety, nervous exhaustion, emotional burnout, heart-centered stress, sleep irregularity, or emotional fatigue may increase if feelings remain suppressed.
+Health requires emotional regulation now. worry, nervous exhaustion, emotional burnout, heart-centered stress, sleep irregularity, or emotional fatigue may increase if feelings remain suppressed.
 
 Home environment deeply affects mental peace during this month. Leo placements crave emotional warmth, safety, reassurance, and calmness more strongly than usual.
 

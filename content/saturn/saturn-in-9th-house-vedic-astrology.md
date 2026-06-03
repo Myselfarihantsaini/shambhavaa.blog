@@ -304,11 +304,11 @@ For deeper marriage judgment, read [How Marriage Timing Is Checked](/resources/h
 
 ## Health Impact
 
-The 9th house is not the main disease house, but Saturn can still affect the body through chronic stiffness, hips, thighs, lower back, sciatic region, bones, joints, vata imbalance and stress from pessimism or guilt.
+The 9th house is not the main wellness house, but Saturn can still affect the body through chronic stiffness, hips, thighs, lower back, sciatic region, bones, joints, vata imbalance and stress from pessimism or guilt.
 
-Medical astrology should not be judged from one placement alone. Disease judgment must examine houses, signs, planets, nakshatras, divisional charts, dasha and transit. The 6th house is important for curable disease patterns, while the 8th house is important for chronic or serious patterns.
+health-related astrology should not be judged from one placement alone. health-pattern judgment must examine houses, signs, planets, nakshatras, divisional charts, dasha and transit. The 6th house is important for manageable health patterns, while the 8th house is important for chronic or serious patterns.
 
-For Saturn in the 9th house, health becomes sensitive when the native loses faith, overworks, suppresses grief, carries father or guru trauma, travels under stress or lives without routine.
+For Saturn in the 9th house, health becomes sensitive when the native loses faith, overworks, suppresses grief, carries father or guru deep emotional imprint, travels under stress or lives without routine.
 
 Helpful habits include:
 
@@ -412,7 +412,7 @@ If afflicted, it can create fear of expression, communication blocks, sibling te
 
 ## Saturn's 10th Aspect on the 6th House
 
-The 6th house represents disease, debt, enemies, competition, service, job, litigation, employees, daily routine and discipline.
+The 6th house represents wellness strain, debt, enemies, competition, service, job, litigation, employees, daily routine and discipline.
 
 Saturn's 10th aspect on the 6th house is very powerful. Saturn's 10th aspect shows karmic pressure and duty. On the 6th house, it gives struggle, but also capacity to defeat struggle through discipline.
 
@@ -537,7 +537,7 @@ This placement creates emotional heaviness around father, faith and family belie
 Effects include:
 
 - emotional distance from father
-- faith affected by family trauma
+- faith affected by family deep emotional imprint
 - mother and father belief conflict
 - difficulty trusting gurus
 - attachment to ancestral traditions but also pain from them
@@ -710,7 +710,7 @@ Effects include:
 - faith tested through loss or sacrifice
 - father may be spiritual, distant or emotionally complex
 - guru may come through retreat, isolation or suffering
-- interest in moksha, meditation, healing, hospitals, foreign lands, ashrams, water places or spiritual service
+- interest in moksha, meditation, healing, service institutions, foreign lands, ashrams, water places or spiritual service
 - delayed but deep spiritual maturity
 - fortune through compassion and service
 - foreign travel or spiritual travel possible
@@ -795,7 +795,7 @@ Practical remedies include:
 
 ## Final Conclusion
 
-Saturn in the 9th house is not a curse.
+Saturn in the 9th house is not a burden.
 
 It is the placement of slow blessings, tested faith and earned fortune.
 

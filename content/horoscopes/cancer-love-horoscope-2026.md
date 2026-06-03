@@ -292,7 +292,7 @@ A major internal shift occurs:
 
 ## November 2026 — Deepening Bonds
 
-November supports emotional intimacy.
+November supports emotional closeness.
 
 For emotionally healthy relationships, this becomes one of the strongest bonding periods of the year.
 
@@ -339,7 +339,7 @@ And emotionally stronger.
 * consistency is more romantic than empty words
 * emotional availability is attractive
 * boundaries protect love, not destroy it
-* real intimacy requires emotional honesty
+* real emotional closeness requires emotional honesty
 * being needed is not the same as being loved
 
 This year emotionally matures Cancer energy deeply.
