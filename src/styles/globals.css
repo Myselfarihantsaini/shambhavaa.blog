@@ -21,6 +21,123 @@
   --spacing-xl: 8rem;
 }
 
+/* GEO additions */
+.geo-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.25rem 0;
+}
+
+.geo-tags__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-gold);
+}
+
+.geo-tags__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.geo-tag {
+  display: inline-block;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.geo-tag:hover {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold-glow);
+  background: var(--accent-gold-dim);
+  text-shadow: none;
+}
+
+.geo-tag--primary {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold-glow);
+  background: var(--accent-gold-dim);
+  font-weight: 600;
+}
+
+.geo-tag--muted {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  cursor: default;
+}
+
+.geo-tags--compact .geo-tag {
+  font-size: 0.68rem;
+  padding: 0.18rem 0.55rem;
+}
+
+.geo-updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--accent-gold);
+}
+
+.geo-key-takeaways {
+  margin: 0 0 var(--spacing-md);
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--accent-gold-dim);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 10px;
+  background: rgba(226, 184, 87, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.geo-key-takeaways__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.7rem;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-gold);
+}
+
+.geo-key-takeaways__summary {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.geo-key-takeaways__list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--text-primary);
+}
+
+.geo-key-takeaways__list li {
+  margin: 0.4rem 0;
+  line-height: 1.6;
+}
+
 @keyframes nebula-glow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }

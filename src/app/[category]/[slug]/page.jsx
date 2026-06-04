@@ -4,14 +4,20 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import ShareButtons from '../../../components/ShareButtons';
 import AuthorBox from '../../../components/AuthorBox';
+import TagList from '../../../components/TagList';
+import KeyTakeaways from '../../../components/KeyTakeaways';
 import { readAnchor } from '../../../lib/anchors';
-
-// Helper to calculate reading time
-function getReadingTime(content) {
-  const wordsPerMinute = 200;
-  const words = content.split(/\s/g).length;
-  return Math.ceil(words / wordsPerMinute);
-}
+import {
+  SITE_URL,
+  AUTHOR_ENTITY,
+  PUBLISHER_ENTITY,
+  buildAboutAndMentions,
+  buildTags,
+  breadcrumbSchema,
+  categoryLabel,
+  getReadingTime,
+  isoMinutes,
+} from '../../../lib/geo';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -29,7 +35,7 @@ export async function generateMetadata({ params }) {
     return { title: 'Not Found' };
   }
 
-  const canonicalUrl = `https://shambhavaa.blog/${category}/${slug}/`;
+  const canonicalUrl = `${SITE_URL}/${category}/${slug}/`;
 
   // Trust pages are compliance/support pages, not primary AdSense inventory.
   if (post.meta.noindex || category === 'trust') {
@@ -42,11 +48,22 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const ogImage = `https://shambhavaa.blog/images/og-default.jpg`;
+  const ogImage = `${SITE_URL}/images/og-default.jpg`;
+  const geoTags = Array.isArray(post.meta.geoTags)
+    ? post.meta.geoTags.filter(Boolean)
+    : [];
+  const topicTags = buildTags(post).map((tag) => tag.label);
+  const metadataOther = geoTags.length > 0
+    ? {
+        'geo.placename': geoTags.join(', '),
+        'article:tag': [...topicTags, ...geoTags].join(', '),
+      }
+    : undefined;
 
   return {
     title: `${post.meta.title} | Shambhavaa`,
     description: post.meta.excerpt || post.meta.description,
+    other: metadataOther,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -85,8 +102,12 @@ export default function ArticlePage({ params }) {
     .filter(p => p.slug !== slug && (p.category === category || p.meta.trending))
     .slice(0, 3);
 
-  const canonicalUrl = `https://shambhavaa.blog/${category}/${slug}/`;
+  const canonicalUrl = `${SITE_URL}/${category}/${slug}/`;
   const isServicePage = category === 'services';
+  const { about, mentions } = buildAboutAndMentions(post);
+  const articleTags = buildTags(post);
+  const faqItems = Array.isArray(post.meta.faqs) ? post.meta.faqs : [];
+  const keyTakeawayPoints = Array.isArray(post.meta.keyTakeaways) ? post.meta.keyTakeaways : [];
 
   const faqSchema = Array.isArray(post.meta.faqs) && post.meta.faqs.length > 0
     ? [
@@ -114,11 +135,7 @@ export default function ArticlePage({ params }) {
           "description": post.meta.excerpt || post.meta.description,
           "url": canonicalUrl,
           "serviceType": "Vedic Astrology Consultation",
-          "provider": {
-            "@type": "Organization",
-            "name": "Shambhavaa",
-            "url": "https://shambhavaa.blog/",
-          },
+          "provider": PUBLISHER_ENTITY,
           "areaServed": "Worldwide",
           "inLanguage": "en-US",
         }
@@ -130,24 +147,21 @@ export default function ArticlePage({ params }) {
           "datePublished": post.meta.date,
           "dateModified": post.meta.updatedDate || post.meta.date,
           "inLanguage": "en-US",
+          "timeRequired": isoMinutes(readingTime),
           "keywords": Array.isArray(post.meta.keywords)
             ? post.meta.keywords.join(', ')
             : post.meta.keywords,
-          "image": "https://shambhavaa.blog/images/og-default.jpg",
-          "author": {
-            "@type": "Person",
-            "name": "Arihant Saini",
-            "url": "https://shambhavaa.blog/about/",
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Shambhavaa",
-            "url": "https://shambhavaa.blog/",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://shambhavaa.blog/images/og-default.jpg",
-            },
-          },
+          "image": `${SITE_URL}/images/og-default.jpg`,
+          "author": AUTHOR_ENTITY,
+          "publisher": PUBLISHER_ENTITY,
+          "about": about,
+          "mentions": mentions,
+          "speakable": post.meta.tldr || post.meta.excerpt
+            ? {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [".geo-key-takeaways"],
+              }
+            : undefined,
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": canonicalUrl,
@@ -156,30 +170,11 @@ export default function ArticlePage({ params }) {
 
   const schema = [
     primarySchema,
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://shambhavaa.blog/",
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": category.charAt(0).toUpperCase() + category.slice(1),
-          "item": `https://shambhavaa.blog/${category}/`,
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": post.meta.title,
-          "item": canonicalUrl,
-        },
-      ],
-    },
+    breadcrumbSchema([
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: categoryLabel(category), url: `${SITE_URL}/${category}/` },
+      { name: post.meta.title, url: canonicalUrl },
+    ]),
     ...faqSchema,
   ];
 
@@ -231,8 +226,22 @@ export default function ArticlePage({ params }) {
           <span>{post.meta.date && new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
           <span>•</span>
           <span>{readingTime} min read</span>
+          {post.meta.updatedDate && (
+            <>
+              <span>•</span>
+              <span className="geo-updated">Updated {new Date(post.meta.updatedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+            </>
+          )}
+        </div>
+        <div style={{ marginTop: '1.25rem' }}>
+          <TagList tags={articleTags} />
         </div>
       </header>
+
+      <KeyTakeaways
+        summary={post.meta.tldr || post.meta.excerpt || post.meta.description}
+        points={keyTakeawayPoints}
+      />
 
       <div className="article-content" style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-primary)' }}>
         <MDXRemote
@@ -244,6 +253,20 @@ export default function ArticlePage({ params }) {
           }}
         />
       </div>
+
+      {faqItems.length > 0 && (
+        <section style={{ marginTop: 'var(--spacing-lg)', paddingTop: 'var(--spacing-md)', borderTop: '1px solid var(--border-color)' }}>
+          <h2 className="text-gold" style={{ marginBottom: '1.5rem' }}>Frequently Asked Questions</h2>
+          <div className="article-content" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+            {faqItems.map((faq) => (
+              <div key={faq.question} style={{ marginBottom: '1.25rem' }}>
+                <h3 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{faq.question}</h3>
+                <p style={{ color: 'var(--text-secondary)', margin: 0 }}>{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {isServicePage && (
         <section className="service-depth-section">
@@ -278,6 +301,7 @@ export default function ArticlePage({ params }) {
           <div className="grid-responsive-250">
             {relatedPosts.map(p => (
               <div key={p.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+                <TagList post={p} compact />
                 <h4 style={{ fontSize: '1.1rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{p.meta.title}</h4>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>{p.meta.excerpt}</p>
                 <a href={`/${p.category}/${p.slug}`} style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', fontWeight: 'bold', marginTop: 'auto' }}>

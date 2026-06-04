@@ -3,6 +3,8 @@ import { getAllPosts } from '../lib/posts';
 import { shortAnchorTitle } from '../lib/anchors';
 import { ArrowRight, Calculator, FileText, FolderOpen, User, Shield, Star, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
+import TagList from '../components/TagList';
+import { SITE_URL, buildTags } from '../lib/geo';
 
 const articleFolderDetails = {
   horoscopes: {
@@ -79,57 +81,68 @@ function getArticleFolders(posts) {
     });
 }
 
-const homepageSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Shambhavaa",
-    "url": "https://shambhavaa.blog",
-    "description": "A global authority on deep Vedic astrology, Nakshatra psychology, karmic astrology, predictive astrology, and spiritual healing.",
-    "inLanguage": "en-US",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://shambhavaa.blog/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Shambhavaa",
-    "url": "https://shambhavaa.blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://shambhavaa.blog/images/og-default.jpg"
-    },
-    "sameAs": [
-      "https://www.instagram.com/sham_bhavaa/",
-      "https://www.threads.com/myself_arihant",
-      "https://www.tumblr.com/shambhava"
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Arihant Saini",
-    "url": "https://shambhavaa.blog/about",
-    "jobTitle": "Vedic Astrologer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Shambhavaa",
-      "url": "https://shambhavaa.blog"
-    },
-    "sameAs": [
-      "https://www.instagram.com/sham_bhavaa/",
-      "https://www.threads.com/myself_arihant"
-    ]
-  }
-];
-
 export default function Home() {
   const allPosts = getAllPosts();
   const trendingPosts = allPosts.filter(p => p.meta.trending);
   const articleFolders = getArticleFolders(allPosts);
+  const homepageSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Shambhavaa",
+      "url": SITE_URL,
+      "description": "A global authority on deep Vedic astrology, Nakshatra psychology, karmic astrology, predictive astrology, and spiritual healing.",
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${SITE_URL}/?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Shambhavaa",
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/images/og-default.jpg`
+      },
+      "sameAs": [
+        "https://www.instagram.com/sham_bhavaa/",
+        "https://www.threads.com/myself_arihant",
+        "https://www.tumblr.com/shambhava"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Arihant Saini",
+      "url": `${SITE_URL}/about/`,
+      "jobTitle": "Vedic Astrologer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Shambhavaa",
+        "url": SITE_URL
+      },
+      "sameAs": [
+        "https://www.instagram.com/sham_bhavaa/",
+        "https://www.threads.com/myself_arihant"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Latest Shambhavaa Vedic astrology guides",
+      "numberOfItems": allPosts.slice(0, 12).length,
+      "itemListElement": allPosts.slice(0, 12).map((post, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `${SITE_URL}/${post.category}/${post.slug}/`,
+        "name": post.meta.title,
+      })),
+    }
+  ];
 
   return (
     <div className="container">
@@ -173,6 +186,7 @@ export default function Home() {
         <div className="grid-responsive-350">
           {allPosts.slice(0, 6).map(post => (
             <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+              <TagList tags={buildTags(post).slice(0, 4)} compact />
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
               <p style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', marginBottom: '1.25rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
                 {post.category} • {new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
@@ -307,6 +321,7 @@ export default function Home() {
                   0{index + 1}
                 </div>
                 <div>
+                  <TagList tags={buildTags(post).slice(0, 2)} compact />
                   <p style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', fontWeight: 'bold', marginBottom: '0.4rem', textTransform: 'uppercase' }}>
                     {post.category}
                   </p>

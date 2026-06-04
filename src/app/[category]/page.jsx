@@ -5,7 +5,9 @@ import path from 'path';
 import { PLANETS, getPlanetLabel } from '../../data/planets';
 import { CATEGORY_DESCRIPTIONS } from '../../data/category-descriptions';
 import FAQ from '../../components/FAQ';
+import TagList from '../../components/TagList';
 import { readAnchor } from '../../lib/anchors';
+import { SITE_URL, breadcrumbSchema, buildTags } from '../../lib/geo';
 
 export async function generateStaticParams() {
   const contentDirectory = path.join(process.cwd(), 'content');
@@ -69,17 +71,25 @@ export default function CategoryPage({ params }) {
       "@type": "CollectionPage",
       "name": `${label} Articles & Insights`,
       "description": info?.description || `Authoritative guides on ${label} astrology.`,
-      "url": `https://shambhavaa.blog/${category}/`,
+      "url": `${SITE_URL}/${category}/`,
       "inLanguage": "en-US",
     },
-    {
+    ...(posts.length > 0 ? [{
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shambhavaa.blog" },
-        { "@type": "ListItem", "position": 2, "name": label, "item": `https://shambhavaa.blog/${category}/` }
-      ]
-    },
+      "@type": "ItemList",
+      "name": `${label} guides`,
+      "numberOfItems": posts.length,
+      "itemListElement": posts.map((post, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `${SITE_URL}/${post.category}/${post.slug}/`,
+        "name": post.meta.title,
+      })),
+    }] : []),
+    breadcrumbSchema([
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: label, url: `${SITE_URL}/${category}/` },
+    ]),
     ...(info?.faqs ? [{
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -123,6 +133,7 @@ export default function CategoryPage({ params }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
             {posts.map(post => (
               <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+                <TagList tags={buildTags(post).slice(0, 4)} compact />
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
                 <p style={{ fontSize: '0.875rem', color: 'var(--accent-gold)', marginBottom: '1rem' }}>
                   {post.meta.date && new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
