@@ -139,6 +139,20 @@ export const CATEGORY_DESCRIPTIONS = {
       }
     ]
   },
+  'divisional-charts': {
+    title: 'Divisional Charts in Vedic Astrology',
+    description: 'Deep guides on Vedic divisional charts such as D2 Hora, D9 Navamsa, D10 Dashamsa, D12 Dwadasamsa, and other Vargas used to confirm the D1 birth chart promise, refine prediction, and judge specific areas of life.',
+    faqs: [
+      {
+        question: 'What are divisional charts in Vedic astrology?',
+        answer: 'Divisional charts, or Vargas, are specialized charts derived from the D1 birth chart. They refine specific areas of life such as wealth, marriage, career, parents, children, and spiritual maturity.'
+      },
+      {
+        question: 'Can a divisional chart override the D1 birth chart?',
+        answer: 'No. Divisional charts confirm, refine, or weaken the promise seen in D1. They should not be used to create predictions that the main birth chart does not support.'
+      }
+    ]
+  },
   mars: {
     title: 'Mars in Vedic Astrology: Energy, Courage & Ambition',
     description: 'Mars (Mangal) is the planet of energy, ambition, courage, property, siblings, and action in Vedic astrology. These guides explore Mars placements, Mangal Dosha, Mars transits, and the psychology of drive, aggression, and willpower.',
