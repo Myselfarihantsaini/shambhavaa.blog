@@ -185,14 +185,15 @@ export default function Home() {
         <h2 className="text-center text-gold mb-4" style={{ fontSize: '2.5rem' }}>Latest Deep Dives</h2>
         <div className="grid-responsive-350">
           {allPosts.slice(0, 6).map(post => (
-            <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+            <div key={post.slug} className="card clickable-card" style={{ display: 'flex', flexDirection: 'column' }}>
+              <a href={`/${post.category}/${post.slug}/`} className="card-cover-link" aria-label={`Read ${post.meta.title}`} />
               <TagList tags={buildTags(post).slice(0, 4)} compact />
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
               <p style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', marginBottom: '1.25rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
                 {post.category} • {new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
               </p>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1rem', flex: 1, lineHeight: '1.6' }}>{post.meta.excerpt}</p>
-              <a href={`/${post.category}/${post.slug}`} style={{ fontWeight: 'bold' }}>Latest {shortAnchorTitle(post.meta.title)} &rarr;</a>
+              <a href={`/${post.category}/${post.slug}/`} tabIndex={-1} aria-hidden="true" style={{ fontWeight: 'bold' }}>Latest {shortAnchorTitle(post.meta.title)} &rarr;</a>
             </div>
           ))}
         </div>

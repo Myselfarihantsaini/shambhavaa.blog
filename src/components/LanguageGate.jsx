@@ -194,7 +194,7 @@ function applyTranslation(languageCode) {
 
 export default function LanguageGate() {
   const [selectedLanguage, setSelectedLanguage] = useState('en');
-  const [showGate, setShowGate] = useState(true);
+  const [showGate, setShowGate] = useState(false);
   const [languageQuery, setLanguageQuery] = useState('');
   const initialized = useRef(false);
 
