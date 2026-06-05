@@ -138,6 +138,40 @@
   line-height: 1.6;
 }
 
+.clickable-card {
+  position: relative;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.clickable-card:hover {
+  border-color: var(--accent-gold-glow);
+  background: rgba(226, 184, 87, 0.05);
+  transform: translateY(-2px);
+}
+
+.card-cover-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.card-cover-link:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 4px;
+}
+
+.clickable-card > *:not(.card-cover-link) {
+  position: relative;
+  z-index: 1;
+}
+
+.clickable-card .geo-tags,
+.clickable-card .geo-tags a {
+  position: relative;
+  z-index: 3;
+}
+
 @keyframes nebula-glow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }

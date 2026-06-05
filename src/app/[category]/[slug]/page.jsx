@@ -300,11 +300,12 @@ export default function ArticlePage({ params }) {
           <h2 className="text-gold" style={{ marginBottom: '2rem' }}>Related Insights</h2>
           <div className="grid-responsive-250">
             {relatedPosts.map(p => (
-              <div key={p.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+              <div key={p.slug} className="card clickable-card" style={{ display: 'flex', flexDirection: 'column' }}>
+                <a href={`/${p.category}/${p.slug}/`} className="card-cover-link" aria-label={`Read ${p.meta.title}`} />
                 <TagList post={p} compact />
                 <h4 style={{ fontSize: '1.1rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{p.meta.title}</h4>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>{p.meta.excerpt}</p>
-                <a href={`/${p.category}/${p.slug}`} style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', fontWeight: 'bold', marginTop: 'auto' }}>
+                <a href={`/${p.category}/${p.slug}/`} tabIndex={-1} aria-hidden="true" style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', fontWeight: 'bold', marginTop: 'auto' }}>
                   {readAnchor(p.meta.title)} &rarr;
                 </a>
               </div>

@@ -87,7 +87,8 @@ export default function NakshatraPage() {
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
             {posts.map(post => (
-              <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+              <div key={post.slug} className="card clickable-card" style={{ display: 'flex', flexDirection: 'column' }}>
+                <a href={`/nakshatra/${post.slug}/`} className="card-cover-link" aria-label={`Read ${post.meta.title}`} />
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
                 <p style={{ fontSize: '0.875rem', color: 'var(--accent-gold)', marginBottom: '1rem' }}>
                   {post.meta.date && new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
@@ -95,7 +96,7 @@ export default function NakshatraPage() {
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem', flex: 1 }}>
                   {post.meta.excerpt}
                 </p>
-                <a href={`/nakshatra/${post.slug}`} style={{ fontWeight: 'bold' }}>{readAnchor(post.meta.title)} &rarr;</a>
+                <a href={`/nakshatra/${post.slug}/`} tabIndex={-1} aria-hidden="true" style={{ fontWeight: 'bold' }}>{readAnchor(post.meta.title)} &rarr;</a>
               </div>
             ))}
           </div>

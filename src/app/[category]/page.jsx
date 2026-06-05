@@ -132,7 +132,8 @@ export default function CategoryPage({ params }) {
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
             {posts.map(post => (
-              <div key={post.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+              <div key={post.slug} className="card clickable-card" style={{ display: 'flex', flexDirection: 'column' }}>
+                <a href={`/${category}/${post.slug}/`} className="card-cover-link" aria-label={`Read ${post.meta.title}`} />
                 <TagList tags={buildTags(post).slice(0, 4)} compact />
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
                 <p style={{ fontSize: '0.875rem', color: 'var(--accent-gold)', marginBottom: '1rem' }}>
@@ -141,7 +142,7 @@ export default function CategoryPage({ params }) {
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem', flex: 1 }}>
                   {post.meta.excerpt}
                 </p>
-                <a href={`/${category}/${post.slug}`} style={{ fontWeight: 'bold' }}>{readAnchor(post.meta.title)} &rarr;</a>
+                <a href={`/${category}/${post.slug}/`} tabIndex={-1} aria-hidden="true" style={{ fontWeight: 'bold' }}>{readAnchor(post.meta.title)} &rarr;</a>
               </div>
             ))}
           </div>

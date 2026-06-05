@@ -231,8 +231,7 @@ export default function LanguageGate() {
       return;
     }
 
-    window.localStorage.removeItem(STORAGE_KEY);
-    const savedLanguage = window.sessionStorage.getItem(STORAGE_KEY);
+    const savedLanguage = window.localStorage.getItem(STORAGE_KEY);
 
     if (!savedLanguage) {
       setShowGate(true);
@@ -255,8 +254,8 @@ export default function LanguageGate() {
   }, []);
 
   const chooseLanguage = useCallback((languageCode) => {
-    const previousLanguage = window.sessionStorage.getItem(STORAGE_KEY);
-    window.sessionStorage.setItem(STORAGE_KEY, languageCode);
+    const previousLanguage = window.localStorage.getItem(STORAGE_KEY);
+    window.localStorage.setItem(STORAGE_KEY, languageCode);
     setSelectedLanguage(languageCode);
     setShowGate(false);
     applyTranslation(languageCode);
