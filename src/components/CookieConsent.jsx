@@ -56,6 +56,7 @@ function saveStoredConsent(preferences) {
 }
 
 export default function CookieConsent() {
+  const [isReady, setIsReady] = useState(false);
   const [hasSavedChoice, setHasSavedChoice] = useState(false);
   const [preferences, setPreferences] = useState(defaultPreferences);
   const [showPreferences, setShowPreferences] = useState(false);
@@ -67,7 +68,12 @@ export default function CookieConsent() {
       setPreferences(storedPreferences);
       setHasSavedChoice(true);
       updateGoogleConsent(storedPreferences);
+      setIsReady(true);
+      return;
     }
+
+    const timer = window.setTimeout(() => setIsReady(true), 1500);
+    return () => window.clearTimeout(timer);
   }, []);
 
   const saveConsent = useCallback((nextPreferences) => {
@@ -84,6 +90,10 @@ export default function CookieConsent() {
       [key]: !current[key],
     }));
   }, []);
+
+  if (!isReady) {
+    return null;
+  }
 
   if (hasSavedChoice && !showPreferences) {
     return (

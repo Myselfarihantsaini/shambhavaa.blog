@@ -4,7 +4,6 @@ import CookieConsent from '../components/CookieConsent';
 import Search from '../components/Search';
 import LanguageGate from '../components/LanguageGate';
 import Script from 'next/script';
-import { getAllPosts } from '../lib/posts';
 import { PLANETS } from '../data/planets';
 
 const tumblrUrl = 'https://www.tumblr.com/shambhava';
@@ -18,17 +17,6 @@ const socialLinks = [
   { label: 'Threads', href: threadsUrl },
   { label: 'Tumblr', href: tumblrUrl },
 ];
-
-const searchPosts = getAllPosts().map(({ slug, category, meta }) => ({
-  slug,
-  category,
-  meta: {
-    title: meta.title,
-    excerpt: meta.excerpt,
-    description: meta.description,
-    keywords: meta.keywords,
-  },
-}));
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -130,7 +118,7 @@ export default function RootLayout({ children }) {
             SHAMBHAVAA
           </a>
           <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Search posts={searchPosts} />
+            <Search />
             <nav>
               <ul className="main-nav">
                 <li className="nav-dropdown">

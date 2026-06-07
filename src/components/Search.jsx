@@ -13,9 +13,11 @@ function getSearchText(post) {
   ].map(normalise).join(' ');
 }
 
-export default function Search({ posts }) {
+export default function Search() {
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [hasLoadedPosts, setHasLoadedPosts] = useState(false);
   const searchRef = useRef(null);
 
   useEffect(() => {
@@ -26,6 +28,27 @@ export default function Search({ posts }) {
       setIsOpen(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (!isOpen || hasLoadedPosts) return;
+
+    let isMounted = true;
+    fetch('/search-index.json')
+      .then((response) => (response.ok ? response.json() : []))
+      .then((items) => {
+        if (isMounted) {
+          setPosts(Array.isArray(items) ? items : []);
+          setHasLoadedPosts(true);
+        }
+      })
+      .catch(() => {
+        if (isMounted) setHasLoadedPosts(true);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [hasLoadedPosts, isOpen]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -104,7 +127,11 @@ export default function Search({ posts }) {
       />
       {showPanel && (
         <div className="site-search-results">
-          {results.length > 0 ? (
+          {!hasLoadedPosts ? (
+            <div className="site-search-empty">
+              Loading search...
+            </div>
+          ) : results.length > 0 ? (
             <>
               <div className="site-search-count">
                 {results.length} result{results.length === 1 ? '' : 's'}

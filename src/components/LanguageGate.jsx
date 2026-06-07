@@ -193,6 +193,7 @@ function applyTranslation(languageCode) {
 }
 
 export default function LanguageGate() {
+  const [isReady, setIsReady] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [showGate, setShowGate] = useState(false);
   const [languageQuery, setLanguageQuery] = useState('');
@@ -217,6 +218,7 @@ export default function LanguageGate() {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
+    setIsReady(true);
 
     if (searchParams.get('choose-language') === '1') {
       window.sessionStorage.removeItem(STORAGE_KEY);
@@ -271,6 +273,8 @@ export default function LanguageGate() {
     <>
       <div id="google_translate_element" aria-hidden="true" />
 
+      {!isReady ? null : (
+        <>
       {showGate && (
         <div className="language-gate notranslate" role="dialog" aria-modal="true" aria-labelledby="language-gate-title">
           <div className="language-gate-panel">
@@ -319,6 +323,8 @@ export default function LanguageGate() {
           <span>{selectedLabel}</span>
           <X size={14} aria-hidden="true" />
         </a>
+      )}
+        </>
       )}
     </>
   );
