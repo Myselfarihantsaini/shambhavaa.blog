@@ -16,7 +16,6 @@ module.exports = {
   ],
   additionalPaths: async (config) => [
     await config.transform(config, '/tools/kundli-chart/'),
-    await config.transform(config, '/tools/astrocartography-atlas/'),
     await config.transform(config, '/tools/perfume-oracle/'),
   ],
   transform: async (config, path) => {

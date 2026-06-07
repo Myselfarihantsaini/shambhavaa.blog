@@ -292,14 +292,6 @@ export default function Home() {
             </p>
             <a href="/tools/perfume-oracle" style={{ fontWeight: 'bold' }}>Open Perfume Tool &rarr;</a>
           </div>
-          <div className="card" style={{ display: 'block', padding: '2.5rem', color: 'inherit' }}>
-            <Star size={34} color="var(--accent-gold)" />
-            <h3 className="text-gold" style={{ fontSize: '1.8rem', marginTop: '1.2rem' }}>Astrocartography Atlas</h3>
-            <p style={{ color: 'var(--text-secondary)', margin: '1rem 0 1.5rem' }}>
-              Map planetary lines across the Earth and view a sidereal Vedic chart from birth date, time, and place.
-            </p>
-            <a href="/tools/astrocartography-atlas" style={{ fontWeight: 'bold' }}>Open Astrocartography Tool &rarr;</a>
-          </div>
         </div>
       </section>
 
