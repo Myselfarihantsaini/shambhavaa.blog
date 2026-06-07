@@ -3,6 +3,7 @@ import SEO from '../components/SEO';
 import CookieConsent from '../components/CookieConsent';
 import Search from '../components/Search';
 import LanguageGate from '../components/LanguageGate';
+import Script from 'next/script';
 import { getAllPosts } from '../lib/posts';
 import { PLANETS } from '../data/planets';
 
@@ -17,6 +18,17 @@ const socialLinks = [
   { label: 'Threads', href: threadsUrl },
   { label: 'Tumblr', href: tumblrUrl },
 ];
+
+const searchPosts = getAllPosts().map(({ slug, category, meta }) => ({
+  slug,
+  category,
+  meta: {
+    title: meta.title,
+    excerpt: meta.excerpt,
+    description: meta.description,
+    keywords: meta.keywords,
+  },
+}));
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -74,9 +86,13 @@ export default function RootLayout({ children }) {
           httpEquiv="Content-Security-Policy"
           content={contentSecurityPolicy}
         />
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCHG6BM3DL"></script>
-        <script
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CCHG6BM3DL"
+          strategy="lazyOnload"
+        />
+        <Script
+          id="google-analytics-consent"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -93,18 +109,17 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        {/* Google AdSense */}
-        <script
-          async
+        <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9194178610009666"
           crossOrigin="anonymous"
-        ></script>
-        <script
+          strategy="lazyOnload"
+        />
+        <Script
           src="https://rankai.ai/apply.js"
           data-rankai-id="cmpxxn4qn000biy4gif7p52s8"
           crossOrigin="anonymous"
-          defer
-        ></script>
+          strategy="lazyOnload"
+        />
       </head>
       <body suppressHydrationWarning>
         <LanguageGate />
@@ -115,7 +130,7 @@ export default function RootLayout({ children }) {
             SHAMBHAVAA
           </a>
           <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Search posts={getAllPosts()} />
+            <Search posts={searchPosts} />
             <nav>
               <ul className="main-nav">
                 <li className="nav-dropdown">

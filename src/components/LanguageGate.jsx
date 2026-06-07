@@ -234,7 +234,9 @@ export default function LanguageGate() {
     const savedLanguage = window.localStorage.getItem(STORAGE_KEY);
 
     if (!savedLanguage) {
-      setShowGate(true);
+      window.localStorage.setItem(STORAGE_KEY, 'en');
+      setSelectedLanguage('en');
+      setShowGate(false);
       return;
     }
 

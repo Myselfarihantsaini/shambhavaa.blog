@@ -10,7 +10,6 @@ function getSearchText(post) {
     post?.meta?.description,
     post?.meta?.keywords?.join?.(' '),
     post?.category,
-    post?.content,
   ].map(normalise).join(' ');
 }
 
