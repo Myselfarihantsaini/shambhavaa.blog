@@ -133,6 +133,7 @@ export default function RootLayout({ children }) {
                 <li><a href="/nakshatra">Nakshatra Guides</a></li>
                 <li><a href="/mahadasha">Mahadasha</a></li>
                 <li><a href="/tools/kundli-chart">Kundli Tool</a></li>
+                <li><a href="/tools/astrocartography-atlas">Astrocartography Tool</a></li>
                 <li><a href="/tools/perfume-oracle">Perfume Tool</a></li>
                 <li>
                   <a href={whatsappChannelUrl} target="_blank" rel="noopener noreferrer">
