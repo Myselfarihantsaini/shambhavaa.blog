@@ -196,6 +196,7 @@ export default function LanguageGate() {
   const [isReady, setIsReady] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [showGate, setShowGate] = useState(false);
+  const [showSwitcher, setShowSwitcher] = useState(false);
   const [languageQuery, setLanguageQuery] = useState('');
   const initialized = useRef(false);
 
@@ -218,14 +219,16 @@ export default function LanguageGate() {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    setIsReady(true);
+    const shouldChooseLanguage = searchParams.get('choose-language') === '1';
 
-    if (searchParams.get('choose-language') === '1') {
+    if (shouldChooseLanguage) {
       window.sessionStorage.removeItem(STORAGE_KEY);
       window.localStorage.removeItem(STORAGE_KEY);
       setTranslateCookie('en');
       setSelectedLanguage('en');
       setShowGate(true);
+      setShowSwitcher(true);
+      setIsReady(true);
       searchParams.delete('choose-language');
       const queryString = searchParams.toString();
       const cleanUrl = `${window.location.pathname}${queryString ? `?${queryString}` : ''}${window.location.hash}`;
@@ -239,6 +242,8 @@ export default function LanguageGate() {
       window.localStorage.setItem(STORAGE_KEY, 'en');
       setSelectedLanguage('en');
       setShowGate(false);
+      setShowSwitcher(false);
+      setIsReady(true);
       return;
     }
 
@@ -251,6 +256,8 @@ export default function LanguageGate() {
 
     setSelectedLanguage(savedLanguage);
     setShowGate(false);
+    setShowSwitcher(savedLanguage !== 'en');
+    setIsReady(true);
     if (!initialized.current) {
       initialized.current = true;
       applyTranslation(savedLanguage);
@@ -262,6 +269,7 @@ export default function LanguageGate() {
     window.localStorage.setItem(STORAGE_KEY, languageCode);
     setSelectedLanguage(languageCode);
     setShowGate(false);
+    setShowSwitcher(languageCode !== 'en');
     applyTranslation(languageCode);
 
     if (languageCode === 'en' && previousLanguage && previousLanguage !== 'en') {
@@ -275,55 +283,55 @@ export default function LanguageGate() {
 
       {!isReady ? null : (
         <>
-      {showGate && (
-        <div className="language-gate notranslate" role="dialog" aria-modal="true" aria-labelledby="language-gate-title">
-          <div className="language-gate-panel">
-            <div className="language-gate-icon" aria-hidden="true">
-              <Globe2 size={28} />
+          {showGate && (
+            <div className="language-gate notranslate" role="dialog" aria-modal="true" aria-labelledby="language-gate-title">
+              <div className="language-gate-panel">
+                <div className="language-gate-icon" aria-hidden="true">
+                  <Globe2 size={28} />
+                </div>
+                <h2 id="language-gate-title">Choose your reading language</h2>
+                <p>
+                  Select the language you want to read Shambhavaa in. You can change it anytime.
+                </p>
+                <input
+                  type="search"
+                  className="language-search"
+                  placeholder="Search languages..."
+                  value={languageQuery}
+                  onChange={(event) => setLanguageQuery(event.target.value)}
+                />
+                <div className="language-grid">
+                  {filteredLanguages.map((language) => (
+                    <button
+                      key={language.code}
+                      type="button"
+                      className="language-option"
+                      data-language-code={language.code}
+                      onClick={() => chooseLanguage(language.code)}
+                    >
+                      <span>{language.native}</span>
+                      <small>{language.label}</small>
+                    </button>
+                  ))}
+                </div>
+                {filteredLanguages.length === 0 && (
+                  <p className="language-empty">No matching language found.</p>
+                )}
+              </div>
             </div>
-            <h2 id="language-gate-title">Choose your reading language</h2>
-            <p>
-              Select the language you want to read Shambhavaa in. You can change it anytime.
-            </p>
-            <input
-              type="search"
-              className="language-search"
-              placeholder="Search languages..."
-              value={languageQuery}
-              onChange={(event) => setLanguageQuery(event.target.value)}
-            />
-            <div className="language-grid">
-              {filteredLanguages.map((language) => (
-                <button
-                  key={language.code}
-                  type="button"
-                  className="language-option"
-                  data-language-code={language.code}
-                  onClick={() => chooseLanguage(language.code)}
-                >
-                  <span>{language.native}</span>
-                  <small>{language.label}</small>
-                </button>
-              ))}
-            </div>
-            {filteredLanguages.length === 0 && (
-              <p className="language-empty">No matching language found.</p>
-            )}
-          </div>
-        </div>
-      )}
+          )}
 
-      {!showGate && (
-        <a
-          href="?choose-language=1"
-          className="language-switcher notranslate"
-          aria-label="Change language"
-        >
-          <Globe2 size={16} />
-          <span>{selectedLabel}</span>
-          <X size={14} aria-hidden="true" />
-        </a>
-      )}
+          {!showGate && showSwitcher && (
+            <a
+              href="?choose-language=1"
+              className="language-switcher notranslate"
+              aria-label="Change language"
+            >
+              <Globe2 size={16} />
+              <span>{selectedLabel}</span>
+              <X size={14} aria-hidden="true" />
+            </a>
+          )}
         </>
       )}
     </>
