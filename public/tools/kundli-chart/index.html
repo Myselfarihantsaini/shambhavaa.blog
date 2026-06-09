@@ -282,6 +282,16 @@
         <label for="name">Name (optional)</label>
         <input type="text" id="name" placeholder="Your name" autocomplete="off">
       </div>
+      <div class="field">
+        <label for="gender">Gender (optional)</label>
+        <select id="gender">
+          <option value="">Select gender</option>
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Other">Other</option>
+          <option value="Prefer not to say">Prefer not to say</option>
+        </select>
+      </div>
       <div class="field"><label for="dob">Date of birth</label><input type="date" id="dob" value="2000-01-01"></div>
       <div class="field"><label for="tob">Time of birth</label><input type="time" id="tob" value="12:00">
         <span class="hint">24-hour. The Lagna is very sensitive to time.</span></div>
@@ -961,7 +971,7 @@ function buildReport(){
     pc('Nakshatra',PSUM.nakshatra,'pada '+PSUM.pada)+pc('Yoga',PSUM.yoga)+
     pc('Karana',PSUM.karana)+pc('Moon phase',PSUM.phase,PSUM.illum+'% lit');
   const tb=document.getElementById('tbody'),rd=document.getElementById('reading');
-  const meta=[fmtDOB(m.dob)+(m.tob?', '+m.tob:''),(m.place||''),'Lagna '+(m.lagna||''),'Ayanamsa '+(m.ayan||'')+' deg'].filter(Boolean).map(escHTML).join('  |  ');
+  const meta=[fmtDOB(m.dob)+(m.tob?', '+m.tob:''),(m.gender?'Gender '+m.gender:''),(m.place||''),'Lagna '+(m.lagna||''),'Ayanamsa '+(m.ayan||'')+' deg'].filter(Boolean).map(escHTML).join('  |  ');
   let H='';
   H+='<div class="r-brand">Shambhavaa | Vedic Birth Chart</div>';
   H+='<div class="r-title">'+((m.name?escHTML(m.name)+"'s":'Birth')+' Kundli')+'</div>';
@@ -1077,8 +1087,9 @@ document.getElementById('calc').addEventListener('click',function(){
 
   // header + legend + table
   const nm=document.getElementById('name').value.trim();
+  const gender=document.getElementById('gender').value;
   document.getElementById('rname').textContent=nm?(nm+"'s Kundli"):'Birth Chart (Kundli)';
-  document.getElementById('rmeta').textContent='Lagna '+RASHI[lagnaSign]+' '+dms(ascSid%30)+'  ·  D9 Lagna '+RASHI_SHORT[navLagnaSign]+'  ·  Ayanamsa '+A.toFixed(3)+'°';
+  document.getElementById('rmeta').textContent=(gender?gender+'  ·  ':'')+'Lagna '+RASHI[lagnaSign]+' '+dms(ascSid%30)+'  ·  D9 Lagna '+RASHI_SHORT[navLagnaSign]+'  ·  Ayanamsa '+A.toFixed(3)+'°';
   document.getElementById('legend').textContent='Left: Lagna / Rashi (D1).  Right: Navamsa (D9).  Numbers 1–12 = signs (1 Aries … 12 Pisces). La = Lagna (Ascendant). Su Mo Ma Me Ju Ve Sa Ra Ke = the nine grahas.';
 
   const tb=document.getElementById('tbody');tb.innerHTML='';
@@ -1087,7 +1098,7 @@ document.getElementById('calc').addEventListener('click',function(){
   tb.innerHTML+='<tr><td>Lagna</td><td>'+RASHI[lagnaSign]+'</td><td class="deg">'+dms(ascSid%30)+'</td><td>'+nakInfo(ascSid).name+'</td><td>'+nakInfo(ascSid).pada+'</td><td>'+RASHI_SHORT[navLagnaSign]+'</td></tr>';
 
   // ----- Report metadata (for the downloadable PDF report) -----
-  REPORT_META={name:nm,dob:dob,tob:tob,place:document.getElementById('place').value.trim(),
+  REPORT_META={name:nm,gender:gender,dob:dob,tob:tob,place:document.getElementById('place').value.trim(),
     lat:lat,lon:lon,tz:tz,ayan:A.toFixed(3),
     lagna:RASHI[lagnaSign]+' '+dms(ascSid%30),d9lagna:RASHI_SHORT[navLagnaSign]};
 
@@ -1150,6 +1161,7 @@ document.getElementById('calc').addEventListener('click',function(){
   };});
   LAST_CHART={
     chart_system:{zodiac:'sidereal',ayanamsha:'Lahiri',house_system:'whole_sign'},
+    native:{name:nm,gender:gender},
     birth_chart:{
       lagna:SIGN_EN[lagnaSign],
       moon_sign:SIGN_EN[d1Sign['Moon']],
