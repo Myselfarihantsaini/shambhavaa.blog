@@ -48,7 +48,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const ogImage = `${SITE_URL}/images/og-default.jpg`;
+  const ogImage = `${SITE_URL}${post.meta.image || '/images/og-default.jpg'}`;
   const geoTags = Array.isArray(post.meta.geoTags)
     ? post.meta.geoTags.filter(Boolean)
     : [];
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }) {
       authors: ['Arihant Saini'],
       url: canonicalUrl,
       siteName: 'Shambhavaa',
-      images: [{ url: ogImage, width: 1200, height: 630, alt: post.meta.title }],
+      images: [{ url: ogImage, alt: post.meta.imageAlt || post.meta.title }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -151,7 +151,7 @@ export default function ArticlePage({ params }) {
           "keywords": Array.isArray(post.meta.keywords)
             ? post.meta.keywords.join(', ')
             : post.meta.keywords,
-          "image": `${SITE_URL}/images/og-default.jpg`,
+          "image": `${SITE_URL}${post.meta.image || '/images/og-default.jpg'}`,
           "author": AUTHOR_ENTITY,
           "publisher": PUBLISHER_ENTITY,
           "about": about,

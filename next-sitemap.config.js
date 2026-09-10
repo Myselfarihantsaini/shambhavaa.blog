@@ -9,7 +9,6 @@ module.exports = {
     '/trust/*',
     '/admin',
     '/admin/*',
-    '/mars',
     '/mercury',
     '/jupiter',
     '/venus',
