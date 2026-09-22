@@ -175,8 +175,8 @@ export default function Home() {
         opacity: 0.7,
         flexWrap: 'wrap'
       }}>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Shield size={16} /> 100% Human Writing</span>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Star size={16} /> Evidence Based Analysis</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Shield size={16} /> Astrology &amp; Reflection</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Star size={16} /> Chart Interpretation</span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><BookOpen size={16} /> Classical Vedic Wisdom</span>
       </div>
 

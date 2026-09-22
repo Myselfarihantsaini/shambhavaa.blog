@@ -16,18 +16,19 @@ export default function EditorialPolicyPage() {
         
         <div className="article-content" style={{ fontSize: '0.95rem' }}>
           <p>
-            Shambhavaa is committed to producing the highest quality Vedic astrology content that is both traditionally 
-            accurate and psychologically relevant. Our goal is to provide a "Gold Standard" for spiritual information.
+            Shambhavaa publishes educational writing about Vedic astrology and spiritual reflection.
+            Astrology is presented as an interpretive tradition, not as a scientifically validated
+            method of diagnosis or a guarantee of future events.
           </p>
 
           <h2 className="text-gold">Content Accuracy & Research</h2>
           <p>
-            Every article on Shambhavaa undergoes a rigorous research process:
+            Our editorial standards distinguish source material, interpretation and illustrative examples:
           </p>
           <ul>
-            <li><strong>Classical Synthesis:</strong> Insights are cross-referenced with foundational texts like Bṛhat Parāśara Horāśāstra and Saravali.</li>
-            <li><strong>Psychological Layering:</strong> Traditional meanings are synthesized with modern depth psychology concepts.</li>
-            <li><strong>Original Writing:</strong> We do not use AI-generated filler. Every article is written by a human expert with a unique voice and perspective.</li>
+            <li><strong>Sources:</strong> When an article attributes a rule or quotation to a text, it should identify the source and relevant section. We do not claim every article has been checked against classical manuscripts.</li>
+            <li><strong>Interpretation:</strong> Psychological language is used for reflection and does not establish a clinical finding or a personality fact about a reader.</li>
+            <li><strong>Examples:</strong> Invented chart configurations are labelled hypothetical. They must not be presented as client cases, testimonials or evidence of predictive accuracy.</li>
           </ul>
 
           <h2 className="text-gold">Non-Sensationalism</h2>
@@ -38,15 +39,21 @@ export default function EditorialPolicyPage() {
 
           <h2 className="text-gold">Author Integrity</h2>
           <p>
-            All content is authored by experienced practitioners. We maintain transparency regarding our expertise and 
-            limitations. If an article is updated with new research, the "Last Updated" date will be clearly visible.
+            Bylines identify the person responsible for an article. Source-based explanations, personal
+            interpretations and AI-assisted additions should be distinguishable. Substantive revisions
+            receive an updated date; a revision date is not evidence of independent expert review.
           </p>
 
           <h2 className="text-gold">AI Policy</h2>
           <p>
-            At Shambhavaa, we believe that spiritual wisdom requires a soul. We do not use Large Language Models (LLMs) 
-            to generate our core analysis or interpretative content. AI may be used for technical tasks (like SEO optimization 
-            or formatting), but the wisdom itself is 100% human-born.
+            AI tools may assist with drafting, explanations, hypothetical examples, FAQs, editing,
+            formatting and technical work. Articles with substantive AI-assisted additions should
+            disclose that assistance. We do not describe this process as entirely human-written.
+          </p>
+          <p>
+            Author review is required before AI-assisted material is labelled author-reviewed.
+            Automated checks of links, calculations or formatting do not substitute for that review.
+            AI output is not a source, and citations must refer to material that supports the attributed claim.
           </p>
 
           <h2 className="text-gold">Community Feedback</h2>
