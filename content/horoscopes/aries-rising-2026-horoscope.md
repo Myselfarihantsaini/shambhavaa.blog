@@ -1,5 +1,7 @@
 ---
 title: "Aries Rising 2026 Horoscope: Hidden Pressure, Network Gains, and Emotional Maturity"
+seoTitle: "Aries Rising 2026 Horoscope: Year Overview"
+description: "Aries Lagna in 2026: Saturn in the 12th, Rahu in the 11th and Jupiter's move to Cancer, and what they mean for work, gains, home and health."
 date: "2026-05-19T12:15:00.000Z"
 trending: true
 excerpt: "Read the full Aries Rising 2026 horoscope for career, money, love, family, health, travel, spiritual growth, Saturn in the 12th house, Rahu in the 11th house, Ketu in the 5th house, and Jupiter's Gemini-to-Cancer shift."

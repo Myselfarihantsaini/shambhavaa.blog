@@ -1,5 +1,7 @@
 ---
 title: "Aries Horoscope 2026: The Year Your Fire Learns Direction"
+seoTitle: "Aries Horoscope 2026: Month-by-Month Forecast"
+description: "Aries 2026 Vedic horoscope month by month: career, money, relationships and health, and how the year teaches Aries to direct its fire."
 date: "2026-05-19T04:30:00.000Z"
 trending: true
 excerpt: "Read the full Aries Horoscope 2026 month-by-month prediction for career, money, relationships, health, travel, anger, ambition, emotional control, discipline, confidence, and self-respect."

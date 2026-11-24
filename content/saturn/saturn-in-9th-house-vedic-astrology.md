@@ -1,5 +1,7 @@
 ---
 title: "Saturn in the 9th House: The Karma of Father, Guru, Faith, Fortune and Dharma"
+seoTitle: "Saturn in 9th House: Father, Guru, Faith, Fortune"
+description: "Saturn in the 9th house: delayed luck, a serious relationship with father and teachers, earned faith, and how its sign and dasha change it."
 date: "2026-05-21T00:30:00.000Z"
 trending: true
 excerpt: "Saturn in the 9th house gives disciplined luck, tested faith, serious father and guru karma, delayed fortune, practical dharma, and long-term wisdom through effort, humility, responsibility, and maturity."

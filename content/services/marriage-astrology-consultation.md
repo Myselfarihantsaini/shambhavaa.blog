@@ -1,7 +1,7 @@
 ---
 title: "Marriage Astrology Consultation | Shambhavaa"
 date: "2026-05-31T10:02:47.000Z"
-description: "Gain clarity on marriage timing, delays, and relationship patterns through a structured Vedic marriage astrology consultation analyzing the 7th house and Navamsa."
+description: "A Vedic astrology consultation for marriage timing, compatibility and relationship patterns, read from D1, D9, the 7th house and dashas."
 ---
 
 # Marriage Astrology Consultation

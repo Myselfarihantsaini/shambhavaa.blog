@@ -1,5 +1,7 @@
 ---
 title: "Gemini Horoscope 2026: The Year Your Mind Stops Running From Your Emotions"
+seoTitle: "Gemini Horoscope 2026: Month-by-Month Forecast"
+description: "Gemini 2026 Vedic forecast month by month: career, money, love and emotional life, and how this year's transits push Gemini to slow down."
 date: "2026-05-18T13:30:00.000Z"
 trending: true
 excerpt: "Read the full Gemini Horoscope 2026 month-by-month prediction for career, money, relationships, health, travel, communication, overthinking, nervous system overload, emotional clarity, and mental peace."

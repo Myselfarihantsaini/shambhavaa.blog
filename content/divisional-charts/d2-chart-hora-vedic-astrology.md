@@ -1,5 +1,7 @@
 ---
 title: "D2 Chart in Vedic Astrology: Hora, Wealth, Speech, Food, Family Resources and Financial Karma"
+seoTitle: "D2 Hora Chart: Wealth and Resources in Vedic Astrology"
+description: "What the D2 Hora chart shows about money, speech, food and family resources, how Sun and Moon horas work, and how to read it with D1."
 date: "2026-06-05T00:00:00.000Z"
 trending: true
 excerpt: "The D2 chart, or Hora chart, reveals how wealth enters, stays, leaks, and behaves through speech, food habits, family resources, Sun Hora, Moon Hora, Jupiter, Lagna, Moon, dasha and D1 promise."

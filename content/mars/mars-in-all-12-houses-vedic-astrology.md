@@ -1,5 +1,6 @@
 ---
 title: "Mars in All 12 Houses: Where Your Fire Fights, Builds and Burns"
+seoTitle: "Mars in All 12 Houses in Vedic Astrology"
 date: "2026-09-10T05:30:00.000Z"
 updatedDate: "2026-09-22T06:00:00.000Z"
 trending: true
@@ -440,4 +441,3 @@ The linked textbook supports the limited technical conventions in the chart exer
 
 For information about the author and how Shambhavaa approaches readings, visit [About Arihant Saini](/about/), the [editorial policy](/editorial-policy/) and [consultation ethics](/consultation-ethics/).
 
-**Shambhavaa | Vedic Astrology, Birth Chart Analysis and Predictive Astrology**

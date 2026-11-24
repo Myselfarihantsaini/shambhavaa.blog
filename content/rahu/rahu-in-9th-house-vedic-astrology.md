@@ -302,3 +302,9 @@ Honest study, respect for teachers, service to education, disciplined sadhana, h
 ***
 
 *Astrological interpretation is a symbolic and spiritual framework, not a substitute for medical, legal, financial, or psychological advice. For questions specific to your chart, reach out to Shambhavaa for guidance grounded in ethical Vedic astrology.*
+
+## Related guides on Shambhavaa
+
+- Read about [why Rahu makes you obsessive](/rahu/why-rahu-makes-you-obsessive/).
+- Read about [Ketu in all 12 houses (Ketu sits in the 3rd when Rahu is in the 9th)](/ketu/ketu-in-all-12-houses-vedic-astrology/).
+- Read about [Saturn in the 9th house](/saturn/saturn-in-9th-house-vedic-astrology/).

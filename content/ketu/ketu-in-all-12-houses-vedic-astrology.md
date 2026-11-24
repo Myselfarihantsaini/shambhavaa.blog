@@ -1,5 +1,7 @@
 ---
 title: "Ketu in All 12 Houses: Deep Vedic Astrology Predictions, Planet Combinations, Vastu Remedies and Spiritual Meaning"
+seoTitle: "Ketu in All 12 Houses in Vedic Astrology"
+description: "Ketu in each house from the 1st to the 12th: detachment, past skill, losses and spiritual lessons, with combinations and practical guidance."
 date: "2026-06-06T00:00:00.000Z"
 trending: true
 excerpt: "A deep Shambhavaa guide to Ketu in all 12 houses, covering house-wise predictions, Rahu-Ketu axis, planet combinations, dispositor, nakshatra, D1, D9, D10, D7, D12, dasha, transit, Vastu support and practical Ketu remedies."

@@ -1,5 +1,7 @@
 ---
 title: "Pisces Horoscope 2026: The Year You Stop Emotionally Absorbing Everything"
+seoTitle: "Pisces Horoscope 2026: Month-by-Month Forecast"
+description: "Pisces 2026 Vedic horoscope month by month: career, money, love and health, and how to stop absorbing everyone else's emotions."
 date: "2026-05-18T14:00:00.000Z"
 trending: true
 excerpt: "Read the full Pisces Horoscope 2026 month-by-month prediction for career, money, relationships, health, travel, emotional boundaries, intuition, escapism, attachment, healing, and spiritual peace."

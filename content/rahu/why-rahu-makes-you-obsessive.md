@@ -1,5 +1,7 @@
 ---
 title: "Why Rahu Makes You Obsessive — The Dark Psychology of Rahu in Vedic Astrology"
+seoTitle: "Why Rahu Makes You Obsessive: Rahu Psychology"
+description: "Why Rahu creates obsession, restlessness and craving in Vedic astrology, how its house and dasha show where, and how to work with it."
 date: "2026-05-07T12:00:00.000Z"
 trending: true
 excerpt: "Rahu is more than just desire; it is appetite without satisfaction. Explore the deep psychological mechanics of obsession, worry, and emotional dependency under Rahu's influence."

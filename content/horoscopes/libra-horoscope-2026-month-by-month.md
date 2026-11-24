@@ -1,5 +1,7 @@
 ---
 title: "Libra Horoscope 2026: The Year You Stop Sacrificing Yourself for Peace"
+seoTitle: "Libra Horoscope 2026: Month-by-Month Forecast"
+description: "Libra 2026 Vedic forecast month by month: relationships, career, money and health, and why this year asks Libra to stop over-accommodating."
 date: "2026-05-19T04:00:00.000Z"
 trending: true
 excerpt: "Read the full Libra Horoscope 2026 month-by-month prediction for career, money, relationships, health, travel, emotional boundaries, self-respect, love, balance, and inner peace."

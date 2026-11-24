@@ -1,5 +1,7 @@
 ---
 title: "Cancer Love Horoscope 2026: Emotional Transformation, Soul Bonds & Relationship Truths"
+seoTitle: "Cancer Love Horoscope 2026"
+description: "Cancer love horoscope 2026: relationships, commitment, emotional boundaries and soul bonds, for singles and couples, month by month."
 date: "2026-05-14T00:00:00.000Z"
 trending: true
 excerpt: "2026 is not a superficial love year for Cancer. It's a year that forces emotional honesty, maturity, and relationship clarity. Discover the main theme of 2026 for Cancer in love."
@@ -368,3 +370,9 @@ The version of love you accept at the end of 2026 will look very different from 
 
 And honestly?
 That transformation is necessary.
+
+## Related guides on Shambhavaa
+
+- Read about [why the Navamsa matters for marriage](/resources/why-navamsa-is-important-for-marriage/).
+- Read about [how marriage timing is checked in a chart](/resources/how-marriage-timing-is-checked/).
+- Read about [the Moon in each house for Cancer Ascendant](/house-lords/cancer-ascendant-moon-in-all-12-houses/).

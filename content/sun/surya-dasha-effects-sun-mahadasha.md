@@ -1,5 +1,7 @@
 ---
 title: "Surya Dasha Effects: What Sun Mahadasha Really Brings in Vedic Astrology"
+seoTitle: "Sun Mahadasha (Surya Dasha) Effects"
+description: "What the six-year Sun Mahadasha brings: career, authority, father and health, and how the Sun's house, sign and strength decide results."
 date: "2026-06-04T00:00:00.000Z"
 trending: true
 excerpt: "Surya Mahadasha activates identity, authority, father karma, career visibility, health discipline, and self-respect. Learn how Sun Dasha works through D1, D9, D10, Antardasha, and Saturn-Jupiter-Rahu-Ketu transits in Vedic astrology."

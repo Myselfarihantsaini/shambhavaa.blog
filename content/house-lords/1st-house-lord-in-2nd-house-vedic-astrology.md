@@ -1,5 +1,7 @@
 ---
 title: "1st House Lord in the 2nd House in Vedic Astrology: Personality, Wealth, Speech, Family Karma, and the Psychology of Self-Worth"
+seoTitle: "1st Lord in 2nd House: Wealth, Speech and Self-Worth"
+description: "Lagna lord in the 2nd house in Vedic astrology: effects on money, speech, family and self-worth, sign by sign, and what strengthens it."
 date: "2026-05-14T12:00:00.000Z"
 trending: true
 excerpt: "Discover the deep meaning of the 1st house lord in the 2nd house in Vedic astrology. Explore personality, wealth, family karma, speech, health, body marks, relationships, self-worth, emotional psychology, and spiritual lessons."

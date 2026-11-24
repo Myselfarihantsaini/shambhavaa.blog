@@ -1,5 +1,7 @@
 ---
 title: "1st Lord Venus in All 12 Houses: Taurus and Libra Lagna Vedic Astrology"
+seoTitle: "Lagna Lord Venus in 12 Houses (Taurus, Libra Lagna)"
+description: "Venus as Ascendant lord for Taurus and Libra rising, house by house: personality, relationships, money and health in each placement."
 date: "2026-05-27T07:30:00.000Z"
 trending: true
 excerpt: "Deep Vedic astrology analysis of 1st lord Venus in all 12 houses for Taurus Lagna and Libra Lagna, including personality, marriage, career, wealth, health, dasha timing, transit triggers, and prediction rules."

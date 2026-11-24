@@ -1,5 +1,7 @@
 ---
 title: "The Nature of Aries: Understanding the Fire of Mesha Rashi in Vedic Astrology"
+seoTitle: "Aries (Mesha Rashi) Nature in Vedic Astrology"
+description: "The temperament of Aries Moon or Lagna in Vedic astrology: drive, anger, independence, love and work patterns, and how Mars shapes Mesha."
 date: "2026-08-20T00:00:00.000Z"
 trending: true
 excerpt: "A deep Vedic astrology guide to Aries, or Mesha Rashi, covering Mars, fire, courage, anger, independence, leadership, love, work, money, friendship, confidence, and the spiritual lesson of disciplined action."

@@ -1,5 +1,7 @@
 ---
 title: "Venus in the 8th House in Vedic Astrology: Love, Trust, Privacy and Shared Karma"
+seoTitle: "Venus in 8th House in Vedic Astrology"
+description: "Venus in the 8th house: intimacy, trust, privacy, inheritance and shared money, with how its sign and aspects change the results."
 date: "2026-06-03T00:30:00.000Z"
 trending: true
 excerpt: "Venus in the 8th house brings love into the field of trust, privacy, shared resources, hidden fears, transformation, spouse-related gains and relationship maturity. Learn how to judge this placement through D1, Navamsa, dasha and transit."

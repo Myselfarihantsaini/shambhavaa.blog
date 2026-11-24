@@ -1,5 +1,7 @@
 ---
 title: "Leo Horoscope 2026: January to December Deep Life Prediction"
+seoTitle: "Leo Horoscope 2026: January to December Forecast"
+description: "Leo 2026 Vedic horoscope from January to December: career, money, love, family and health, with the turning points of each month."
 date: "2026-05-18T12:00:00.000Z"
 trending: true
 excerpt: "Read the full Leo Horoscope 2026 prediction for January to December, including career, money, relationships, health, travel, confidence, validation, burnout, boundaries, and emotional maturity."

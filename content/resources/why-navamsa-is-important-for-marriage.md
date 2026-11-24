@@ -1,7 +1,7 @@
 ---
 title: "Why Navamsa Is Important for Marriage Prediction"
 date: "2026-05-31T10:02:47.000Z"
-description: "Understand the critical role of the Navamsa (D9) chart in Vedic astrology. Learn why marriage predictions cannot be made without analyzing this divisional chart."
+description: "Why astrologers check the Navamsa (D9) for marriage: the 7th house and Venus in D9, the D9 Lagna, and how it confirms or changes the D1 promise."
 ---
 
 # Why Navamsa Is Important for Marriage Prediction

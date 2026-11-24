@@ -1,5 +1,7 @@
 ---
 title: "How to Judge Mahadasha Results from D1, D9 and Transit"
+seoTitle: "How to Judge Mahadasha Results: D1, D9 and Transits"
+description: "A step-by-step method to predict a Mahadasha: the dasha lord in D1, its strength in D9, the houses it rules and the transits that trigger it."
 date: "2026-05-12T12:00:00.000Z"
 trending: true
 excerpt: "Learn how to judge Mahadasha results through D1 natal promise, D9 Navamsha strength, transit activation, antardasha influence, house lordship, dignity, aspects, and conjunctions."
@@ -222,3 +224,9 @@ When all these factors agree, the prediction becomes stronger.
 When they contradict each other, the astrologer must speak carefully and explain nuance.
 
 That is the difference between serious dasha reading and generic prediction.
+
+## Related guides on Shambhavaa
+
+- Read about [why dasha and transit must be read together](/resources/why-dasha-and-transit-must-be-read-together/).
+- Read about [Sun Mahadasha effects](/sun/surya-dasha-effects-sun-mahadasha/).
+- Read about [the change from Ketu to Venus Mahadasha](/ketu/ketu-mahadasha-to-venus-mahadasha/).

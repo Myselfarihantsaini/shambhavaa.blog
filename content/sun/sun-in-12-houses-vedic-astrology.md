@@ -1,5 +1,7 @@
 ---
 title: "Sun in the 12 Houses in Vedic Astrology: Identity, Ego, Purpose, and the Psychology of Recognition"
+seoTitle: "Sun in the 12 Houses in Vedic Astrology"
+description: "The Sun in each house from 1st to 12th: identity, ego, authority, the father and where you seek recognition, explained house by house."
 date: "2026-05-09T12:00:00.000Z"
 trending: true
 excerpt: "Explore the deeper meaning of the Sun in all 12 houses through Vedic astrology, psychological insight, and spiritual interpretation. Understand ego, identity, confidence, and soul purpose."

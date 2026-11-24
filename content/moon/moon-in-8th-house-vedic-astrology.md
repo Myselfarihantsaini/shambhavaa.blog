@@ -1,5 +1,7 @@
 ---
 title: "Moon in the 8th House in Vedic Astrology: Deep Prediction, Hidden Emotions and Karmic Transformation"
+seoTitle: "Moon in 8th House in Vedic Astrology"
+description: "Moon in the 8th house: emotional depth, secrecy, sudden change, the mother and inner security, with what the sign and aspects add."
 date: "2026-05-28T00:30:00.000Z"
 trending: true
 excerpt: "Moon in the 8th house gives hidden emotions, sudden changes, deep intuition, psychological transformation, occult interest, relationship intensity, health sensitivity, and karmic emotional rebirth when judged through D1, dasha, transit and divisional confirmation."

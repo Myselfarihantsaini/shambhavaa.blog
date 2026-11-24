@@ -1,5 +1,7 @@
 ---
 title: "Saturn in Pisces in Vedic Astrology: Emotional Sensitivity, Boundaries, Karma, and Spiritual Maturity"
+seoTitle: "Saturn in Pisces in Vedic Astrology"
+description: "Saturn in Pisces: emotional sensitivity, boundaries, spiritual discipline and karma, and how this placement shapes the way you carry responsibility."
 date: "2026-05-15T12:00:00.000Z"
 trending: true
 excerpt: "Understand Saturn in Pisces in Vedic astrology through emotional sensitivity, psychological exhaustion, boundaries, escapism, relationships, spirituality, karma, and Saturn transit lessons."

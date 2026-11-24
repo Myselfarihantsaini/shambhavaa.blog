@@ -1,5 +1,7 @@
 ---
 title: "Why Vedic Astrology Matters: Karma, Timing and Chart Reading Explained"
+seoTitle: "Why Vedic Astrology Still Matters"
+description: "What Vedic astrology offers today: karma, timing through dashas and transits, and careful chart reading instead of fear-based prediction."
 date: "2026-05-27T04:00:00.000Z"
 trending: true
 excerpt: "Learn why Vedic astrology is more than prediction. Understand D1 chart, divisional charts, dasha, transit, karma, remedies, and how a serious chart reading works."

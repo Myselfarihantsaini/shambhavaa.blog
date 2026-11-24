@@ -27,10 +27,11 @@ for (const category of fs.readdirSync(contentDir)) {
     if (!data.title) errors.push(`${rel}: missing title`);
     if (category !== 'trust') {
       if (!data.date || Number.isNaN(new Date(data.date).getTime())) errors.push(`${rel}: missing or invalid date`);
-      const summary = data.excerpt || data.description || '';
+      const summary = data.description || data.excerpt || '';
       if (!summary) warnings.push(`${rel}: add an excerpt (shown in Google results and cards)`);
-      else if (summary.length > 170) warnings.push(`${rel}: excerpt is ${summary.length} characters; Google shows about 155`);
-      if (String(data.title || '').length > 70) warnings.push(`${rel}: title is ${data.title.length} characters; keep under ~65 for Google`);
+      else if (summary.length > 170) warnings.push(`${rel}: excerpt is ${summary.length} characters; Google shows about 155 (add a shorter description)`);
+      const seo = String(data.seoTitle || data.title || '');
+      if (seo.length > 65) warnings.push(`${rel}: title is ${seo.length} characters; add a shorter seoTitle (under ~60) for Google`);
     }
     if (data.image && !exists(data.image)) errors.push(`${rel}: image "${data.image}" does not exist in public/`);
     const imgs = [...content.matchAll(/!\[([^\]]*)\]\(([^)\s]+)\)/g), ...content.matchAll(/<img[^>]*src="([^"]+)"/g)];

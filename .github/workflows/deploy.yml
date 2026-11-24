@@ -47,3 +47,19 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  notify-search-engines:
+    if: github.event_name != 'pull_request'
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: artifact
+      - name: Unpack site
+        run: mkdir -p out && tar -xf artifact/artifact.tar -C out
+      - name: Ping IndexNow (Bing, Yandex, Seznam, Naver)
+        run: node scripts/indexnow.mjs || true
+        continue-on-error: true

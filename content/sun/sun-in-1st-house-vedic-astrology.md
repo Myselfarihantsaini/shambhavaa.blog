@@ -1,5 +1,7 @@
 ---
 title: "Sun in the 1st House in Vedic Astrology: Identity, Ego, and the Psychology of Becoming"
+seoTitle: "Sun in 1st House in Vedic Astrology"
+description: "Sun in the 1st house: confidence, leadership, ego and health, how the sign changes it, and the lessons this placement brings."
 date: "2026-05-10T12:00:00.000Z"
 trending: true
 excerpt: "Explore Sun in the 1st house in Vedic astrology through identity, ego, father karma, ambition, visibility, relationships, Lal Kitab insights, and spiritual evolution."
@@ -458,3 +460,9 @@ or becomes illumination.
 Because the highest purpose of the Sun is not merely to be seen.
 
 It is to become conscious enough to bring light wherever it exists.
+
+## Related guides on Shambhavaa
+
+- Read about [the Sun in all 12 houses](/sun/sun-in-12-houses-vedic-astrology/).
+- Read about [Sun and Venus together in the 1st house](/sun/sun-and-venus-in-1st-house/).
+- Read about [Sun Mahadasha effects](/sun/surya-dasha-effects-sun-mahadasha/).

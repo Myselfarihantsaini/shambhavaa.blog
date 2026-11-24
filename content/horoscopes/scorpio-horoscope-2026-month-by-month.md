@@ -1,5 +1,7 @@
 ---
 title: "Scorpio Horoscope 2026: The Year Emotional Power Stops Controlling You"
+seoTitle: "Scorpio Horoscope 2026: Month-by-Month Forecast"
+description: "Scorpio 2026 Vedic horoscope month by month: career, money, love and health, and why this is a year to let go of control."
 date: "2026-05-18T12:30:00.000Z"
 trending: true
 excerpt: "Read the full Scorpio Horoscope 2026 month-by-month prediction for career, money, relationships, health, travel, emotional power, trust, emotional closeness, obsession, boundaries, and psychological transformation."

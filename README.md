@@ -9,7 +9,7 @@ The Shambhavaa Vedic astrology journal. A static Next.js site, built from Markdo
 | Write or edit an article from the browser | [docs/ADMIN-GUIDE.md](docs/ADMIN-GUIDE.md) |
 | Know how an article should be structured | [docs/CONTENT-GUIDE.md](docs/CONTENT-GUIDE.md) |
 | Finish Google / AdSense setup | [docs/LAUNCH-CHECKLIST.md](docs/LAUNCH-CHECKLIST.md) |
-| Get more visitors and backlinks | [docs/GROWTH-AND-BACKLINKS.md](docs/GROWTH-AND-BACKLINKS.md) |
+| Get more visitors and backlinks | [docs/GROWTH-AND-BACKLINKS.md](docs/GROWTH-AND-BACKLINKS.md) and [docs/OUTREACH-KIT.md](docs/OUTREACH-KIT.md) |
 
 ## How it works
 

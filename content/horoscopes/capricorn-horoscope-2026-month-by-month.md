@@ -1,5 +1,7 @@
 ---
 title: "Capricorn Horoscope 2026: Month-by-Month Deep Life Prediction"
+seoTitle: "Capricorn Horoscope 2026: Month-by-Month Forecast"
+description: "Capricorn 2026 Vedic horoscope month by month: career, finances, relationships and health, and where the year asks for patience."
 date: "2026-05-17T13:00:00.000Z"
 trending: true
 excerpt: "Read the full Capricorn Horoscope 2026 month-by-month prediction for career, money, relationships, health, travel, emotional pressure, burnout, boundaries, and inner stability."

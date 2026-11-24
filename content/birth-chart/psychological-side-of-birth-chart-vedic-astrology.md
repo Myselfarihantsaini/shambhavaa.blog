@@ -1,5 +1,7 @@
 ---
 title: "The Psychological Side of the Birth Chart: deep emotional imprint, Attachment, Karma, and Human Behavior"
+seoTitle: "Psychology of the Birth Chart in Vedic Astrology"
+description: "How the kundli maps emotional imprints, attachment and karma: reading the Moon, Lagna and key houses as a picture of how you think and relate."
 date: "2026-05-13T12:00:00.000Z"
 trending: true
 excerpt: "Explore the psychological side of the Vedic birth chart through deep emotional imprint patterns, attachment wounds, karma, Scorpio Moon, Moon-Saturn, Rahu, Ketu, 12th house placements, Saturn, and Jupiter."

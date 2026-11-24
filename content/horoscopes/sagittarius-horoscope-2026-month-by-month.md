@@ -1,5 +1,7 @@
 ---
 title: "Sagittarius Horoscope 2026: The Year Freedom Stops Meaning Emotional Escape"
+seoTitle: "Sagittarius Horoscope 2026: Month-by-Month Forecast"
+description: "Sagittarius 2026 Vedic forecast month by month: career, money, relationships and health, and the transits that turn freedom into focus."
 date: "2026-05-18T14:30:00.000Z"
 trending: true
 excerpt: "Read the full Sagittarius Horoscope 2026 month-by-month prediction for career, money, relationships, health, travel, freedom, purpose, emotional honesty, burnout, expansion, and inner peace."

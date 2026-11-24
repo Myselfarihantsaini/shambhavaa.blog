@@ -1,5 +1,7 @@
 ---
 title: "3-6-10-11 House Connection in Kundali: Career Growth Through Effort, Competition and Gains"
+seoTitle: "3-6-10-11 House Connection for Career Growth"
+description: "Why the 3rd, 6th, 10th and 11th houses (upachayas) show career growth through effort and competition, and how to read them in a kundli."
 date: "2026-06-08T00:00:00.000Z"
 trending: true
 excerpt: "A deep Vedic astrology guide to the 3-6-10-11 house connection for career growth, job success, promotion, competition, income, business, D10 confirmation, dasha timing, transit triggers and practical remedies."

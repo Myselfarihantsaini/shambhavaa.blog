@@ -1,5 +1,7 @@
 ---
 title: "What Happens When Ketu Mahadasha Ends and Venus Mahadasha Begins?"
+seoTitle: "Ketu Mahadasha to Venus Mahadasha: What Changes"
+description: "What happens when Ketu dasha ends and Venus dasha begins: the shift in relationships, money and comfort, and how to judge it from your chart."
 date: "2026-05-12T12:00:00.000Z"
 trending: true
 excerpt: "Explore the deep psychological and spiritual transition from Ketu Mahadasha to Venus Mahadasha in Vedic astrology. Understand relationships, identity, finances, emotional healing, karmic shifts, desire, love, and life transformation."
@@ -436,3 +438,9 @@ And somewhere in that process, the soul begins learning one of astrology's deepe
 Detachment alone is not wholeness.
 
 True maturity is the ability to love consciously without becoming imprisoned by what you love.
+
+## Related guides on Shambhavaa
+
+- Read about [Ketu in all 12 houses](/ketu/ketu-in-all-12-houses-vedic-astrology/).
+- Read about [how to judge Mahadasha results from D1, D9 and transits](/mahadasha/how-to-judge-mahadasha-results-from-d1-d9-and-transit/).
+- Read about [Venus in the 8th house](/venus/venus-in-8th-house-vedic-astrology/).

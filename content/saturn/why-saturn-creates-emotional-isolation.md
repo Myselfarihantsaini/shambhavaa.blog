@@ -1,5 +1,6 @@
 ---
 title: "Why Saturn Creates Emotional Isolation - The Deep Psychological Mechanics of Saturn in Vedic Astrology"
+seoTitle: "Why Saturn Creates Emotional Isolation"
 date: "2026-05-08T12:00:00.000Z"
 trending: true
 excerpt: "Saturn does not make a person emotionless. It teaches emotional self-containment so deeply that loneliness can start to feel normal."

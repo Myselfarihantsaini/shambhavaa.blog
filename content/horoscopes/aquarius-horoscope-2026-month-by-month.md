@@ -1,5 +1,7 @@
 ---
 title: "Aquarius Horoscope 2026: Month-by-Month Deep Life Prediction"
+seoTitle: "Aquarius Horoscope 2026: Month-by-Month Forecast"
+description: "Aquarius 2026 Vedic horoscope month by month: career, money, love, family and health, with the main themes and turning points of each phase of the year."
 date: "2026-05-17T12:00:00.000Z"
 trending: true
 excerpt: "Read the full Aquarius Horoscope 2026 month-by-month prediction for career, money, relationships, health, travel, emotional healing, boundaries, burnout, and spiritual growth."
