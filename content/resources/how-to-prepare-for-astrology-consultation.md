@@ -1,5 +1,6 @@
 ---
 title: "How to Prepare for an Astrology Consultation"
+date: "2026-05-31T10:02:47.000Z"
 description: "Maximize the value of your Vedic astrology reading. Learn how to prepare your birth details, formulate clear questions, and set the right expectations."
 ---
 

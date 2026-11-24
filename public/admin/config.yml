@@ -1,52 +1,1638 @@
+# Shambhavaa editor configuration (Sveltia CMS / Decap CMS format).
+# Open https://shambhavaa.blog/admin/ and sign in with a GitHub token. Guide: docs/ADMIN-GUIDE.md
+
 backend:
   name: github
   repo: Myselfarihantsaini/shambhavaa.blog
   branch: main
+  commit_messages:
+    create: 'Publish “{{slug}}” in {{collection}}'
+    update: 'Update “{{slug}}” in {{collection}}'
+    delete: 'Delete “{{slug}}” from {{collection}}'
+    uploadMedia: 'Upload image {{path}}'
+    deleteMedia: 'Delete image {{path}}'
 
-media_folder: "public/images/uploads"
-public_folder: "/images/uploads"
+# For local editing: run `npm run dev`, open http://localhost:3000/admin/ and choose
+# "Work with Local Repository" on the login screen.
+
+site_url: https://shambhavaa.blog
+display_url: https://shambhavaa.blog
+logo_url: /images/brand/icon-192.png
+locale: en
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+media_libraries:
+  default:
+    config:
+      max_file_size: 600000   # 600 KB. Export photos as WebP or JPG, 1600 px wide.
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1600
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
 
 collections:
-  - name: "saturn"
-    label: "Saturn Guide"
-    folder: "content/saturn"
+  - name: sun
+    label: 'Sun'
+    folder: content/sun
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/sun/{{slug}}/'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-
-  - name: "rahu"
-    label: "Rahu Insights"
-    folder: "content/rahu"
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: moon
+    label: 'Moon'
+    folder: content/moon
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/moon/{{slug}}/'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-
-  - name: "nakshatra"
-    label: "Nakshatra Psychology"
-    folder: "content/nakshatra"
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: mars
+    label: 'Mars'
+    folder: content/mars
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/mars/{{slug}}/'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-
-  - name: "mahadasha"
-    label: "Mahadasha Guides"
-    folder: "content/mahadasha"
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: mercury
+    label: 'Mercury'
+    folder: content/mercury
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/mercury/{{slug}}/'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: jupiter
+    label: 'Jupiter'
+    folder: content/jupiter
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/jupiter/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: venus
+    label: 'Venus'
+    folder: content/venus
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/venus/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: saturn
+    label: 'Saturn'
+    folder: content/saturn
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/saturn/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: rahu
+    label: 'Rahu'
+    folder: content/rahu
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/rahu/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: ketu
+    label: 'Ketu'
+    folder: content/ketu
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/ketu/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: house-lords
+    label: 'House Lords'
+    folder: content/house-lords
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/house-lords/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: mahadasha
+    label: 'Mahadasha'
+    folder: content/mahadasha
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/mahadasha/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: divisional-charts
+    label: 'Divisional Charts'
+    folder: content/divisional-charts
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/divisional-charts/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: birth-chart
+    label: 'Birth Chart'
+    folder: content/birth-chart
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/birth-chart/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: nakshatra
+    label: 'Nakshatra'
+    folder: content/nakshatra
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/nakshatra/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: horoscopes
+    label: 'Horoscopes'
+    folder: content/horoscopes
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/horoscopes/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: resources
+    label: 'Learn Astrology'
+    folder: content/resources
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/resources/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'
+  - name: services
+    label: 'Consultation pages'
+    folder: content/services
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    sortable_fields: [date, title]
+    summary: '{{title}}'
+    preview_path: '/services/{{slug}}/'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: 'Shown as the headline and in Google. Aim for 50–65 characters. Put the main search phrase first, e.g. “Saturn in 7th House: Marriage, Delay and Commitment”.'
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        time_format: 'HH:mm'
+        picker_utc: true
+      - label: Last updated (only for real edits)
+        name: updatedDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'
+        picker_utc: true
+        required: false
+        hint: 'Set this only when you change the substance of the article. Do not bump it for typo fixes.'
+      - label: Summary
+        name: excerpt
+        widget: text
+        hint: 'One or two sentences, 120–155 characters. Used as the Google description and on article cards.'
+        pattern: ['^[\s\S]{40,170}$', 'Write between 40 and 170 characters.']
+      - label: Featured on home page
+        name: trending
+        widget: boolean
+        default: false
+        required: false
+      - label: Cover image
+        name: image
+        widget: image
+        required: false
+        hint: 'A real photograph or your own artwork, landscape, at least 1200×675 px. No text written on the image. Avoid AI-looking fantasy art.'
+      - label: Cover image description (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+        hint: 'Describe what is in the picture for blind readers and Google, e.g. “Saturn photographed by the Cassini spacecraft”.'
+      - label: Image credit
+        name: imageCredit
+        widget: string
+        required: false
+        hint: 'Photographer or source, e.g. “NASA/JPL-Caltech”. Required for any image you did not make yourself.'
+      - label: Search phrases (keywords)
+        name: keywords
+        widget: list
+        required: false
+        hint: '3–6 phrases people actually search, e.g. “saturn in 7th house”, “shani in seventh house”. Phrases shared by 2+ articles become topic pages.'
+      - label: In short (quick answer)
+        name: tldr
+        widget: text
+        required: false
+        hint: '2–3 sentences that directly answer the question in the title. Shown in a box at the top.'
+      - label: Key points
+        name: keyTakeaways
+        widget: list
+        required: false
+      - label: FAQs
+        name: faqs
+        widget: list
+        required: false
+        hint: '3–6 real questions readers ask, each with a 2–4 sentence answer. These can appear in Google results.'
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: SEO title (optional)
+        name: seoTitle
+        widget: string
+        required: false
+        hint: 'Only if the headline is longer than 65 characters: a shorter version for Google.'
+      - label: Hide from Google (noindex)
+        name: noindex
+        widget: boolean
+        default: false
+        required: false
+      - label: Draft (not published)
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Start with 2–3 short paragraphs that answer the question. Use “Heading 2” for main sections and “Heading 3” inside them. Link to 2–4 related Shambhavaa articles.'

@@ -1,80 +1,52 @@
-import glossaryData from '../../data/glossary.json';
-import SEO from '../../components/SEO';
+import glossary from '../../data/glossary.json';
+import StaticPage from '../../components/StaticPage';
+import { pageMeta, abs } from '../../lib/seo';
+import { tagSlug } from '../../lib/seo';
 
-export const metadata = {
-  title: 'Vedic Astrology Glossary | Key Terms Explained | Shambhavaa',
-  description: 'A comprehensive glossary of Vedic astrology terms — Nakshatra, Mahadasha, Rahu, Ketu, Sade Sati, Atmakaraka, and more. Clear definitions for students and seekers.',
-  alternates: {
-    canonical: 'https://shambhavaa.blog/glossary/',
-  },
-  openGraph: {
-    title: 'Vedic Astrology Glossary | Shambhavaa',
-    description: 'Key Vedic astrology terms clearly defined — Nakshatra, Mahadasha, Rahu, Ketu, Sade Sati, and more.',
-    url: 'https://shambhavaa.blog/glossary/',
-    siteName: 'Shambhavaa',
-    images: [{ url: 'https://shambhavaa.blog/images/og-default.jpg', width: 1200, height: 630, alt: 'Vedic Astrology Glossary' }],
-  },
-};
+export const metadata = pageMeta({
+  title: 'Vedic Astrology Glossary',
+  description: 'Plain-English definitions of Vedic astrology terms: nakshatra, mahadasha, Rahu, Ketu, Sade Sati, Atmakaraka, Lagna and more.',
+  path: '/glossary/',
+});
 
 export default function GlossaryPage() {
-  const sortedGlossary = [...glossaryData].sort((a, b) => a.term.localeCompare(b.term));
-
-  const glossarySchema = [
-    {
-      "@context": "https://schema.org",
-      "@type": "DefinedTermSet",
-      "name": "Vedic Astrology Glossary",
-      "description": "A guide to the deep terminology of Vedic astrology and spiritual psychology.",
-      "url": "https://shambhavaa.blog/glossary/",
-      "inLanguage": "en-US",
-      "hasDefinedTerm": sortedGlossary.map(item => ({
-        "@type": "DefinedTerm",
-        "name": item.term,
-        "description": item.definition,
-        "inDefinedTermSet": "https://shambhavaa.blog/glossary/"
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shambhavaa.blog" },
-        { "@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://shambhavaa.blog/glossary/" }
-      ]
-    }
-  ];
-
+  const terms = [...glossary].sort((a, b) => a.term.localeCompare(b.term));
+  const letters = Array.from(new Set(terms.map((t) => t.term[0].toUpperCase())));
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    name: 'Vedic astrology glossary',
+    url: abs('/glossary/'),
+    hasDefinedTerm: terms.map((t) => ({
+      '@type': 'DefinedTerm',
+      name: t.term,
+      description: t.definition,
+      url: abs(`/glossary/#${tagSlug(t.term)}`),
+    })),
+  };
   return (
-    <div className="container" style={{ padding: '4rem 1rem', maxWidth: '900px' }}>
-      <SEO schema={glossarySchema} />
-      <h1 className="text-gold" style={{ fontSize: '3rem', marginBottom: '2rem', textAlign: 'center' }}>
-        Astrology Glossary
-      </h1>
-      <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '4rem', fontSize: '1.2rem' }}>
-        A guide to the deep terminology of Vedic astrology and spiritual psychology.
-      </p>
-
-      <div style={{ display: 'grid', gap: '2rem' }}>
-        {sortedGlossary.map((item, index) => (
-          <div 
-            key={index} 
-            style={{ 
-              padding: '2rem', 
-              background: 'var(--card-bg)', 
-              borderRadius: '12px', 
-              border: '1px solid var(--border-color)',
-              transition: 'transform 0.3s ease, border-color 0.3s ease'
-            }}
-          >
-            <h3 style={{ color: 'var(--accent-gold)', fontSize: '1.5rem', marginBottom: '1rem' }}>
-              {item.term}
-            </h3>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', fontSize: '1.1rem' }}>
-              {item.definition}
-            </p>
-          </div>
+    <StaticPage
+      title="Glossary"
+      path="/glossary/"
+      intro="Short definitions of the Sanskrit and technical terms used across Shambhavaa."
+      schema={schema}
+    >
+      <nav className="alpha" aria-label="Jump to letter">
+        {letters.map((l) => (
+          <a key={l} href={`#letter-${l}`}>{l}</a>
         ))}
-      </div>
-    </div>
+      </nav>
+      <dl className="glossary">
+        {terms.map((t, i) => {
+          const first = i === 0 || terms[i - 1].term[0].toUpperCase() !== t.term[0].toUpperCase();
+          return (
+            <div key={t.term} id={first ? `letter-${t.term[0].toUpperCase()}` : undefined}>
+              <dt id={tagSlug(t.term)}>{t.term}</dt>
+              <dd>{t.definition}</dd>
+            </div>
+          );
+        })}
+      </dl>
+    </StaticPage>
   );
 }

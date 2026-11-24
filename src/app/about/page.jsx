@@ -1,106 +1,77 @@
-import React from 'react';
-import SEO from '../../components/SEO';
+import StaticPage from '../../components/StaticPage';
+import { pageMeta, personSchema, abs } from '../../lib/seo';
+import { bookingHref, BOOKING, SOCIAL } from '../../config/site';
 
-export const metadata = {
-  title: 'About Shambhavaa | The Psychology of Vedic Astrology',
-  description: 'Learn about the philosophy, methodology, and founder of Shambhavaa—a publication dedicated to deep Vedic astrology and spiritual transformation.',
-  alternates: {
-    canonical: 'https://shambhavaa.blog/about/',
-  },
-  openGraph: {
-    title: 'About Shambhavaa | The Psychology of Vedic Astrology',
-    description: 'Learn about the philosophy, methodology, and founder of Shambhavaa.',
-    url: 'https://shambhavaa.blog/about/',
-    siteName: 'Shambhavaa',
-    images: [{ url: 'https://shambhavaa.blog/images/og-default.jpg', width: 1200, height: 630, alt: 'About Shambhavaa' }],
-  },
+export const metadata = pageMeta({
+  title: 'About Shambhavaa and Arihant Saini',
+  description: 'Who writes Shambhavaa, how the articles approach Vedic astrology, and what readers can and cannot expect from them.',
+  path: '/about/',
+  type: 'profile',
+});
+
+const profile = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: abs('/about/'),
+  name: 'About Arihant Saini',
+  mainEntity: personSchema,
 };
-
-const aboutSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "name": "About Arihant Saini — Shambhavaa",
-    "url": "https://shambhavaa.blog/about/",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Arihant Saini",
-      "jobTitle": "Vedic Astrologer",
-      "description": "Arihant Saini is the founder of Shambhavaa, a Vedic astrologer dedicated to removing fear-based narratives from astrology and replacing them with psychological depth and spiritual empowerment.",
-      "url": "https://shambhavaa.blog/about",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Shambhavaa",
-        "url": "https://shambhavaa.blog"
-      },
-      "sameAs": [
-        "https://www.instagram.com/sham_bhavaa/",
-        "https://www.threads.com/myself_arihant",
-        "https://www.tumblr.com/shambhava"
-      ]
-    }
-  }
-];
 
 export default function AboutPage() {
   return (
-    <div className="container" style={{ padding: 'var(--spacing-lg) 0', maxWidth: '800px' }}>
-      <SEO schema={aboutSchema} />
-      <section className="animate-fade-in">
-        <h1 className="text-gold" style={{ fontSize: '3rem', marginBottom: 'var(--spacing-md)' }}>The Path of Shambhavaa</h1>
-        
-        <div className="article-content">
-          <p>
-            Shambhavaa was born out of a singular necessity: to bridge the gap between ancient Vedic wisdom and modern psychological depth. 
-            In a world saturated with generic horoscopes and superficial predictions, Shambhavaa serves as a sanctuary for those seeking 
-            the <strong>authentic architecture of the soul</strong>.
-          </p>
+    <StaticPage
+      title="About Shambhavaa"
+      path="/about/"
+      intro="A Vedic astrology journal written by Arihant Saini, for readers who want to understand their chart rather than fear it."
+      schema={profile}
+    >
+      <h2 id="arihant-saini">Who writes it</h2>
+      <p>
+        Shambhavaa is written and edited by <strong>Arihant Saini</strong>, a Vedic astrologer who also reads
+        charts privately through <a href={bookingHref('about')}>{BOOKING.host}</a>. The articles grow out
+        of the questions people bring to those readings: why a dasha feels the way it does, what a house lord
+        is doing in a difficult house, how marriage or career timing is actually judged.
+      </p>
 
-          <blockquote>
-            "Astrology is not a map of what will happen to you; it is a map of who you are becoming."
-          </blockquote>
+      <h2>How the articles approach astrology</h2>
+      <p>
+        The site follows the Parashari tradition. A placement is never read on its own: the house, its lord,
+        the sign, aspects, the nakshatra, the dasha running and the transits all change what a planet can
+        give. That is why most guides end by pointing back to the full chart.
+      </p>
+      <ul>
+        <li><strong>No fear.</strong> We do not predict death, accidents or illness, and we do not label people by a single placement.</li>
+        <li><strong>No remedy selling.</strong> Gemstones and rituals are discussed as traditions, never as purchases you must make.</li>
+        <li><strong>Plain language.</strong> Sanskrit terms are explained the first time they appear, and the <a href="/glossary/">glossary</a> collects them.</li>
+        <li><strong>Corrections welcome.</strong> If something is wrong, tell us and it will be fixed, with the update date shown on the article.</li>
+      </ul>
+      <p>
+        Read more in the <a href="/editorial-policy/">editorial policy</a> and the{' '}
+        <a href="/consultation-ethics/">consultation ethics</a>.
+      </p>
 
-          <h2 className="text-gold">Our Philosophy</h2>
-          <p>
-            We believe that the movements of the planets are not just celestial events, but reflections of internal psychological archetypes. 
-            Vedic astrology (Jyotish) is the "Science of Light," designed to illuminate the dark corners of the subconscious mind. 
-            Our approach is <strong>non-fatalistic, evolutionary, and psychologically grounded</strong>.
-          </p>
+      <h2>What you will find here</h2>
+      <ul>
+        <li><a href="/planets/">Planet guides</a> — each graha, house by house.</li>
+        <li><a href="/house-lords/">House lords</a> and <a href="/mahadasha/">dasha</a> method.</li>
+        <li><a href="/horoscopes/">Horoscope 2026</a> — month-by-month forecasts by sign.</li>
+        <li><a href="/tools/kundli-chart/">A free kundli generator</a> that runs in your browser.</li>
+      </ul>
 
-          <h2 className="text-gold">The Methodology</h2>
-          <p>
-            At Shambhavaa, we utilize a multi-layered interpretive framework:
-          </p>
-          <ul>
-            <li><strong>Karmic Analysis:</strong> Understanding the Saturnian lessons and Rahu-Ketu axis that define the soul's current trajectory.</li>
-            <li><strong>Nakshatra Psychology:</strong> Diving into the 27 lunar mansions to uncover deep-seated emotional patterns and hidden talents.</li>
-            <li><strong>Shadow Work:</strong> Using the placement of the "malefics" not as threats, but as opportunities for profound psychological integration.</li>
-            <li><strong>Predictive Wisdom:</strong> Analyzing Mahadashas and Transits as seasons of growth rather than rigid destiny.</li>
-          </ul>
-
-          <h2 className="text-gold">The Founder</h2>
-          <p>
-            Shambhavaa was founded by <strong>Arihant Saini</strong>, a dedicated practitioner of Vedic astrology with years of experience 
-            in psychological analysis and spiritual counseling. His work focuses on removing the "fear-based" narrative often found in 
-            traditional astrology and replacing it with empowerment, clarity, and self-awareness.
-          </p>
-          <p>
-            Arihant's research philosophy is rooted in the belief that astrology is a tool for <strong>radical responsibility</strong>. 
-            By understanding our cosmic blueprint, we stop being victims of "fate" and start being co-creators of our reality.
-          </p>
-
-          <h2 className="text-gold">Research & Ethics</h2>
-          <p>
-            Every insight published on Shambhavaa is the result of rigorous study of classical texts (Bṛhat Parāśara Horāśāstra, Phaladeepika) 
-            synthesized with contemporary psychological insights. We maintain a strict ethical standard: we do not provide "miracle cures" 
-            or fear-mongering predictions. Our goal is education and spiritual evolution.
-          </p>
-          
-          <div style={{ marginTop: 'var(--spacing-lg)', textAlign: 'center' }}>
-            <a href="/contact" className="btn btn-primary">Connect with Us</a>
-          </div>
-        </div>
-      </section>
-    </div>
+      <h2>Elsewhere</h2>
+      <ul>
+        {SOCIAL.map((s) => (
+          <li key={s.href}>
+            <a href={s.href} rel="me noopener noreferrer" target="_blank">{s.label}</a>
+          </li>
+        ))}
+      </ul>
+      <p>
+        <a className="btn btn--ink" href={bookingHref('about')} style={{ color: 'var(--paper)' }}>
+          {BOOKING.label}
+        </a>{' '}
+        <a href="/contact/" style={{ marginLeft: '1rem' }}>Contact</a>
+      </p>
+    </StaticPage>
   );
 }

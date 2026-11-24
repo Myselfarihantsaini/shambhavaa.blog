@@ -1,5 +1,6 @@
 ---
 title: "How Career Is Judged from Kundli"
+date: "2026-05-31T10:02:47.000Z"
 description: "A comprehensive guide on career astrology. Learn how the 10th house, 6th house, Amatyakaraka, and the D10 Dasamsa chart dictate your professional path."
 ---
 

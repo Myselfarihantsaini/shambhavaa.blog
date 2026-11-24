@@ -1,5 +1,6 @@
 ---
 title: "Astrology Remedies Consultation | Shambhavaa"
+date: "2026-05-31T10:02:47.000Z"
 description: "Discover practical and traditional Vedic astrology remedies. Learn about mantras, donations, and disciplines tailored to your specific birth chart."
 ---
 

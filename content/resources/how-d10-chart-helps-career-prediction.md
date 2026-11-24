@@ -1,5 +1,6 @@
 ---
 title: "How D10 Chart Helps Career Prediction"
+date: "2026-05-31T10:02:47.000Z"
 description: "Learn how the Dasamsa (D10) chart is used in Vedic astrology to predict career success, professional environment, and periods of massive achievement."
 ---
 

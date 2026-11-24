@@ -5,7 +5,7 @@ trending: true
 excerpt: "Explore the deep psychological and spiritual transition from Ketu Mahadasha to Venus Mahadasha in Vedic astrology. Understand relationships, identity, finances, emotional healing, karmic shifts, desire, love, and life transformation."
 ---
 
-![What Happens When Ketu Mahadasha Ends and Venus Mahadasha Begins?](/images/ketu/ketu-mahadasha-to-venus-mahadasha-hero.png)
+![What Happens When Ketu Mahadasha Ends and Venus Mahadasha Begins?](/images/ketu/ketu-mahadasha-to-venus-mahadasha-hero.webp)
 
 ## The Shift From Detachment to Desire
 

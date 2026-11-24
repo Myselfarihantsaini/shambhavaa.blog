@@ -1,5 +1,6 @@
 ---
 title: "Kundli Matching Consultation | Shambhavaa"
+date: "2026-05-31T10:02:47.000Z"
 description: "Go beyond basic points matching. Book a comprehensive Kundli Matching consultation to assess deep emotional, psychological, and karmic compatibility."
 ---
 

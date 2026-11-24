@@ -1,32 +1,12 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
-import { getPostBySlug } from '../../lib/posts';
+import TrustDoc from '../../components/TrustDoc';
+import { pageMeta } from '../../lib/seo';
 
-export const metadata = {
-  title: 'Refund and Cancellation Policy | Shambhavaa',
-  description: 'Understand the refund, cancellation, rescheduling, and no-show policies for astrology consultations at Shambhavaa.',
-  alternates: {
-    canonical: 'https://shambhavaa.blog/refund-cancellation-policy/',
-  },
-};
+export const metadata = pageMeta({
+  title: 'Refund and Cancellation Policy',
+  description: 'Refund, cancellation, rescheduling and no-show rules for Shambhavaa astrology consultations.',
+  path: '/refund-cancellation-policy/',
+});
 
-export default function RefundCancellationPolicyPage() {
-  const post = getPostBySlug('trust', 'refund-cancellation-policy');
-
-  return (
-    <div className="container" style={{ padding: 'var(--spacing-lg) 0', maxWidth: '800px' }}>
-      <section className="animate-fade-in">
-        <div className="article-content" style={{ fontSize: '0.95rem' }}>
-          <MDXRemote
-            source={post.content}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-              },
-            }}
-          />
-        </div>
-      </section>
-    </div>
-  );
+export default function Page() {
+  return <TrustDoc slug="refund-cancellation-policy" title="Refund and cancellation policy" path="/refund-cancellation-policy/" />;
 }

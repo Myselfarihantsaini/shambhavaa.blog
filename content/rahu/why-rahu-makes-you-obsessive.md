@@ -5,7 +5,7 @@ trending: true
 excerpt: "Rahu is more than just desire; it is appetite without satisfaction. Explore the deep psychological mechanics of obsession, worry, and emotional dependency under Rahu's influence."
 ---
 
-![Why Rahu Makes You Obsessive](/images/rahu/rahu-obsession-hero.png)
+![Why Rahu Makes You Obsessive](/images/rahu/rahu-obsession-hero.webp)
 
 Most people describe Rahu very superficially.
 
@@ -37,7 +37,7 @@ The person may fully understand logically that they are overthinking, emotionall
 
 ## The Symbolism of Rahu
 
-![The Symbolism of Rahu: A Head without a Body](/images/rahu/rahu-symbolism-head.png)
+![The Symbolism of Rahu: A Head without a Body](/images/rahu/rahu-symbolism-head.webp)
 
 The mythology of Rahu explains its psychology better than most modern interpretations.
 
@@ -100,7 +100,7 @@ This is why Rahu people often struggle with emotional regulation. Their inner st
 
 ## Identity Instability
 
-![Rahu and Identity Instability: The Mirror of Not Enough](/images/rahu/rahu-identity-instability.png)
+![Rahu and Identity Instability: The Mirror of Not Enough](/images/rahu/rahu-identity-instability.webp)
 
 One of Rahu’s deepest wounds is fear of insufficiency. Strong Rahu individuals frequently feel: *“Who I currently am is not enough.”*
 
@@ -125,7 +125,7 @@ But often, the native becomes attached to the emotional experience itself rather
 
 ## Rahu and Mental Restlessness
 
-![Rahu and Mental Restlessness: The Mental Loop](/images/rahu/rahu-mental-restlessness-loops.png)
+![Rahu and Mental Restlessness: The Mental Loop](/images/rahu/rahu-mental-restlessness-loops.webp)
 
 Rahu accelerates mental anticipation. The mind constantly scans future possibilities, hidden threats, and emotional risks. This creates chronic psychological tension.
 
@@ -156,7 +156,7 @@ The native often experiences identity transformation, obsessive relationships, m
 
 ## The Evolution of Rahu
 
-![The Evolution of Rahu: From Obsession to Visionary](/images/rahu/rahu-evolved-gift.png)
+![The Evolution of Rahu: From Obsession to Visionary](/images/rahu/rahu-evolved-gift.webp)
 
 Unevolved Rahu seeks endless stimulation. Evolved Rahu develops awareness around desire. 
 

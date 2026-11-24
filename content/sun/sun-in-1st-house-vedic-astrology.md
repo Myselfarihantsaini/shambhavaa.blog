@@ -5,7 +5,7 @@ trending: true
 excerpt: "Explore Sun in the 1st house in Vedic astrology through identity, ego, father karma, ambition, visibility, relationships, Lal Kitab insights, and spiritual evolution."
 ---
 
-![Sun in the 1st House in Vedic Astrology](/images/sun/sun-1st-house-identity-hero.png)
+![Sun in the 1st House in Vedic Astrology](/images/sun/sun-1st-house-identity-hero.webp)
 
 # Sun in the 1st House in Vedic Astrology
 ## The Burden of Identity, the Hunger for Significance, and the Psychology of Becoming

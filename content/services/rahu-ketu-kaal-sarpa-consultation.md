@@ -1,5 +1,6 @@
 ---
 title: "Rahu Ketu and Kaal Sarpa Consultation | Shambhavaa"
+date: "2026-05-31T10:02:47.000Z"
 description: "Understand your karmic axis with a Rahu Ketu and Kaal Sarpa Consultation. Move past fear-based interpretations and learn to navigate these powerful nodal energies."
 ---
 

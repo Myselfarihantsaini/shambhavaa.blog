@@ -1,5 +1,6 @@
 ---
 title: "Career Astrology Consultation | Shambhavaa"
+date: "2026-05-31T10:02:47.000Z"
 description: "Navigate professional blocks, promotions, and business timing with a structured Career Astrology Consultation analyzing the 10th house, D10 chart, and dashas."
 ---
 

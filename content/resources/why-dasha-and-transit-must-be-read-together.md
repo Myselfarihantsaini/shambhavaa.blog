@@ -1,5 +1,6 @@
 ---
 title: "Why Dasha and Transit Must Be Read Together"
+date: "2026-05-31T10:02:47.000Z"
 description: "Learn the mechanics of dasha and transit astrology. Understand why major life events only happen when Dasha periods and Gochar transits align perfectly."
 ---
 

@@ -1,8 +1,9 @@
-name: Deploy Next.js site to Pages
+name: Build and deploy to GitHub Pages
 
 on:
   push:
     branches: ["main"]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -11,47 +12,38 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+          node-version: "22"
+          cache: npm
+      - uses: actions/cache@v4
         with:
-          static_site_generator: next
-      - name: Restore cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-      - name: Install dependencies
-        run: npm install
-      - name: Build with Next.js
-        run: npm run build
-      - name: Upload artifact
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**', 'content/**') }}
+          restore-keys: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
+      - run: npm ci
+      # Fails the build if an article is missing a title/date or points to an image that does not exist.
+      - run: npm run build
+      - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
   deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4

@@ -1,5 +1,6 @@
 ---
 title: "How a Vedic Kundli Reading Works"
+date: "2026-05-31T10:02:47.000Z"
 description: "A comprehensive, beginner-friendly guide to understanding how a Vedic kundli reading works, from D1 chart analysis to dasha timelines."
 ---
 

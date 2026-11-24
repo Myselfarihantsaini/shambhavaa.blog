@@ -1,5 +1,6 @@
 ---
 title: "Why Astrology Remedies Need Full Chart Analysis"
+date: "2026-05-31T10:02:47.000Z"
 description: "Avoid dangerous generic astrology remedies. Learn why wearing gemstones or chanting mantras requires a comprehensive Vedic birth chart analysis."
 ---
 

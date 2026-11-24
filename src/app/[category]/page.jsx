@@ -1,160 +1,84 @@
-import { getAllPosts, getPostsByCategory } from '../../lib/posts';
-import SEO from '../../components/SEO';
-import fs from 'fs';
-import path from 'path';
-import { PLANETS, getPlanetLabel } from '../../data/planets';
-import { CATEGORY_DESCRIPTIONS } from '../../data/category-descriptions';
+import { getCategories, getPostsByCategory } from '../../lib/posts';
+import { topicInfo, PLANET_ORDER } from '../../data/topics';
+import { pageMeta, breadcrumbSchema, itemListSchema, faqSchema } from '../../lib/seo';
+import PostCard from '../../components/PostCard';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import JsonLd from '../../components/JsonLd';
 import FAQ from '../../components/FAQ';
-import TagList from '../../components/TagList';
-import { readAnchor } from '../../lib/anchors';
-import { SITE_URL, breadcrumbSchema, buildTags } from '../../lib/geo';
+import BookingCta from '../../components/BookingCta';
+import AdSlot from '../../components/AdSlot';
 
-export async function generateStaticParams() {
-  const contentDirectory = path.join(process.cwd(), 'content');
-  const planetCategories = PLANETS.map((planet) => planet.slug);
-  if (!fs.existsSync(contentDirectory)) {
-    return planetCategories.map(category => ({ category }));
-  }
-  
-  const contentCategories = fs.readdirSync(contentDirectory).filter(file => {
-    return fs.statSync(path.join(contentDirectory, file)).isDirectory();
-  });
-  const categories = Array.from(new Set([...contentCategories, ...planetCategories]));
+export const dynamicParams = false;
 
-  return categories.map(category => ({
-    category: category,
-  }));
+export function generateStaticParams() {
+  return Array.from(new Set([...getCategories(), ...PLANET_ORDER, 'nakshatra'])).map((category) => ({ category }));
+}
+
+function listed(category) {
+  return getPostsByCategory(category).filter((p) => category === 'trust' || !p.noindex);
 }
 
 export function generateMetadata({ params }) {
-  const { category } = params;
-  const posts = getPostsByCategory(category);
-  const label = getPlanetLabel(category) || category.charAt(0).toUpperCase() + category.slice(1);
-  const info = CATEGORY_DESCRIPTIONS[category];
-  const title = `${label} Astrology | Deep Spiritual Guides | Shambhavaa`;
-  const description = info ? info.description.substring(0, 160) : `Deep insights and spiritual guides on ${label} astrology.`;
-  const ogImage = 'https://shambhavaa.blog/images/og-default.jpg';
-
-  return {
-    title,
-    description,
-    robots: posts.length === 0 || category === 'trust' ? { index: false, follow: true } : undefined,
-    alternates: {
-      canonical: `https://shambhavaa.blog/${category}/`,
-    },
-    openGraph: {
-      title,
-      description,
-      type: 'website',
-      url: `https://shambhavaa.blog/${category}/`,
-      siteName: 'Shambhavaa',
-      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
+  const info = topicInfo(params.category);
+  const posts = listed(params.category);
+  const isServices = params.category === 'services';
+  return pageMeta({
+    title: isServices ? 'Vedic Astrology Consultations' : `${info.label} in Vedic Astrology — Guides`,
+    description: info.description || info.blurb,
+    path: `/${params.category}/`,
+    noindex: posts.length === 0 || params.category === 'trust',
+  });
 }
 
 export default function CategoryPage({ params }) {
   const { category } = params;
-  const posts = getPostsByCategory(category);
-  const label = getPlanetLabel(category) || category.charAt(0).toUpperCase() + category.slice(1);
-  const info = CATEGORY_DESCRIPTIONS[category];
-
-  const schema = [
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": `${label} Articles & Insights`,
-      "description": info?.description || `Authoritative guides on ${label} astrology.`,
-      "url": `${SITE_URL}/${category}/`,
-      "inLanguage": "en-US",
-    },
-    ...(posts.length > 0 ? [{
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": `${label} guides`,
-      "numberOfItems": posts.length,
-      "itemListElement": posts.map((post, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "url": `${SITE_URL}/${post.category}/${post.slug}/`,
-        "name": post.meta.title,
-      })),
-    }] : []),
-    breadcrumbSchema([
-      { name: 'Home', url: `${SITE_URL}/` },
-      { name: label, url: `${SITE_URL}/${category}/` },
-    ]),
-    ...(info?.faqs ? [{
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": info.faqs.map(f => ({
-        "@type": "Question",
-        "name": f.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.answer
-        }
-      }))
-    }] : [])
+  const info = topicInfo(category);
+  const posts = listed(category);
+  const isServices = category === 'services';
+  const trail = [
+    { name: 'Home', href: '/' },
+    ...(info.group === 'planet' ? [{ name: 'Planets', href: '/planets/' }] : []),
+    { name: info.label, href: `/${category}/` },
   ];
 
   return (
-    <div className="container" style={{ padding: 'var(--spacing-md) 0' }}>
-      <SEO schema={schema} />
-      
-      {/* Hero / Introduction Section */}
-      <section style={{ marginBottom: 'var(--spacing-lg)', borderBottom: '1px solid var(--border-color)', paddingBottom: 'var(--spacing-md)' }}>
-        <h1 style={{ color: 'var(--accent-gold)', fontSize: '3rem', marginBottom: '1.5rem' }}>
-          {info?.title || `${label} Insights`}
-        </h1>
-        <p style={{ 
-          color: 'var(--text-primary)', 
-          fontSize: '1.2rem', 
-          lineHeight: '1.8', 
-          maxWidth: '850px',
-          marginBottom: '2rem'
-        }}>
-          {info?.description || `Deep spiritual explorations and karmic analysis of ${label} in the Vedic system.`}
+    <div className="wrap">
+      <JsonLd
+        data={[
+          breadcrumbSchema(trail),
+          posts.length ? itemListSchema(`${info.label} guides`, posts) : null,
+          faqSchema(info.faqs),
+        ]}
+      />
+      <header className="page-head">
+        <Breadcrumbs trail={trail} />
+        <p className="kicker">{isServices ? 'Consultations' : `${posts.length} ${posts.length === 1 ? 'guide' : 'guides'}`}</p>
+        <h1>{info.title}</h1>
+        {info.description && <p>{info.description}</p>}
+      </header>
+
+      {posts.length === 0 ? (
+        <p style={{ padding: '2rem 0' }}>
+          No guides are published in this section yet. Browse <a href="/articles/">all articles</a> or the{' '}
+          <a href="/planets/">planet index</a>.
         </p>
-      </section>
+      ) : (
+        <div style={{ maxWidth: 900 }}>
+          {posts.map((p, i) => (
+            <div key={p.url}>
+              <PostCard post={p} variant="row" headingLevel={2} showImage={!isServices} />
+              {i === 3 && <AdSlot name="listing" />}
+            </div>
+          ))}
+        </div>
+      )}
 
-      {/* Articles Grid */}
-      <section style={{ marginBottom: 'var(--spacing-xl)' }}>
-        <h2 className="text-gold" style={{ marginBottom: '2rem' }}>Latest Guides</h2>
-        {posts.length === 0 ? (
-          <p style={{ color: 'var(--text-secondary)' }}>We are currently crafting deep research for this category. Stay tuned.</p>
-        ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
-            {posts.map(post => (
-              <div key={post.slug} className="card clickable-card" style={{ display: 'flex', flexDirection: 'column' }}>
-                <a href={`/${category}/${post.slug}/`} className="card-cover-link" aria-label={`Read ${post.meta.title}`} />
-                <TagList tags={buildTags(post).slice(0, 4)} compact />
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>{post.meta.title}</h3>
-                <p style={{ fontSize: '0.875rem', color: 'var(--accent-gold)', marginBottom: '1rem' }}>
-                  {post.meta.date && new Date(post.meta.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-                </p>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem', flex: 1 }}>
-                  {post.meta.excerpt}
-                </p>
-                <a href={`/${category}/${post.slug}/`} tabIndex={-1} aria-hidden="true" style={{ fontWeight: 'bold' }}>{readAnchor(post.meta.title)} &rarr;</a>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+      {isServices && <BookingCta variant="service" campaign="services-index" />}
 
-      {/* Category FAQ Section */}
-      {info?.faqs && (
-        <section style={{ marginTop: 'var(--spacing-xl)', background: 'rgba(20, 20, 35, 0.3)', padding: 'var(--spacing-md)', borderRadius: '12px' }}>
-          <h2 className="text-gold" style={{ marginBottom: '2rem' }}>Frequently Asked Questions</h2>
-          <FAQ items={info.faqs} />
-        </section>
+      {info.faqs.length > 0 && (
+        <div style={{ maxWidth: 760 }}>
+          <FAQ items={info.faqs} title={`${info.label}: common questions`} />
+        </div>
       )}
     </div>
   );

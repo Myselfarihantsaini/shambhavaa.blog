@@ -1,13 +1,19 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
-  <title>Shambhavaa | Blog Backend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Shambhavaa — Editor</title>
+  <link rel="icon" href="/favicon.ico" />
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!--
+    Content editor for shambhavaa.blog (Sveltia CMS, which reads Decap CMS config.yml).
+    Sign in with a GitHub fine-grained personal access token limited to this one repository
+    (Contents: read and write). See docs/ADMIN-GUIDE.md.
+  -->
+  <script src="https://unpkg.com/@sveltia/cms@0.262.1/dist/sveltia-cms.js"></script>
 </body>
 </html>

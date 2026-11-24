@@ -5,7 +5,6 @@ trending: true
 excerpt: "Explore the deeper meaning of the Sun in all 12 houses through Vedic astrology, psychological insight, and spiritual interpretation. Understand ego, identity, confidence, and soul purpose."
 ---
 
-![Sun in the 12 Houses in Vedic Astrology](/images/sun/sun-in-12-houses-hero.png)
 
 # Sun in the 12 Houses in Vedic Astrology
 ## The House Where Your Soul Wants To Be Seen

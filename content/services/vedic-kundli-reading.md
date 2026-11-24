@@ -1,5 +1,6 @@
 ---
 title: "Vedic Kundli Reading Consultation | Shambhavaa"
+date: "2026-05-31T10:02:47.000Z"
 description: "Book a comprehensive Vedic Kundli Reading to understand your D1 chart, major life themes, strengths, blockages, and your upcoming dasha timeline."
 ---
 

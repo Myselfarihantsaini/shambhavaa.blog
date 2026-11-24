@@ -5,7 +5,7 @@ trending: true
 excerpt: "Saturn does not make a person emotionless. It teaches emotional self-containment so deeply that loneliness can start to feel normal."
 ---
 
-![Why Saturn Creates Emotional Isolation](/images/saturn/saturn-isolation-hero.png)
+![Why Saturn Creates Emotional Isolation](/images/saturn/saturn-isolation-hero.webp)
 
 Some people feel emotionally alone for most of their lives without ever fully understanding why.
 
@@ -35,7 +35,7 @@ Over time, these statements stop being temporary coping mechanisms and become id
 
 That identity is Saturn.
 
-![The loneliest people are often carrying the heaviest emotional weight](/images/saturn/saturn-loneliest-people.png)
+![The loneliest people are often carrying the heaviest emotional weight](/images/saturn/saturn-loneliest-people.webp)
 
 ## Saturn Does Not Remove Emotion
 
@@ -86,7 +86,7 @@ Emotional self-containment becomes protection.
 
 Later in life, that protection becomes loneliness.
 
-![Saturn teaches through pressure, but builds through time](/images/saturn/saturn-pressure-time.png)
+![Saturn teaches through pressure, but builds through time](/images/saturn/saturn-pressure-time.webp)
 
 ## The Child Who Became Strong Too Early
 
@@ -133,7 +133,7 @@ They may never say this directly.
 
 But their behavior says it for them.
 
-![Saturn restricts before it stabilizes](/images/saturn/saturn-restricts-stabilizes.png)
+![Saturn restricts before it stabilizes](/images/saturn/saturn-restricts-stabilizes.webp)
 
 ## Why Saturn People Feel Misunderstood
 
@@ -239,7 +239,7 @@ Saturn does not rush the heart.
 
 It makes the heart prove what is safe.
 
-![Time is Saturn's greatest teacher](/images/saturn/saturn-time-teacher.png)
+![Time is Saturn's greatest teacher](/images/saturn/saturn-time-teacher.webp)
 
 ## When Isolation Becomes Identity
 
@@ -275,7 +275,7 @@ Saturn does not give easy wisdom.
 
 It gives earned wisdom.
 
-![Emotional maturity is earned, not given](/images/saturn/saturn-emotional-maturity.png)
+![Emotional maturity is earned, not given](/images/saturn/saturn-emotional-maturity.webp)
 
 ## Healing Saturn Energy
 
@@ -301,7 +301,7 @@ Real maturity is not emotional suppression.
 
 It is emotional stability without emotional shutdown.
 
-![Saturn does not give easily, but what it gives lasts forever](/images/saturn/saturn-lasting-quote.png)
+![Saturn does not give easily, but what it gives lasts forever](/images/saturn/saturn-lasting-quote.webp)
 
 ## Key Takeaways
 

@@ -1,5 +1,6 @@
 ---
 title: "How Marriage Timing Is Checked in Vedic Astrology"
+date: "2026-05-31T10:02:47.000Z"
 description: "Discover the astrological framework behind marriage timing astrology. Learn how the 7th house, Navamsa chart, Jupiter, Venus, and dasha cycles predict marriage."
 ---
 

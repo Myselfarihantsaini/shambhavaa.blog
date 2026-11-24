@@ -1,5 +1,6 @@
 ---
 title: "Dasha and Transit Reading | Shambhavaa"
+date: "2026-05-31T10:02:47.000Z"
 description: "Understand the timing of life events with a Dasha and Transit reading. Learn how Mahadasha and planetary transits trigger events in your Vedic birth chart."
 ---
 

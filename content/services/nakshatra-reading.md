@@ -1,5 +1,6 @@
 ---
 title: "Nakshatra Reading Consultation | Shambhavaa"
+date: "2026-05-31T10:02:47.000Z"
 description: "Dive deep into your psychological framework and life themes with a specialized Nakshatra Reading Consultation based on the 27 lunar mansions."
 ---
 

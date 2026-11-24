@@ -16,7 +16,7 @@ keywords:
   - first lord Moon
   - Lagnesh Moon
   - Vedic astrology
-image: "/images/moon/moon-in-8th-house-hero.png"
+image: "/images/moon/moon-in-8th-house-hero.webp"
 imageAlt: "Symbolic illustration of a full Moon reflected in water, framed by decorative astrological rings"
 faqs:
   - question: "Is Cancer Ascendant the same as Cancer Moon?"
@@ -36,7 +36,7 @@ faqs:
 ---
 
 <figure>
-  <img src="/images/moon/moon-in-8th-house-hero.png" alt="Symbolic illustration of a full Moon reflected in water, framed by decorative astrological rings" width="1672" height="941" />
+  <img src="/images/moon/moon-in-8th-house-hero.webp" alt="Symbolic illustration of a full Moon reflected in water, framed by decorative astrological rings" width="1672" height="941" />
   <figcaption>Moon illustration from Shambhavaa's image library. This is symbolic artwork, not a birth chart or astronomical diagram.</figcaption>
 </figure>
 

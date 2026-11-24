@@ -1,30 +1,31 @@
 {
-  "name": "shambhavaa-blog-next",
+  "name": "shambhavaa-blog",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-search-index.mjs && next build",
-    "import:rankai": "node scripts/import-rankai-articles.mjs",
-    "postbuild": "next-sitemap",
-    "start": "next start",
-    "lint": "next lint",
-    "deploy": "bash deploy_to_pages.sh"
+    "build": "node scripts/generate-search-index.mjs && node scripts/check-content.mjs && next build",
+    "check": "node scripts/check-content.mjs",
+    "images": "node scripts/optimize-images.mjs",
+    "start": "npx serve out",
+    "lint": "next lint"
   },
   "dependencies": {
-    "date-fns": "^3.6.0",
+    "@fontsource-variable/public-sans": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.1",
+    "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
-    "lucide-react": "^0.378.0",
     "next": "^14.2.23",
     "next-mdx-remote": "^5.0.0",
-    "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
-    "playwright": "^1.60.0"
+    "playwright": "^1.60.0",
+    "sharp": "^0.35.5"
   }
 }
