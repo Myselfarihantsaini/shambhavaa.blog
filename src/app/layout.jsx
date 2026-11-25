@@ -1,6 +1,7 @@
-import '@fontsource-variable/source-serif-4/opsz.css';
-import '@fontsource-variable/source-serif-4/opsz-italic.css';
-import '@fontsource-variable/public-sans';
+import '@fontsource/rozha-one/400.css';
+import '@fontsource/mukta/400.css';
+import '@fontsource/mukta/600.css';
+import '@fontsource/mukta/700.css';
 import '../styles/globals.css';
 
 import Masthead from '../components/Masthead';

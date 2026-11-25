@@ -1,5 +1,5 @@
 import { getAllPosts, getPostBySlug, getRelatedPosts, extractHeadings } from '../../../lib/posts';
-import { topicInfo } from '../../../data/topics';
+import { topicInfo, topicStyle } from '../../../data/topics';
 import { formatDate } from '../../../lib/format';
 import { AUTHOR } from '../../../config/site';
 import { pageMeta, abs, articleSchema, serviceSchema, breadcrumbSchema, faqSchema, tagSlug } from '../../../lib/seo';
@@ -62,6 +62,7 @@ export default function ArticlePage({ params }) {
   const cover = post.meta.image && post.image && !post.content.includes(post.image) ? post.image : null;
   const showUpdated = post.updated && post.date && post.updated.slice(0, 10) !== post.date.slice(0, 10);
 
+  const tone = topicStyle(post.category);
   const trail = [
     { name: 'Home', href: '/' },
     { name: info.label, href: `/${post.category}/` },
@@ -69,7 +70,7 @@ export default function ArticlePage({ params }) {
   ];
 
   return (
-    <article className="wrap article">
+    <article className="article">
       <JsonLd
         data={[
           isService ? serviceSchema(post) : isTrust ? null : articleSchema(post, info.label),
@@ -78,6 +79,9 @@ export default function ArticlePage({ params }) {
         ]}
       />
 
+      <div className="article-band" style={{ '--tile-bg': tone.bg, '--tile-fg': tone.fg }}>
+      <span className="page-head__deva" aria-hidden="true" lang="hi">{tone.deva}</span>
+      <div className="wrap">
       <header className="article__head">
         <Breadcrumbs trail={trail} />
         <p className="kicker">
@@ -104,6 +108,10 @@ export default function ArticlePage({ params }) {
           </div>
         )}
       </header>
+      </div>
+      </div>
+
+      <div className="wrap">
 
       {cover && (
         <figure className="article__cover">
@@ -185,6 +193,7 @@ export default function ArticlePage({ params }) {
           </div>
         </section>
       )}
+      </div>
     </article>
   );
 }

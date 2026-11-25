@@ -1,5 +1,5 @@
 import { getCategories, getPostsByCategory } from '../../lib/posts';
-import { topicInfo, PLANET_ORDER } from '../../data/topics';
+import { topicInfo, topicStyle, PLANET_ORDER } from '../../data/topics';
 import { pageMeta, breadcrumbSchema, itemListSchema, faqSchema } from '../../lib/seo';
 import PostCard from '../../components/PostCard';
 import Breadcrumbs from '../../components/Breadcrumbs';
@@ -41,7 +41,18 @@ export default function CategoryPage({ params }) {
     { name: info.label, href: `/${category}/` },
   ];
 
+  const tone = topicStyle(category);
   return (
+    <>
+    <header className="page-head page-head--topic" style={{ '--tile-bg': tone.bg, '--tile-fg': tone.fg }}>
+      <span className="page-head__deva" aria-hidden="true" lang="hi">{tone.deva}</span>
+      <div className="wrap">
+        <Breadcrumbs trail={trail} />
+        <p className="kicker">{isServices ? 'Consultations' : `${posts.length} ${posts.length === 1 ? 'guide' : 'guides'}`}</p>
+        <h1>{info.title}</h1>
+        {info.description && <p>{info.description}</p>}
+      </div>
+    </header>
     <div className="wrap">
       <JsonLd
         data={[
@@ -50,12 +61,6 @@ export default function CategoryPage({ params }) {
           faqSchema(info.faqs),
         ]}
       />
-      <header className="page-head">
-        <Breadcrumbs trail={trail} />
-        <p className="kicker">{isServices ? 'Consultations' : `${posts.length} ${posts.length === 1 ? 'guide' : 'guides'}`}</p>
-        <h1>{info.title}</h1>
-        {info.description && <p>{info.description}</p>}
-      </header>
 
       {posts.length === 0 ? (
         <p style={{ padding: '2rem 0' }}>
@@ -81,5 +86,6 @@ export default function CategoryPage({ params }) {
         </div>
       )}
     </div>
+    </>
   );
 }
